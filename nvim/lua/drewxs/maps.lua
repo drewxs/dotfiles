@@ -34,6 +34,9 @@ map('n', '<C-n>', ':tabedit<CR>', opts)
 -- save
 map('n', '<C-s>', ':w<CR>', opts)
 
+-- delete current buffer
+map('n', '<C-w>', ':Bdelete!<CR>', opts)
+
 -- quit
 map('n', '<C-q>', ':qa!<CR>', opts)
 

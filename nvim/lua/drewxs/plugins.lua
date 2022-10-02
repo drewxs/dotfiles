@@ -100,4 +100,7 @@ packer.startup(function(use)
       'AlphaRedraw'
     }
   }
+
+  -- buffer delete
+  use 'famiu/bufdelete.nvim'
 end)
