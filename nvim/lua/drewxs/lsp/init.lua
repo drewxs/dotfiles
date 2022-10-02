@@ -1,0 +1,8 @@
+local status, _ = pcall(require, 'lspconfig')
+if not status then return end
+
+require('drewxs.lsp.lsp-installer')
+require('drewxs.lsp.handlers').setup()
+require('drewxs.lsp.lspconfig')
+require('drewxs.lsp.lspsaga')
+require('drewxs.lsp.null-ls')

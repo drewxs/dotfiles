@@ -1,0 +1,9 @@
+[user]
+email = drewshah0@gmail.com
+name = Andrew X. Shah
+
+[credential]
+helper = store
+
+[init]
+defaultBranch = main
