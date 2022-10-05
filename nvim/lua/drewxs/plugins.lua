@@ -72,7 +72,7 @@ packer.startup(function(use)
   use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- formatting
-  use 'MunifTanjim/prettier.nvim'
+  use 'prettier/vim-prettier'
 
   -- git
   use 'lewis6991/gitsigns.nvim'
@@ -103,4 +103,7 @@ packer.startup(function(use)
 
   -- buffer delete
   use 'famiu/bufdelete.nvim'
+
+  -- multiline edit
+  use 'mg979/vim-visual-multi'
 end)
