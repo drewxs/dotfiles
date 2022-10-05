@@ -32,25 +32,26 @@ map('n', '<C-a>', 'gg<S-v>G', opts)
 map('n', '<C-n>', ':tabedit<CR>', opts)
 
 -- save
-map('n', '<C-s>', ':w<CR>', opts)
+map('n', '<C-s>', ':Prettier<CR>:w!<CR>', opts)
+map('i', '<C-s>', '<Esc>:Prettier<CR>:w!<CR>', opts)
 
 -- delete current buffer
 map('n', '<C-w>', ':Bdelete!<CR>', opts)
+map('i', '<C-w>', '<Esc>:Bdelete!<CR>', opts)
 
 -- quit
 map('n', '<C-q>', ':qa!<CR>', opts)
+map('i', '<C-q>', '<Esc>:qa!<CR>', opts)
 
 -- toggle explorer
-map('n', '<C-b>', ':NvimTreeToggle<CR>', opts)
-
-
----------------------
--- insert mode 'i' --
----------------------
+map('n', '<C-e>', ':NvimTreeToggle<CR>', opts)
 
 -- move text up/down
-map('i', '<A-j>', '<Esc>:m .+1<CR>==gi', opts)
-map('i', '<A-k>', '<Esc>:m .-2<CR>==gi', opts)
+map('n', '<A-j>', ':m .+1<CR>', opts)
+map('n', '<A-k>', ':m .-2<CR>', opts)
+
+-- next line
+map('i', '<C-o>', '<Esc>o', opts)
 
 
 --------------------
@@ -64,8 +65,8 @@ vim.g.mapleader = ' '
 map('n', '<leader>e', ':NvimTreeToggle<CR>', opts)
 
 -- telescope
-map('n', '<leader>ff', ':Telescope find_files<CR>', opts)
-map('n', '<leader>ft', ':Telescope live_grep<CR>', opts)
+map('n', '<C-p>', ':Telescope find_files<CR>', opts)
+map('n', '<C-f>', ':Telescope live_grep<CR>', opts)
 map('n', '<leader>fp', ':Telescope projects<CR>', opts)
 map('n', '<leader>fb', ':Telescope buffers<CR>', opts)
 
@@ -73,8 +74,8 @@ map('n', '<leader>fb', ':Telescope buffers<CR>', opts)
 map('n', '<leader>gg', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', opts)
 
 -- comment
-map('n', '<leader>/', '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
-map('x', '<leader>/', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
+map('n', '<C-_>', '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
+map('x', '<C-_>', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
 
 -- dap
 map('n', '<leader>db', '<cmd>lua require("dap").toggle_breakpoint()<cr>', opts)
