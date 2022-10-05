@@ -1,7 +1,7 @@
 local status, nvim_tree = pcall(require, 'nvim-tree')
 if (not status) then return end
 
-vim.g.nvim_tree_width = 25
+vim.g.nvim_tree_width = 35
 
 nvim_tree.setup({
   renderer = {
