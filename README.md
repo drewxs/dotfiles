@@ -4,19 +4,19 @@ My zsh/tmux/neovim configurations.
 
 ## Prerequisites
 
-neovim
+Debian packages
 
 ```sh
-sudo apt install neovim
+sudo apt install neovim zsh ripgrep -y
 ```
 
 zsh
 
 ```sh
-sudo apt install zsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
-echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
+git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
 packer
@@ -34,28 +34,17 @@ curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/lates
 sudo tar xf lazygit.tar.gz -C /usr/local/bin lazygit
 ```
 
-ripgrep
+nvm
 
 ```sh
-sudo apt install ripgrep
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+nvm install 16
 ```
 
-typescript-language-server
+node packages
 
 ```sh
-npm i -g typescript-language-server
-```
-
-prettierd
-
-```sh
-npm i -g @fsouza/prettierd
-```
-
-eslint_d
-
-```sh
-npm i -g eslint_d
+npm i -g pnpm @fsouza prettierd eslint_d typescript-language-server
 ```
 
 Font - [Source Code Pro](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro)
@@ -65,7 +54,7 @@ Font - [Source Code Pro](https://github.com/ryanoasis/nerd-fonts/tree/master/pat
 Clone repo
 
 ```sh
-git clone https://github.com/kito0/dotfiles ~/.dotfiles
+git clone https://github.com/drewxs/dotfiles ~/.dotfiles
 ```
 
 Create symlinks
