@@ -1,4 +1,5 @@
 #!/bin/sh
+rm -rf .gitconfig .tmux.conf .zshrc .zsh_aliases .p10k.zsh .config.nvim
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
