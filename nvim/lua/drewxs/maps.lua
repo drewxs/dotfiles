@@ -1,9 +1,9 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
----------------------
--- normal mode 'n' --
----------------------
+-------------
+-- general --
+-------------
 
 -- navigate windows
 map('n', '<C-h>', '<C-w>h', opts)
@@ -54,9 +54,9 @@ map('n', '<A-k>', ':m .-2<CR>', opts)
 map('i', '<C-o>', '<Esc>o', opts)
 
 
---------------------
--- leader 'space' --
---------------------
+------------
+-- leader --
+------------
 
 map('', '<Space>', '<Nop>', opts)
 vim.g.mapleader = ' '
@@ -77,13 +77,21 @@ map('n', '<leader>gg', '<cmd>lua _LAZYGIT_TOGGLE()<CR>', opts)
 map('n', '<C-_>', '<cmd>lua require("Comment.api").toggle_current_linewise()<CR>', opts)
 map('x', '<C-_>', '<ESC><CMD>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>', opts)
 
--- dap
-map('n', '<leader>db', '<cmd>lua require("dap").toggle_breakpoint()<cr>', opts)
-map('n', '<leader>dc', '<cmd>lua require("dap").continue()<cr>', opts)
-map('n', '<leader>di', '<cmd>lua require("dap").step_into()<cr>', opts)
-map('n', '<leader>do', '<cmd>lua require("dap").step_over()<cr>', opts)
-map('n', '<leader>dO', '<cmd>lua require("dap").step_out()<cr>', opts)
-map('n', '<leader>dr', '<cmd>lua require("dap").repl.toggle()<cr>', opts)
-map('n', '<leader>dl', '<cmd>lua require("dap").run_last()<cr>', opts)
-map('n', '<leader>du', '<cmd>lua require("dapui").toggle()<cr>', opts)
-map('n', '<leader>dt', '<cmd>lua require("dap").terminate()<cr>', opts)
+
+---------
+-- LSP --
+---------
+
+-- lspsaga
+map('n', '<C-j>', ':Lspsaga diagnostic_jump_next<CR>', opts)
+map('n', '<S-j>', ':Lspsaga hover_doc<CR>', opts)
+map('n', '<C-k>', ':Lspsaga lsp_finder<CR>', opts)
+map('i', '<S-k>', ':Lspsaga signature_help<CR>', opts)
+map('n', 'gp', ':Lspsaga peek_definition<CR>', opts)
+map('n', 'gr', ':Lspsaga rename<CR>', opts)
+
+-- diagnostics
+vim.keymap.set('n', '<C-;>', vim.diagnostic.open_float, opts)
+vim.keymap.set('n', '<C-[>', vim.diagnostic.goto_prev, opts)
+vim.keymap.set('n', '<C-]>', vim.diagnostic.goto_next, opts)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
