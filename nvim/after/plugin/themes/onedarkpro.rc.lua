@@ -5,8 +5,6 @@ onedarkpro.setup({
   dark_theme = 'onedark', -- The default dark theme
   light_theme = 'onelight', -- The default light theme
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
-  highlights = {}, -- Override default highlight groups
-  ft_highlights = {}, -- Override default highlight groups for specific filetypes
   plugins = { -- Override which plugin highlight groups are loaded
     -- See the Supported Plugins section for a list of available plugins
   },
