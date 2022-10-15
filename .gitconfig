@@ -1,12 +1,12 @@
 [user]
-email = drewshah0@gmail.com
-name = Andrew X. Shah
+  email = drewshah0@gmail.com
+  name = Andrew X. Shah
 
 [credential]
-helper = store
+  helper = store
 
 [init]
-defaultBranch = main
+  defaultBranch = main
 
 [pull]
-rebase = false
+  rebase = false
