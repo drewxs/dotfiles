@@ -13,7 +13,12 @@ git clone https://github.com/drewxs/dotfiles ~/.dotfiles
 Install
 
 ```sh
-source <(sudo ~/.dotfiles/scripts/install.sh)
+# zsh
+source <(sudo ~/.dotfiles/scripts/install_zsh.sh)
+
+# rest
+chmod +x ~/.dotfiles/scripts/install.sh
+source  ~/.dotfiles/scripts/install.sh
 ```
 
 Font - [Source Code Pro](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro)
