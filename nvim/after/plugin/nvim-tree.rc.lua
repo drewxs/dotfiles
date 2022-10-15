@@ -43,6 +43,7 @@ nvim_tree.setup({
   update_focused_file = { enable = true },
   hijack_directories = { enable = true },
   view = {
+    adaptive_size = true,
     hide_root_folder = true,
     mappings = {
       list = {
