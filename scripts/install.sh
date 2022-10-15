@@ -35,12 +35,10 @@ function install_node() {
   nvm install 16
 }
 
-# npm packages
 function install_npm_packages() {
   npm i -g pnpm @fsouza/prettierd eslint_d typescript-language-server
 }
 
-# neovim
 function install_neovim() {
   git clone https://github.com/neovim/neovim
   cd neovim
@@ -63,7 +61,7 @@ install_neovim
 # remove existing configurations
 rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim
 
-# create symlinks wrom .dotfiles
+# create symlinks 
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
 ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
