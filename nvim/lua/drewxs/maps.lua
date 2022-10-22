@@ -1,5 +1,6 @@
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
+local remap = { noremap = false, silent = true }
 
 -------------
 -- general --
@@ -24,6 +25,16 @@ map('n', '<C-Right>', ':vertical resize +2<CR>', opts)
 -- split windows
 map('n', 'ss', ':split<Return><C-w>w', opts)
 map('n', 'sv', ':vsplit<Return><C-w>w', opts)
+
+-- delete word <--
+map('i', '<C-H>', '<C-w>', opts)
+-- delete word -->
+map('i', '<C-Del>', '<Esc><Right>dwi', opts)
+
+-- move back one word
+map('i', '<A-h>', '<C-Left>', opts)
+-- move forward one word
+map('i', '<A-l>', '<C-Right>', opts)
 
 -- select all
 map('n', '<C-a>', 'gg<S-v>G', opts)
