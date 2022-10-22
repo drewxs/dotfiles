@@ -1,7 +1,7 @@
 vim.cmd('autocmd!')
 
 -- theme
-vim.cmd([[colorscheme terafox]])
+vim.cmd([[colorscheme tokyonight-night]])
 
 -- undercurl
 vim.cmd([[let &t_Cs = '\e[4:3m']])
