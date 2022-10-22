@@ -12,7 +12,7 @@ end
 local packer_bootstrap = ensure_packer()
 
 -- plugins
-return require('packer').startup(function(use)
+require('packer').startup(function(use)
   -- base
   use 'wbthomason/packer.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -116,3 +116,11 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
+
+-- automatically run :PackerCompile whenever plugins.lua is updated
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
