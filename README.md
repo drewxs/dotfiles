@@ -13,11 +13,6 @@ git clone https://github.com/drewxs/dotfiles ~/.dotfiles
 Install
 
 ```sh
-# zsh
-source <(sudo ~/.dotfiles/scripts/install_zsh.sh)
-
-# rest
-chmod +x ~/.dotfiles/scripts/install.sh
 source  ~/.dotfiles/scripts/install.sh
 ```
 
