@@ -1,10 +1,12 @@
 #!/bin/sh
 
+function update() {
+  sudo apt update && sudo apt upgrade
+}
+
 function install_apt_packages() {
-  # cmake
-  sudo apt-get install -y zsh ripgrep fuse libfuse2 ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
-  # python
-  sudo apt-get install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev
+  sudo apt-get install -y zsh ripgrep fuse libfuse2 ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen \
+    software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev
 }
 
 function install_cmake() {
@@ -19,13 +21,8 @@ function install_cmake() {
   cd ~
 }
 
-function install_packer() {
-  sudo rm -rf ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-}
-
 function install_lazygit() {
+  sudo rm -rf lazygit.tar.gz
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
   tar -xf lazygit.tar.gz -C /usr/local/bin lazygit
@@ -69,8 +66,8 @@ function install_pip_packages() {
 
 function install_neovim() {
   sudo rm -rf neovim
-  git clone https://github.com/neovim/neovim
-  cd neovim
+  git clone https://github.com/neovim/neovim ~/neovim
+  cd ~/neovim
   git checkout stable
   make CMAKE_BUILD_TYPE=Release
   sudo make install
@@ -78,6 +75,13 @@ function install_neovim() {
   sudo rm -rf neovim
 }
 
+function install_packer() {
+  sudo rm -rf ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+  git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+}
+
+update
 install_apt_packages
 install_cmake
 install_packer
