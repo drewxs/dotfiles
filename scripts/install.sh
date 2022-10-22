@@ -5,8 +5,19 @@ function update() {
 }
 
 function install_apt_packages() {
-  sudo apt-get install -y zsh ripgrep fuse libfuse2 ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen \
+  sudo apt-get install -y curl wget zsh tmux git ripgrep fuse libfuse2 \
+    ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen \
     software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev
+}
+
+# install zsh
+function install_zsh() {
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+  # zsh plugins
+  sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+  sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+  sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 
 function install_cmake() {
@@ -83,6 +94,7 @@ function install_packer() {
 
 update
 install_apt_packages
+install_zsh
 install_cmake
 install_packer
 install_lazygit
@@ -95,9 +107,9 @@ install_neovim
 # remove existing configurations
 rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim
 
-# create symlinks 
+# create symlinks
 ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
 ln -s ~/.dotfiles/nvim ~/.config/nvim
