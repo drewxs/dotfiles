@@ -65,6 +65,7 @@ alias kexs='kex --sl -s'
 
 alias nv='nvim'
 alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
+alias lg='lazygit'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
