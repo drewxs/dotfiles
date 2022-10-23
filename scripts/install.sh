@@ -1,7 +1,15 @@
 #!/bin/sh
 
+function package_exists() {
+  if ! [ command -v "$1" ] &>/dev/null; then
+    echo "$1 installation found"
+    return false
+  fi
+  return true
+}
+
 function update() {
-  sudo apt update && sudo apt upgrade
+  sudo apt update && sudo apt upgrade -y
 }
 
 function install_apt_packages() {
@@ -12,15 +20,16 @@ function install_apt_packages() {
 
 # install zsh
 function install_zsh() {
+  package_exists zsh && return
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-  # zsh plugins
+  # plugins
   sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 
 function install_cmake() {
+  package_exists cmake && return
   cd ~
   sudo rm -rf cmake-3*
   wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
@@ -33,7 +42,7 @@ function install_cmake() {
 }
 
 function install_lazygit() {
-  sudo rm -rf lazygit.tar.gz
+  package_exists lazygit && return
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
   tar -xf lazygit.tar.gz -C /usr/local/bin lazygit
@@ -41,25 +50,29 @@ function install_lazygit() {
 }
 
 function install_rust() {
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-  1
+  if ! package_exists rustc && package_exists cargo; then
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+    1
+  fi
   cargo install stylua
 }
 
 function install_node() {
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-  nvm install 16
+  if ! package_exists nvm && package_exists node; then
+    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+    nvm install 16
+  fi
   npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server
 }
 
 function install_ruby() {
-  sudo apt-get install -y ruby-full
+  package_exists gem || sudo apt-get install -y ruby-full
   sudo gem install neovim
 }
 
 function install_pip() {
-  sudo apt-get install -y python3-pip
-  pip3 install pynvim
+  package_exists pip3 || sudo apt-get install -y python3-pip
+  pip3 install neovim
 }
 
 function install_neovim() {
