@@ -18,17 +18,21 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'lewis6991/impatient.nvim'
 
+  -- statusline
+  use 'nvim-lualine/lualine.nvim'
+
   -- themes
   use 'olimorris/onedarkpro.nvim'
   use 'EdenEast/nightfox.nvim'
   use 'folke/tokyonight.nvim'
   use 'marko-cerovac/material.nvim'
+  use {
+    'catppuccin/nvim',
+    as = 'catppuccin'
+  }
 
   -- file icons
   use 'kyazdani42/nvim-web-devicons'
-
-  -- statusline
-  use 'nvim-lualine/lualine.nvim'
 
   -- bufferline
   use 'akinsho/bufferline.nvim'
@@ -82,6 +86,7 @@ require('packer').startup(function(use)
   -- git
   use 'lewis6991/gitsigns.nvim'
   use 'dinhhuy258/git.nvim'
+  use 'kdheepak/lazygit.nvim'
 
   -- mason
   use 'williamboman/mason.nvim'
