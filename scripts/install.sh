@@ -33,7 +33,7 @@ function install_cmake() {
   cd ~
   sudo rm -rf cmake-3*
   wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
-  tar -xf cmake-3.24.2.tar.gz
+  sudo tar -xf cmake-3.24.2.tar.gz
   cd cmake-3.24.2
   ./bootstrap
   make
@@ -45,7 +45,7 @@ function install_lazygit() {
   package_exists lazygit && return
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-  tar -xf lazygit.tar.gz -C /usr/local/bin lazygit
+  sudo tar -xf lazygit.tar.gz -C /usr/local/bin lazygit
   sudo rm -rf lazygit.tar.gz
 }
 
