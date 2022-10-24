@@ -84,6 +84,7 @@ function install_neovim() {
   sudo make install
   cd ~
   sudo rm -rf neovim ~/.local/share/nvim
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 }
 
 function install_packer() {
