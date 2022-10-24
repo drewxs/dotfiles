@@ -54,7 +54,7 @@ function install_rust() {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     1
   fi
-  cargo install stylua
+  cargo install tree-sitter-cli stylua
 }
 
 function install_node() {
