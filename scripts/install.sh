@@ -13,7 +13,7 @@ function update() {
 }
 
 function install_apt_packages() {
-  sudo apt-get install -y curl wget zsh tmux git ripgrep fuse libfuse2 \
+  sudo apt-get install -y curl wget zsh tmux git ripgrep fuse libfuse2 fd-find \
     ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen \
     software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev
 }
