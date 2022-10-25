@@ -1,125 +1,127 @@
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+	local fn = vim.fn
+	local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		vim.cmd([[packadd packer.nvim]])
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
 
 -- plugins
-require('packer').startup(function(use)
-  -- base
-  use 'wbthomason/packer.nvim'
-  use 'nvim-lua/plenary.nvim'
-  use 'lewis6991/impatient.nvim'
+require("packer").startup(function(use)
+	-- base
+	use("wbthomason/packer.nvim")
+	use("nvim-lua/plenary.nvim")
+	use("lewis6991/impatient.nvim")
 
-  -- statusline
-  use 'nvim-lualine/lualine.nvim'
+	-- statusline
+	use("nvim-lualine/lualine.nvim")
 
-  -- themes
-  use 'olimorris/onedarkpro.nvim'
-  use 'EdenEast/nightfox.nvim'
-  use 'folke/tokyonight.nvim'
-  use 'marko-cerovac/material.nvim'
-  use {
-    'catppuccin/nvim',
-    as = 'catppuccin'
-  }
+	-- themes
+	use("olimorris/onedarkpro.nvim")
+	use("EdenEast/nightfox.nvim")
+	use("folke/tokyonight.nvim")
+	use("marko-cerovac/material.nvim")
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+	})
 
-  -- file icons
-  use 'kyazdani42/nvim-web-devicons'
+	-- file icons
+	use("kyazdani42/nvim-web-devicons")
 
-  -- bufferline
-  use 'akinsho/bufferline.nvim'
+	-- bufferline
+	use("akinsho/bufferline.nvim")
 
-  -- file tree
-  use {
-    'kyazdani42/nvim-tree.lua',
-    requires = {
-      'kyazdani42/nvim-web-devicons'
-    },
-    tag = 'nightly',
-    cmd = 'NvimTreeToggle'
-  }
+	-- file tree
+	use({
+		"kyazdani42/nvim-tree.lua",
+		requires = {
+			"kyazdani42/nvim-web-devicons",
+		},
+		tag = "nightly",
+		cmd = "NvimTreeToggle",
+	})
 
-  -- LSP
-  use 'neovim/nvim-lspconfig'
-  use 'williamboman/nvim-lsp-installer'
-  use 'glepnir/lspsaga.nvim'
-  use 'onsails/lspkind-nvim'
+	-- LSP
+	use("neovim/nvim-lspconfig")
+	use("williamboman/nvim-lsp-installer")
+	use("glepnir/lspsaga.nvim")
+	use("onsails/lspkind-nvim")
 
-  -- cmp
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'jose-elias-alvarez/null-ls.nvim'
+	-- cmp
+	use("hrsh7th/nvim-cmp")
+	use("hrsh7th/cmp-nvim-lsp")
+	use("hrsh7th/cmp-buffer")
+	use("hrsh7th/cmp-path")
+	use("jose-elias-alvarez/null-ls.nvim")
 
-  -- snippets
-  use 'L3MON4D3/LuaSnip'
+	-- snippets
+	use("L3MON4D3/LuaSnip")
 
-  -- treesitter
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
-  }
+	-- treesitter
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			require("nvim-treesitter.install").update({ with_sync = true })
+		end,
+	})
 
-  -- comment
-  use 'numToStr/Comment.nvim'
+	-- comment
+	use("numToStr/Comment.nvim")
 
-  -- auto tag/pair
-  use 'windwp/nvim-ts-autotag'
-  use 'windwp/nvim-autopairs'
+	-- auto tag/pair
+	use("windwp/nvim-ts-autotag")
+	use("windwp/nvim-autopairs")
 
-  -- telescope
-  use 'nvim-telescope/telescope.nvim'
-  use 'nvim-telescope/telescope-file-browser.nvim'
+	-- telescope
+	use("nvim-telescope/telescope.nvim")
+	use("nvim-telescope/telescope-file-browser.nvim")
 
-  -- formatting
-  use 'prettier/vim-prettier'
+	-- formatting
+	use("prettier/vim-prettier")
 
-  -- git
-  use 'lewis6991/gitsigns.nvim'
-  use 'dinhhuy258/git.nvim'
-  use 'kdheepak/lazygit.nvim'
+	-- git
+	use("lewis6991/gitsigns.nvim")
+	use("dinhhuy258/git.nvim")
+	use("kdheepak/lazygit.nvim")
 
-  -- mason
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
+	-- mason
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 
-  -- terminal
-  use 'akinsho/toggleterm.nvim'
+	-- terminal
+	use("akinsho/toggleterm.nvim")
 
-  -- transparent background
-  use 'xiyaowong/nvim-transparent'
+	-- transparent background
+	use("xiyaowong/nvim-transparent")
 
-  -- which-key
-  use 'folke/which-key.nvim'
+	-- which-key
+	use("folke/which-key.nvim")
 
-  -- alpha
-  use {
-    'goolord/alpha-nvim',
-    requires = { 'kyazdani42/nvim-web-devicons' },
-    cmd = {
-      'Alpha',
-      'AlphaRedraw'
-    }
-  }
+	-- alpha
+	use({
+		"goolord/alpha-nvim",
+		requires = { "kyazdani42/nvim-web-devicons" },
+		cmd = {
+			"Alpha",
+			"AlphaRedraw",
+		},
+	})
 
-  -- buffer delete
-  use 'famiu/bufdelete.nvim'
+	-- buffer delete
+	use("famiu/bufdelete.nvim")
 
-  -- multiline edit
-  use 'mg979/vim-visual-multi'
+	-- multiline edit
+	use("mg979/vim-visual-multi")
 
-  if packer_bootstrap then
-    require('packer').sync()
-  end
+	if packer_bootstrap then
+		require("packer").sync()
+	end
 end)
 
 -- automatically run :PackerCompile whenever plugins.lua is updated
