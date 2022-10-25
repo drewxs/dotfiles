@@ -67,7 +67,7 @@ function install_node() {
 
 function install_ruby() {
   package_exists gem || sudo apt-get install -y ruby-full
-  sudo gem install neovim
+  sudo gem install neovim shopify-cli
 }
 
 function install_pip() {
