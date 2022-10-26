@@ -42,6 +42,10 @@ map("n", "<C-a>", "gg<S-v>G", opts)
 -- new tab
 map("n", "<C-n>", ":tabedit<CR>", opts)
 
+-- delete current buffer
+map('n', '<C-w>', ':Bdelete!<CR>', opts)
+map('i', '<C-w>', '<Esc>:Bdelete!<CR>', opts)
+
 -- save
 map("n", "<C-s>", ":Prettier<CR>:w!<CR>", opts)
 map("i", "<C-s>", "<Esc>:Prettier<CR>:w!<CR>", opts)
@@ -63,7 +67,7 @@ map("i", "<C-o>", "<Esc>o", opts)
 -- comment
 map("n", "<C-_>", "gcc", remap)
 map("i", "<C-_>", "<ESC>gcc", remap)
-map("v", "<C-_>", "gb", remap)
+map("v", "<C-_>", "gc", remap)
 
 ------------
 -- leader --
