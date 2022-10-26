@@ -15,7 +15,8 @@ function update() {
 function install_apt_packages() {
   sudo apt-get install -y curl wget zsh tmux git ripgrep fuse libfuse2 fd-find \
     ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen \
-    software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev
+    software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev \
+    bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
 }
 
 # install zsh
@@ -66,8 +67,24 @@ function install_node() {
 }
 
 function install_ruby() {
-  package_exists gem || sudo apt-get install -y ruby-full
+  if ! package_exists rbenv; then
+    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
+    echo 'eval "$(rbenv init -)"' >> ~/.zshrc
+    source ~/.zshrc
+  fi
+  rbenv install 3.1.0
+  rbenv global 3.1.0
   sudo gem install neovim shopify-cli
+}
+
+function install_go() {
+  package_exists go && return
+  sudo rm -rf go1.19.2.linux-amd64*
+  wget -c https://golang.org/dl/go1.19.2.linux-amd64.tar.gz
+  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz
+  export PATH=$PATH:/usr/local/go/bin
+  sudo rm -rf go1.19.2.linux-amd64*
 }
 
 function install_pip() {
@@ -101,6 +118,8 @@ install_lazygit
 install_rust
 install_node
 install_rust
+install_ruby
+install_go
 install_pip
 install_neovim
 install_packer
