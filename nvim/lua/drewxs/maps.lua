@@ -66,7 +66,7 @@ map("i", "<C-o>", "<Esc>o", opts)
 
 -- comment
 map("n", "<C-_>", "gcc", remap)
-map("i", "<C-_>", "<ESC>gcc", remap)
+map("i", "<C-_>", "<ESC>gcca", remap)
 map("v", "<C-_>", "gc", remap)
 
 ------------
