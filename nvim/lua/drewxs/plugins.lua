@@ -32,20 +32,20 @@ require("packer").startup(function(use)
 	})
 
 	-- file icons
-	use("kyazdani42/nvim-web-devicons")
-
-	-- bufferline
-	use("akinsho/bufferline.nvim")
+	use("nvim-tree/nvim-web-devicons")
 
 	-- file tree
 	use({
-		"kyazdani42/nvim-tree.lua",
+		"nvim-tree/nvim-tree.lua",
+    as = "nvim_tree",
 		requires = {
-			"kyazdani42/nvim-web-devicons",
+			"nvim-tree/nvim-web-devicons",
 		},
 		tag = "nightly",
-		cmd = "NvimTreeToggle",
 	})
+
+	-- bufferline
+	use("akinsho/bufferline.nvim")
 
 	-- LSP
 	use("neovim/nvim-lspconfig")
@@ -106,7 +106,7 @@ require("packer").startup(function(use)
 	-- alpha
 	use({
 		"goolord/alpha-nvim",
-		requires = { "kyazdani42/nvim-web-devicons" },
+		requires = { "nvim-tree/nvim-web-devicons" },
 		cmd = {
 			"Alpha",
 			"AlphaRedraw",

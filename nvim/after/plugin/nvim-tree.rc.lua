@@ -3,7 +3,8 @@ if not status then
 	return
 end
 
-vim.g.nvim_tree_width = 35
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
 nvim_tree.setup({
 	renderer = {
@@ -14,29 +15,37 @@ nvim_tree.setup({
 			glyphs = {
 				default = "",
 				symlink = "",
+        folder = {
+          default = "",
+          empty = "",
+          empty_open = "",
+          open = "",
+          symlink = "",
+          symlink_open = "",
+          arrow_open = "",
+          arrow_closed = "",
+        },
+        git = {
+          unstaged = "✗",
+          staged = "✓",
+          unmerged = "",
+          renamed = "➜",
+          untracked = "★",
+          deleted = "",
+          ignored = "◌",
+        },
 			},
 			show = {
 				git = true,
-				folder = true,
 				file = true,
+				folder = true,
 				folder_arrow = true,
 			},
 		},
 	},
 	actions = {
 		open_file = {
-			window_picker = {
-				exclude = {
-					filetype = {
-						"packer",
-						"qf",
-					},
-					buftype = {
-						"terminal",
-						"help",
-					},
-				},
-			},
+      resize_window = true,
 		},
 	},
 	filters = {
@@ -44,9 +53,11 @@ nvim_tree.setup({
 	},
 	update_focused_file = { enable = true },
 	hijack_directories = { enable = true },
+	open_on_setup = true,
 	view = {
 		adaptive_size = true,
 		hide_root_folder = true,
+    width = 35,
 		mappings = {
 			list = {
 				{ key = "l", action = "edit" },
@@ -60,7 +71,4 @@ nvim_tree.setup({
 			},
 		},
 	},
-	open_on_setup = true,
 })
-
-vim.cmd([[autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif]])
