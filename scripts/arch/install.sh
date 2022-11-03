@@ -25,11 +25,7 @@ function install_arch_packages() {
   sudo pacman -Sy neofetch rust nodejs npm python python-pip ruby go git lazygit neovim
 }
 
-# install zsh
-function install_zsh() {
-  package_exists zsh && return
-  sudo pacman -S --noconfirm zsh
-  # plugins
+function install_zsh_plugins() {
   sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -47,19 +43,26 @@ function install_snap() {
   sudo systemctl enable --now snapd.socket
 }
 
+function remove_existing_configurations() {
+  cd ~
+  rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim .config/xfce4/terminal/terminalrc 
+}
+
+function create_symlinks() {
+  ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+  ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+  ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
+  ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
+  [[ -d .config ]] || mkdir .config
+  ln -s ~/.dotfiles/nvim ~/.config/nvim
+  ln -s ~/.dotfiles/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
+}
+
 update
 install_yay
 install_arch_packages
-install_zsh
+install_zsh_plugins
 install_nvim_packages
-
-# remove existing configurations
-rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim
-
-# create symlinks
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
-[[ -d .config ]] || mkdir .config
-ln -s ~/.dotfiles/nvim ~/.config/nvim
+install_snap
+remove_existing_configurations
+create_symlinks
