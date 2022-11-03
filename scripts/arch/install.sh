@@ -42,10 +42,8 @@ function install_nvim_packages() {
   pip install neovim
 }
 
-function install_packer() {
-  sudo rm -rf ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-  git clone --depth 1 https://github.com/wbthomason/packer.nvim \
-    ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+function install_snap() {
+  yay -S snapd
 }
 
 update
@@ -53,7 +51,6 @@ install_yay
 install_arch_packages
 install_zsh
 install_nvim_packages
-install_packer
 
 # remove existing configurations
 rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim
