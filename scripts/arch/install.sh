@@ -44,6 +44,7 @@ function install_nvim_packages() {
 
 function install_snap() {
   yay -S snapd
+  sudo systemctl enable --now snapd.socket
 }
 
 update
