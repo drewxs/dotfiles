@@ -22,7 +22,7 @@ function install_yay() {
 }
 
 function install_arch_packages() {
-  sudo pacman -Sy rust nodejs npm python python-pip ruby go git lazygit neovim
+  sudo pacman -Sy neofetch rust nodejs npm python python-pip ruby go git lazygit neovim
 }
 
 # install zsh

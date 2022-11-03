@@ -13,7 +13,7 @@ function update() {
 }
 
 function install_apt_packages() {
-  sudo apt-get install -y curl wget zsh tmux git ripgrep fuse libfuse2 fd-find \
+  sudo apt-get install -y curl wget zsh tmux git ripgrep fuse libfuse2 fd-find neofetch \
     ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen \
     software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev \
     bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
