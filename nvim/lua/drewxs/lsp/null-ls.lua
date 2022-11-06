@@ -5,8 +5,11 @@ end
 
 null_ls.setup({
 	sources = {
-		require("null-ls").builtins.formatting.stylua,
-		require("null-ls").builtins.diagnostics.eslint,
-		require("null-ls").builtins.completion.spell,
+		null_ls.builtins.formatting.stylua,
+		-- null_ls.builtins.diagnostics.eslint,
+		null_ls.builtins.code_actions.eslint_d,
+		-- null_ls.builtins.code_actions.ltrs,
+		null_ls.builtins.diagnostics.commitlint,
+		null_ls.builtins.diagnostics.cppcheck,
 	},
 })

@@ -4,6 +4,8 @@ if not status then
 end
 
 require("drewxs.lsp.handlers").setup()
+require("drewxs.lsp.mason")
 require("drewxs.lsp.lspconfig")
 require("drewxs.lsp.lspsaga")
 require("drewxs.lsp.null-ls")
+require("drewxs.lsp.cmp")

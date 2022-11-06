@@ -43,8 +43,8 @@ map("n", "<C-a>", "gg<S-v>G", opts)
 map("n", "<C-n>", ":tabedit<CR>", opts)
 
 -- delete current buffer
-map('n', '<C-w>', ':Bdelete!<CR>', opts)
-map('i', '<C-w>', '<Esc>:Bdelete!<CR>', opts)
+map("n", "<C-w>", ":Bdelete!<CR>", opts)
+map("i", "<C-w>", "<Esc>:Bdelete!<CR>", opts)
 
 -- save
 map("n", "<C-s>", ":Prettier<CR>:w!<CR>", opts)
@@ -53,9 +53,6 @@ map("i", "<C-s>", "<Esc>:Prettier<CR>:w!<CR>", opts)
 -- quit
 map("n", "<C-q>", ":q!<CR>", opts)
 map("i", "<C-q>", "<Esc>:q!<CR>", opts)
-
--- toggle explorer
-map("n", "<C-e>", ":NvimTreeToggle<CR>", opts)
 
 -- move text up/down
 map("n", "<A-j>", ":m .+1<CR>", opts)

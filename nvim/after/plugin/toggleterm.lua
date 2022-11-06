@@ -7,7 +7,7 @@ require("toggleterm").setup({
 	start_in_insert = true,
 	persist_size = true,
 	direction = "horizontal",
-  autochdir = true,
+	autochdir = true,
 	highlights = {
 		-- highlights which map to a highlight group name and a table of it's values
 		-- NOTE: this is only a subset of values, any group placed here will be set for the terminal window split

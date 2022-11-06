@@ -15,25 +15,25 @@ nvim_tree.setup({
 			glyphs = {
 				default = "",
 				symlink = "",
-        folder = {
-          default = "",
-          empty = "",
-          empty_open = "",
-          open = "",
-          symlink = "",
-          symlink_open = "",
-          arrow_open = "",
-          arrow_closed = "",
-        },
-        git = {
-          unstaged = "✗",
-          staged = "✓",
-          unmerged = "",
-          renamed = "➜",
-          untracked = "★",
-          deleted = "",
-          ignored = "◌",
-        },
+				folder = {
+					default = "",
+					empty = "",
+					empty_open = "",
+					open = "",
+					symlink = "",
+					symlink_open = "",
+					arrow_open = "",
+					arrow_closed = "",
+				},
+				git = {
+					unstaged = "✗",
+					staged = "✓",
+					unmerged = "",
+					renamed = "➜",
+					untracked = "★",
+					deleted = "",
+					ignored = "◌",
+				},
 			},
 			show = {
 				git = true,
@@ -45,7 +45,7 @@ nvim_tree.setup({
 	},
 	actions = {
 		open_file = {
-      resize_window = true,
+			resize_window = true,
 		},
 	},
 	filters = {
@@ -57,7 +57,7 @@ nvim_tree.setup({
 	view = {
 		adaptive_size = true,
 		hide_root_folder = true,
-    width = 35,
+		width = 35,
 		mappings = {
 			list = {
 				{ key = "l", action = "edit" },

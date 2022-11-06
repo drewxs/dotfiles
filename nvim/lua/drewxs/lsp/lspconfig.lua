@@ -1,8 +1,4 @@
-local lsp_installer_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not lsp_installer_ok then
-	return
-end
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+local lspconfig_status_ok, nvim_lsp = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
 	return
 end
@@ -41,24 +37,38 @@ protocol.CompletionItemKind = {
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local servers = {
+	"bashls",
 	"sumneko_lua",
 	"rust_analyzer",
-	"eslint",
-	"tsserver",
+	"clangd",
+	"csharp_ls",
+	"ruby_ls",
+	"gopls",
 	"pyright",
+	"jdtls",
+	"solang",
+	"tsserver",
+	"eslint",
+	"svelte",
+	"volar",
 	"html",
 	"cssls",
+	"tailwindcss",
+	"sqlls",
+	"graphql",
+	"prismals",
+	"dockerls",
+	"marksman",
 	"jsonls",
 	"yamlls",
-	"bashls",
+	"taplo",
+	"terraformls",
+	"diagnosticls",
 }
 
-lsp_installer.setup({
+require("mason-lspconfig").setup({
 	ensure_installed = servers,
-	automatic_installation = true,
-	ui = {
-		check_outdated_servers_on_open = true,
-	},
+	automatic_installation = false,
 })
 
 -- use an on_attach function to only map the following keys
@@ -73,15 +83,15 @@ local lsp_flags = {
 }
 
 for _, server in ipairs(servers) do
-	lspconfig[server].setup({
+	nvim_lsp[server].setup({
 		on_attach = on_attach,
 		flags = lsp_flags,
+		capabilities = capabilities,
 	})
 end
 
-lspconfig.eslint.setup({
+nvim_lsp.eslint.setup({
 	on_attach = on_attach,
-	capabilities = capabilities,
 	settings = {
 		imports = {
 			granularity = {

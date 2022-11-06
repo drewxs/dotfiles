@@ -37,7 +37,7 @@ require("packer").startup(function(use)
 	-- file tree
 	use({
 		"nvim-tree/nvim-tree.lua",
-    as = "nvim_tree",
+		as = "nvim_tree",
 		requires = {
 			"nvim-tree/nvim-web-devicons",
 		},
@@ -48,8 +48,9 @@ require("packer").startup(function(use)
 	use("akinsho/bufferline.nvim")
 
 	-- LSP
+	use("williamboman/mason.nvim")
+	use("williamboman/mason-lspconfig.nvim")
 	use("neovim/nvim-lspconfig")
-	use("williamboman/nvim-lsp-installer")
 	use("glepnir/lspsaga.nvim")
 	use("onsails/lspkind-nvim")
 
@@ -79,7 +80,10 @@ require("packer").startup(function(use)
 	use("windwp/nvim-autopairs")
 
 	-- telescope
-	use("nvim-telescope/telescope.nvim")
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	use("nvim-telescope/telescope-file-browser.nvim")
 
 	-- formatting
@@ -89,10 +93,6 @@ require("packer").startup(function(use)
 	use("lewis6991/gitsigns.nvim")
 	use("dinhhuy258/git.nvim")
 	use("kdheepak/lazygit.nvim")
-
-	-- mason
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
 
 	-- terminal
 	use("akinsho/toggleterm.nvim")
