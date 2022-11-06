@@ -110,6 +110,21 @@ function install_packer() {
     ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 }
 
+function remove_existing_configurations() {
+  cd ~
+  rm -rf ~/.cache/nvim ~/.config/nvim/plugin ~/.local/share/nvim
+  rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim
+}
+
+function create_symlinks() {
+  ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
+  ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
+  ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
+  ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
+  [[ -d .config ]] || mkdir .config
+  ln -s ~/.dotfiles/nvim ~/.config/nvim
+}
+
 update
 install_apt_packages
 install_zsh
@@ -123,14 +138,5 @@ install_go
 install_pip
 install_neovim
 install_packer
-
-# remove existing configurations
-rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim
-
-# create symlinks
-ln -s ~/.dotfiles/.gitconfig ~/.gitconfig
-ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
-ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
-ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
-[[ -d .config ]] || mkdir .config
-ln -s ~/.dotfiles/nvim ~/.config/nvim
+remove_existing_configurations
+create_symlinks

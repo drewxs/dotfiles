@@ -45,6 +45,7 @@ function install_snap() {
 
 function remove_existing_configurations() {
   cd ~
+  rm -rf ~/.cache/nvim ~/.config/nvim/plugin ~/.local/share/nvim
   rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim .config/xfce4/terminal/terminalrc 
 }
 
