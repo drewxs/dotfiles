@@ -1,6 +1,6 @@
 local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
-local remap = { noremap = false, silent = true }
+local opts = { noremap = true, silent = true, nowait = true }
+local remap = { noremap = false, silent = true, nowait = true }
 
 -------------
 -- general --
@@ -25,6 +25,9 @@ map("n", "<C-Right>", ":vertical resize +2<CR>", opts)
 -- split windows
 map("n", "ss", ":split<Return><C-w>w", opts)
 map("n", "sv", ":vsplit<Return><C-w>w", opts)
+
+-- nvim-tree
+map("n", "<C-e>", ":NvimTreeToggle<CR>", opts)
 
 -- delete word <--
 map("i", "<C-H>", "<C-w>", opts)
@@ -72,10 +75,6 @@ map("v", "<C-_>", "gc", remap)
 
 map("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-
--- nvim-tree
-map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
-
 
 ---------
 -- LSP --

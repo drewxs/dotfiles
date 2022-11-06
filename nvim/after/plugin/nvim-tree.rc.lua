@@ -51,10 +51,10 @@ nvim_tree.setup({
 	filters = {
 		dotfiles = false,
 	},
-  git = {
-    enable = true,
-    ignore = false,
-  },
+	git = {
+		enable = true,
+		ignore = false,
+	},
 	update_focused_file = { enable = true },
 	hijack_directories = { enable = true },
 	open_on_setup = true,

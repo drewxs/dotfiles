@@ -103,16 +103,6 @@ require("packer").startup(function(use)
 	-- which-key
 	use("folke/which-key.nvim")
 
-	-- alpha
-	use({
-		"goolord/alpha-nvim",
-		requires = { "nvim-tree/nvim-web-devicons" },
-		cmd = {
-			"Alpha",
-			"AlphaRedraw",
-		},
-	})
-
 	-- buffer delete
 	use("famiu/bufdelete.nvim")
 
