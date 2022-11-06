@@ -55,7 +55,6 @@ function install_rust() {
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     1
   fi
-  cargo install tree-sitter-cli stylua
 }
 
 function install_node() {
@@ -63,7 +62,6 @@ function install_node() {
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
     nvm install 16
   fi
-  npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server
 }
 
 function install_ruby() {
@@ -75,7 +73,6 @@ function install_ruby() {
   fi
   rbenv install 3.1.0
   rbenv global 3.1.0
-  sudo gem install neovim shopify-cli
 }
 
 function install_go() {
@@ -89,6 +86,12 @@ function install_go() {
 
 function install_pip() {
   package_exists pip3 || sudo apt-get install -y python3-pip
+}
+
+function install_packages() {
+  cargo install tree-sitter-cli stylua
+  npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
+  sudo gem install neovim shopify-cli
   pip3 install neovim
 }
 
@@ -101,7 +104,8 @@ function install_neovim() {
   sudo make install
   cd ~
   sudo rm -rf neovim ~/.local/share/nvim
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  sudo rm -rf ~/.cache/nvim ~/.config/nvim/plugin ~/.local/share/nvim
+  nvim --headless -c 'PackerSync'
 }
 
 function install_packer() {
@@ -112,8 +116,7 @@ function install_packer() {
 
 function remove_existing_configurations() {
   cd ~
-  rm -rf ~/.cache/nvim ~/.config/nvim/plugin ~/.local/share/nvim
-  rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim
+  sudo rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim
 }
 
 function create_symlinks() {
@@ -136,6 +139,7 @@ install_rust
 install_ruby
 install_go
 install_pip
+install_packages
 install_neovim
 install_packer
 remove_existing_configurations

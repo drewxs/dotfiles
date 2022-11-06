@@ -21,21 +21,18 @@ function install_yay() {
   cd ~
 }
 
-function install_arch_packages() {
+function install_packages() {
   sudo pacman -Sy neofetch rust nodejs npm python python-pip ruby go git lazygit neovim
+  cargo install tree-sitter-cli stylua
+  npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
+  sudo gem install neovim shopify-cli
+  pip install neovim
 }
 
 function install_zsh_plugins() {
   sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-}
-
-function install_nvim_packages() {
-  cargo install tree-sitter-cli stylua
-  npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server
-  sudo gem install neovim shopify-cli
-  pip install neovim
 }
 
 function install_snap() {
@@ -45,8 +42,8 @@ function install_snap() {
 
 function remove_existing_configurations() {
   cd ~
-  rm -rf ~/.cache/nvim ~/.config/nvim/plugin ~/.local/share/nvim
-  rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim .config/xfce4/terminal/terminalrc 
+  sudo rm -rf ~/.cache/nvim ~/.config/nvim/plugin ~/.local/share/nvim
+  sudo rm -rf .gitconfig .tmux.conf .zshrc .p10k.zsh .config/nvim .config/xfce4/terminal/terminalrc 
 }
 
 function create_symlinks() {
@@ -61,9 +58,8 @@ function create_symlinks() {
 
 update
 install_yay
-install_arch_packages
+install_packages
 install_zsh_plugins
-install_nvim_packages
 install_snap
 remove_existing_configurations
 create_symlinks
