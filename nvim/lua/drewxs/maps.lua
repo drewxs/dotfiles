@@ -76,11 +76,6 @@ vim.g.mapleader = " "
 -- nvim-tree
 map("n", "<leader>e", ":NvimTreeToggle<CR>", opts)
 
--- telescope
-map("n", "<C-p>", ":Telescope find_files<CR>", opts)
-map("n", "<C-f>", ":Telescope live_grep<CR>", opts)
-map("n", "<leader>fp", ":Telescope projects<CR>", opts)
-map("n", "<leader>fb", ":Telescope buffers<CR>", opts)
 
 ---------
 -- LSP --
