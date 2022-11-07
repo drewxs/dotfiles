@@ -81,15 +81,13 @@ vim.g.mapleader = " "
 ---------
 
 -- lspsaga
-map("n", "<C-j>", ":Lspsaga diagnostic_jump_next<CR>", opts)
-map("n", "<S-j>", ":Lspsaga hover_doc<CR>", opts)
+map("n", "<C-j>", ":Lspsaga hover_doc<CR>", opts)
+map("n", "<S-j>", ":Lspsaga peek_definition<CR>", opts)
 map("n", "<C-k>", ":Lspsaga lsp_finder<CR>", opts)
-map("i", "<S-k>", ":Lspsaga signature_help<CR>", opts)
-map("n", "gp", ":Lspsaga peek_definition<CR>", opts)
-map("n", "gr", ":Lspsaga rename<CR>", opts)
+map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
 
 -- diagnostics
 vim.keymap.set("n", "<C-;>", vim.diagnostic.open_float, opts)
 vim.keymap.set("n", "<C-[>", vim.diagnostic.goto_prev, opts)
 vim.keymap.set("n", "<C-]>", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<space>q", vim.diagnostic.setloclist, opts)
+vim.keymap.set("n", "<S-q>", vim.diagnostic.setloclist, opts)
