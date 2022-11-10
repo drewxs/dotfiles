@@ -13,7 +13,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Auto-update behavior.
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ":omz:update" mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Display red dots whilst waiting for completion.
@@ -43,29 +43,35 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
+  export EDITOR="vim"
 else
-  export EDITOR='nvim'
+  export EDITOR="nvim"
 fi
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
 
 # Aliases
-alias up='sudo apt update && sudo apt upgrade -y'
-alias aptclean='sudo apt autoremove'
+if [[ -x "$(command -v apt-get)" ]]; then
+  alias up='sudo apt update && sudo apt upgrade -y'
+elif [[ -x "$(command -v pacman)" ]]; then
+  alias up="sudo pacman -Syu --noconfirm"
+fi
 
-alias gd='git diff --name-only'
-alias gdc='git diff --cached --name-only'
-alias gds='git diff --staged --name-only'
-alias gcm='git commit -m'
+alias gs="git fetch && git status"
+alias gd="git diff --name-only"
+alias gdc="git diff --cached --name-only"
+alias gds="git diff --staged --name-only"
+alias gcm="git commit -m"
 
-alias kex='kex --win -s'
-alias kexs='kex --sl -s'
+if [[ -x "$(command -v kex)" ]]; then
+  alias kex="kex --win -s"
+  alias kexs="kex --sl -s"
+fi
 
-alias nv='nvim'
+alias nv="nvim"
 alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
-alias lg='lazygit'
+alias lg="lazygit"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -79,6 +85,6 @@ export PNPM_HOME="/home/drew/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 
 # compinstall
-zstyle :compinstall filename '/home/drew/.zshrc'
+zstyle :compinstall filename "/home/drew/.zshrc"
 autoload -Uz compinit
 compinit
