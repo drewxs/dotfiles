@@ -52,16 +52,12 @@ fi
 export ARCHFLAGS="-arch x86_64"
 
 # Aliases
-alias up='sudo apt update && sudo apt upgrade -y'
-alias aptclean='sudo apt autoremove'
+alias up='sudo pacman -Syyu'
 
 alias gd='git diff --name-only'
 alias gdc='git diff --cached --name-only'
 alias gds='git diff --staged --name-only'
 alias gcm='git commit -m'
-
-alias kex='kex --win -s'
-alias kexs='kex --sl -s'
 
 alias nv='nvim'
 alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
