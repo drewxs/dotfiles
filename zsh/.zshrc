@@ -73,6 +73,10 @@ alias nv="nvim"
 alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
 alias lg="lazygit"
 
+if [[ -x "$command -v psql)"]]; then
+  alias pg:start="sudo systemctl start postgresql.service"
+fi
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
