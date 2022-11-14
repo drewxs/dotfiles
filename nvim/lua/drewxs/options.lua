@@ -34,3 +34,5 @@ vim.opt.pumblend = 5
 
 vim.opt.path:append({ "**" })
 vim.opt.wildignore:append({ "*/node_modules/*" })
+
+vim.o.signcolumn = "number"
