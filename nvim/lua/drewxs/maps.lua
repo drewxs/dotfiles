@@ -64,6 +64,9 @@ map("n", "<A-k>", ":m .-2<CR>", opts)
 -- next line
 map("i", "<C-o>", "<Esc>o", opts)
 
+-- duplicate current line
+map("n", "<S-j>", "mayyp`aj", opts);
+
 -- comment
 map("n", "<C-_>", "gcc", remap)
 map("i", "<C-_>", "<ESC>gcca", remap)
@@ -82,7 +85,6 @@ vim.g.mapleader = " "
 
 -- lspsaga
 map("n", "<C-j>", ":Lspsaga hover_doc<CR>", opts)
-map("n", "<S-j>", ":Lspsaga peek_definition<CR>", opts)
 map("n", "<C-k>", ":Lspsaga lsp_finder<CR>", opts)
 map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
 
