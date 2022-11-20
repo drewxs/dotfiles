@@ -14,7 +14,7 @@ function update() {
 
 function install_yay() {
   cd ~
-  sudo pacman -S --needed git base-devel
+  sudo pacman -S --needed git base-devel --noconfirm
   git clone https://aur.archlinux.org/yay/git
   cd yay
   makepkg -si
@@ -22,11 +22,12 @@ function install_yay() {
 }
 
 function install_packages() {
-  sudo pacman -Sy neofetch rust nodejs npm python python-pip ruby go git lazygit neovim
-  cargo install tree-sitter-cli stylua
-  npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
+  sudo pacman -Sy --noconfirm git neofetch neovim xclip ripgrep \
+    rust nodejs npm python python-pip ruby go
+  sudo cargo install tree-sitter-cli stylua
+  sudo npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
   sudo gem install neovim shopify-cli
-  pip install neovim
+  sudo pip install neovim
 }
 
 function install_zsh_plugins() {
@@ -38,6 +39,7 @@ function install_zsh_plugins() {
 function install_snap() {
   yay -S snapd
   sudo systemctl enable --now snapd.socket
+  sudo systemctl enable --now snapd.apparmor
 }
 
 function remove_existing_configurations() {
