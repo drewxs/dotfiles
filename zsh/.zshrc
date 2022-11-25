@@ -73,6 +73,11 @@ alias nv="nvim"
 alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
 alias lg="lazygit"
 
+# Functions
+function kill-port() {
+  kill -9 $(lsof -t -i:"$1")
+}
+
 if [[ -x "$(command -v psql)" ]]; then
   alias pg:start="sudo systemctl start postgresql.service"
 fi
