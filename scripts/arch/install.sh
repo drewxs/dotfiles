@@ -22,7 +22,8 @@ function install_yay() {
 }
 
 function install_packages() {
-  sudo pacman -Sy --noconfirm git neofetch neovim xclip ripgrep wget \
+  sudo pacman -S --noconfirm git neofetch neovim xclip ripgrep wget \
+    xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
     rust nodejs npm python python-pip ruby go
   sudo cargo install tree-sitter-cli stylua
   sudo npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
@@ -56,6 +57,7 @@ function create_symlinks() {
   [[ -d .config ]] || mkdir .config
   ln -s ~/.dotfiles/nvim ~/.config/nvim
   ln -s ~/.dotfiles/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
+  ln -s ~/.dotfiles/xorg/.xinitrc ~/.xinitrc
 }
 
 update

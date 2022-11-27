@@ -1,0 +1,1 @@
+xmodmap ~/.dotfiles/xorg/.Xmodmap
