@@ -92,7 +92,7 @@ map("n", "<C-k>", ":Lspsaga lsp_finder<CR>", opts)
 map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
 
 -- diagnostics
-vim.keymap.set("n", "<C-;>", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "<C-[>", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "<C-]>", vim.diagnostic.goto_next, opts)
-vim.keymap.set("n", "<S-q>", vim.diagnostic.setloclist, opts)
+map("n", "<C-;>", "vim.diagnostic.open_float", opts)
+map("n", "<C-[>", "vim.diagnostic.goto_prev", opts)
+map("n", "<C-]>", "vim.diagnostic.goto_next", opts)
+map("n", "<S-q>", "vim.diagnostic.setloclist", opts)
