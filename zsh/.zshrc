@@ -73,9 +73,14 @@ alias nv="nvim"
 alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
 alias lg="lazygit"
 
+
 # Functions
 function kill-port() {
   kill -9 $(lsof -t -i:"$1")
+}
+
+function keys() {
+  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
 if [[ -x "$(command -v psql)" ]]; then
