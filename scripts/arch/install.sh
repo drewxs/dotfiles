@@ -22,7 +22,7 @@ function install_yay() {
 }
 
 function install_packages() {
-  sudo pacman -Sy --noconfirm git neofetch neovim xclip ripgrep \
+  sudo pacman -Sy --noconfirm git neofetch neovim xclip ripgrep wget \
     rust nodejs npm python python-pip ruby go
   sudo cargo install tree-sitter-cli stylua
   sudo npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
