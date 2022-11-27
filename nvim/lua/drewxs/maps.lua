@@ -72,6 +72,9 @@ map("n", "<C-_>", "gcc", remap)
 map("i", "<C-_>", "<ESC>gcca", remap)
 map("v", "<C-_>", "gc", remap)
 
+-- toggle fold
+map("n", "<C-Space>", "za", remap)
+
 ------------
 -- leader --
 ------------

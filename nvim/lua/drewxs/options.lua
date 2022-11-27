@@ -36,3 +36,7 @@ vim.opt.path:append({ "**" })
 vim.opt.wildignore:append({ "*/node_modules/*" })
 
 vim.o.signcolumn = "number"
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldlevel = 99
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
