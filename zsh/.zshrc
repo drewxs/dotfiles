@@ -69,7 +69,7 @@ if [[ -x "$(command -v kex)" ]]; then
   alias kexs="kex --sl -s"
 fi
 
-alias nv="nvim"
+alias v="nvim"
 alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
 alias lg="lazygit"
 

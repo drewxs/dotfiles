@@ -126,6 +126,7 @@ function create_symlinks() {
   ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
   [[ -d .config ]] || mkdir .config
   ln -s ~/.dotfiles/nvim ~/.config/nvim
+  ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 }
 
 update
