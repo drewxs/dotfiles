@@ -65,7 +65,7 @@ map("n", "<A-k>", ":m .-2<CR>", opts)
 map("i", "<C-o>", "<Esc>o", opts)
 
 -- duplicate current line
-map("n", "<S-j>", "mayyp`aj", opts);
+map("n", "<S-j>", "mayyp`aj", opts)
 
 -- comment
 map("n", "<C-_>", "gcc", remap)
