@@ -61,7 +61,6 @@ function create_symlinks() {
   ln -s ~/.dotfiles/nvim ~/.config/nvim
   ln -s ~/.dotfiles/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
   ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
-  ln -s ~/.dotfiles/xorg/.xinitrc ~/.xinitrc
 }
 
 update
