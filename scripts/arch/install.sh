@@ -23,7 +23,7 @@ function install_yay() {
 }
 
 function install_packages() {
-  sudo pacman -S --noconfirm git neofetch neovim xclip ripgrep wget \
+  sudo pacman -S --noconfirm tmux neofetch neovim xclip ripgrep wget \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
     rust nodejs npm python python-pip ruby go
   cargo install tree-sitter-cli stylua
@@ -49,7 +49,7 @@ function install_snap() {
 
 function remove_existing_configurations() {
   sudo rm -rf ~/.cache/nvim ~/.config/nvim/plugin ~/.local/share/nvim
-  sudo rm -rf ~/.gitconfig ~/.tmux.conf ~/.zshrc ~/.p10k.zsh ~/.config/nvim ~/.config/xfce4/terminal/terminalrc ~/.config/alacritty/alacritty.yml ~/.xinitrc
+  sudo rm -rf ~/.gitconfig ~/.tmux.conf ~/.zshrc ~/.p10k.zsh ~/.config/nvim ~/.config/xfce4/terminal/terminalrc ~/.config/alacritty/alacritty.yml
 }
 
 function create_symlinks() {
