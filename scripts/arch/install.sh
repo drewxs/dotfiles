@@ -57,9 +57,10 @@ function create_symlinks() {
   ln -s ~/.dotfiles/tmux/.tmux.conf ~/.tmux.conf
   ln -s ~/.dotfiles/zsh/.zshrc ~/.zshrc
   ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
-  [[ -d .config ]] || mkdir .config
+  [[ -d ~/.config ]] || mkdir ~/.config
   ln -s ~/.dotfiles/nvim ~/.config/nvim
-  ln -s ~/.dotfiles/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
+  [[ -d ~/.config/xfce4/terminal ]] && ln -s ~/.dotfiles/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
+  [[ -d ~/.config/alacritty ]] || mkdir ~/.config/alacritty
   ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 }
 
