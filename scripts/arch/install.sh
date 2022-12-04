@@ -9,13 +9,17 @@ function package_exists() {
 }
 
 function update() {
+  if package_exists update; then
+    update
+    return
+  fi
   sudo pacman -Syu --noconfirm
 }
 
 function install_yay() {
   package_exists yay && return
-  cd ~
   sudo pacman -S --needed git base-devel --noconfirm
+  cd ~
   git clone https://aur.archlinux.org/yay/git
   cd yay
   makepkg -si
@@ -23,9 +27,10 @@ function install_yay() {
 }
 
 function install_packages() {
-  sudo pacman -S --noconfirm tmux neofetch neovim xclip ripgrep wget \
+  sudo pacman -S --noconfirm zsh tmux neofetch wget xclip \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
-    rust nodejs npm python python-pip ruby go
+    rust nodejs npm python python-pip ruby go \
+    neovim ripgrep lazygit
   cargo install tree-sitter-cli stylua
   npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
   gem install neovim shopify-cli
@@ -33,11 +38,11 @@ function install_packages() {
 }
 
 function install_zsh_plugins() {
+  sudo rm -rf .oh-my-zsh
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-  package_exists zsh && return
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
 function install_snap() {
