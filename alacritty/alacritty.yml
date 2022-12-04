@@ -404,8 +404,8 @@ cursor:
 # Default:
 #   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
 #   - (Windows) powershell
-# shell:
-#  program: /bin/bash
+shell:
+  program: /usr/bin/zsh
 #  args:
 #    - --login
 
