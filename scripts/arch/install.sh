@@ -9,10 +9,6 @@ function package_exists() {
 }
 
 function update() {
-  if package_exists update; then
-    update
-    return
-  fi
   sudo pacman -Syu --noconfirm
 }
 
