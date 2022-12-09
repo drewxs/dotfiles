@@ -23,10 +23,10 @@ function install_yay() {
 }
 
 function install_packages() {
-  sudo pacman -S --noconfirm zsh tmux neofetch wget xclip \
+  sudo pacman -S --noconfirm zsh tmux neofetch wget xclip ripgrep \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
     rust nodejs npm python python-pip ruby go \
-    neovim ripgrep lazygit
+    neovim lazygit docker
   cargo install tree-sitter-cli stylua
   npm i -g npnm 
   pnpm i -g neovim eslint_d typescript-language-server @fsouza/prettierd
