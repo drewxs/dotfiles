@@ -29,6 +29,10 @@ map("n", "sv", ":vsplit<Return><C-w>w", opts)
 -- nvim-tree
 map("n", "<C-e>", ":NvimTreeToggle<CR>", opts)
 
+-- copy
+map("v", "c", "y", opts)
+map("n", "cc", "yy", opts)
+
 -- delete word <--
 map("i", "<C-H>", "<C-w>", opts)
 -- delete word -->
