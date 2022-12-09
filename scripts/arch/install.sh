@@ -28,8 +28,9 @@ function install_packages() {
     rust nodejs npm python python-pip ruby go \
     neovim ripgrep lazygit
   cargo install tree-sitter-cli stylua
-  npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
-  gem install neovim shopify-cli
+  npm i -g npnm 
+  pnpm i -g neovim eslint_d typescript-language-server @fsouza/prettierd
+  gem install neovim
   pip install neovim
 }
 
