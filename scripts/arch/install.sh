@@ -18,7 +18,7 @@ function install_yay() {
   cd ~
   git clone https://aur.archlinux.org/yay/git
   cd yay
-  makepkg -si
+  makepkg -si --noconfirm
   cd ~
 }
 
@@ -44,7 +44,7 @@ function install_zsh_plugins() {
 
 function install_snap() {
   package_exists snap && return
-  yay -S snapd
+  yay -S snapd --answerdiff=None
   sudo systemctl enable --now snapd.socket
   sudo systemctl enable --now snapd.apparmor
 }
