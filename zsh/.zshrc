@@ -55,7 +55,18 @@ export ARCHFLAGS="-arch x86_64"
 if [[ -x "$(command -v apt-get)" ]]; then
   alias up='sudo apt update && sudo apt upgrade -y'
 elif [[ -x "$(command -v pacman)" ]]; then
-  alias up="sudo pacman -Syu --noconfirm"
+  alias up="sudo pacman -Syu --noconfirm && yay -Syu --noconfirm"
+  alias p="sudo pacman"
+fi
+
+if [[ -x "$(command -v docker)" ]]; then
+  alias docker:start="sudo systemctl start docker.service"
+  alias docker:stop="sudo systemctl stop docker.service"
+fi
+
+if [[ -x "$(command -v psql)" ]]; then
+  alias pg:start="sudo systemctl start postgresql.service"
+  alias pg:stop="sudo systemctl stop postgresql.service"
 fi
 
 alias gs="git fetch && git status"
@@ -64,15 +75,9 @@ alias gdc="git diff --cached --name-only"
 alias gds="git diff --staged --name-only"
 alias gcm="git commit -m"
 
-if [[ -x "$(command -v kex)" ]]; then
-  alias kex="kex --win -s"
-  alias kexs="kex --sl -s"
-fi
-
 alias v="nvim"
 alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
 alias lg="lazygit"
-
 
 # Functions
 function kill-port() {
@@ -82,10 +87,6 @@ function kill-port() {
 function keys() {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
-
-if [[ -x "$(command -v psql)" ]]; then
-  alias pg:start="sudo systemctl start postgresql.service"
-fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
