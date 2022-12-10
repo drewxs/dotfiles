@@ -91,9 +91,6 @@ require("packer").startup(function(use)
   })
   use("nvim-telescope/telescope-file-browser.nvim")
 
-  -- formatting
-  use("prettier/vim-prettier")
-
   -- git
   use("lewis6991/gitsigns.nvim")
   use("dinhhuy258/git.nvim")

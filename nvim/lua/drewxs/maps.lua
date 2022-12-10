@@ -35,10 +35,14 @@ map("i", "<C-H>", "<C-w>", opts)
 map("i", "<C-Del>", "<Esc><Right>dwi", opts)
 
 -- movement
-map("i", "<A-h>", "<Left>", opts)
-map("i", "<A-l>", "<Right>", opts)
 map("i", "<A-k>", "<Up>", opts)
 map("i", "<A-j>", "<Down>", opts)
+map("i", "<A-h>", "<Left>", opts)
+map("i", "<A-l>", "<Right>", opts)
+map("n", "<A-h>", "b", opts)
+map("v", "<A-h>", "b", opts)
+map("n", "<A-l>", "w", opts)
+map("v", "<A-l>", "w", opts)
 
 -- select all
 map("n", "<C-a>", "gg<S-v>G", opts)
@@ -51,8 +55,8 @@ map("n", "<A-w>", ":Bdelete!<CR>", opts)
 map("i", "<A-w>", "<Esc>:Bdelete!<CR>", opts)
 
 -- save
-map("n", "<A-s>", ":Prettier<CR>:w!<CR>", opts)
-map("i", "<A-s>", "<Esc>:Prettier<CR>:w!<CR>", opts)
+map("n", "<A-s>", ":lua vim.lsp.buf.format()<CR>:w!<CR>", opts)
+map("i", "<A-s>", "<Esc>:lua vim.lsp.buf.format()<CR>:w!<CR>", opts)
 
 -- quit
 map("n", "<C-q>", ":q!<CR>", opts)

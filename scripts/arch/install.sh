@@ -29,10 +29,11 @@ function install_packages() {
     neovim lazygit docker
   rustup default nightly
   cargo install tree-sitter-cli stylua
-  npm i -g npnm 
+  cargo install languagetool-rust --features full
+  npm i -g pnpm 
   pnpm i -g neovim eslint_d typescript typescript-language-server @fsouza/prettierd
   gem install neovim
-  pip install neovim
+  pip install --user neovim black
 }
 
 function install_zsh_plugins() {
