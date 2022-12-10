@@ -2,10 +2,6 @@ local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true, nowait = true }
 local remap = { noremap = false, silent = true, nowait = true }
 
--------------
--- general --
--------------
-
 -- navigate windows
 map("n", "<C-h>", "<C-w>h", opts)
 map("n", "<C-j>", "<C-w>j", opts)
@@ -38,10 +34,11 @@ map("i", "<C-H>", "<C-w>", opts)
 -- delete word -->
 map("i", "<C-Del>", "<Esc><Right>dwi", opts)
 
--- move back one word
-map("i", "<A-h>", "<C-Left>", opts)
--- move forward one word
-map("i", "<A-l>", "<C-Right>", opts)
+-- movement
+map("i", "<A-h>", "<Left>", opts)
+map("i", "<A-l>", "<Right>", opts)
+map("i", "<A-k>", "<Up>", opts)
+map("i", "<A-j>", "<Down>", opts)
 
 -- select all
 map("n", "<C-a>", "gg<S-v>G", opts)
@@ -78,17 +75,6 @@ map("v", "<C-_>", "gc", remap)
 
 -- toggle fold
 map("n", "<A-\\>", "za", remap)
-
-------------
--- leader --
-------------
-
-map("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-
----------
--- LSP --
----------
 
 -- lspsaga
 map("n", "<C-j>", ":Lspsaga hover_doc<CR>", opts)
