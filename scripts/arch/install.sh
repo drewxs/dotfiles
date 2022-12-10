@@ -29,7 +29,7 @@ function install_packages() {
     neovim lazygit docker
   cargo install tree-sitter-cli stylua
   npm i -g npnm 
-  pnpm i -g neovim eslint_d typescript-language-server @fsouza/prettierd
+  pnpm i -g neovim eslint_d typescript typescript-language-server @fsouza/prettierd
   gem install neovim
   pip install neovim
 }
