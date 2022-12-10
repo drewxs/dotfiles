@@ -46,21 +46,26 @@ local servers = {
   "gopls",
   "pyright",
   "jdtls",
-  "solang",
+  "solidity",
+  "clojure_lsp",
   "tsserver",
   "eslint",
+  "astro",
+  "angularls",
   "svelte",
   "volar",
+  "emmet_ls",
   "html",
   "cssls",
+  "cssmodules_ls",
   "tailwindcss",
-  "sqlls",
+  "jsonls",
+  "yamlls",
   "graphql",
+  "sqlls",
   "prismals",
   "dockerls",
   "marksman",
-  "jsonls",
-  "yamlls",
   "taplo",
   "terraformls",
   "diagnosticls",
@@ -79,7 +84,7 @@ local on_attach = function(client, bufnr)
 end
 
 local lsp_flags = {
-  debounce_text_changes = 150,
+  debounce_text_changes = 100,
 }
 
 for _, server in ipairs(servers) do
