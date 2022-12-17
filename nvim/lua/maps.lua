@@ -66,9 +66,9 @@ map("n", "<A-k>", ":m .-2<CR>", opts)
 -- next line
 map("i", "<C-o>", "<Esc>o", opts)
 
--- duplicate current line
+-- duplicate
 map("n", "<S-j>", "mayyp`aj", opts)
-map("n", "<S-k>", "mayyp`a", opts)
+map("v", "<S-j>", "y'>p", opts)
 
 -- comment
 map("n", "<C-_>", "gcc", remap)
@@ -79,12 +79,11 @@ map("v", "<C-_>", "gbc", remap)
 map("n", "<A-\\>", "za", remap)
 
 -- lspsaga
-map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
 map("n", "<C-j>", ":Lspsaga hover_doc<CR>", opts)
 map("n", "<C-k>", ":Lspsaga lsp_finder<CR>", opts)
-map("n", "<C-u>", ":Lspsaga peek_definition<CR>", opts)
-map("n", "<C-i>", ":Lspsaga show_line_diagnostics<CR>", opts)
-map("n", "<C-y>", ":LSoutlineToggle<CR>", opts)
+map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
+map("n", "<S-o>", ":LSoutlineToggle<CR>", opts)
+map("n", "<S-p>", ":Lspsaga peek_definition<CR>", opts)
 map("n", "[", ":Lspsaga diagnostic_jump_prev<CR>", opts)
 map("n", "]", ":Lspsaga diagnostic_jump_next<CR>", opts)
 
