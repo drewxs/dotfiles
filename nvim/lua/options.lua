@@ -10,6 +10,7 @@ vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.opt.inccommand = "split"
 vim.opt.background = "dark"
 vim.opt.wildoptions = "pum"
+vim.opt.whichwrap = "lh"
 vim.opt.title = true
 vim.opt.number = true
 vim.opt.autoindent = true
