@@ -28,27 +28,24 @@ map("n", "<C-e>", ":NvimTreeToggle<CR>", opts)
 -- copy
 map("v", "c", "y", opts)
 map("n", "cc", "yy", opts)
+map("n", "cw", "yiw", opts)
 
--- delete word <--
+-- select
+map("n", "<C-a>", "gg<S-v>G", opts)
+
+-- delete
 map("i", "<C-H>", "<C-w>", opts)
--- delete word -->
-map("i", "<C-Del>", "<Esc><Right>dwi", opts)
+map("i", "<C-Del>", "<Esc>ldwi", opts)
 
--- movement
+-- move
 map("i", "<A-k>", "<Up>", opts)
 map("i", "<A-j>", "<Down>", opts)
 map("i", "<A-h>", "<Left>", opts)
 map("i", "<A-l>", "<Right>", opts)
 map("n", "<A-h>", "b", opts)
+map("n", "<A-l>", "e", opts)
 map("v", "<A-h>", "b", opts)
-map("n", "<A-l>", "w", opts)
-map("v", "<A-l>", "w", opts)
-
--- select all
-map("n", "<C-a>", "gg<S-v>G", opts)
-
--- new tab
-map("n", "<C-n>", ":tabedit<CR>", opts)
+map("v", "<A-l>", "e", opts)
 
 -- delete current buffer
 map("n", "<A-w>", ":Bdelete!<CR>", opts)
@@ -71,6 +68,7 @@ map("i", "<C-o>", "<Esc>o", opts)
 
 -- duplicate current line
 map("n", "<S-j>", "mayyp`aj", opts)
+map("n", "<S-k>", "mayyp`a", opts)
 
 -- comment
 map("n", "<C-_>", "gcc", remap)
@@ -81,12 +79,14 @@ map("v", "<C-_>", "gbc", remap)
 map("n", "<A-\\>", "za", remap)
 
 -- lspsaga
+map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
 map("n", "<C-j>", ":Lspsaga hover_doc<CR>", opts)
 map("n", "<C-k>", ":Lspsaga lsp_finder<CR>", opts)
-map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
+map("n", "<C-u>", ":Lspsaga peek_definition<CR>", opts)
+map("n", "<C-i>", ":Lspsaga show_line_diagnostics<CR>", opts)
+map("n", "<C-y>", ":LSoutlineToggle<CR>", opts)
+map("n", "[", ":Lspsaga diagnostic_jump_prev<CR>", opts)
+map("n", "]", ":Lspsaga diagnostic_jump_next<CR>", opts)
 
 -- diagnostics
-vim.keymap.set("n", "<C-;>", vim.diagnostic.open_float, opts)
-vim.keymap.set("n", "<C-[>", vim.diagnostic.goto_prev, opts)
-vim.keymap.set("n", "<C-]>", vim.diagnostic.goto_next, opts)
 vim.keymap.set("n", "<S-q>", vim.diagnostic.setloclist, opts)
