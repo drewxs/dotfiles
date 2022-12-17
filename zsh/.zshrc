@@ -55,8 +55,9 @@ export ARCHFLAGS="-arch x86_64"
 if [[ -x "$(command -v apt-get)" ]]; then
   alias up='sudo apt update && sudo apt upgrade -y'
 elif [[ -x "$(command -v pacman)" ]]; then
-  alias up="sudo pacman -Syu --noconfirm && yay -Syu --noconfirm"
-  alias p="sudo pacman"
+  alias p="sudo pacman --noconfirm"
+  alias y="yay --noconfirm"
+  alias up="yay -Syyu --noconfirm"
 fi
 
 if [[ -x "$(command -v docker)" ]]; then
