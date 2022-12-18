@@ -4,6 +4,7 @@ vim.opt.fileencoding = "utf-8"
 
 vim.opt.shell = "zsh"
 vim.opt.mouse = "a"
+vim.opt.signcolumn = "number"
 vim.opt.clipboard = "unnamedplus"
 vim.opt.backspace = { "start", "eol", "indent" }
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
@@ -11,6 +12,7 @@ vim.opt.inccommand = "split"
 vim.opt.background = "dark"
 vim.opt.wildoptions = "pum"
 vim.opt.whichwrap = "lh"
+
 vim.opt.title = true
 vim.opt.number = true
 vim.opt.autoindent = true
@@ -35,8 +37,6 @@ vim.opt.pumblend = 5
 
 vim.opt.path:append({ "**" })
 vim.opt.wildignore:append({ "*/node_modules/*" })
-
-vim.o.signcolumn = "number"
 
 vim.opt.foldmethod = "expr"
 vim.opt.foldlevel = 99
