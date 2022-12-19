@@ -46,6 +46,7 @@ map("n", "<A-h>", "b", opts)
 map("n", "<A-l>", "e", opts)
 map("v", "<A-h>", "b", opts)
 map("v", "<A-l>", "e", opts)
+map("i", "<A-a>", "<Esc><S-a>", opts)
 
 -- delete current buffer
 map("n", "<A-w>", ":Bdelete!<CR>", opts)
@@ -62,6 +63,8 @@ map("i", "<C-q>", "<Esc>:q!<CR>", opts)
 -- move text up/down
 map("n", "<A-j>", ":m .+1<CR>", opts)
 map("n", "<A-k>", ":m .-2<CR>", opts)
+map("v", "<A-j>", ":m'>+<CR>gv=gv", opts)
+map("v", "<A-k>", ":m-2<CR>gv=gv", opts)
 
 -- next line
 map("i", "<C-o>", "<Esc>o", opts)
