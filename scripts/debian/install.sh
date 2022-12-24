@@ -8,12 +8,8 @@ function package_exists() {
   return true
 }
 
-function update() {
-  sudo apt update && sudo apt upgrade -y
-}
-
 function install_apt_packages() {
-  sudo apt-get install -y curl wget zsh tmux git ripgrep fuse libfuse2 fd-find neofetch \
+  sudo apt-get install -y curl wget tmux git ripgrep fuse libfuse2 fd-find neofetch \
     ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen \
     software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev \
     bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
@@ -21,9 +17,6 @@ function install_apt_packages() {
 
 # install zsh
 function install_zsh() {
-  package_exists zsh && return
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-  # plugins
   sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -129,7 +122,6 @@ function create_symlinks() {
   ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 }
 
-update
 install_apt_packages
 install_zsh
 install_cmake

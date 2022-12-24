@@ -8,10 +8,6 @@ function package_exists() {
   return true
 }
 
-function update() {
-  sudo pacman -Syu --noconfirm
-}
-
 function install_yay() {
   package_exists yay && return
   sudo pacman -S --needed git base-devel --noconfirm
@@ -23,7 +19,7 @@ function install_yay() {
 }
 
 function install_packages() {
-  sudo pacman -S --noconfirm zsh tmux neofetch wget xclip ripgrep \
+  sudo pacman -S --noconfirm tmux neofetch wget xclip ripgrep \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
     rustup nodejs npm python python-pip ruby go \
     neovim lazygit docker
@@ -37,8 +33,6 @@ function install_packages() {
 }
 
 function install_zsh_plugins() {
-  sudo rm -rf .oh-my-zsh
-  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -53,7 +47,7 @@ function install_snap() {
 
 function remove_existing_configurations() {
   sudo rm -rf ~/.cache/nvim ~/.config/nvim/plugin ~/.local/share/nvim
-  sudo rm -rf ~/.gitconfig ~/.tmux.conf ~/.zshrc ~/.p10k.zsh ~/.config/nvim ~/.config/xfce4/terminal/terminalrc ~/.config/alacritty/alacritty.yml
+  sudo rm -rf ~/.gitconfig ~/.tmux.conf ~/.zshrc ~/.p10k.zsh ~/.config/nvim ~/.config/alacritty/alacritty.yml
 }
 
 function create_symlinks() {
@@ -63,12 +57,10 @@ function create_symlinks() {
   ln -s ~/.dotfiles/zsh/.p10k.zsh ~/.p10k.zsh
   [[ -d ~/.config ]] || mkdir ~/.config
   ln -s ~/.dotfiles/nvim ~/.config/nvim
-  [[ -d ~/.config/xfce4/terminal ]] && ln -s ~/.dotfiles/terminal/terminalrc ~/.config/xfce4/terminal/terminalrc
   [[ -d ~/.config/alacritty ]] || mkdir ~/.config/alacritty
   ln -s ~/.dotfiles/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 }
 
-update
 install_yay
 install_packages
 install_zsh_plugins
