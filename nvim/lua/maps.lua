@@ -76,7 +76,7 @@ map("v", "<S-j>", "y'>p", opts)
 -- comment
 map("n", "<C-_>", "gcc", remap)
 map("i", "<C-_>", "<ESC>gcca", remap)
-map("v", "<C-_>", "gbc", remap)
+map("v", "<C-_>", "gb", remap)
 
 -- toggle fold
 map("n", "<A-\\>", "za", remap)
