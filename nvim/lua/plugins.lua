@@ -18,9 +18,6 @@ require("packer").startup(function(use)
   use("nvim-lua/plenary.nvim")
   use("lewis6991/impatient.nvim")
 
-  -- statusline
-  use("nvim-lualine/lualine.nvim")
-
   -- themes
   use("olimorris/onedarkpro.nvim")
   use("EdenEast/nightfox.nvim")
@@ -43,6 +40,9 @@ require("packer").startup(function(use)
     },
     tag = "nightly",
   })
+
+  -- statusline
+  use("nvim-lualine/lualine.nvim")
 
   -- bufferline
   use("akinsho/bufferline.nvim")
@@ -99,7 +99,7 @@ require("packer").startup(function(use)
   -- terminal
   use("akinsho/toggleterm.nvim")
 
-  -- transparent background
+  -- transparency
   use("xiyaowong/nvim-transparent")
 
   -- which-key
@@ -110,6 +110,9 @@ require("packer").startup(function(use)
 
   -- multiline edit
   use("mg979/vim-visual-multi")
+
+  -- motion
+  use("ggandor/lightspeed.nvim")
 
   if packer_bootstrap then
     require("packer").sync()

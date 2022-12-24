@@ -17,10 +17,11 @@ require("catppuccin").setup({
     which_key = true,
     markdown = true,
     bufferline = true,
+    lightspeed = true,
   },
   custom_highlights = {
     NvimTreeNormal = { bg = "NONE" },
-    Bufferlin = { bg = "NONE" },
+    Bufferline = { bg = "NONE" },
   },
-  term_colors = false,
+  term_colors = true,
 })
