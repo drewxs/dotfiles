@@ -38,15 +38,16 @@ map("i", "<C-H>", "<C-w>", opts)
 map("i", "<C-Del>", "<Esc>ldwi", opts)
 
 -- move
-map("i", "<A-k>", "<Up>", opts)
+map("i", "<A-k>", "<Up>", opts) -- i-mode movement
 map("i", "<A-j>", "<Down>", opts)
 map("i", "<A-h>", "<Left>", opts)
 map("i", "<A-l>", "<Right>", opts)
-map("n", "<A-h>", "b", opts)
+map("n", "<A-h>", "b", opts) -- word movement
 map("n", "<A-l>", "e", opts)
 map("v", "<A-h>", "b", opts)
 map("v", "<A-l>", "e", opts)
-map("i", "<A-a>", "<Esc><S-a>", opts)
+map("i", "<A-a>", "<Esc><S-a>", opts) -- goto end
+map("i", "<A-;>", "<Esc><S-a>;<CR>", opts) -- add semicolon at end then new line
 
 -- delete current buffer
 map("n", "<A-w>", ":Bdelete!<CR>", opts)
@@ -71,7 +72,7 @@ map("i", "<C-o>", "<Esc>o", opts)
 
 -- duplicate
 map("n", "<S-j>", "mayyp`aj", opts)
-map("v", "<S-j>", "y'>p", opts)
+map("v", "<S-j>", "y'>p", opts) -- multiline
 
 -- comment
 map("n", "<C-_>", "gcc", remap)
@@ -87,8 +88,8 @@ map("n", "<C-k>", ":Lspsaga lsp_finder<CR>", opts)
 map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
 map("n", "<S-o>", ":LSoutlineToggle<CR>", opts)
 map("n", "<S-p>", ":Lspsaga peek_definition<CR>", opts)
-map("n", "[", ":Lspsaga diagnostic_jump_prev<CR>", opts)
-map("n", "]", ":Lspsaga diagnostic_jump_next<CR>", opts)
+map("n", "[", ":Lspsaga diagnostic_jump_prev<CR>", remap)
+map("n", "]", ":Lspsaga diagnostic_jump_next<CR>", remap)
 
 -- diagnostics
 vim.keymap.set("n", "<S-q>", vim.diagnostic.setloclist, opts)
