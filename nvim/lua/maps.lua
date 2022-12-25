@@ -46,8 +46,9 @@ map("n", "<A-h>", "b", opts) -- word movement
 map("n", "<A-l>", "e", opts)
 map("v", "<A-h>", "b", opts)
 map("v", "<A-l>", "e", opts)
-map("i", "<A-a>", "<Esc><S-a>", opts) -- goto end
-map("i", "<A-;>", "<Esc><S-a>;<CR>", opts) -- add semicolon at end then new line
+map("i", "<A-a>", "<Esc><S-a>", opts) -- line end
+map("i", "<A-;>", "<Esc><S-a>;<CR>", opts) -- line end -> ';' -> new line
+map("i", "<A-,>", "<Esc><S-a>,<CR>", opts) -- line end -> ',' -> new line
 
 -- delete current buffer
 map("n", "<A-w>", ":Bdelete!<CR>", opts)
