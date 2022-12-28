@@ -89,6 +89,13 @@ function keys() {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
+function up-dot() {
+  cwd=$(pwd)
+  cd ~/.dotfiles
+  git pull --ff-only
+  cd $cwd
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
