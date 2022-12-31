@@ -3,6 +3,13 @@ vim.cmd("autocmd!")
 -- theme
 vim.cmd([[colorscheme catppuccin-mocha]])
 
+-- nvim-tree highlights
+vim.cmd([[highlight NvimTreeFolderIcon guifg=#555878]])
+vim.cmd([[highlight NvimTreeFolderName guifg=#555878]])
+vim.cmd([[highlight NvimTreeEmptyFolderIcon guifg=#555878]])
+vim.cmd([[highlight NvimTreeEmptyFolderName guifg=#555878]])
+vim.cmd([[highlight NvimTreeOpenedFolderName guifg=#8d92c8]])
+
 -- undercurl
 vim.cmd([[let &t_Cs = '\e[4:3m']])
 vim.cmd([[let &t_Ce = '\e[4:0m']])

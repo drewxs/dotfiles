@@ -16,10 +16,10 @@ nvim_tree.setup({
         default = "",
         symlink = "",
         folder = {
-          default = "",
-          empty = "",
-          empty_open = "",
-          open = "",
+          default = "",
+          open = "",
+          empty = "",
+          empty_open = "",
           symlink = "",
           symlink_open = "",
           arrow_open = "",
@@ -55,8 +55,12 @@ nvim_tree.setup({
     enable = true,
     ignore = false,
   },
-  update_focused_file = { enable = true },
-  hijack_directories = { enable = true },
+  update_focused_file = {
+    enable = true,
+  },
+  hijack_directories = {
+    enable = true,
+  },
   open_on_setup = true,
   view = {
     adaptive_size = true,
