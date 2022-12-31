@@ -1,7 +1,7 @@
 #!/bin/sh
 
 function package_exists() {
-  if ! [ command -v "$1" ] &>/dev/null; then
+  if ! [[ command -v "$1" ]] &>/dev/null; then
     echo "$1 installation found"
     return false
   fi
@@ -16,6 +16,13 @@ function install_yay() {
   cd yay
   makepkg -si --noconfirm
   cd ~
+}
+
+function install_snap() {
+  package_exists snap && return
+  yay -S snapd --answerdiff=None
+  sudo systemctl enable --now snapd.socket
+  sudo systemctl enable --now snapd.apparmor
 }
 
 function install_packages() {
@@ -38,11 +45,10 @@ function install_zsh_plugins() {
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 }
 
-function install_snap() {
-  package_exists snap && return
-  yay -S snapd --answerdiff=None
-  sudo systemctl enable --now snapd.socket
-  sudo systemctl enable --now snapd.apparmor
+function install_tmux_plugins() {
+  if ! [[ -d ~/.tmux/plugins/tpm ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
 }
 
 function remove_existing_configurations() {
@@ -62,8 +68,9 @@ function create_symlinks() {
 }
 
 install_yay
+install_snap
 install_packages
 install_zsh_plugins
-install_snap
+install_tmux_plugins
 remove_existing_configurations
 create_symlinks
