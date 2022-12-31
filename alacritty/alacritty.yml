@@ -23,9 +23,23 @@ env:
   # available, otherwise `xterm-256color` is used.
   TERM: "xterm-256color"
 
+# Shell
+#
+# You can set `shell.program` to the path of your favorite shell, e.g.
+# `/bin/fish`. Entries in `shell.args` are passed unmodified as arguments to the
+# shell.
+#
+# Default:
+#   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
+#   - (Windows) powershell
+shell:
+  program: /usr/bin/zsh
+  # args:
+  # - -l
+  # - -c
+  # - "tmux"
+
 window:
-  # Window dimensions (changes require restart)
-  #
   # Number of lines/columns (not pixels) in the terminal. Both lines and columns
   # must be non-zero for this to take effect. The number of columns must be at
   # least `2`, while using a value of `0` for columns and lines will fall back
@@ -34,24 +48,20 @@ window:
   #  columns: 0
   #  lines: 0
 
-  # Window position (changes require restart)
-  #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   # position:
   #  x: 0
   #  y: 0
 
-  # Window padding (changes require restart)
-  #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 12
-    y: 12
+    x: 0
+    y: 0
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: false
+  dynamic_padding: true
 
   # Window decorations
   #
@@ -62,13 +72,13 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: none
+  decorations: full
 
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.93
+  opacity: 0.95
 
   # Startup Mode (changes require restart)
   #
@@ -88,27 +98,26 @@ window:
   dynamic_title: true
 
   # Window class (Linux/BSD only):
-  # class:
-  # Application instance name
-  # instance: Alacritty
-  # General application class
-  # general: Alacritty
+  class:
+    # Application instance name
+    instance: Alacritty
+    # General application class
+    general: Alacritty
 
   # Decorations theme variant (Linux/BSD only)
   #
   # Override the variant of the GTK theme/Wayland client side decorations.
   # Commonly supported values are `dark` and `light`. Set this to `None` to use
   # the default theme variant.
-  # decorations_theme_variant: dark
+  decorations_theme_variant: dark
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
   history: 10000
   # Scrolling distance multiplier.
-  # multiplier: 3
+  multiplier: 3
 
-# Font configuration
 font:
   normal:
     family: Hack Nerd Font
@@ -126,14 +135,14 @@ font:
     family: Hack Nerd Font
     style: Bold Italic
 
-  size: 12
+  size: 13
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
   # spacing.
   offset:
     x: 0
-    y: 4
+    y: 1
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the
@@ -142,20 +151,20 @@ font:
     x: 0
     y: 0
 
-# Use built-in font for box drawing characters.
-#
-# If `true`, Alacritty will use a custom built-in font for box drawing
-# characters (Unicode points 2500 - 259f).
-#
-# builtin_box_drawing: true
+  # Use built-in font for box drawing characters.
+  #
+  # If `true`, Alacritty will use a custom built-in font for box drawing
+  # characters (Unicode points 2500 - 259f).
+  #
+  builtin_box_drawing: true
 
-# If `true`, bold text is drawn using the bright color variants.
-# draw_bold_text_with_bright_colors: false
+  # If `true`, bold text is drawn using the bright color variants.
+  draw_bold_text_with_bright_colors: false
 
 # Colors (Tomorrow Night)
 colors:
   primary:
-    background: "#0a0a0d"
+    background: "#070709"
     foreground: "#c7c7c7"
 
   # Bright and dim foreground colors
@@ -303,48 +312,48 @@ colors:
 # Bell
 #
 # The bell is rung every time the BEL control character is received.
-# bell:
-# Visual Bell Animation
-#
-# Animation effect for flashing the screen when the visual bell is rung.
-#
-# Values for `animation`:
-#   - Ease
-#   - EaseOut
-#   - EaseOutSine
-#   - EaseOutQuad
-#   - EaseOutCubic
-#   - EaseOutQuart
-#   - EaseOutQuint
-#   - EaseOutExpo
-#   - EaseOutCirc
-#   - Linear
-# animation: EaseOutExpo
+bell:
+  # Visual Bell Animation
+  #
+  # Animation effect for flashing the screen when the visual bell is rung.
+  #
+  # Values for `animation`:
+  #   - Ease
+  #   - EaseOut
+  #   - EaseOutSine
+  #   - EaseOutQuad
+  #   - EaseOutCubic
+  #   - EaseOutQuart
+  #   - EaseOutQuint
+  #   - EaseOutExpo
+  #   - EaseOutCirc
+  #   - Linear
+  animation: EaseOutExpo
 
-# Duration of the visual bell flash in milliseconds. A `duration` of `0` will
-# disable the visual bell animation.
-# duration: 0
+  # Duration of the visual bell flash in milliseconds. A `duration` of `0` will
+  # disable the visual bell animation.
+  # duration: 0
 
-# Visual bell animation color.
-# color: '#ffffff'
+  # Visual bell animation color.
+  # color: '#ffffff'
 
-# Bell Command
-#
-# This program is executed whenever the bell is rung.
-#
-# When set to `command: None`, no command will be executed.
-#
-# Example:
-#   command:
-#     program: notify-send
-#     args: ["Hello, World!"]
-#
-# command: None
+  # Bell Command
+  #
+  # This program is executed whenever the bell is rung.
+  #
+  # When set to `command: None`, no command will be executed.
+  #
+  # Example:
+  #   command:
+  #     program: notify-send
+  #     args: ["Hello, World!"]
+  #
+  # command: None
 
-# selection:
-# This string contains all characters that are used as separators for
-# "semantic words" in Alacritty.
-# semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
+  # selection:
+  # This string contains all characters that are used as separators for
+  # "semantic words" in Alacritty.
+  # semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"
 
 # When set to `true`, selected text will be copied to the primary clipboard.
 save_to_clipboard: false
@@ -394,44 +403,31 @@ cursor:
 # thickness: 0.15
 
 # Live config reload (changes require restart)
-# live_config_reload: true
-# Shell
-#
-# You can set `shell.program` to the path of your favorite shell, e.g.
-# `/bin/fish`. Entries in `shell.args` are passed unmodified as arguments to the
-# shell.
-#
-# Default:
-#   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
-#   - (Windows) powershell
-shell:
-  program: /usr/bin/zsh
-#  args:
-#    - --login
+live_config_reload: true
 
 # Startup directory
 #
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
-# working_directory: None
+working_directory: None
 
 # Send ESC (\x1b) before characters when alt is pressed.
-# alt_send_esc: true
+alt_send_esc: true
 
 # Offer IPC using `alacritty msg` (unix only)
-# ipc_socket: true
+ipc_socket: true
 
-# mouse:
-# Click settings
-#
-# The `double_click` and `triple_click` settings control the time
-# alacritty should wait for accepting multiple clicks as one double
-# or triple click.
-# double_click: { threshold: 300 }
-# triple_click: { threshold: 300 }
+mouse:
+  # Click settings
+  #
+  # The `double_click` and `triple_click` settings control the time
+  # alacritty should wait for accepting multiple clicks as one double
+  # or triple click.
+  double_click: { threshold: 300 }
+  triple_click: { threshold: 300 }
 
-# If this is `true`, the cursor is temporarily hidden when typing.
-# hide_when_typing: false
+  # If this is `true`, the cursor is temporarily hidden when typing.
+  hide_when_typing: false
 
 # Hints
 #
@@ -815,6 +811,7 @@ key_bindings:
   - { key: NumpadAdd, mods: Control, action: IncreaseFontSize }
   - { key: Minus, mods: Control, action: DecreaseFontSize }
   - { key: NumpadSubtract, mods: Control, action: DecreaseFontSize }
+
 # (Windows only)
 # - { key: Return,   mods: Alt,           action: ToggleFullscreen }
 
@@ -840,26 +837,26 @@ key_bindings:
 #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
 #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
 
-# debug:
-# Display the time it takes to redraw each frame.
-# render_timer: false
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
 
-# Keep the log file after quitting Alacritty.
-# persistent_logging: false
+  # Keep the log file after quitting Alacritty.
+  persistent_logging: false
 
-# Log level
-#
-# Values for `log_level`:
-#   - Off
-#   - Error
-#   - Warn
-#   - Info
-#   - Debug
-#   - Trace
-# log_level: Warn
+  # Log level
+  #
+  # Values for `log_level`:
+  #   - Off
+  #   - Error
+  #   - Warn
+  #   - Info
+  #   - Debug
+  #   - Trace
+  log_level: Warn
 
-# Print all received window events.
-# print_events: false
+  # Print all received window events.
+  print_events: false
 
-# Highlight window damage information.
-# highlight_damage: false
+  # Highlight window damage information.
+  highlight_damage: false
