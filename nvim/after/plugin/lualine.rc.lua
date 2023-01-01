@@ -3,10 +3,55 @@ if not status then
   return
 end
 
+local colors = {
+  -- general
+  fg = "#008484",
+  bg = "#080808",
+
+  -- mid
+  fg_b = "#008484",
+  bg_b = "#0a0f0f",
+
+  -- N mode
+  fg_n = "#060909",
+  bg_n = "#008484",
+
+  -- I-V-R modes
+  fg_ivr = "#080c0c",
+  bg_i = "#818596",
+  bg_v = "#b4be82",
+  bg_r = "#e2a478",
+}
+
+local custom_theme = {
+  inactive = {
+    c = { fg = colors.fg, bg = colors.bg },
+    a = { fg = colors.fg, bg = colors.bg, gui = "bold" },
+    b = { fg = colors.fg, bg = colors.bg },
+  },
+  normal = {
+    c = { fg = colors.fg, bg = colors.bg },
+    a = { fg = colors.fg_n, bg = colors.bg_n, gui = "bold" },
+    b = { fg = colors.fg_b, bg = colors.bg_b },
+  },
+  insert = {
+    a = { fg = colors.fg_ivr, bg = colors.bg_i, gui = "bold" },
+    b = { fg = colors.fg_b, bg = colors.bg_b },
+  },
+  visual = {
+    a = { fg = colors.fg_ivr, bg = colors.bg_v, gui = "bold" },
+    b = { fg = colors.fg_b, bg = colors.bg_b },
+  },
+  replace = {
+    a = { fg = colors.fg_ivr, bg = colors.bg_r, gui = "bold" },
+    b = { fg = colors.fg_b, bg = colors.bg_b },
+  },
+}
+
 lualine.setup({
   options = {
     icons_enabled = true,
-    theme = "iceberg_dark",
+    theme = custom_theme,
     section_separators = { left = "", right = "" },
     component_separators = { left = "", right = "" },
     disabled_filetypes = {},
