@@ -8,7 +8,8 @@ vim.cmd([[highlight NvimTreeFolderIcon guifg=#555878]])
 vim.cmd([[highlight NvimTreeFolderName guifg=#555878]])
 vim.cmd([[highlight NvimTreeEmptyFolderIcon guifg=#555878]])
 vim.cmd([[highlight NvimTreeEmptyFolderName guifg=#555878]])
-vim.cmd([[highlight NvimTreeOpenedFolderName guifg=#8d92c8]])
+vim.cmd([[highlight NvimTreeOpenedFolderIcon guifg=#008484]])
+vim.cmd([[highlight NvimTreeOpenedFolderName guifg=#008484]])
 
 -- undercurl
 vim.cmd([[let &t_Cs = '\e[4:3m']])
