@@ -15,11 +15,17 @@ function install_apt_packages() {
     bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
 }
 
-# install zsh
-function install_zsh() {
+function install_zsh_plugins() {
   sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
   sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
   sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+}
+
+function install_tmux_plugins() {
+  if ! [[ -d ~/.tmux/plugins/tpm ]]; then
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    git clone https://github.com/drewxs/tmux-power ~/.tmux/plugins/tmux-power
+  fi
 }
 
 function install_cmake() {
@@ -123,7 +129,8 @@ function create_symlinks() {
 }
 
 install_apt_packages
-install_zsh
+install_zsh_plugins
+install_tmux_plugins
 install_cmake
 install_lazygit
 install_rust

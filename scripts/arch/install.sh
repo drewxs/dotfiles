@@ -48,6 +48,7 @@ function install_zsh_plugins() {
 function install_tmux_plugins() {
   if ! [[ -d ~/.tmux/plugins/tpm ]]; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    git clone https://github.com/drewxs/tmux-power ~/.tmux/plugins/tmux-power
   fi
 }
 
