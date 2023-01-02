@@ -81,19 +81,56 @@ alias delsw='find . -type f -name "*.sw[klmnop]" -delete'
 alias lg="lazygit"
 
 # Functions
-function kill-port() {
+
+# $1: port num
+kill-port () {
   kill -9 $(lsof -t -i:"$1")
 }
 
-function keys() {
+keys () {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
-function up-dot() {
-  cwd=$(pwd)
-  cd ~/.dotfiles
-  git pull --ff-only
-  cd $cwd
+# $1: command
+package_exists () {
+  if command -v "$1" &> /dev/null; then
+    echo "$1 installation found"
+    return 0
+  fi
+  return 1
+}
+
+# $1: dir
+# $2: name/identifier
+dir_exists () {
+  if [[ -d $1 ]] && [[ -n $1 ]]; then
+    echo "$2 found"
+    return 0
+  fi
+  return 1
+}
+
+# $1: [-f] rerun install
+upd () {
+  git -C ~/.dotfiles pull --ff-only
+  while getopts :f opt; do
+    case $opt in
+      f)
+        source ~/.dotfiles/scripts/shared/cleanup.sh
+        source ~/.dotfiles/scripts/shared/plugins.sh
+        update_only=true
+        if [[ -x "$(command -v apt-get)" ]]; then
+          source ~/.dotfiles/scripts/debian/install.sh
+        elif [[ -x "$(command -v pacman)" ]]; then
+          source ~/.dotfiles/scripts/arch/install.sh
+        fi
+        ;;
+      \?)
+        echo "Invalid option: -$OPTARG" >&2
+        ;;
+    esac
+  done
+  echo "\nDotfiles updated"
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
