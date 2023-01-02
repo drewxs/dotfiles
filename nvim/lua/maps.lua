@@ -59,8 +59,8 @@ map("n", "<A-s>", ":lua vim.lsp.buf.format()<CR>:w!<CR>", opts)
 map("i", "<A-s>", "<Esc>:lua vim.lsp.buf.format()<CR>:w!<CR>", opts)
 
 -- quit
-map("n", "<C-q>", ":q!<CR>", opts)
-map("i", "<C-q>", "<Esc>:q!<CR>", opts)
+map("n", "<C-q>", ":qa!<CR>", opts)
+map("n", "<A-q>", ":q!<CR>", opts)
 
 -- move text up/down
 map("n", "<A-j>", ":m .+1<CR>", opts)
