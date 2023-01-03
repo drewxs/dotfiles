@@ -7,7 +7,7 @@ My alacritty/neovim/tmux/zsh configurations.
 Clone repo
 
 ```sh
-git clone https://github.com/drewxs/dotfiles ~/.dotfiles
+git clone https://github.com/drewxs/dotfiles $HOME/.dotfiles
 ```
 
 Installation
@@ -15,21 +15,21 @@ Installation
 Arch:
 
 ```sh
-source ~/.dotfiles/scripts/arch/preinstall.sh
+source $HOME/.dotfiles/scripts/arch/preinstall.sh
 ```
 
 ```sh
-source ~/.dotfiles/scripts/arch/install.sh
+source $HOME/.dotfiles/scripts/arch/install.sh
 ```
 
 Debian:
 
 ```sh
-source  ~/.dotfiles/scripts/debian/preinstall.sh
+source  $HOME/.dotfiles/scripts/debian/preinstall.sh
 ```
 
 ```sh
-source  ~/.dotfiles/scripts/debian/install.sh
+source  $HOME/.dotfiles/scripts/debian/install.sh
 ```
 
 ## Update

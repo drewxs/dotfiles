@@ -116,13 +116,12 @@ upd () {
   while getopts :f opt; do
     case $opt in
       f)
-        source ~/.dotfiles/scripts/shared/cleanup.sh
         source ~/.dotfiles/scripts/shared/plugins.sh
         update_only=true
         if [[ -x "$(command -v apt-get)" ]]; then
-          source ~/.dotfiles/scripts/debian/install.sh
+          source $HOME/.dotfiles/scripts/debian/install.sh
         elif [[ -x "$(command -v pacman)" ]]; then
-          source ~/.dotfiles/scripts/arch/install.sh
+          source $HOME/.dotfiles/scripts/arch/install.sh
         fi
         ;;
       \?)

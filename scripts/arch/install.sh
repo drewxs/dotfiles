@@ -5,10 +5,10 @@ pwd=$(pwd)
 install_yay () {
   package_exists yay && return
   sudo pacman -S --needed git base-devel --noconfirm
-  git clone https://aur.archlinux.org/yay.git ~/yay
-  cd ~/yay
+  git clone https://aur.archlinux.org/yay.git $HOME/yay
+  cd $HOME/yay
   makepkg -si --noconfirm
-  cd ~
+  cd $HOME
 }
 
 install_snap () {

@@ -11,13 +11,13 @@ install_apt_packages () {
 
 install_cmake () {
   package_exists cmake && return
-  cd ~
+  cd $HOME
   wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
   sudo tar -xf cmake-3.24.2.tar.gz
   cd cmake-3.24.2
   ./bootstrap
   make
-  cd ~
+  cd $HOME
   sudo rm -rf cmake-3*
 }
 
@@ -47,9 +47,9 @@ install_node () {
 install_ruby () {
   if ! package_exists rbenv; then
     curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
-    echo 'eval "$(rbenv init -)"' >> ~/.zshrc
-    source ~/.zshrc
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> $HOME/.zshrc
+    echo 'eval "$(rbenv init -)"' >> $HOME/.zshrc
+    source $HOME/.zshrc
   fi
   rbenv install 3.1.0
   rbenv global 3.1.0
@@ -80,17 +80,17 @@ install_packages () {
 install_neovim () {
   package_exists nvim && return
   sudo rm -rf neovim
-  git clone https://github.com/neovim/neovim ~/neovim
-  cd ~/neovim
+  git clone https://github.com/neovim/neovim $HOME/neovim
+  cd $HOME/neovim
   git checkout stable
   make CMAKE_BUILD_TYPE=Release
   sudo make install
-  cd ~
+  cd $HOME
   sudo rm -rf neovim
 }
 
 install_packer () {
-  packer_loc="~/.local/share/nvim/site/pack/packer/start/packer.nvim"
+  packer_loc="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
   if dir_exists $packer_loc "packer"; then
     git clone --depth 1 https://github.com/wbthomason/packer.nvim $packer_loc
   fi

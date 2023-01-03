@@ -17,8 +17,8 @@ install_zsh_plugins () {
 }
 
 install_tmux_plugins () {
-  tpm="~/.tmux/plugins/tpm"
-  tmux_power="~/.tmux/plugins/tmux-power"
+  tpm="$HOME/.tmux/plugins/tpm"
+  tmux_power="$HOME/.tmux/plugins/tmux-power"
 
   if ! dir_exists $tpm "tmux plugin: tpm"; then
     git clone https://github.com/tmux-plugins/tpm $tpm
