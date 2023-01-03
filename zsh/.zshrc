@@ -112,11 +112,11 @@ dir_exists () {
 
 # $1: [-f] rerun install
 upd () {
-  git -C ~/.dotfiles pull --ff-only
+  git -C $HOME/.dotfiles pull --ff-only
   while getopts :f opt; do
     case $opt in
       f)
-        source ~/.dotfiles/scripts/shared/plugins.sh
+        source $HOME/.dotfiles/scripts/shared/plugins.sh
         update_only=true
         if [[ -x "$(command -v apt-get)" ]]; then
           source $HOME/.dotfiles/scripts/debian/install.sh
@@ -133,7 +133,7 @@ upd () {
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
