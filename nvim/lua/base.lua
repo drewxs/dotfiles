@@ -1,4 +1,4 @@
-vim.cmd("autocmd!")
+vim.cmd([[autocmd!]])
 
 -- theme
 vim.cmd([[colorscheme catppuccin-mocha]])

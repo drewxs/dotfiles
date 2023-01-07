@@ -61,7 +61,7 @@ nvim_tree.setup({
   hijack_directories = {
     enable = true,
   },
-  open_on_setup = true,
+  open_on_setup = false,
   view = {
     adaptive_size = true,
     hide_root_folder = true,
