@@ -84,8 +84,8 @@ map("v", "<C-_>", "gb", remap)
 map("n", "<A-\\>", "za", remap)
 
 -- lspsaga
-map("n", "<S-u>", ":Lspsaga hover_doc<CR>", opts)
-map("n", "<S-i>", ":Lspsaga lsp_finder<CR>", opts)
+map("n", "<S-d>", ":Lspsaga hover_doc<CR>", opts)
+map("n", "<S-f>", ":Lspsaga lsp_finder<CR>", opts)
 map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
 map("n", "<S-o>", ":LSoutlineToggle<CR>", opts)
 map("n", "<S-p>", ":Lspsaga peek_definition<CR>", opts)
