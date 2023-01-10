@@ -132,6 +132,18 @@ upd () {
   echo "\nDotfiles updated"
 }
 
+# Find (recursively) and list directories with name
+# $1: dir name
+finddir() {
+  find . -name "$1" -type d -prune | xargs du -chs
+}
+
+# Find (recursively) and delete all directories with name
+# $1: dir name
+deldir() {
+  find . -name "$1" -type d -prune -exec rm -rf '{}' +
+}
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
