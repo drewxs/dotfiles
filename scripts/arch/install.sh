@@ -21,7 +21,7 @@ install_snap () {
 install_packages () {
   sudo pacman -S --noconfirm tmux neofetch wget xclip ripgrep \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
-    rustup python python-pip ruby go \
+    rustup python python-pip ruby go dotnet-sdk \
     neovim lazygit docker
   yay -S nvm rbenv nvim-packer-git
   rustup default stable
