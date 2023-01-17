@@ -20,8 +20,8 @@ saga.setup({
       title_bg = "#080808", --title background color
       red = "#714243",
       magenta = "#817a99",
-      orange = "#FF8700",
-      yellow = "#c1bd8f",
+      orange = "#008484",
+      yellow = "#008484",
       green = "#006353",
       cyan = "#008484",
       blue = "#00c3d4",
