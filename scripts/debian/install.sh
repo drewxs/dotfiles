@@ -70,6 +70,13 @@ install_pip () {
   fi
 }
 
+install_dotnet () {
+  wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+  sudo dpkg -i packages-microsoft-prod.deb
+  rm packages-microsoft-prod.deb
+  sudo apt-get update && sudo apt-get install -y dotnet-sdk-7.0
+}
+
 install_packages () {
   cargo install tree-sitter-cli stylua
   npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
@@ -107,6 +114,7 @@ install_rust
 install_ruby
 install_go
 install_pip
+install_dotnet
 install_packages
 install_neovim
 install_packer
