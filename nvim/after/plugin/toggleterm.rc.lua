@@ -46,8 +46,3 @@ end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd([[autocmd! TermOpen term://* lua set_terminal_keymaps()]])
-
--- set layout
-vim.cmd([[ToggleTerm]])
-vim.cmd([[NvimTreeToggle]])
-vim.cmd([[stopinsert]])
