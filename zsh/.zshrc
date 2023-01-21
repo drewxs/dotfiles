@@ -101,6 +101,11 @@ package_exists () {
 }
 
 # $1: dir
+mkcd () {
+  mkdir "$1" && cd "$1"
+}
+
+# $1: dir
 # $2: name/identifier
 dir_exists () {
   if [[ -d $1 ]] && [[ -n $1 ]]; then
