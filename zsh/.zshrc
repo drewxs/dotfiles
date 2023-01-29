@@ -121,6 +121,9 @@ upall () {
   if [[ -x "$(command -v pnpm)" ]]; then
     pnpm update --global --latest
   fi
+  if [[ -x "$(command -v gem)" ]]; then
+    gem update
+  fi
 }
 
 # $1: [-f] rerun install
