@@ -12,9 +12,8 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Auto-update behavior.
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ":omz:update" mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+# modes: disabled | auto | reminder
+zstyle ":omz:update" mode auto 
 
 # Display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
@@ -28,25 +27,23 @@ HIST_STAMPS="yyy-mm-dd"
 # Custom plugins: $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(
-git
-zsh-syntax-highlighting
-zsh-autosuggestions
-docker
+  zsh-syntax-highlighting
+  zsh-autosuggestions
+  git
+  docker
 )
 
+# Sources
 source $ZSH/oh-my-zsh.sh
+source $HOME/.dotfiles/scripts/shared/plugins.sh
 
 # User configuration
 # export MANPATH="/usr/local/man:$MANPATH"
 # Manually set your language environment
 # export LANG=en_US.UTF-8
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR="vim"
-else
-  export EDITOR="nvim"
-fi
+# Preferred editor
+export EDITOR="nvim"
 
 # Compilation flags
 export ARCHFLAGS="-arch x86_64"
@@ -57,7 +54,7 @@ if [[ -x "$(command -v apt-get)" ]]; then
 elif [[ -x "$(command -v pacman)" ]]; then
   alias p="sudo pacman --noconfirm"
   alias y="yay --noconfirm"
-  alias up="yay -Syyu --noconfirm"
+  alias up="yay -Syu --noconfirm"
 fi
 
 if [[ -x "$(command -v docker)" ]]; then
@@ -115,13 +112,23 @@ dir_exists () {
   return 1
 }
 
+# Update all packages
+upall () {
+  up
+  if [[ -x "$(command -v rustup)" ]]; then
+    rustup update
+  fi
+  if [[ -x "$(command -v pnpm)" ]]; then
+    pnpm update --global --latest
+  fi
+}
+
 # $1: [-f] rerun install
 upd () {
   git -C $HOME/.dotfiles pull --ff-only
   while getopts :f opt; do
     case $opt in
       f)
-        source $HOME/.dotfiles/scripts/shared/plugins.sh
         update_only=true
         if [[ -x "$(command -v apt-get)" ]]; then
           source $HOME/.dotfiles/scripts/debian/install.sh
@@ -139,24 +146,23 @@ upd () {
 
 # Find (recursively) and list directories with name
 # $1: dir name
-finddir() {
+finddir () {
   find . -name "$1" -type d -prune | xargs du -chs
 }
 
 # Find (recursively) and delete all directories with name
 # $1: dir name
-deldir() {
+deldir () {
   find . -name "$1" -type d -prune -exec rm -rf '{}' +
 }
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
+# PATH
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# path
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export CARGO_HOME="$HOME/.cargo"
 export CARGO_BIN="$CARGO_HOME/bin"
