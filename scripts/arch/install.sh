@@ -21,19 +21,26 @@ install_snap () {
 install_packages () {
   sudo pacman -S --noconfirm tmux neofetch wget xclip ripgrep \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
-    rustup python python-pip ruby go dotnet-sdk \
+    rustup python python-pip go dotnet-sdk \
     neovim lazygit docker
-  yay -S nvm rbenv nvim-packer-git
+  yay -S nvm rbenv ruby-build nvim-packer-git
+
   rustup default stable
   cargo install tree-sitter-cli stylua
   cargo install languagetool-rust --features full
+
   nvm install 18
   nvm alias default 18
   if ! package_exists pnpm; then
     npm i -g pnpm
   fi
   pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd
-  gem install neovim
+
+  ruby_latest_version=$(rbenv install -l | grep -v - | tail -1)
+  rbenv install $ruby_latest_version
+  rbenv global $ruby_latest_version
+  gem install neovim rails
+
   pip install --user neovim black
 }
 

@@ -167,6 +167,7 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export CARGO_HOME="$HOME/.cargo"
 export CARGO_BIN="$CARGO_HOME/bin"
 export PATH="$PATH:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN"
+eval "$(rbenv init - zsh)"
 
 # compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
