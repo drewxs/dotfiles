@@ -62,6 +62,14 @@ if [[ -x "$(command -v docker)" ]]; then
   alias docker:stop="sudo systemctl stop docker.service"
 fi
 
+if [[ -x "$(command -v docker-compose)" ]]; then
+  alias dcud="docker-compose up -d"
+  alias dcd="docker-compose down"
+  alias dcr="docker-compose restart"
+  alias dcp="docker-compose pull"
+  alias dclf="docker-compose logs -f"
+fi
+
 if [[ -x "$(command -v psql)" ]]; then
   alias pg:start="sudo systemctl start postgresql.service"
   alias pg:stop="sudo systemctl stop postgresql.service"
@@ -79,15 +87,18 @@ alias lg="lazygit"
 
 # Functions
 
+# Kill processes on specified port
 # $1: port num
-kill-port () {
+killport () {
   kill -9 $(lsof -t -i:"$1")
 }
 
+# Print keycodes on keypress
 keys () {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
+# Check if a package is installed
 # $1: command
 package_exists () {
   if command -v "$1" &> /dev/null; then
@@ -97,11 +108,13 @@ package_exists () {
   return 1
 }
 
+# Create and cd into a directory
 # $1: dir
 mkcd () {
   mkdir "$1" && cd "$1"
 }
 
+# Check if a directory exists
 # $1: dir
 # $2: name/identifier
 dir_exists () {
@@ -112,7 +125,7 @@ dir_exists () {
   return 1
 }
 
-# Update all packages
+# Update packages and tools
 upall () {
   up
   if [[ -x "$(command -v rustup)" ]]; then
@@ -126,6 +139,7 @@ upall () {
   fi
 }
 
+# Update dotfiles
 # $1: [-f] rerun install
 upd () {
   git -C $HOME/.dotfiles pull --ff-only
