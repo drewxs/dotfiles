@@ -60,9 +60,12 @@ fi
 if [[ -x "$(command -v docker)" ]]; then
   alias docker:start="sudo systemctl start docker.service"
   alias docker:stop="sudo systemctl stop docker.service"
+  alias docker:rm="docker ps -aq | xargs docker stop | xargs docker rm"
+  alias docker:prune="docker system prune -a"
 fi
 
 if [[ -x "$(command -v docker-compose)" ]]; then
+  alias dcu="docker-compose up"
   alias dcud="docker-compose up -d"
   alias dcd="docker-compose down"
   alias dcr="docker-compose restart"
