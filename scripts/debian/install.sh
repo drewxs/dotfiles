@@ -119,7 +119,7 @@ install_packages
 install_neovim
 install_packer
 
-if [[ $update_only == false ]]; then
+if [[ $update_only != true ]]; then
   cleanup
 fi
 

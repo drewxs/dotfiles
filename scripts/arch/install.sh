@@ -50,7 +50,7 @@ install_zsh_plugins
 install_tmux_plugins
 install_packages
 
-if [[ $update_only == false ]]; then
+if [[ $update_only != true]]; then
   cleanup
 fi
 
