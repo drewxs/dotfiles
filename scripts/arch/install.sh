@@ -23,7 +23,7 @@ install_packages () {
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
     rustup python python-pip go dotnet-sdk \
     neovim lazygit docker
-  yay -S nvm rbenv ruby-build nvim-packer-git
+  yay -S --noconfirm nvm ruby-build rbenv nvim-packer-git
 
   rustup default stable
   cargo install tree-sitter-cli stylua
