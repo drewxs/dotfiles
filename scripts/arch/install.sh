@@ -2,7 +2,7 @@
 
 pwd=$(pwd)
 
-install_yay () {
+function install_yay () {
   package_exists yay && return
   sudo pacman -S --needed git base-devel --noconfirm
   git clone https://aur.archlinux.org/yay.git $HOME/yay
@@ -11,14 +11,14 @@ install_yay () {
   cd $HOME
 }
 
-install_snap () {
+function install_snap () {
   package_exists snap && return
   yay -S snapd --answerdiff=None
   sudo systemctl enable --now snapd.socket
   sudo systemctl enable --now snapd.apparmor
 }
 
-install_packages () {
+function install_packages () {
   sudo pacman -S --noconfirm tmux neofetch wget xclip ripgrep \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
     rustup python python-pip go dotnet-sdk \

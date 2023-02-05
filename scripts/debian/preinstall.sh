@@ -1,6 +1,6 @@
 #!/bin/sh
 
-preinstall () {
+function preinstall () {
   sudo apt update && sudo apt upgrade -y
   sudo apt install zsh
   sudo rm -rf .oh-my-zsh

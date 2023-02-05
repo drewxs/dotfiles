@@ -1,6 +1,6 @@
 #!/bin/sh
 
-preinstall () {
+function preinstall () {
   sudo pacman -Syu --noconfirm
   sudo pacman -S zsh
   sudo rm -rf .oh-my-zsh
