@@ -15,12 +15,6 @@ vim.cmd([[highlight NvimTreeOpenedFolderName guifg=#008484]])
 vim.cmd([[let &t_Cs = '\e[4:3m']])
 vim.cmd([[let &t_Ce = '\e[4:0m']])
 
--- turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  command = "set nopaste",
-})
-
 -- highlight yanked text
 vim.cmd([[
   augroup highlight_yank
@@ -28,3 +22,15 @@ vim.cmd([[
   au TextYankPost * silent! lua vim.highlight.on_yank({higroup="Visual", timeout=100})
   augroup END
 ]])
+
+-- turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  command = "set nopaste",
+})
+
+-- auto refresh buffers on change
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
