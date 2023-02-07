@@ -89,8 +89,8 @@ map("n", "<S-f>", ":Lspsaga lsp_finder<CR>", opts)
 map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
 map("n", "<S-o>", ":LSoutlineToggle<CR>", opts)
 map("n", "<S-p>", ":Lspsaga peek_definition<CR>", opts)
-map("n", "[", ":Lspsaga diagnostic_jump_prev<CR>", remap)
-map("n", "]", ":Lspsaga diagnostic_jump_next<CR>", remap)
+map("n", "<A-[>", ":Lspsaga diagnostic_jump_prev<CR>", remap)
+map("n", "<A-]>", ":Lspsaga diagnostic_jump_next<CR>", remap)
 
 -- diagnostics
 vim.keymap.set("n", "<S-q>", vim.diagnostic.setloclist, opts)
