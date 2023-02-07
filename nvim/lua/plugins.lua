@@ -23,10 +23,9 @@ require("packer").startup(function(use)
   use("EdenEast/nightfox.nvim")
   use("folke/tokyonight.nvim")
   use("marko-cerovac/material.nvim")
-  use({
-    "catppuccin/nvim",
-    as = "catppuccin",
-  })
+  use("catppuccin/nvim")
+  use("kvrohit/substrata.nvim")
+  use("kvrohit/mellow.nvim")
 
   -- file icons
   use("nvim-tree/nvim-web-devicons")
