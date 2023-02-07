@@ -4,6 +4,7 @@ if not status then
 end
 
 saga.setup({
+  event = "BufRead",
   ui = {
     theme = "round", -- currently only round theme
     border = "single", -- "single" | "double" | "rounded" | "solid" | "shadow"
@@ -82,7 +83,7 @@ saga.setup({
     enable = true,
     separator = " ",
     hide_keyword = true,
-    show_file = true,
+    show_file = false,
     folder_level = 2,
     respect_root = false,
     color_mode = false,
