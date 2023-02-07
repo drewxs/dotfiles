@@ -11,9 +11,10 @@ fi
 # Git
 alias gs="git fetch && git status"
 alias gd="git diff --name-only"
-alias gdc="git diff --cached --name-only"
 alias gds="git diff --staged --name-only"
+alias grss='git restore --staged'
 alias gcm="git commit -m"
+alias gu="git reset --soft HEAD~1"
 
 # Docker
 alias docker:start="sudo systemctl start docker.service"
@@ -41,4 +42,3 @@ alias v="nvim"
 
 # Lazygit
 alias lg="lazygit"
-
