@@ -19,8 +19,10 @@ alias gu="git reset --soft HEAD~1"
 # Docker
 alias docker:start="sudo systemctl start docker.service"
 alias docker:stop="sudo systemctl stop docker.service"
+alias d="docker"
 alias drm="docker ps -aq | xargs docker stop | xargs docker rm"
-alias dsp="docker system prune -a"
+alias dsp="docker system prune -a -f"
+alias dspv="docker system prune -a -f --volumes"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
 alias di="docker inspect"
@@ -42,3 +44,6 @@ alias v="nvim"
 
 # Lazygit
 alias lg="lazygit"
+
+# Misc
+alias c="clear"
