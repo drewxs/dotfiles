@@ -8,8 +8,18 @@ elif [[ -x "$(command -v pacman)" ]]; then
   alias upf="yay -Syyu --noconfirm"
 fi
 
+# Files
+alias l="exa -lah"
+alias ls="exa"
+
 # General
+alias v="nvim"
+alias lg="lazygit"
+alias c="clear"
+alias trim="awk '{\$1=\$1;print}'"
 alias notes="cat $HOME/notes.txt"
+alias serve="npx http-server"
+
 # Git
 alias gs="git fetch && git status"
 alias gd="git diff --name-only"
@@ -19,8 +29,8 @@ alias gcm="git commit -m"
 alias gu="git reset --soft HEAD~1"
 
 # Docker
-alias docker:start="sudo systemctl start docker.service"
-alias docker:stop="sudo systemctl stop docker.service"
+alias d:start="sudo systemctl start docker.service"
+alias d:stop="sudo systemctl stop docker.service"
 alias d="docker"
 alias drm="docker ps -aq | xargs docker stop | xargs docker rm"
 alias dsp="docker system prune -a -f"
@@ -40,12 +50,3 @@ alias dcl="docker-compose logs -f"
 # Postgres
 alias pg:start="sudo systemctl start postgresql.service"
 alias pg:stop="sudo systemctl stop postgresql.service"
-
-# Neovim
-alias v="nvim"
-
-# Lazygit
-alias lg="lazygit"
-
-# Misc
-alias c="clear"
