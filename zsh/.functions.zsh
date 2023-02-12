@@ -22,7 +22,8 @@ function package_exists () {
 # Create and cd into a directory
 # $1: dir
 function mkcd () {
-  mkdir "$1" && cd "$1"
+  mkdir -p "$1"
+  cd "$1"
 }
 
 # Check if a directory exists
