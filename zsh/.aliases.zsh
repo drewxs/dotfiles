@@ -8,6 +8,8 @@ elif [[ -x "$(command -v pacman)" ]]; then
   alias upf="yay -Syyu --noconfirm"
 fi
 
+# General
+alias notes="cat $HOME/notes.txt"
 # Git
 alias gs="git fetch && git status"
 alias gd="git diff --name-only"

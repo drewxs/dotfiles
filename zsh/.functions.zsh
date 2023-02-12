@@ -89,3 +89,10 @@ function deldir () {
 function delsw () {
   find . -type f -name "*.sw[klmnop]" -delete
 }
+
+# Create notes
+function note () {
+  echo "date: $(date)" >> $HOME/notes.txt
+  echo "$@" >> $HOME/notes.txt
+  echo "" >> $HOME/notes.txt
+}
