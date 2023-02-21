@@ -83,6 +83,9 @@ map("v", "<C-_>", "gb", remap)
 -- toggle fold
 map("n", "<A-\\>", "za", remap)
 
+-- markdown preview
+map("n", "<C-M>", ":MarkdownPreviewToggle<CR>", opts)
+
 -- lspsaga
 map("n", "<S-d>", ":Lspsaga hover_doc<CR>", opts)
 map("n", "<S-f>", ":Lspsaga lsp_finder<CR>", opts)

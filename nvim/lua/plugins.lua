@@ -120,6 +120,14 @@ require("packer").startup(function(use)
   -- motion
   use("ggandor/lightspeed.nvim")
 
+  -- markdown preview
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+  })
+
   if packer_bootstrap then
     require("packer").sync()
   end
