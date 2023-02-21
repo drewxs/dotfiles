@@ -81,7 +81,10 @@ require("packer").startup(function(use)
   })
 
   -- comment
-  use("numToStr/Comment.nvim")
+  use({
+    "numToStr/Comment.nvim",
+    requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
+  })
 
   -- auto tag/pair
   use("windwp/nvim-ts-autotag")

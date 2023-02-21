@@ -51,3 +51,23 @@ ts.setup({
 
 -- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 -- parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+
+local ts_js_commentstring_config = {
+  __default = "// %s",
+  __multiline = "/* %s */",
+  jsx_element = "{/* %s */}",
+  jsx_fragment = "{/* %s */}",
+  jsx_attribute = "// %s",
+  comment = "// %s",
+}
+
+require("nvim-treesitter.configs").setup({
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+    config = {
+      javascript = ts_js_commentstring_config,
+      typescript = ts_js_commentstring_config,
+    },
+  },
+})
