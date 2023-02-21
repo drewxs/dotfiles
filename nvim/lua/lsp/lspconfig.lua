@@ -38,18 +38,19 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protoc
 
 local servers = {
   "bashls",
-  "sumneko_lua",
   "rust_analyzer",
   "clangd",
   "csharp_ls",
-  "ruby_ls",
   "gopls",
-  "pyright",
   "jdtls",
+  "ruby_ls",
+  "lua_ls",
+  "pyright",
   "solidity",
   "clojure_lsp",
   "tsserver",
   "eslint",
+  "denols",
   "astro",
   "angularls",
   "svelte",
@@ -78,7 +79,7 @@ require("mason-lspconfig").setup({
 
 -- use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
@@ -95,7 +96,7 @@ for _, server in ipairs(servers) do
   })
 end
 
-nvim_lsp.eslint.setup({
+nvim_lsp["eslint"].setup({
   on_attach = on_attach,
   settings = {
     imports = {
@@ -115,7 +116,7 @@ nvim_lsp.eslint.setup({
   },
 })
 
-nvim_lsp.sumneko_lua.setup({
+nvim_lsp["lua_ls"].setup({
   settings = {
     Lua = {
       diagnostics = {
