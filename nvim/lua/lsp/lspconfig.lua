@@ -50,7 +50,6 @@ local servers = {
   "clojure_lsp",
   "tsserver",
   "eslint",
-  "denols",
   "astro",
   "angularls",
   "svelte",
