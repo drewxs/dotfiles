@@ -23,7 +23,6 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
     { name = "buffer" },
-    { name = "cmp_tabnine" },
   }),
   formatting = {
     format = lspkind.cmp_format({ with_text = false, maxwidth = 50 }),
