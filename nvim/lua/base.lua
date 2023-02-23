@@ -1,7 +1,7 @@
 vim.cmd([[autocmd!]])
 
 -- theme
-vim.cmd([[colorscheme mellow]])
+vim.cmd([[colorscheme substrata]])
 
 -- nvim-tree highlights
 vim.cmd([[highlight NvimTreeFolderIcon guifg=#555878]])
