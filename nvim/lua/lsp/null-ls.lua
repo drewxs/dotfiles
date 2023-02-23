@@ -12,9 +12,11 @@ null_ls.setup({
     code_actions.eslint,
     code_actions.ltrs,
     diagnostics.eslint,
-    formatting.black,
+    diagnostics.shellcheck,
+    formatting.autopep8,
     formatting.prettierd,
     formatting.rustfmt,
+    formatting.shfmt,
     formatting.stylua,
   },
 })
