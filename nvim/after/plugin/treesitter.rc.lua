@@ -27,6 +27,7 @@ ts.setup({
     "tsx",
     "php",
     "html",
+    "vue",
     "scss",
     "css",
     "sql",
@@ -37,6 +38,7 @@ ts.setup({
     "yaml",
     "toml",
     "markdown",
+    "markdown_inline",
     "dockerfile",
   },
   -- Install parsers synchronously (only applied to `ensure_installed`)
