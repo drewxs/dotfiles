@@ -96,3 +96,8 @@ function note () {
   echo "$@" >> $HOME/notes.txt
   echo "" >> $HOME/notes.txt
 }
+
+# Mass rename / remove part of filename
+function mvrm () {
+  find -name "*" -print0 | sed -ze "p;s/\$1//" | xargs -0 -n2 mv
+}
