@@ -32,22 +32,20 @@ map("n", "cw", "yiw", opts)
 map("n", "<C-a>", "gg<S-v>G", opts)
 
 -- delete
-map("i", "<C-H>", "<C-w>", opts)
+map("i", "<C-h>", "<C-w>", opts)
 map("i", "<C-Del>", "<Esc>ldwi", opts)
 
 -- move
-map("i", "<A-k>", "<Up>", opts) -- i-mode movement
+map("i", "<A-k>", "<Up>", opts) -- cursor movement
 map("i", "<A-j>", "<Down>", opts)
 map("i", "<C-k>", "<Up>", opts)
 map("i", "<C-j>", "<Down>", opts)
-map("i", "<A-h>", "<Left>", opts)
-map("i", "<A-l>", "<Right>", opts)
 map("n", "<A-h>", "b", opts) -- word movement
 map("n", "<A-l>", "e", opts)
 map("v", "<A-h>", "b", opts)
 map("v", "<A-l>", "e", opts)
-map("i", "<C-h>", "<S-Left>", opts)
-map("i", "<C-l>", "<S-Right>", opts)
+map("i", "<A-h>", "<S-Left>", opts)
+map("i", "<A-l>", "<S-Right>", opts)
 map("i", "<A-a>", "<Esc><S-a>", opts) -- line end
 map("i", "<A-;>", "<Esc><S-a>;<CR>", opts) -- line end -> ';' -> new line
 map("i", "<A-,>", "<Esc><S-a>,<CR>", opts) -- line end -> ',' -> new line
