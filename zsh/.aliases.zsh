@@ -8,14 +8,13 @@ elif [[ -x "$(command -v pacman)" ]]; then
   alias upf="yay -Syyu --noconfirm"
 fi
 
-# Files
+# General
 alias l="exa -lah"
 alias ls="exa"
-
-# General
+alias c="clear"
+alias cat="bat"
 alias v="nvim"
 alias lg="lazygit"
-alias c="clear"
 alias trim="awk '{\$1=\$1;print}'"
 alias notes="cat $HOME/notes.txt"
 alias serve="npx http-server"
