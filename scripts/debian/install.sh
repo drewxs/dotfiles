@@ -78,7 +78,8 @@ function install_dotnet () {
 }
 
 function install_packages () {
-  cargo install tree-sitter-cli stylua
+  cargo install languagetool-rust --features full
+  cargo install cargo-info tree-sitter-cli stylua exa bat
   npm i -g neovim pnpm @fsouza/prettierd eslint_d typescript-language-server @commitlint/cli @commitlint/config-conventional
   sudo gem install neovim shopify-cli
   pip3 install neovim

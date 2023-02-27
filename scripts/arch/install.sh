@@ -19,18 +19,18 @@ function install_snap () {
 }
 
 function install_packages () {
-  sudo pacman -S --noconfirm tmux neofetch wget xclip ripgrep \
+  sudo pacman -S --noconfirm \
+    tmux neofetch wget xclip ripgrep exa bat ncspot \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
     rustup python python-pip go dotnet-sdk \
-    neovim lazygit docker
+    docker lazygit neovim tree-sitter stylua
   yay -S --noconfirm nvm ruby-build rbenv nvim-packer-git
 
-  rustup default stable
-  cargo install tree-sitter-cli stylua
+  rustup default nightly
   cargo install languagetool-rust --features full
 
-  nvm install 18
-  nvm alias default 18
+  nvm install --lts
+  nvm alias default node
   if ! package_exists pnpm; then
     npm i -g pnpm
   fi
