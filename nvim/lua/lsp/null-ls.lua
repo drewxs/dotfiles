@@ -9,14 +9,16 @@ local formatting = null_ls.builtins.formatting
 
 null_ls.setup({
   sources = {
-    code_actions.eslint,
-    code_actions.ltrs,
-    diagnostics.eslint,
+    code_actions.eslint_d,
+    code_actions.shellcheck,
+    diagnostics.buf,
+    diagnostics.eslint_d,
     diagnostics.shellcheck,
     formatting.autopep8,
     formatting.prettierd,
     formatting.rustfmt,
     formatting.shfmt,
     formatting.stylua,
+    formatting.sqlformatter,
   },
 })
