@@ -1,11 +1,13 @@
+#!/bin/bash
+
 # Package manager
 if [[ -x "$(command -v apt-get)" ]]; then
-  alias up='sudo apt update && sudo apt upgrade -y'
+	alias up='sudo apt update && sudo apt upgrade -y'
 elif [[ -x "$(command -v pacman)" ]]; then
-  alias p="sudo pacman --noconfirm"
-  alias y="yay --noconfirm"
-  alias up="yay -Syu --noconfirm"
-  alias upf="yay -Syyu --noconfirm"
+	alias p="sudo pacman --noconfirm"
+	alias y="yay --noconfirm"
+	alias up="yay -Syu --noconfirm"
+	alias upf="yay -Syyu --noconfirm"
 fi
 
 # General
@@ -15,8 +17,7 @@ alias c="clear"
 alias cat="bat"
 alias v="nvim"
 alias lg="lazygit"
-alias trim="awk '{\$1=\$1;print}'"
-alias notes="cat $HOME/notes.txt"
+alias notes="cat \$HOME/notes.txt"
 alias serve="npx http-server"
 
 # Git

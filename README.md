@@ -6,30 +6,30 @@ My alacritty/neovim/tmux/zsh configurations.
 
 Clone repo
 
-```sh
+```bash
 git clone https://github.com/drewxs/dotfiles $HOME/.dotfiles
 ```
 
-Installation
+#### Pre-installation (zsh)
 
 Arch:
 
-```sh
+```bash
 source $HOME/.dotfiles/scripts/arch/preinstall.sh
-```
-
-```sh
-source $HOME/.dotfiles/scripts/arch/install.sh
 ```
 
 Debian:
 
-```sh
+```bash
 source  $HOME/.dotfiles/scripts/debian/preinstall.sh
 ```
 
-```sh
-source  $HOME/.dotfiles/scripts/debian/install.sh
+#### Installation
+
+Run from zsh:
+
+```bash
+install_dotfiles
 ```
 
 ## Update

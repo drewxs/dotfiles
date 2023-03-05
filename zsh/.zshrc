@@ -11,8 +11,7 @@ zstyle ":omz:update" mode auto
 # UI
 ZSH_THEME="powerlevel10k/powerlevel10k"
 COMPLETION_WAITING_DOTS="true"
-# history: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-HIST_STAMPS="yyyy-mm-dd"
+HIST_STAMPS="yyyy-mm-dd" # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 
 # Plugins
 # Standard: $ZSH/plugins/ | Custom: $ZSH_CUSTOM/plugins/
@@ -31,21 +30,28 @@ export ARCHFLAGS="-arch x86_64"
 # Sources
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/scripts/shared/plugins.sh
+source $HOME/.dotfiles/scripts/shared/cleanup.sh
+if [[ -x "$(command -v apt-get)" ]]; then
+  source "$HOME/.dotfiles/scripts/debian/install.sh"
+elif [[ -x "$(command -v pacman)" ]]; then
+  source "$HOME/.dotfiles/scripts/arch/install.sh"
+fi
 
 # Config modules
-for conf in "$HOME/.dotfiles/zsh/".*.zsh; do
+for conf in "$HOME/.dotfiles/zsh/".*.{zsh,sh}; do
   source "${conf}"
 done
 unset conf
 
 # PATH
+export LOCAL_BIN="$HOME/.local/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export CARGO_HOME="$HOME/.cargo"
 export CARGO_BIN="$CARGO_HOME/bin"
-export PATH="$PATH:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN"
+export PATH="$PATH:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN"
 eval "$(rbenv init - zsh)"
 
 # compinstall
