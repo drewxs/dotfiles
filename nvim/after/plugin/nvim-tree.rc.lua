@@ -7,6 +7,31 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 nvim_tree.setup({
+  open_on_setup = false,
+  actions = {
+    open_file = {
+      resize_window = true,
+    },
+  },
+  filesystem_watchers = {
+    enable = true,
+  },
+  filters = {
+    dotfiles = false,
+  },
+  git = {
+    enable = false,
+    ignore = true,
+  },
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = false,
+  },
+  disable_netrw = true,
+  hijack_netrw = true,
+  hijack_cursor = true,
+  hijack_unnamed_buffer_when_opening = false,
   renderer = {
     indent_markers = {
       enable = true,
@@ -43,25 +68,6 @@ nvim_tree.setup({
       },
     },
   },
-  actions = {
-    open_file = {
-      resize_window = true,
-    },
-  },
-  filters = {
-    dotfiles = false,
-  },
-  git = {
-    enable = true,
-    ignore = false,
-  },
-  update_focused_file = {
-    enable = true,
-  },
-  hijack_directories = {
-    enable = true,
-  },
-  open_on_setup = false,
   view = {
     adaptive_size = true,
     hide_root_folder = true,
