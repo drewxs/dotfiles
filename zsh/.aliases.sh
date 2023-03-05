@@ -2,12 +2,12 @@
 
 # Package manager
 if [[ -x "$(command -v apt-get)" ]]; then
-	alias up='sudo apt update && sudo apt upgrade -y'
+  alias up='sudo apt update && sudo apt upgrade -y'
 elif [[ -x "$(command -v pacman)" ]]; then
-	alias p="sudo pacman --noconfirm"
-	alias y="yay --noconfirm"
-	alias up="yay -Syu --noconfirm"
-	alias upf="yay -Syyu --noconfirm"
+  alias p="sudo pacman --noconfirm"
+  alias y="yay --noconfirm"
+  alias up="yay -Syu --noconfirm"
+  alias upf="yay -Syyu --noconfirm"
 fi
 
 # General
