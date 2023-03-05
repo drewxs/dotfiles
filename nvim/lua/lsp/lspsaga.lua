@@ -16,21 +16,7 @@ saga.setup({
     diagnostic = "🐞",
     incoming = " ",
     outgoing = " ",
-    colors = {
-      normal_bg = "#070709", --float window normal background color
-      title_bg = "#080808", --title background color
-      red = "#714243",
-      magenta = "#817a99",
-      orange = "#008484",
-      yellow = "#008484",
-      green = "#006353",
-      cyan = "#008484",
-      blue = "#00c3d4",
-      purple = "#817a99",
-      white = "#008484",
-      black = "#080808",
-    },
-    kind = {},
+    kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
   },
   lightbulb = {
     enable = true,
@@ -86,7 +72,7 @@ saga.setup({
     show_file = false,
     folder_level = 2,
     respect_root = false,
-    color_mode = false,
+    color_mode = true,
   },
   outline = {
     win_position = "right",
