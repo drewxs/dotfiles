@@ -19,6 +19,6 @@ null_ls.setup({
     formatting.rustfmt,
     formatting.shfmt,
     formatting.stylua,
-    formatting.sqlformatter,
+    formatting.sql_formatter,
   },
 })
