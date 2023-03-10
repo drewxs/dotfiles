@@ -20,6 +20,7 @@ opt.inccommand = "split"
 opt.wildoptions = "pum"
 opt.swapfile = false
 opt.formatoptions = "tcqjr"
+opt.updatetime = 50
 
 -- indentation
 opt.autoindent = true
@@ -29,10 +30,11 @@ opt.expandtab = true
 opt.smarttab = true
 opt.shiftround = true
 opt.tabstop = 2
+opt.softtabstop = 2
 opt.shiftwidth = 2
 
 -- search
-opt.hlsearch = true
+opt.hlsearch = false
 opt.ignorecase = true
 opt.incsearch = true
 opt.smartcase = true
@@ -48,10 +50,9 @@ opt.scrolloff = 12
 opt.wrap = false
 opt.ruler = false
 opt.number = true
-opt.numberwidth = 4
 opt.background = "dark"
 opt.whichwrap = "lh"
-opt.signcolumn = "number"
+opt.signcolumn = "yes:1"
 opt.cursorline = true
 opt.termguicolors = true
 opt.winblend = 0
