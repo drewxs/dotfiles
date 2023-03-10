@@ -46,6 +46,10 @@ map("v", "<A-h>", "b", opts)
 map("v", "<A-l>", "e", opts)
 map("i", "<A-h>", "<S-Left>", opts)
 map("i", "<A-l>", "<S-Right>", opts)
+map("n", "<C-u>", "<C-u>zz", opts) -- center jumps
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "n", "nzzzv", opts) -- center search jumps
+map("n", "N", "Nzzzv", opts)
 map("i", "<A-a>", "<Esc><S-a>", opts) -- line end
 map("i", "<A-;>", "<Esc><S-a>;<CR>", opts) -- line end -> ';' -> new line
 map("i", "<A-,>", "<Esc><S-a>,<CR>", opts) -- line end -> ',' -> new line
@@ -65,8 +69,8 @@ map("n", "<A-q>", ":q!<CR>", opts)
 -- move text up/down
 map("n", "<A-j>", ":m .+1<CR>", opts)
 map("n", "<A-k>", ":m .-2<CR>", opts)
-map("v", "<A-j>", ":m'>+<CR>gv=gv", opts)
-map("v", "<A-k>", ":m-2<CR>gv=gv", opts)
+map("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+map("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- next line
 map("i", "<C-o>", "<Esc>o", opts)
