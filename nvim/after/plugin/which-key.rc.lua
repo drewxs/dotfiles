@@ -87,6 +87,7 @@ local mappings = {
   ["w"] = { "<cmd>:Prettier<CR>:w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
+  ["x"] = { "<cmd>!chmod +x %<CR>", "Make Executable" },
 
   p = {
     name = "Packer",
