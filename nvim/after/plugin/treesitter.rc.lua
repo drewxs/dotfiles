@@ -13,6 +13,7 @@ ts.setup({
     disable = {},
   },
   ensure_installed = {
+    "help",
     "rust",
     "lua",
     "c",
