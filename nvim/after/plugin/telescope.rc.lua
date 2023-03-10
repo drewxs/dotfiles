@@ -36,18 +36,18 @@ telescope.setup({
       },
     },
   },
+  pickers = {
+    find_files = {
+      find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
+    },
+  },
 })
 
 telescope.load_extension("file_browser")
 
 -- keymaps
-vim.keymap.set("n", "<C-o>", function()
-  builtin.find_files({
-    hidden = true,
-  })
-end)
 vim.keymap.set("n", "<C-p>", function()
-  builtin.git_files()
+  builtin.find_files()
 end)
 vim.keymap.set("n", "<C-f>", function()
   builtin.live_grep()
