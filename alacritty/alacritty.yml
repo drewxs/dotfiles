@@ -12,7 +12,7 @@ window:
   startup_mode: Maximized
   decorations: full
   decorations_theme_variant: dark
-  opacity: 0.95
+  opacity: 0.84
 
 font:
   normal:
