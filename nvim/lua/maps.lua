@@ -94,6 +94,9 @@ map("n", "<C-M>", ":MarkdownPreviewToggle<CR>", opts)
 
 -- restart lsp
 map("n", "<A-r>", ":LspRestart<CR>", opts)
+-- color picker
+map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
+map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
 -- lspsaga
 map("n", "<S-d>", ":Lspsaga hover_doc<CR>", opts)

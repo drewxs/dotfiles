@@ -123,6 +123,9 @@ require("packer").startup(function(use)
     end,
   })
 
+  -- color picker
+  use("ziontee113/color-picker.nvim")
+
   if packer_bootstrap then
     require("packer").sync()
   end
