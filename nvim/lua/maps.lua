@@ -1,6 +1,6 @@
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true, nowait = true }
-local remap = { noremap = false, silent = true, nowait = true }
+local map = vim.keymap.set
+local opts = { silent = true, nowait = true }
+local remap = { silent = true, nowait = true, remap = true }
 
 -- navigate windows
 map("n", "<C-h>", "<C-w>h", opts)
@@ -92,13 +92,12 @@ map("n", "<A-\\>", "za", remap)
 -- markdown preview
 map("n", "<C-M>", ":MarkdownPreviewToggle<CR>", opts)
 
--- restart lsp
-map("n", "<A-r>", ":LspRestart<CR>", opts)
 -- color picker
 map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
--- lspsaga
+-- lsp
+map("n", "<A-r>", ":LspRestart<CR>", opts)
 map("n", "<S-d>", ":Lspsaga hover_doc<CR>", opts)
 map("n", "<S-f>", ":Lspsaga lsp_finder<CR>", opts)
 map("n", "<S-r>", ":Lspsaga rename<CR>", opts)
@@ -106,6 +105,4 @@ map("n", "<S-o>", ":LSoutlineToggle<CR>", opts)
 map("n", "<S-p>", ":Lspsaga peek_definition<CR>", opts)
 map("n", "<A-[>", ":Lspsaga diagnostic_jump_prev<CR>", remap)
 map("n", "<A-]>", ":Lspsaga diagnostic_jump_next<CR>", remap)
-
--- diagnostics
-vim.keymap.set("n", "<S-q>", vim.diagnostic.setloclist, opts)
+map("n", "<S-q>", vim.diagnostic.setloclist, opts)
