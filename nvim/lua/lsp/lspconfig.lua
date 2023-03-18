@@ -1,8 +1,4 @@
-local lspconfig_status_ok, nvim_lsp = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-  return
-end
-
+local nvim_lsp = require("lspconfig")
 local protocol = require("vim.lsp.protocol")
 
 protocol.CompletionItemKind = {

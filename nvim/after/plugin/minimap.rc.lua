@@ -1,7 +1,4 @@
-local status, map = pcall(require, "mini.map")
-if not status then
-  return
-end
+local map = require("mini.map")
 
 map.setup({
   integrations = {

@@ -1,9 +1,4 @@
-local status, saga = pcall(require, "lspsaga")
-if not status then
-  return
-end
-
-saga.setup({
+require("lspsaga").setup({
   event = "BufRead",
   ui = {
     theme = "round", -- currently only round theme

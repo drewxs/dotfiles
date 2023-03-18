@@ -1,9 +1,4 @@
-local status, bufferline = pcall(require, "bufferline")
-if not status then
-  return
-end
-
-bufferline.setup({
+require("bufferline").setup({
   options = {
     mode = "buffers", -- set to 'tabs' to only show tabpages instead
     numbers = "none",

@@ -1,8 +1,3 @@
-local status, lualine = pcall(require, "lualine")
-if not status then
-  return
-end
-
 local colors = {
   -- general
   fg = "#008484",
@@ -48,7 +43,7 @@ local custom_theme = {
   },
 }
 
-lualine.setup({
+require("lualine").setup({
   options = {
     icons_enabled = true,
     theme = custom_theme,

@@ -1,9 +1,13 @@
-local status, ts = pcall(require, "nvim-treesitter.configs")
-if not status then
-  return
-end
+local ts_js_commentstring_config = {
+  __default = "// %s",
+  __multiline = "/* %s */",
+  jsx_element = "{/* %s */}",
+  jsx_fragment = "{/* %s */}",
+  jsx_attribute = "// %s",
+  comment = "// %s",
+}
 
-ts.setup({
+require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
     disable = {},
@@ -50,21 +54,6 @@ ts.setup({
   autotag = {
     enable = true,
   },
-})
-
--- local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
--- parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
-
-local ts_js_commentstring_config = {
-  __default = "// %s",
-  __multiline = "/* %s */",
-  jsx_element = "{/* %s */}",
-  jsx_fragment = "{/* %s */}",
-  jsx_attribute = "// %s",
-  comment = "// %s",
-}
-
-require("nvim-treesitter.configs").setup({
   context_commentstring = {
     enable = true,
     enable_autocmd = false,
@@ -74,3 +63,6 @@ require("nvim-treesitter.configs").setup({
     },
   },
 })
+
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }

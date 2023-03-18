@@ -1,9 +1,4 @@
-local status, nightfox = pcall(require, "nightfox")
-if not status then
-  return
-end
-
-nightfox.setup({
+require("nightfox").setup({
   options = {
     -- Compiled file's destination location
     compile_path = vim.fn.stdpath("cache") .. "/nightfox",

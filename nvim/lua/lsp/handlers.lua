@@ -40,11 +40,8 @@ M.setup = function()
 end
 
 M.on_attach = function(client, bufnr)
-  local status_cmp_ok, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-  local status_illuminate_ok, illuminate = pcall(require, "illuminate")
-  if not status_cmp_ok or status_illuminate_ok then
-    return
-  end
+  local cmp_nvim_lsp = require("cmp_nvim_lsp")
+  local illuminate = require("illuminate")
 
   M.capabilities = vim.lsp.protocol.make_client_capabilities()
   M.capabilities.textDocument.completion.completionItem.snippetSupport = true

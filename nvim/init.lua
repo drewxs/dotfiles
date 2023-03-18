@@ -1,7 +1,4 @@
-vim.defer_fn(function()
-  pcall(require, "impatient")
-end, 0)
-
+require("impatient")
 require("options")
 require("plugins")
 require("lsp")

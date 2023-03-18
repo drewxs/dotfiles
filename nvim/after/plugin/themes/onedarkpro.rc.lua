@@ -1,9 +1,4 @@
-local status, onedarkpro = pcall(require, "onedarkpro")
-if not status then
-  return
-end
-
-onedarkpro.setup({
+require("onedarkpro").setup({
   colors = {}, -- Override default colors by specifying colors for 'onelight' or 'onedark' themes
   plugins = { -- Override which plugin highlight groups are loaded
     -- See the Supported Plugins section for a list of available plugins

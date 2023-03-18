@@ -1,7 +1,4 @@
-local status, icons = pcall(require, "nvim-web-devicons")
-if not status then
-  return
-end
+local icons = require("nvim-web-devicons")
 
 icons.setup({
   -- your personnal icons can go here (to override)
