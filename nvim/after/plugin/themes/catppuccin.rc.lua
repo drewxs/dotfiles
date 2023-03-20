@@ -16,7 +16,6 @@ require("catppuccin").setup({
       sapphire = "#a0b9d8",
       blue = "#8296b0",
       lavender = "#B4BEFE",
-
       text = "#a6adc8",
       subtext1 = "#a6adc8",
       subtext0 = "#9399b2",
@@ -26,11 +25,9 @@ require("catppuccin").setup({
       surface2 = "#585b70",
       surface1 = "#45475a",
       surface0 = "#313244",
-
       base = "#0a0a0f",
       mantle = "#020203",
       crust = "#000000",
-
       none = "NONE",
     },
   },
@@ -45,7 +42,7 @@ require("catppuccin").setup({
     shade = "dark",
     percentage = 0.15,
   },
-  transparency = true,
+  transparent_background = true,
   term_colors = true,
   integrations = {
     nvimtree = true,
