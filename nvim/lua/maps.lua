@@ -53,7 +53,7 @@ map("n", "N", "Nzzzv", opts)
 map("i", "<A-a>", "<Esc><S-a>", opts) -- line end
 map("i", "<A-;>", "<Esc><S-a>;<CR>", opts) -- line end -> ';' -> new line
 map("i", "<A-,>", "<Esc><S-a>,<CR>", opts) -- line end -> ',' -> new line
-map("n", "<A-u>", "gg0i<CR><Esc>ki", opts) -- new line at beginning of file
+map("n", "<A-u>", "gg0i<CR><Esc>k", opts) -- new line at beginning of file
 map("i", "<A-u>", "<Esc>gg0i<CR><Esc>ki", opts)
 
 -- delete current buffer
@@ -96,6 +96,7 @@ map("n", "<C-M>", ":MarkdownPreviewToggle<CR>", opts)
 map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
+-- remove search highlights
 map("n", "<A-n>", ":noh<CR>", opts)
 
 -- lsp
