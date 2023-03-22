@@ -27,6 +27,9 @@ alias gds="git diff --staged --name-only"
 alias grss='git restore --staged'
 alias gcm="git commit -m"
 alias gu="git reset --soft HEAD~1"
+alias grao="git remote add origin"
+alias gpuom="git push -u origin master"
+alias gst="git stash"
 
 # Docker
 alias d:start="sudo systemctl start docker.service"
