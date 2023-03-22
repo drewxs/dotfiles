@@ -34,7 +34,7 @@ opt.softtabstop = 2
 opt.shiftwidth = 2
 
 -- search
-opt.hlsearch = false
+opt.hlsearch = true
 opt.ignorecase = true
 opt.incsearch = true
 opt.smartcase = true
