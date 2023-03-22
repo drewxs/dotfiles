@@ -1,6 +1,16 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+local function on_attach(bufnr)
+  local api = require("nvim-tree.api")
+
+  local function opts(desc)
+    return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+
+  vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+end
+
 require("nvim-tree").setup({
   open_on_setup = false,
   actions = {
@@ -67,17 +77,6 @@ require("nvim-tree").setup({
     adaptive_size = true,
     hide_root_folder = true,
     width = 35,
-    mappings = {
-      list = {
-        { key = "l", action = "edit" },
-        { key = "o", action = "edit" },
-        { key = "<cr>", action = "edit" },
-        { key = "I", action = "toggle_ignored" },
-        { key = "H", action = "toggle_dotfiles" },
-        { key = "R", action = "refresh" },
-        { key = "=", action = "preview" },
-        { key = "X", action = "xdg_open", action_cb = xdg_open },
-      },
-    },
   },
+  on_attach = on_attach,
 })
