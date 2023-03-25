@@ -2,7 +2,7 @@
 
 My alacritty/neovim/tmux/zsh configurations.
 
-## Setup
+## Installation
 
 Clone repo
 
@@ -10,29 +10,19 @@ Clone repo
 git clone https://github.com/drewxs/dotfiles $HOME/.dotfiles
 ```
 
-#### Pre-installation (zsh)
-
-Arch:
+Install zsh/omz
 
 ```bash
-source $HOME/.dotfiles/scripts/arch/preinstall.sh
+source $HOME/.dotfiles/scripts/install_zsh.sh
 ```
 
-Debian:
-
-```bash
-source  $HOME/.dotfiles/scripts/debian/preinstall.sh
-```
-
-#### Installation
-
-Run from zsh:
+Run from zsh
 
 ```bash
 install_dotfiles
 ```
 
-## Update
+## Updating
 
 ```sh
 # -f: rerun install
@@ -40,3 +30,7 @@ upd [-f]
 ```
 
 Font - [Hack Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf)
+
+### Screenshot
+
+![screenshot](static/screenshot.jpg)

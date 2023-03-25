@@ -8,7 +8,7 @@ function install_apt_packages {
 }
 
 function install_cmake {
-  package_exists cmake && return
+  exists cmake && return
   cd "$HOME" || return
   wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
   sudo tar -xf cmake-3.24.2.tar.gz
@@ -20,7 +20,7 @@ function install_cmake {
 }
 
 function install_lazygit {
-  package_exists lazygit && return
+  exists lazygit && return
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
   sudo tar -xf lazygit.tar.gz -C /usr/local/bin lazygit
@@ -28,14 +28,14 @@ function install_lazygit {
 }
 
 function install_rust {
-  if ! package_exists rustc && package_exists cargo; then
+  if ! exists rustc && exists cargo; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     1
   fi
 }
 
 function install_node {
-  if ! package_exists nvm && package_exists node; then
+  if ! exists nvm && exists node; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
     nvm install 18
     nvm alias default 18
@@ -43,7 +43,7 @@ function install_node {
 }
 
 function install_ruby {
-  if ! package_exists rbenv; then
+  if ! exists rbenv; then
     curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
     echo "export PATH='$HOME/.rbenv/bin:$PATH'" >>"$HOME/.zshrc"
     echo "eval '$(rbenv init -)'" >>"$HOME/.zshrc"
@@ -54,7 +54,7 @@ function install_ruby {
 }
 
 function install_go {
-  package_exists go && return
+  exists go && return
   sudo rm -rf go1.19.2.linux-amd64*
   wget -c https://golang.org/dl/go1.19.2.linux-amd64.tar.gz
   sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz
@@ -63,7 +63,7 @@ function install_go {
 }
 
 function install_pip {
-  if ! package_exists pip3; then
+  if ! exists pip3; then
     sudo apt-get install -y python3-pip
   fi
 }
@@ -78,7 +78,7 @@ function install_dotnet {
 function install_packages {
   cargo install languagetool-rust --features full
   cargo install cargo-info tree-sitter-cli stylua exa bat
-  if ! package_exists pnpm; then
+  if ! exists pnpm; then
     npm i -g pnpm
   fi
   pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd @bufbuild/buf
@@ -87,7 +87,7 @@ function install_packages {
 }
 
 function install_neovim {
-  package_exists nvim && return
+  exists nvim && return
   sudo rm -rf neovim
   git clone https://github.com/neovim/neovim "$HOME/neovim"
   cd "$HOME"/neovim || return

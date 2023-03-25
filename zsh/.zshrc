@@ -30,19 +30,17 @@ export ARCHFLAGS="-arch x86_64"
 
 # Sources
 source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/scripts/shared/plugins.sh
-source $HOME/.dotfiles/scripts/shared/cleanup.sh
-if [[ -x "$(command -v apt-get)" ]]; then
-  source "$HOME/.dotfiles/scripts/debian/install.sh"
-elif [[ -x "$(command -v pacman)" ]]; then
-  source "$HOME/.dotfiles/scripts/arch/install.sh"
-fi
-
-# Config modules
 for conf in "$HOME/.dotfiles/zsh/".*.{zsh,sh}; do
   source "${conf}"
 done
 unset conf
+source "$HOME/.dotfiles/scripts/plugins.sh"
+source "$HOME/.dotfiles/scripts/cleanup.sh"
+if cmd_exists apt-get; then
+  source "$HOME/.dotfiles/scripts/install_arch.sh"
+elif cmd_exists pacman; then
+  source "$HOME/.dotfiles/scripts/install_debian.sh"
+fi
 
 # PATH
 export LOCAL_BIN="$HOME/.local/bin"

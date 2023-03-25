@@ -16,11 +16,20 @@ function keys {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
-# Check if a package is installed
+# Check if a command exists
 # $1: command
-function package_exists {
+function exists {
   if command -v "$1" &>/dev/null; then
     echo "$1 installation found"
+    return 0
+  fi
+  return 1
+}
+
+# Check if a command exists in PATH
+# $1: command
+function cmd_exists {
+  if [[ -x "$(command -v "$1")" ]]; then
     return 0
   fi
   return 1

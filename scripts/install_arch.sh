@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function install_yay {
-  package_exists yay && return
+  exists yay && return
   sudo pacman -S --needed git base-devel --noconfirm
   git clone https://aur.archlinux.org/yay.git "$HOME/yay"
   cd "$HOME/yay" || return
@@ -10,7 +10,7 @@ function install_yay {
 }
 
 function install_snap {
-  package_exists snap && return
+  exists snap && return
   yay -S snapd --answerdiff=None
   sudo systemctl enable --now snapd.socket
   sudo systemctl enable --now snapd.apparmor
@@ -29,7 +29,7 @@ function install_packages {
 
   nvm install --lts
   nvm alias default node
-  if ! package_exists pnpm; then
+  if ! exists pnpm; then
     npm i -g pnpm
   fi
   pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd @bufbuild/buf
