@@ -1,13 +1,16 @@
 #!/bin/bash
 
-function install_apt_packages {
+function install_sys_packages {
+  echo "Installing sys packages..."
   sudo apt-get install -y curl wget tmux git ripgrep fuse libfuse2 fd-find neofetch \
     ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen \
     software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev \
-    bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev
+    bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev \
+    shellcheck
 }
 
 function install_cmake {
+  echo "Installing cmake..."
   exists cmake && return
   cd "$HOME" || return
   wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
@@ -20,6 +23,7 @@ function install_cmake {
 }
 
 function install_lazygit {
+  echo "Installing lazygit..."
   exists lazygit && return
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
@@ -28,32 +32,44 @@ function install_lazygit {
 }
 
 function install_rust {
+  echo "Installing rust..."
   if ! exists rustc && exists cargo; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     1
   fi
+  cargo install languagetool-rust --features full
 }
 
 function install_node {
+  echo "Installing node..."
   if ! exists nvm && exists node; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
     nvm install 18
     nvm alias default 18
   fi
+  if ! exists pnpm; then
+    npm i -g pnpm
+  fi
 }
 
 function install_ruby {
+  echo "Installing ruby..."
   if ! exists rbenv; then
-    curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash
-    echo "export PATH='$HOME/.rbenv/bin:$PATH'" >>"$HOME/.zshrc"
-    echo "eval '$(rbenv init -)'" >>"$HOME/.zshrc"
-    source "$HOME/.zshrc"
+    sudo apt-get install -y rbenv
   fi
-  rbenv install 3.1.0
-  rbenv global 3.1.0
+  ruby_latest_version=$(rbenv install -l | grep -v - | tail -1)
+  rbenv install "$ruby_latest_version"
+  rbenv global "$ruby_latest_version"
+}
+
+function install_python {
+  echo "Installing python..."
+  exists pip3 && return
+  sudo apt-get install -y python3-pip
 }
 
 function install_go {
+  echo "Installing go..."
   exists go && return
   sudo rm -rf go1.19.2.linux-amd64*
   wget -c https://golang.org/dl/go1.19.2.linux-amd64.tar.gz
@@ -62,13 +78,8 @@ function install_go {
   sudo rm -rf go1.19.2.linux-amd64*
 }
 
-function install_pip {
-  if ! exists pip3; then
-    sudo apt-get install -y python3-pip
-  fi
-}
-
 function install_dotnet {
+  echo "Installing dotnet..."
   wget https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
   sudo dpkg -i packages-microsoft-prod.deb
   rm packages-microsoft-prod.deb
@@ -76,17 +87,15 @@ function install_dotnet {
 }
 
 function install_packages {
-  cargo install languagetool-rust --features full
+  echo "Installing packages..."
   cargo install cargo-info tree-sitter-cli stylua exa bat
-  if ! exists pnpm; then
-    npm i -g pnpm
-  fi
   pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd @bufbuild/buf
-  sudo gem install neovim shopify-cli
+  gem install neovim
   pip3 install neovim
 }
 
 function install_neovim {
+  echo "Installing neovim..."
   exists nvim && return
   sudo rm -rf neovim
   git clone https://github.com/neovim/neovim "$HOME/neovim"
@@ -96,9 +105,6 @@ function install_neovim {
   sudo make install
   cd "$HOME" || return
   sudo rm -rf neovim
-}
-
-function install_packer {
   packer_loc="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
   if dir_exists "$packer_loc" "packer"; then
     git clone --depth 1 https://github.com/wbthomason/packer.nvim "$packer_loc"
@@ -106,23 +112,22 @@ function install_packer {
 }
 
 function install_dotfiles {
+  echo "Installing dotfiles..."
   pwd=$(pwd)
 
-  install_apt_packages
+  install_sys_packages
   install_zsh_plugins
   install_tmux_plugins
   install_cmake
   install_lazygit
   install_rust
   install_node
-  install_rust
   install_ruby
+  install_python
   install_go
-  install_pip
   install_dotnet
   install_packages
   install_neovim
-  install_packer
 
   cleanup
 

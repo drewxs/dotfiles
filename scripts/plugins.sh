@@ -1,10 +1,10 @@
 #!/bin/bash
 
 function install_zsh_plugins {
+  echo "Installing zsh plugins..."
   zsh_autosuggestions="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
   zsh_syntax_highlighting="$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
   powerlevel10k="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-
   if ! dir_exists "$zsh_autosuggestions" "zsh plugin: zsh-autosuggestions"; then
     git clone https://github.com/zsh-users/zsh-autosuggestions.git "$zsh_autosuggestions"
   fi
@@ -17,9 +17,9 @@ function install_zsh_plugins {
 }
 
 function install_tmux_plugins {
+  echo "Installing tmux plugins..."
   tpm="$HOME/.tmux/plugins/tpm"
   tmux_power="$HOME/.tmux/plugins/tmux-power"
-
   if ! dir_exists "$tpm" "tmux plugin: tpm"; then
     git clone https://github.com/tmux-plugins/tpm "$tpm"
   fi
