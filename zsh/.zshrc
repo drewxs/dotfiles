@@ -36,9 +36,9 @@ done
 unset conf
 source "$HOME/.dotfiles/scripts/plugins.sh"
 source "$HOME/.dotfiles/scripts/cleanup.sh"
-if cmd_exists apt-get; then
+if cmd_exists pacman; then
   source "$HOME/.dotfiles/scripts/install_arch.sh"
-elif cmd_exists pacman; then
+elif cmd_exists apt-get; then
   source "$HOME/.dotfiles/scripts/install_debian.sh"
 fi
 
