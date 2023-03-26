@@ -11,7 +11,7 @@ window:
   dynamic_title: false
   startup_mode: Maximized
   decorations: full
-  decorations_theme_variant: dark
+  decorations_theme_variant: Dark
   opacity: 0.84
 
 font:
