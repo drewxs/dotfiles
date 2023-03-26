@@ -13,8 +13,10 @@ fi
 # General
 alias l="exa -lah"
 alias ls="exa"
-alias c="clear"
+alias cls="clear"
+alias cl="cls && l"
 alias cat="bat"
+alias c="cargo"
 alias v="nvim"
 alias lg="lazygit"
 alias serve="npx http-server"
@@ -27,7 +29,7 @@ alias grss='git restore --staged'
 alias gcm="git commit -m"
 alias gu="git reset --soft HEAD~1"
 alias grao="git remote add origin"
-alias gpuom="git push -u origin master"
+alias gpuom="git push -u origin main"
 alias gst="git stash"
 
 # Docker
