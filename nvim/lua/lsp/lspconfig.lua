@@ -56,7 +56,6 @@ local servers = {
   "cssmodules_ls",
   "tailwindcss",
   "jsonls",
-  "yamlls",
   "graphql",
   "sqlls",
   "prismals",
