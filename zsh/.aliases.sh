@@ -17,7 +17,6 @@ alias c="clear"
 alias cat="bat"
 alias v="nvim"
 alias lg="lazygit"
-alias notes="cat \$HOME/notes.txt"
 alias serve="npx http-server"
 
 # Git

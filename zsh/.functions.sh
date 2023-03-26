@@ -113,6 +113,9 @@ function delsw {
 function note {
   echo -e "date: $(date)\n$*\n" >>"$HOME/notes.txt"
 }
+function notes {
+  cat "$HOME/notes.txt"
+}
 
 # Mass rename / remove part of filename
 function mvrm {
