@@ -14,7 +14,7 @@ function create_symlinks {
 
 function setup_neovim {
   sudo rm -rf "$HOME/.cache/nvim" "$HOME/.config/nvim/plugin" "$HOME/.local/share/nvim"
-  nvim --headless -c 'PackerSync'
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 }
 
 function cleanup {
