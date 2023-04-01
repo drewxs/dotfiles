@@ -18,6 +18,7 @@ alias cl="cls && l"
 alias cat="bat"
 alias c="cargo"
 alias v="nvim"
+alias tmux="tmux -2"
 alias lg="lazygit"
 alias serve="npx http-server"
 
