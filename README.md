@@ -29,8 +29,6 @@ install_dotfiles
 upd [-f]
 ```
 
-Font - [Hack Nerd Font](https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf)
-
 ### Screenshot
 
 ![screenshot](static/screenshot.jpg)
