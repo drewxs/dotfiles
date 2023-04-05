@@ -29,9 +29,6 @@ protocol.CompletionItemKind = {
   "", -- TypeParameter
 }
 
--- set up completion using nvim_cmp with LSP source
-local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 local servers = {
   "bashls",
   "rust_analyzer",
@@ -78,37 +75,20 @@ local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 end
 
-local lsp_flags = {
+local flags = {
   debounce_text_changes = 100,
 }
 
+-- set up completion using nvim_cmp with LSP source
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 for _, server in ipairs(servers) do
   nvim_lsp[server].setup({
-    on_attach = on_attach,
-    flags = lsp_flags,
-    capabilities = capabilities,
+    on_attach,
+    flags,
+    capabilities,
   })
 end
-
-nvim_lsp["eslint"].setup({
-  on_attach = on_attach,
-  settings = {
-    imports = {
-      granularity = {
-        group = "module",
-      },
-      prefix = "self",
-    },
-    cargo = {
-      buildScripts = {
-        enable = true,
-      },
-    },
-    procMacro = {
-      enable = true,
-    },
-  },
-})
 
 nvim_lsp["lua_ls"].setup({
   settings = {

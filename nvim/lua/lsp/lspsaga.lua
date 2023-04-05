@@ -25,7 +25,7 @@ require("lspsaga").setup({
     vsplit = "s",
     split = "i",
     tabe = "t",
-    quit = { "q", "<ESC>" },
+    quit = { "q", "<Esc>" },
   },
   code_action = {
     num_shortcut = true,
