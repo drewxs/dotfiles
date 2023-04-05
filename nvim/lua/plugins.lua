@@ -52,6 +52,7 @@ require("packer").startup(function(use)
   -- LSP
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
+  use("jose-elias-alvarez/null-ls.nvim")
   use("neovim/nvim-lspconfig")
   use("glepnir/lspsaga.nvim")
   use("onsails/lspkind-nvim")
@@ -61,7 +62,6 @@ require("packer").startup(function(use)
   use("hrsh7th/cmp-nvim-lsp")
   use("hrsh7th/cmp-buffer")
   use("hrsh7th/cmp-path")
-  use("jose-elias-alvarez/null-ls.nvim")
 
   -- snippets
   use("L3MON4D3/LuaSnip")
@@ -74,6 +74,9 @@ require("packer").startup(function(use)
       require("nvim-treesitter.install").update({ with_sync = true })
     end,
   })
+
+  -- auto-highlight matches
+  use("RRethy/vim-illuminate")
 
   -- comment
   use({

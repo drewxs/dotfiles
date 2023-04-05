@@ -83,7 +83,7 @@ map("v", "<S-j>", "y'>p", opts) -- multiline
 
 -- comment
 map("n", "<C-_>", "gcc", remap)
-map("i", "<C-_>", "<ESC>gcca", remap)
+map("i", "<C-_>", "<Esc>gcca", remap)
 map("v", "<C-_>", "gb", remap)
 
 -- toggle fold
@@ -97,7 +97,7 @@ map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
 map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
 
 -- remove search highlights
-map("n", "<A-n>", ":noh<CR>", opts)
+map("n", "<Esc>", ":noh<CR>", opts)
 
 -- lsp
 map("n", "<A-r>", ":LspRestart<CR>", opts)
