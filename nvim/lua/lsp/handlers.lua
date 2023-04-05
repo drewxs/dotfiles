@@ -13,7 +13,7 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = false, -- disable virtual text
+    virtual_text = true,
     signs = {
       active = signs, -- show signs
     },
@@ -39,7 +39,7 @@ M.setup = function()
   })
 end
 
-M.on_attach = function(client, bufnr)
+M.on_attach = function(client, _)
   local cmp_nvim_lsp = require("cmp_nvim_lsp")
   local illuminate = require("illuminate")
 
