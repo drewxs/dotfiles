@@ -78,10 +78,11 @@ function upd {
   else
     git -C "$DOTFILES" pull --ff-only
   fi
+  export update_only=true
   while getopts :f opt; do
     case $opt in
     f)
-      export update_only=true
+      export update_only=false
       install_dotfiles
       ;;
     \?)

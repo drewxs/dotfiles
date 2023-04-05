@@ -29,4 +29,6 @@ function cleanup {
   remove_existing_configurations
   create_symlinks
   setup_neovim
+
+  unset update_only
 }
