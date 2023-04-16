@@ -31,4 +31,4 @@ upd [-f]
 
 ### Screenshot
 
-![screenshot](static/screenshot.jpg)
+<img src="static/screenshot.jpg?raw=true" alt="screenshot" />
