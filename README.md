@@ -24,9 +24,14 @@ install_dotfiles
 
 ## Updating
 
-```sh
-# -f: rerun install
-upd [-f]
+```bash
+Usage: up [OPTIONS]
+
+Options:
+  -s  Update system packages (default)
+  -p  Update language packages
+  -d  Update dotfiles
+  -f  Clean install dotfiles
 ```
 
 ### Screenshot

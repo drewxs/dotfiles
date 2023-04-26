@@ -56,7 +56,7 @@ function dir_exists {
 # Update packages and dotfiles
 up_usage="Drew's updater
 
-Usage: up [OPTIONS].
+Usage: up [OPTIONS]
 
 Options:
   -s  Update system packages (default)
