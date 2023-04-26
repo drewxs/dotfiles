@@ -53,44 +53,64 @@ function dir_exists {
   return 1
 }
 
-# Update packages and tools
-function upall {
-  up
-  if [[ -x "$(command -v rustup)" ]]; then
-    rustup update
-  fi
-  if [[ -x "$(command -v pnpm)" ]]; then
-    pnpm update --global --latest
-  fi
-  if [[ -x "$(command -v gem)" ]]; then
-    gem update
-  fi
-}
+# Update packages and dotfiles
+up_usage="Drew's updater
 
-# Update dotfiles
-# $1: [-f] rerun install
-function upd {
-  DOTFILES="$HOME/.dotfiles"
-  git -C "$DOTFILES" fetch
-  if [[ $(git -C "$DOTFILES" rev-parse HEAD) == $(git -C "$DOTFILES" rev-parse @\{u\}) ]]; then
-    echo "No updates to pull"
-    return 0
-  else
-    git -C "$DOTFILES" pull --ff-only
+Usage: up [OPTIONS].
+
+Options:
+  -s  Update system packages (default)
+  -p  Update language packages
+  -d  Update dotfiles
+  -f  Clean install dotfiles"
+function up {
+  if [[ $# -eq 0 ]]; then
+    upd
+    set
   fi
-  export update_only=true
-  while getopts :f opt; do
+  while getopts :spdfh opt; do
     case $opt in
+    s)
+      echo "Updating system packages..."
+      upd
+      ;;
+    p)
+      echo "Updating packages..."
+      if [[ -x "$(command -v rustup)" ]]; then
+        rustup update
+      fi
+      if [[ -x "$(command -v pnpm)" ]]; then
+        pnpm update --global --latest
+      fi
+      if [[ -x "$(command -v gem)" ]]; then
+        gem update
+      fi
+      ;;
+    d)
+      echo "Updating dotfiles..."
+      DOTFILES="$HOME/.dotfiles"
+      git -C "$DOTFILES" fetch
+      if [[ $(git -C "$DOTFILES" rev-parse HEAD) == $(git -C "$DOTFILES" rev-parse @\{u\}) ]]; then
+        echo "No updates to pull"
+      else
+        git -C "$DOTFILES" pull --ff-only
+        echo "Dotfiles updated"
+      fi
+      ;;
     f)
+      echo "Clean installing dotfiles..."
       export update_only=false
       install_dotfiles
       ;;
+    h)
+      echo "$up_usage"
+      ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
+      echo "Run 'up -h' for help"
       ;;
     esac
   done
-  echo "Dotfiles updated"
 }
 
 # Find (recursively) and list directories with name
