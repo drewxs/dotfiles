@@ -43,8 +43,8 @@ colors:
     cyan: "#659EA2"
     white: "#B5B4C9"
   bright:
-    black: "#4B4E57"
-    red: "#F38BA8"
+    black: "#0A0F0F"
+    red: "#A03859"
     green: "#92C47E"
     yellow: "#FE9F7C"
     blue: "#A0B9D8"
