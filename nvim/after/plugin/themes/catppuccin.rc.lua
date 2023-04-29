@@ -21,7 +21,7 @@ require("catppuccin").setup({
       flamingo = "#bf616a",
       pink = "#C98D90",
       mauve = "#A49FB4",
-      red = "#AE707C",
+      red = "#9f626e",
       maroon = "#C48B8F",
       peach = "#8C9EA3",
       yellow = "#C1747F",
@@ -89,8 +89,8 @@ require("catppuccin").setup({
       NvimTreeFolderName = { fg = colors.surface2 },
       NvimTreeEmptyFolderIcon = { fg = colors.surface2 },
       NvimTreeEmptyFolderName = { fg = colors.surface2 },
-      NvimTreeOpenedFolderName = { fg = colors.teal },
-      NvimTreeOpenedFolderIcon = { fg = colors.teal },
+      NvimTreeOpenedFolderName = { fg = colors.flamingo },
+      NvimTreeOpenedFolderIcon = { fg = colors.flamingo },
     }
   end,
   dim_inactive = {
