@@ -27,7 +27,7 @@ font:
   bold_italic:
     family: Source Code Pro
     style: Bold Italic
-  size: 12
+  size: 12.5
 
 colors:
   primary:
