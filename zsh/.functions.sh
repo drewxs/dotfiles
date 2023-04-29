@@ -66,7 +66,6 @@ Options:
 function up {
   if [[ $# -eq 0 ]]; then
     upd
-    set
   fi
   while getopts :spdfh opt; do
     case $opt in
