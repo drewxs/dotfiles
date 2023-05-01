@@ -85,6 +85,9 @@ function up {
       if [[ -x "$(command -v gem)" ]]; then
         gem update
       fi
+      if [[ -x "$(command -v pip)" ]]; then
+        pip install --upgrade pip
+      fi
       ;;
     d)
       echo "Updating dotfiles..."
