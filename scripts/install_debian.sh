@@ -88,7 +88,7 @@ function install_dotnet {
 
 function install_packages {
   echo "Installing packages..."
-  cargo install cargo-info tree-sitter-cli stylua exa bat
+  cargo install cargo-info cargo-update tree-sitter-cli stylua exa bat
   pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd @bufbuild/buf
   gem install neovim
   pip3 install neovim

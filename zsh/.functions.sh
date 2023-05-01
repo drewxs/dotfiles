@@ -77,6 +77,7 @@ function up {
       echo "Updating packages..."
       if [[ -x "$(command -v rustup)" ]]; then
         rustup update
+        cargo install-update -a
       fi
       if [[ -x "$(command -v pnpm)" ]]; then
         pnpm update --global --latest
