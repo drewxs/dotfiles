@@ -11,6 +11,7 @@ null_ls.setup({
     diagnostics.buf,
     diagnostics.eslint_d,
     diagnostics.shellcheck,
+    diagnostics.credo,
     formatting.autopep8,
     formatting.prettierd,
     formatting.rustfmt,
