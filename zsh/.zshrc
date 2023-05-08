@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Auto-update mode: disabled | auto | reminder
-zstyle ":omz:update" mode auto 
+zstyle ":omz:update" mode auto
 
 # UI
 ZSH_THEME="powerlevel10k/powerlevel10k"
@@ -27,6 +27,7 @@ plugins=(
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export ARCHFLAGS="-arch x86_64"
+export MIX_XDG="1"
 
 # Sources
 source $ZSH/oh-my-zsh.sh
@@ -46,9 +47,11 @@ fi
 export LOCAL_BIN="$HOME/.local/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export CARGO_HOME="$HOME/.cargo"
+export RUSTUP_HOME="$HOME/.local/share/rustup"
+export CARGO_HOME="$HOME/.local/share/cargo"
 export CARGO_BIN="$CARGO_HOME/bin"
 export PATH="$PATH:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN"
 eval "$(rbenv init - zsh)"
