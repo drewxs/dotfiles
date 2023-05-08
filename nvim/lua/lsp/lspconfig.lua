@@ -38,6 +38,7 @@ local servers = {
   "jdtls",
   "ruby_ls",
   "lua_ls",
+  "elixirls",
   "pyright",
   "solidity",
   "clojure_lsp",
