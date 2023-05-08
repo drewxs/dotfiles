@@ -17,5 +17,6 @@ null_ls.setup({
     formatting.shfmt,
     formatting.stylua,
     formatting.sql_formatter,
+    formatting.mix,
   },
 })
