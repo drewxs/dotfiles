@@ -53,7 +53,7 @@ function install_languages {
   sudo pacman -S --noconfirm go
 
   echo "Installing dotnet..."
-  sudo pacman -S --noconfirm dotnet-sdk
+  sudo yay -S --noconfirm dotnet-sdk-bin
 
   echo "Installing packages..."
   cargo install cargo-info cargo-update tree-sitter-cli stylua exa bat
