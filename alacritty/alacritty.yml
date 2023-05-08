@@ -16,16 +16,16 @@ window:
 
 font:
   normal:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font Mono
     style: Medium
   bold:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font Mono
     style: Bold
   italic:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font Mono
     style: Italic
   bold_italic:
-    family: Source Code Pro
+    family: SauceCodePro Nerd Font Mono
     style: Bold Italic
   size: 12.5
 

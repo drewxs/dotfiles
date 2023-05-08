@@ -68,6 +68,13 @@ function install_neovim {
   yay -S --noconfirm nvim-packer-git
 }
 
+function install_fonts {
+  echo "Installing fonts..."
+  curl -LOJ "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/SourceCodePro.zip"
+  sudo unzip -nj "SourceCodePro.zip" SauceCodeProNerdFontMono-{Medium,Bold,Italic,BoldItalic}.ttf -d "/usr/share/fonts/TTF"
+  rm -rf "SourceCodePro.zip"
+}
+
 function install_dotfiles {
   echo "Installing dotfiles..."
   pwd=$(pwd)
@@ -79,6 +86,7 @@ function install_dotfiles {
   install_sys_packages
   install_languages
   install_neovim
+  install_fonts
 
   cleanup
 
