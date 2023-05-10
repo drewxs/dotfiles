@@ -12,7 +12,6 @@ local function on_attach(bufnr)
 end
 
 require("nvim-tree").setup({
-  open_on_setup = false,
   actions = {
     open_file = {
       resize_window = true,
