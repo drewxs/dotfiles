@@ -96,7 +96,9 @@ function up {
       if [[ $(git -C "$DOTFILES" rev-parse HEAD) == $(git -C "$DOTFILES" rev-parse @\{u\}) ]]; then
         echo "No updates to pull"
       else
+        git -C "$DOTFILES" stash
         git -C "$DOTFILES" pull --ff-only
+        git -C "$DOTFILES" stash pop
         echo "Dotfiles updated"
       fi
       ;;
