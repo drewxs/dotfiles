@@ -11,6 +11,9 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 telescope.setup({
   defaults = {
     mappings = {
+      i = {
+        ["<Esc>"] = actions.close,
+      },
       n = {
         ["q"] = actions.close,
       },
@@ -49,19 +52,19 @@ end)
 vim.keymap.set("n", "<C-f>", function()
   builtin.live_grep()
 end)
-vim.keymap.set("n", "sf", function()
+vim.keymap.set("n", "<C-e>", function()
   builtin.live_grep({ search_dirs = { vim.fn.expand("%:p") } })
 end)
-vim.keymap.set("n", "sb", function()
+vim.keymap.set("n", "<C-b>", function()
   builtin.buffers()
 end)
-vim.keymap.set("n", "st", function()
+vim.keymap.set("n", "<C-t>", function()
   builtin.help_tags()
 end)
-vim.keymap.set("n", "sr", function()
+vim.keymap.set("n", "<C-r>", function()
   builtin.resume()
 end)
-vim.keymap.set("n", "sd", function()
+vim.keymap.set("n", "<C-o>", function()
   builtin.diagnostics()
 end)
 vim.keymap.set("n", "se", function()

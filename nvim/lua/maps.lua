@@ -20,9 +20,6 @@ map("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 map("n", "ss", ":split<Return><C-w>w", opts)
 map("n", "sv", ":vsplit<Return><C-w>w", opts)
 
--- nvim-tree
-map("n", "<C-e>", ":NvimTreeToggle<CR>", opts)
-
 -- copy
 map("v", "c", "y", opts)
 map("n", "cc", "yy", opts)
@@ -35,6 +32,8 @@ map("n", "<C-a>", "gg<S-v>G", opts)
 map("i", "<C-h>", "<C-w>", opts)
 map("i", "<C-Del>", "<Esc>ldwi", opts)
 
+map("n", "r", "<C-r>", opts)
+
 -- move
 map("i", "<A-k>", "<Up>", opts) -- cursor movement
 map("i", "<A-j>", "<Down>", opts)
@@ -46,14 +45,14 @@ map("v", "<A-h>", "b", opts)
 map("v", "<A-l>", "e", opts)
 map("i", "<A-h>", "<S-Left>", opts)
 map("i", "<A-l>", "<S-Right>", opts)
-map("n", "<C-u>", "<C-u>zz", opts) -- center jumps
+map("n", "<C-u>", "<C-u>zz", opts)         -- center jumps
 map("n", "<C-d>", "<C-d>zz", opts)
-map("n", "n", "nzzzv", opts) -- center search jumps
+map("n", "n", "nzzzv", opts)               -- center search jumps
 map("n", "N", "Nzzzv", opts)
-map("i", "<A-a>", "<Esc><S-a>", opts) -- line end
+map("i", "<A-a>", "<Esc><S-a>", opts)      -- line end
 map("i", "<A-;>", "<Esc><S-a>;<CR>", opts) -- line end -> ';' -> new line
 map("i", "<A-,>", "<Esc><S-a>,<CR>", opts) -- line end -> ',' -> new line
-map("n", "<A-u>", "gg0i<CR><Esc>k", opts) -- new line at beginning of file
+map("n", "<A-u>", "gg0i<CR><Esc>k", opts)  -- new line at beginning of file
 map("i", "<A-u>", "<Esc>gg0i<CR><Esc>ki", opts)
 
 -- delete current buffer
