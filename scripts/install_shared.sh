@@ -27,3 +27,11 @@ function install_tmux_plugins {
     git clone https://github.com/drewxs/tmux-power "$tmux_power"
   fi
 }
+
+function install_packages {
+  echo "Installing packages..."
+  cargo install cargo-info cargo-update tree-sitter-cli stylua exa bat bottom fd-find skim
+  pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd @bufbuild/buf
+  gem install neovim rails
+  pip install --user neovim autopep8 pip-review
+}

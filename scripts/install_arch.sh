@@ -21,7 +21,7 @@ function install_snap {
 function install_sys_packages {
   echo "Installing sys packages..."
   sudo pacman -S --noconfirm \
-    tmux neofetch wget xclip ripgrep exa bat ncspot \
+    tmux neofetch wget xclip ripgrep ncspot \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
     docker lazygit tree-sitter stylua shfmt
 }
@@ -54,12 +54,6 @@ function install_languages {
 
   echo "Installing dotnet..."
   sudo yay -S --noconfirm dotnet-sdk-bin
-
-  echo "Installing packages..."
-  cargo install cargo-info cargo-update tree-sitter-cli stylua exa bat
-  pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd @bufbuild/buf
-  gem install neovim rails
-  pip install --user neovim autopep8
 }
 
 function install_neovim {
@@ -70,6 +64,10 @@ function install_neovim {
 
 function install_fonts {
   echo "Installing fonts..."
+  if [[ $(find /usr/share/fonts/TTF/SauceCodeProNerdFontMono-{Medium,Bold,Italic,BoldItalic}.ttf 2>/dev/null | wc -l) -gt 3 ]]; then
+    echo "Font installations found"
+    return
+  fi
   curl -LOJ "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/SourceCodePro.zip"
   sudo unzip -nj "SourceCodePro.zip" SauceCodeProNerdFontMono-{Medium,Bold,Italic,BoldItalic}.ttf -d "/usr/share/fonts/TTF"
   rm -rf "SourceCodePro.zip"
@@ -81,11 +79,12 @@ function install_dotfiles {
 
   install_yay
   install_snap
-  install_zsh_plugins
-  install_tmux_plugins
   install_sys_packages
   install_languages
+  install_packages
   install_neovim
+  install_zsh_plugins
+  install_tmux_plugins
   install_fonts
 
   cleanup

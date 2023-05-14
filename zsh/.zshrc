@@ -31,11 +31,9 @@ export MIX_XDG="1"
 
 # Sources
 source $ZSH/oh-my-zsh.sh
-for conf in "$HOME/.dotfiles/zsh/".*.{zsh,sh}; do
-  source "${conf}"
-done
-unset conf
-source "$HOME/.dotfiles/scripts/plugins.sh"
+source "$HOME/.dotfiles/zsh/.p10k.zsh"
+source "$HOME/.dotfiles/zsh/aliases.sh"
+source "$HOME/.dotfiles/zsh/functions.sh"
 source "$HOME/.dotfiles/scripts/cleanup.sh"
 if cmd_exists pacman; then
   source "$HOME/.dotfiles/scripts/install_arch.sh"

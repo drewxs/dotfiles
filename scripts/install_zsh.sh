@@ -1,13 +1,5 @@
 #!/bin/bash
 
-function exists {
-  if command -v "$1" &>/dev/null; then
-    echo "$1 installation found"
-    return 0
-  fi
-  return 1
-}
-
 echo "Installing zsh..."
 if ! exists zsh; then
   if exists apt-get; then

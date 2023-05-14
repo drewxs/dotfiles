@@ -86,7 +86,8 @@ function up {
         gem update
       fi
       if [[ -x "$(command -v pip)" ]]; then
-        pip install --upgrade pip
+        pip install --user --upgrade pip
+        pip-review --user --local --auto
       fi
       ;;
     d)

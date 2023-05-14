@@ -86,14 +86,6 @@ function install_dotnet {
   sudo apt-get update && sudo apt-get install -y dotnet-sdk-7.0
 }
 
-function install_packages {
-  echo "Installing packages..."
-  cargo install cargo-info cargo-update tree-sitter-cli stylua exa bat
-  pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd @bufbuild/buf
-  gem install neovim
-  pip3 install neovim
-}
-
 function install_neovim {
   echo "Installing neovim..."
   exists nvim && return
@@ -116,8 +108,6 @@ function install_dotfiles {
   pwd=$(pwd)
 
   install_sys_packages
-  install_zsh_plugins
-  install_tmux_plugins
   install_cmake
   install_lazygit
   install_rust
@@ -128,6 +118,9 @@ function install_dotfiles {
   install_dotnet
   install_packages
   install_neovim
+  install_zsh_plugins
+  install_tmux_plugins
+  install_fonts
 
   cleanup
 
