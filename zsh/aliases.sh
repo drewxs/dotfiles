@@ -31,6 +31,7 @@ alias gds="git diff --staged --name-only"
 alias grss='git restore --staged'
 alias gcm="git commit -m"
 alias gu="git reset --soft HEAD~1"
+alias guu="git reset --hard HEAD~1"
 alias grao="git remote add origin"
 alias gpuo="git push -u origin"
 alias gpuom="git push -u origin main"
