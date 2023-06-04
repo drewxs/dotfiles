@@ -9,7 +9,10 @@ helper = store
 defaultBranch = main
 
 [pull]
-rebase = false
+rebase = true
+
+[rebase]
+autoStash = true
 
 [push]
 autoSetupRemote = true
