@@ -28,9 +28,14 @@ export ZSH="$HOME/.oh-my-zsh"
 export EDITOR="nvim"
 export ARCHFLAGS="-arch x86_64"
 export MIX_XDG="1"
+# XDGBDS
+export XDG_CACHE_HOME="$HOME/.cache";
+export XDG_CONFIG_HOME="$HOME/.config";
+export XDG_DATA_HOME="$HOME/.local/share";
+export XDG_STATE_HOME="$HOME/.local/state";
 
 # Sources
-source $ZSH/oh-my-zsh.sh
+source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.dotfiles/zsh/.p10k.zsh"
 source "$HOME/.dotfiles/zsh/aliases.sh"
 source "$HOME/.dotfiles/zsh/functions.sh"
