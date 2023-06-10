@@ -37,8 +37,7 @@ export XDG_STATE_HOME="$HOME/.local/state";
 # Sources
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.dotfiles/zsh/.p10k.zsh"
-source "$HOME/.dotfiles/zsh/aliases.sh"
-source "$HOME/.dotfiles/zsh/functions.sh"
+for f in "$HOME/.dotfiles/sh/"*.sh; do source "$f"; done
 source "$HOME/.dotfiles/scripts/cleanup.sh"
 if cmd_exists pacman; then
   source "$HOME/.dotfiles/scripts/install_arch.sh"
