@@ -3,12 +3,9 @@
 # Package manager
 if [[ -x "$(command -v apt-get)" ]]; then
   alias p="sudo apt -y"
-  alias upd="sudo apt update && sudo apt upgrade -y"
 elif [[ -x "$(command -v pacman)" ]]; then
   alias p="sudo pacman --noconfirm"
   alias y="yay --noconfirm"
-  alias upd="yay -Syu --noconfirm"
-  alias updf="yay -Syyu --noconfirm"
 fi
 
 # General

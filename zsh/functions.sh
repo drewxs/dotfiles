@@ -23,6 +23,7 @@ function exists {
     echo "$1 installation found"
     return 0
   fi
+  echo "$1 installation not found"
   return 1
 }
 
@@ -54,52 +55,65 @@ function dir_exists {
 }
 
 # Update packages and dotfiles
-up_usage="Drew's updater
-
-Usage: up [OPTIONS]
-
-Options:
-  -s  Update system packages (default)
-  -p  Update language packages
-  -d  Update dotfiles
-  -f  Clean install dotfiles"
 function up {
+  function up_dot {
+    echo "Updating dotfiles..."
+    DOTFILES="$HOME/.dotfiles"
+    git -C "$DOTFILES" fetch
+    if [[ $(git -C "$DOTFILES" rev-parse HEAD) == $(git -C "$DOTFILES" rev-parse @\{u\}) ]]; then
+      echo "No updates to pull"
+    else
+      git -C "$DOTFILES" pull --rebase --autostash
+      echo "Dotfiles updated"
+    fi
+  }
+  function up_sys {
+    echo "Updating system packages..."
+    if cmd_exists apt-get; then
+      sudo apt update && sudo apt upgrade -y
+    elif cmd_exists pacman; then
+      yay -Syu --noconfirm
+    fi
+  }
+  function up_pkg {
+    echo "Updating packages..."
+    if cmd_exists rustup; then
+      rustup update
+      cargo install-update -a
+    fi
+    if cmd_exists pnpm; then
+      pnpm update --global --latest
+    fi
+    if cmd_exists gem; then
+      gem update
+    fi
+    if cmd_exists pip; then
+      pip install --user --upgrade pip
+      pip-review --user --local --auto
+    fi
+  }
+  function up_all {
+    up_dot
+    up_sys
+    up_pkg
+  }
+
   if [[ $# -eq 0 ]]; then
-    upd
+    up_all
   fi
-  while getopts :spdfh opt; do
+  while getopts :dspafh opt; do
     case $opt in
-    s)
-      echo "Updating system packages..."
-      upd
-      ;;
-    p)
-      echo "Updating packages..."
-      if [[ -x "$(command -v rustup)" ]]; then
-        rustup update
-        cargo install-update -a
-      fi
-      if [[ -x "$(command -v pnpm)" ]]; then
-        pnpm update --global --latest
-      fi
-      if [[ -x "$(command -v gem)" ]]; then
-        gem update
-      fi
-      if [[ -x "$(command -v pip)" ]]; then
-        pip install --user --upgrade pip
-        pip-review --user --local --auto
-      fi
+    a)
+      up_all
       ;;
     d)
-      echo "Updating dotfiles..."
-      DOTFILES="$HOME/.dotfiles"
-      git -C "$DOTFILES" fetch
-      if [[ $(git -C "$DOTFILES" rev-parse HEAD) == $(git -C "$DOTFILES" rev-parse @\{u\}) ]]; then
-        echo "No updates to pull"
-      else
-        git -C "$DOTFILES" pull --rebase --autostash
-        echo "Dotfiles updated"
-      fi
+      up_dot
+      ;;
+    s)
+      up_sys
+      ;;
+    p)
+      up_pkg
       ;;
     f)
       echo "Clean installing dotfiles..."
@@ -107,7 +121,16 @@ function up {
       install_dotfiles
       ;;
     h)
-      echo "$up_usage"
+      echo "Drew's updater
+
+Usage: up [OPTIONS]
+
+Options:
+  -a  Update all (default)
+  -d  Update dotfiles
+  -s  Update system packages
+  -p  Update language packages
+  -f  Clean install dotfiles"
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
@@ -127,11 +150,6 @@ function finddir {
 # $1: dir name
 function deldir {
   find . -name "$1" -type d -prune -exec rm -rf '{}' +
-}
-
-# Delete swap files
-function delsw {
-  find . -type f -name "*.sw[klmnop]" -delete
 }
 
 # Create notes
