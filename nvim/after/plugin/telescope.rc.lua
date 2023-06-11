@@ -67,7 +67,7 @@ end)
 vim.keymap.set("n", "<C-o>", function()
   builtin.diagnostics()
 end)
-vim.keymap.set("n", "se", function()
+vim.keymap.set("n", "<C-w>", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = telescope_buffer_dir(),
