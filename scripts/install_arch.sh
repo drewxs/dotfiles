@@ -23,7 +23,7 @@ function install_sys_packages {
   sudo pacman -S --noconfirm \
     tmux neofetch wget xclip ripgrep ncspot \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
-    docker lazygit tree-sitter stylua shfmt
+    docker lazygit tree-sitter stylua shfmt shellcheck
 }
 
 function install_languages {
@@ -46,6 +46,9 @@ function install_languages {
   rbenv install "$ruby_latest_version"
   rbenv global "$ruby_latest_version"
 
+  echo "Installing elixir..."
+  sudo pacman -S --noconfirm elixir
+
   echo "Installing python..."
   sudo pacman -S --noconfirm python python-pip
 
@@ -54,6 +57,9 @@ function install_languages {
 
   echo "Installing dotnet..."
   sudo yay -S --noconfirm dotnet-sdk-bin
+
+  echo "Installing java..."
+  sudo pacman -S --noconfirm jdk-openjdk
 }
 
 function install_neovim {
