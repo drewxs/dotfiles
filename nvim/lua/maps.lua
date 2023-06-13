@@ -45,14 +45,14 @@ map("v", "<A-h>", "b", opts)
 map("v", "<A-l>", "e", opts)
 map("i", "<A-h>", "<S-Left>", opts)
 map("i", "<A-l>", "<S-Right>", opts)
-map("n", "<C-u>", "<C-u>zz", opts)         -- center jumps
+map("n", "<C-u>", "<C-u>zz", opts) -- center jumps
 map("n", "<C-d>", "<C-d>zz", opts)
-map("n", "n", "nzzzv", opts)               -- center search jumps
+map("n", "n", "nzzzv", opts) -- center search jumps
 map("n", "N", "Nzzzv", opts)
-map("i", "<A-a>", "<Esc><S-a>", opts)      -- line end
+map("i", "<A-a>", "<Esc><S-a>", opts) -- line end
 map("i", "<A-;>", "<Esc><S-a>;<CR>", opts) -- line end -> ';' -> new line
 map("i", "<A-,>", "<Esc><S-a>,<CR>", opts) -- line end -> ',' -> new line
-map("n", "<A-u>", "gg0i<CR><Esc>k", opts)  -- new line at beginning of file
+map("n", "<A-u>", "gg0i<CR><Esc>k", opts) -- new line at beginning of file
 map("i", "<A-u>", "<Esc>gg0i<CR><Esc>ki", opts)
 
 -- delete current buffer
@@ -92,8 +92,8 @@ map("n", "<A-\\>", "za", remap)
 map("n", "<C-M>", ":MarkdownPreviewToggle<CR>", opts)
 
 -- color picker
-map("n", "<C-c>", "<cmd>PickColor<cr>", opts)
-map("i", "<C-c>", "<cmd>PickColorInsert<cr>", opts)
+map("n", "<A-c>", "<cmd>PickColor<cr>", opts)
+map("i", "<A-c>", "<cmd>PickColorInsert<cr>", opts)
 
 -- remove search highlights
 map("n", "<Esc>", ":noh<CR>", opts)
