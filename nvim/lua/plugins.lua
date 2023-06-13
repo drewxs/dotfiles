@@ -26,6 +26,7 @@ require("packer").startup(function(use)
   use("catppuccin/nvim")
   use("kvrohit/substrata.nvim")
   use("kvrohit/mellow.nvim")
+  use("projekt0n/github-nvim-theme")
 
   -- file icons
   use("nvim-tree/nvim-web-devicons")
@@ -71,7 +72,8 @@ require("packer").startup(function(use)
   use({
     "nvim-treesitter/nvim-treesitter",
     run = function()
-      require("nvim-treesitter.install").update({ with_sync = true })
+      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+      ts_update()
     end,
   })
 
