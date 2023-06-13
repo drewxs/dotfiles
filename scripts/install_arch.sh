@@ -23,7 +23,8 @@ function install_sys_packages {
   sudo pacman -S --noconfirm \
     tmux neofetch wget xclip ripgrep ncspot \
     xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
-    docker lazygit tree-sitter stylua shfmt shellcheck
+    docker lazygit tree-sitter shfmt shellcheck \
+    stylua luarocks
 }
 
 function install_languages {
