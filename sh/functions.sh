@@ -87,10 +87,6 @@ function up {
     if cmd_exists gem; then
       gem update
     fi
-    if cmd_exists pip; then
-      pip install --user --upgrade pip
-      pip-review --user --local --auto
-    fi
   }
   function up_all {
     up_dot
