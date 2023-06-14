@@ -22,9 +22,9 @@ function install_sys_packages {
   echo "Installing sys packages..."
   sudo pacman -S --noconfirm \
     tmux neofetch wget xclip ripgrep ncspot \
-    xorg-xmodmap xorg-xev xorg-setxkbmap xorg-xset \
+    xorg-{xmodmap,xev,setxkbmap,xset} \
     docker lazygit tree-sitter shfmt shellcheck \
-    stylua luarocks
+    luarocks autopep8 python-{neovim,pipx}
 }
 
 function install_languages {

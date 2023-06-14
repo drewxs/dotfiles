@@ -2,7 +2,7 @@
 
 function install_sys_packages {
   echo "Installing sys packages..."
-  sudo apt-get install -y curl wget tmux git ripgrep fuse libfuse2 fd-find neofetch \
+  sudo apt-get install -y curl wget tmux git ripgrep fuse libfuse2 neofetch \
     ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen \
     software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev \
     bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev \
