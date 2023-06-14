@@ -22,7 +22,8 @@ alias lg="lazygit"
 alias serve="npx http-server"
 
 # Git
-alias gs="git fetch && git status"
+alias gs="git status"
+alias gfs="git fetch && git status"
 alias gd="git diff --name-only"
 alias gds="git diff --staged --name-only"
 alias grss='git restore --staged'
