@@ -50,6 +50,12 @@ function install_languages {
   echo "Installing elixir..."
   sudo pacman -S --noconfirm elixir
 
+  echo "Installing julia..."
+  sudo yay -S --noconfirm julia-bin
+
+  echo "Installing perl..."
+  sudo pacman -S --noconfirm perl
+
   echo "Installing python..."
   sudo pacman -S --noconfirm python python-pip
 
