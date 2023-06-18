@@ -21,6 +21,7 @@ plugins=(
   zsh-autosuggestions
   git
   docker
+  vi-mode
 )
 
 # ENV
