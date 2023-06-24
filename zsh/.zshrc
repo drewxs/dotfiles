@@ -45,7 +45,6 @@ if cmd_exists pacman; then
 elif cmd_exists apt-get; then
   source "$HOME/.dotfiles/scripts/install_debian.sh"
 fi
-source "/usr/share/nvm/init-nvm.sh"
 
 # PATH
 export LOCAL_BIN="$HOME/.local/bin"
@@ -53,6 +52,9 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 export CARGO_HOME="$HOME/.local/share/cargo"
 export CARGO_BIN="$CARGO_HOME/bin"
+export NVM_DIR="$HOME/.config/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 export PATH="$PATH:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN"
 eval "$(rbenv init - zsh)"
 
