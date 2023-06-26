@@ -55,6 +55,11 @@ export CARGO_BIN="$CARGO_HOME/bin"
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+if cmd_exists android-studio; then
+  export ANDROID_HOME="$HOME/Android/Sdk"
+  ANDROID_PATHS=$(eval echo "$ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}" | tr ' ' ':')
+  export PATH="$PATH:$ANDROID_PATHS}"
+fi
 export PATH="$PATH:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN"
 eval "$(rbenv init - zsh)"
 
