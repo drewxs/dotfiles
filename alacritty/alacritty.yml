@@ -12,7 +12,7 @@ window:
   startup_mode: Maximized
   decorations: full
   decorations_theme_variant: Dark
-  opacity: 0.9
+  opacity: 0.93
 
 font:
   normal:
@@ -27,11 +27,11 @@ font:
   bold_italic:
     family: SauceCodePro Nerd Font Mono
     style: Bold Italic
-  size: 12.5
+  size: 11.5
 
 colors:
   primary:
-    background: "#000000"
+    background: "#050809"
     foreground: "#A6ADC8"
   normal:
     black: "#000000"
