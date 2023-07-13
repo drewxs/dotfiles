@@ -24,7 +24,8 @@ function install_sys_packages {
     tmux neofetch wget xclip ripgrep ncspot \
     xorg-{xmodmap,xev,setxkbmap,xset} \
     docker lazygit tree-sitter shfmt shellcheck \
-    luarocks autopep8 python-{neovim,pipx}
+    luarocks autopep8 python-{neovim,pipx} \
+    ttf-sourcecodepro-nerd
 }
 
 function install_languages {
@@ -75,17 +76,6 @@ function install_neovim {
   yay -S --noconfirm nvim-packer-git
 }
 
-function install_fonts {
-  echo "Installing fonts..."
-  if [[ $(find /usr/share/fonts/TTF/SauceCodeProNerdFontMono-{Medium,Bold,Italic,BoldItalic}.ttf 2>/dev/null | wc -l) -gt 3 ]]; then
-    echo "Font installations found"
-    return
-  fi
-  curl -LOJ "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/SourceCodePro.zip"
-  sudo unzip -nj "SourceCodePro.zip" SauceCodeProNerdFontMono-{Medium,Bold,Italic,BoldItalic}.ttf -d "/usr/share/fonts/TTF"
-  rm -rf "SourceCodePro.zip"
-}
-
 function install_dotfiles {
   echo "Installing dotfiles..."
   pwd=$(pwd)
@@ -98,7 +88,6 @@ function install_dotfiles {
   install_neovim
   install_zsh_plugins
   install_tmux_plugins
-  install_fonts
 
   cleanup
 

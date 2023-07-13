@@ -120,7 +120,6 @@ function install_dotfiles {
   install_neovim
   install_zsh_plugins
   install_tmux_plugins
-  install_fonts
 
   cleanup
 
