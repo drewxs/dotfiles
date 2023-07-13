@@ -20,11 +20,6 @@ map("n", "<C-Right>", ":vertical resize -2<CR>", opts)
 map("n", "ss", ":split<Return><C-w>w", opts)
 map("n", "sv", ":vsplit<Return><C-w>w", opts)
 
--- copy
-map("v", "c", "y", opts)
-map("n", "cc", "yy", opts)
-map("n", "cw", "yiw", opts)
-
 -- select
 map("n", "<C-a>", "gg<S-v>G", opts)
 
@@ -89,7 +84,7 @@ map("v", "<C-_>", "gb", remap)
 map("n", "<A-\\>", "za", remap)
 
 -- markdown preview
-map("n", "<C-M>", ":MarkdownPreviewToggle<CR>", opts)
+map("n", "<C-m>", ":MarkdownPreviewToggle<CR>", opts)
 
 -- color picker
 map("n", "<A-c>", "<cmd>PickColor<cr>", opts)
