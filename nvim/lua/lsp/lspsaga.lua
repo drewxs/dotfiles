@@ -2,7 +2,8 @@ require("lspsaga").setup({
   event = "BufRead",
   ui = {
     theme = "round", -- currently only round theme
-    border = "single", -- "single" | "double" | "rounded" | "solid" | "shadow"
+    lines = { "┗", "┣", "┃", "━", "┏" },
+    border = "solid", -- "single" | "double" | "rounded" | "solid" | "shadow"
     winblend = 0,
     expand = "",
     collapse = "",
@@ -21,11 +22,13 @@ require("lspsaga").setup({
     virtual_text = true,
   },
   finder = {
+    max_height = 0.5,
     edit = { "o", "<CR>" },
     vsplit = "s",
     split = "i",
     tabe = "t",
     quit = { "q", "<Esc>" },
+    silent = true,
   },
   code_action = {
     num_shortcut = true,

@@ -53,7 +53,6 @@ require("packer").startup(function(use)
   -- LSP
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
-  use("jose-elias-alvarez/null-ls.nvim")
   use("neovim/nvim-lspconfig")
   use("glepnir/lspsaga.nvim")
   use("onsails/lspkind-nvim")
