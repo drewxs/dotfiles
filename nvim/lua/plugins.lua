@@ -16,7 +16,6 @@ require("packer").startup(function(use)
   -- base
   use("wbthomason/packer.nvim")
   use("nvim-lua/plenary.nvim")
-  use("lewis6991/impatient.nvim")
 
   -- themes
   use("olimorris/onedarkpro.nvim")
