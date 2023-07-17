@@ -34,9 +34,7 @@ require("packer").startup(function(use)
   use({
     "nvim-tree/nvim-tree.lua",
     as = "nvim_tree",
-    requires = {
-      "nvim-tree/nvim-web-devicons",
-    },
+    requires = { "nvim-tree/nvim-web-devicons" },
     tag = "nightly",
   })
 
@@ -93,7 +91,6 @@ require("packer").startup(function(use)
     "nvim-telescope/telescope.nvim",
     requires = { { "nvim-lua/plenary.nvim" } },
   })
-  use("nvim-telescope/telescope-file-browser.nvim")
 
   -- git
   use("lewis6991/gitsigns.nvim")
