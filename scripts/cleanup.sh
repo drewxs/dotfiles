@@ -2,7 +2,7 @@
 
 function remove_existing_configurations {
   echo "Removing existing configurations..."
-  sudo rm -rf "$HOME/.gitconfig" "$HOME/.tmux.conf" "$HOME/.config/nvim" "$HOME/.config/alacritty/alacritty.yml" \
+  sudo rm -rf "$HOME/.gitconfig" "$HOME/.tmux.conf" "$HOME/.config/alacritty/alacritty.yml" \
     "$HOME/.cache/nvim" "$HOME/.config/nvim" "$HOME/.local/share/nvim"
 }
 
