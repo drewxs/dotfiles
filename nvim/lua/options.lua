@@ -20,7 +20,7 @@ opt.inccommand = "split"
 opt.wildoptions = "pum"
 opt.swapfile = false
 opt.formatoptions = "tcqjr"
-opt.updatetime = 50
+opt.updatetime = 100
 
 -- indentation
 opt.autoindent = true
