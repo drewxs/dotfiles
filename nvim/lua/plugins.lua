@@ -44,9 +44,6 @@ require("packer").startup(function(use)
   -- bufferline
   use("akinsho/bufferline.nvim")
 
-  -- minimap
-  use("echasnovski/mini.map")
-
   -- LSP
   use("williamboman/mason.nvim")
   use("williamboman/mason-lspconfig.nvim")
