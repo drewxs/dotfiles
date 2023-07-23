@@ -32,25 +32,25 @@ font:
 colors:
   primary:
     background: "#050809"
-    foreground: "#A6ADC8"
+    foreground: "#a6adc8"
   normal:
     black: "#000000"
-    red: "#EBA0AC"
-    green: "#76A065"
-    yellow: "#CF8164"
-    blue: "#8296B0"
-    magenta: "#A18DAF"
-    cyan: "#659EA2"
-    white: "#B5B4C9"
+    red: "#cf8164"
+    green: "#7f9a7e"
+    yellow: "#e89a7d"
+    blue: "#41505f"
+    magenta: "#a18daf"
+    cyan: "#659ea2"
+    white: "#b5b4c9"
   bright:
     black: "#64646e"
-    red: "#A03859"
-    green: "#92C47E"
-    yellow: "#FE9F7C"
-    blue: "#A0B9D8"
-    magenta: "#C6AED7"
-    cyan: "#7DC2C7"
-    white: "#F0ECFE"
+    red: "#eba0ac"
+    green: "#92c47e"
+    yellow: "#fe9f7c"
+    blue: "#a0b9d8"
+    magenta: "#c6aed7"
+    cyan: "#7dc2c7"
+    white: "#f0ecfe"
   cursor:
     text: CellBackground
     cursor: CellForeground
