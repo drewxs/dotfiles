@@ -36,8 +36,14 @@ map("n", "sv", ":vsplit<Return><C-w>w") -- split vertically
 -- BUFFER MANAGEMENT
 map("n", "<S-l>", ":bnext<CR>") -- next buffer
 map("n", "<S-h>", ":bprevious<CR>") -- previous buffer
-map({ "n", "i" }, "<C-s>", "<Esc>:w!<CR>") -- save buffer (no format)
-map({ "n", "i" }, "<A-s>", "<Esc>:lua vim.lsp.buf.format()<CR>:w!<CR>") -- save and format buffer
+map({ "n", "i" }, "<C-s>", function(bufnr)
+  vim.cmd.write()
+end) -- save buffer (no format)
+map({ "n", "i" }, "<A-s>", function()
+  vim.lsp.buf.format()
+  vim.cmd.write()
+  vim.cmd.stopinsert()
+end) -- save and format buffer
 map({ "n", "i" }, "<A-w>", "<Esc>:Bdelete!<CR>") -- delete buffer
 map("n", "<C-q>", ":qa!<CR>") -- quit all
 map("n", "<A-q>", ":q!<CR>") -- quit buffer

@@ -60,6 +60,37 @@ for _, server in ipairs(servers) do
   })
 end
 
+local filetypes = {
+  "javascript",
+  "javascriptreact",
+  "javascript.jsx",
+  "typescript",
+  "typescriptreact",
+  "typescript.tsx",
+  "vue",
+  "svelte",
+  "astro",
+}
+vim.cmd([[
+  augroup EslintAutoFix
+  autocmd!
+  augroup END
+]])
+for _, ft in ipairs(filetypes) do
+  vim.cmd(
+    string.format(
+      [[autocmd EslintAutoFix FileType %s nnoremap <buffer> <C-s> :lua vim.cmd("EslintFixAll") vim.lsp.buf.format()<CR>:w!<CR>]],
+      ft
+    )
+  )
+  vim.cmd(
+    string.format(
+      [[autocmd EslintAutoFix FileType %s inoremap <buffer> <C-s> <Esc>:lua vim.cmd("EslintFixAll") vim.lsp.buf.format()<CR>:w!<CR>]],
+      ft
+    )
+  )
+end
+
 nvim_lsp["lua_ls"].setup({
   settings = {
     Lua = {
