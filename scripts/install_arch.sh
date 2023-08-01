@@ -26,6 +26,8 @@ function install_sys_packages {
     docker lazygit tree-sitter shfmt shellcheck \
     luarocks autopep8 python-{neovim,pipx} \
     ttf-sourcecodepro-nerd
+  yay -S --noconfirm \
+    asdf-vm
 }
 
 function install_languages {

@@ -62,6 +62,7 @@ if cmd_exists android-studio; then
 fi
 export PATH="$PATH:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN"
 eval "$(rbenv init - zsh)"
+. /opt/asdf-vm/asdf.sh
 
 # compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
