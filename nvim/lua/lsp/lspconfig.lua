@@ -7,6 +7,7 @@ local servers = {
   "csharp_ls",
   "gopls",
   "jdtls",
+  "kotlin_language_server",
   "ruby_ls",
   "lua_ls",
   "elixirls",
