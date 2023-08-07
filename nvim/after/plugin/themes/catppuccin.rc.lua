@@ -62,7 +62,7 @@ require("catppuccin").setup({
       sky = "#81a1c1",
       sapphire = "#5e81ac",
       blue = "#eceff4",
-      lavender = "#8D8CAF",
+      lavender = "#8d8caf",
     },
     latte = {
       rosewater = "#3c3f4a",

@@ -8,10 +8,12 @@ null_ls.setup({
   sources = {
     code_actions.eslint_d,
     code_actions.shellcheck,
+
     diagnostics.eslint_d,
     diagnostics.shellcheck,
     diagnostics.credo,
-    formatting.autopep8,
+
+    formatting.black,
     formatting.prettierd,
     formatting.rustfmt,
     formatting.shfmt,
