@@ -2,12 +2,12 @@ require("catppuccin").setup({
   flavour = "mocha",
   color_overrides = {
     all = {
-      text = "#a6adc8",
+      text = "#a1a8c3",
       subtext1 = "#a6adc8",
       subtext0 = "#9399b2",
       overlay2 = "#7f849c",
       overlay1 = "#686c82",
-      overlay0 = "#6c7086",
+      overlay0 = "#646787",
       surface2 = "#555878",
       surface1 = "#222332",
       surface0 = "#0a0d0f",
@@ -30,7 +30,7 @@ require("catppuccin").setup({
       sky = "#5e5f6e",
       sapphire = "#3e586e",
       blue = "#8296a6",
-      lavender = "#8d8caf",
+      lavender = "#82829b",
     },
     macchiato = {
       rosewater = "#e2d4cc",
