@@ -36,7 +36,7 @@ map("n", "sv", ":vsplit<Return><C-w>w") -- split vertically
 -- BUFFER MANAGEMENT
 map("n", "<S-l>", ":bnext<CR>") -- next buffer
 map("n", "<S-h>", ":bprevious<CR>") -- previous buffer
-map({ "n", "i" }, "<C-s>", function(bufnr)
+map({ "n", "i" }, "<C-s>", function()
   vim.cmd.write()
 end) -- save buffer (no format)
 map({ "n", "i" }, "<A-s>", function()
