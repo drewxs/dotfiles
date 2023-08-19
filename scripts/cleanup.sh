@@ -21,9 +21,7 @@ function setup_neovim {
 }
 
 function cleanup {
-  if [[ "${update_only:=false}" == true ]]; then
-    return
-  fi
+  [[ "${update_only:=false}" == true ]] && return
 
   echo "Cleaning up..."
   remove_existing_configurations
