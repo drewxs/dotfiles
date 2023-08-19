@@ -69,7 +69,9 @@ function install_languages {
   yay -S --noconfirm dotnet-sdk-bin
 
   echo "Installing java..."
-  sudo pacman -S --noconfirm jdk-openjdk
+  asdf plugin add java
+  asdf install java openjdk-11
+  asdf global java openjdk-11
 }
 
 function install_neovim {
