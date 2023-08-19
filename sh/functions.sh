@@ -70,6 +70,8 @@ function up {
       sudo apt update && sudo apt upgrade -y
     elif cmd_exists pacman; then
       yay -Syu --noconfirm
+    elif cmd_exists brew; then
+      brew update && brew upgrade
     fi
   }
   function up_pkg {
@@ -91,30 +93,20 @@ function up {
     up_pkg
   }
 
-  if [[ $# -eq 0 ]]; then
-    up_all
-  fi
+  [[ $# -eq 0 ]] && up_all
   while getopts :dspafh opt; do
     case $opt in
-    a)
-      up_all
-      ;;
-    d)
-      up_dot
-      ;;
-    s)
-      up_sys
-      ;;
-    p)
-      up_pkg
-      ;;
+    a) up_all ;;
+    d) up_dot ;;
+    s) up_sys ;;
+    p) up_pkg ;;
     f)
       echo "Clean installing dotfiles..."
       export update_only=false
       install_dotfiles
       ;;
     h)
-      echo "Drew's updater
+      echo "Updater
 
 Usage: up [OPTIONS]
 
