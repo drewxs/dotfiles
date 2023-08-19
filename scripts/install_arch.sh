@@ -3,7 +3,7 @@
 function install_yay {
   echo "Installing yay..."
   exists yay && return
-  sudo pacman -S --needed git base-devel --noconfirm
+  sudo pacman -S --noconfirm --needed git base-devel
   git clone https://aur.archlinux.org/yay.git "$HOME/yay"
   cd "$HOME/yay" || return
   makepkg -si --noconfirm
@@ -13,7 +13,7 @@ function install_yay {
 function install_snap {
   echo "Installing snap..."
   exists snap && return
-  yay -S snapd --answerdiff=None
+  yay -S --noconfirm --answerdiff=None snapd
   sudo systemctl enable --now snapd.socket
   sudo systemctl enable --now snapd.apparmor
 }
@@ -54,7 +54,7 @@ function install_languages {
   sudo pacman -S --noconfirm elixir
 
   echo "Installing julia..."
-  sudo yay -S --noconfirm julia-bin
+  yay -S --noconfirm julia-bin
 
   echo "Installing perl..."
   sudo pacman -S --noconfirm perl
@@ -66,7 +66,7 @@ function install_languages {
   sudo pacman -S --noconfirm go
 
   echo "Installing dotnet..."
-  sudo yay -S --noconfirm dotnet-sdk-bin
+  yay -S --noconfirm dotnet-sdk-bin
 
   echo "Installing java..."
   sudo pacman -S --noconfirm jdk-openjdk
