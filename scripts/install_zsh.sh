@@ -1,16 +1,13 @@
 #!/bin/bash
 
 function exists {
-  if command -v "$1" &>/dev/null; then
-    echo "$1 installation found"
-    return 0
-  fi
-  echo "$1 installation not found"
-  return 1
+  [[ -x "$(command -v "$1")" ]] && return 0 || return 1
 }
 
 echo "Installing zsh..."
-if ! exists zsh; then
+if exists zsh; then
+  echo "zsh installation found..."
+else
   if exists apt-get; then
     sudo apt update && sudo apt upgrade -y
     sudo apt install zsh
@@ -24,7 +21,8 @@ if ! exists zsh; then
 fi
 
 echo "Installing oh-my-zsh..."
-if ! exists omz; then
-  sudo rm -rf .oh-my-zsh
+if [ -d "$HOME/.oh-my-zsh" ]; then
+  echo "oh-my-zsh installation found..."
+else
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
