@@ -16,7 +16,7 @@ function keys {
   xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
-# Check if a command exists
+# Check if a command exists and echo the result
 # $1: command
 function exists {
   if command -v "$1" &>/dev/null; then
@@ -30,10 +30,7 @@ function exists {
 # Check if a command exists in PATH
 # $1: command
 function cmd_exists {
-  if [[ -x "$(command -v "$1")" ]]; then
-    return 0
-  fi
-  return 1
+  [[ -x "$(command -v "$1")" ]] && return 0 || return 1
 }
 
 # Create and cd into a directory
