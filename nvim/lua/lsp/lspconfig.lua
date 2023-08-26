@@ -36,7 +36,7 @@ local servers = {
 
 require("mason-lspconfig").setup({
   ensure_installed = servers,
-  automatic_installation = false,
+  automatic_installation = true,
 })
 
 -- use an on_attach function to only map the following keys
