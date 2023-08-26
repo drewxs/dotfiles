@@ -8,89 +8,89 @@ end
 local remap = { remap = true }
 
 -- GENERAL
-map("n", "<Esc>", ":noh<CR>") -- clear highlights
-map("n", "<C-a>", "gg<S-v>G") -- select all
-map("n", "r", "<C-r>") -- redo
-map("n", "<A-\\>", "za", remap) -- toggle fold
-map("n", "<C-_>", "gcc", remap) -- toggle comment
-map("i", "<C-_>", "<Esc>gcca", remap) -- toggle comment
-map("v", "<C-_>", "gb", remap) -- toggle selection
+map("n", "<esc>", "<cmd>noh<cr>") -- clear highlights
+map("n", "<c-a>", "gg<s-v>G") -- select all
+map("n", "r", "<c-r>") -- redo
+map("n", "<a-\\>", "za", remap) -- toggle fold
+map("n", "<c-_>", "gcc", remap) -- toggle comment
+map("i", "<c-_>", "<esc>gcca", remap) -- toggle comment
+map("v", "<c-_>", "gb", remap) -- toggle selection
 
 -- NORMALIZE
-map("n", "<C-u>", "<C-u>zz") -- center jump up
-map("n", "<C-d>", "<C-d>zz") -- center jump down
+map("n", "<c-u>", "<c-u>zz") -- center jump up
+map("n", "<c-d>", "<c-d>zz") -- center jump down
 map("n", "N", "Nzzzv") -- center search jump up
 map("n", "n", "nzzzv") -- center search jump down
 
 -- WINDOW MANAGEMENT
-map("n", "<C-h>", "<C-w>h") -- window left
-map("n", "<C-j>", "<C-w>j") -- window down
-map("n", "<C-k>", "<C-w>k") -- window up
-map("n", "<C-l>", "<C-w>l") -- window right
-map("n", "<C-Left>", ":vertical resize +2<CR>") -- increase width
-map("n", "<C-Right>", ":vertical resize -2<CR>") -- decrease width
-map("n", "ss", ":split<Return><C-w>w") -- split horizontally
-map("n", "sv", ":vsplit<Return><C-w>w") -- split vertically
+map("n", "<c-h>", "<c-w>h") -- window left
+map("n", "<c-j>", "<c-w>j") -- window down
+map("n", "<c-k>", "<c-w>k") -- window up
+map("n", "<c-l>", "<c-w>l") -- window right
+map("n", "<c-left>", "<cmd>vertical resize +2<cr>") -- increase width
+map("n", "<c-right>", "<cmd>vertical resize -2<cr>") -- decrease width
+map("n", "ss", "<cmd>split<return><c-w>w") -- split horizontally
+map("n", "sv", "<cmd>vsplit<return><c-w>w") -- split vertically
 
 -- BUFFER MANAGEMENT
-map("n", "<S-l>", ":bnext<CR>") -- next buffer
-map("n", "<S-h>", ":bprevious<CR>") -- previous buffer
-map({ "n", "i" }, "<C-s>", function()
+map("n", "<s-l>", "<cmd>bnext<cr>") -- next buffer
+map("n", "<s-h>", "<cmd>bprevious<cr>") -- previous buffer
+map({ "n", "i" }, "<c-s>", function()
   vim.cmd.write()
 end) -- save buffer (no format)
-map({ "n", "i" }, "<A-s>", function()
+map({ "n", "i" }, "<a-s>", function()
   vim.lsp.buf.format()
   vim.cmd.write()
   vim.cmd.stopinsert()
 end) -- save and format buffer
-map({ "n", "i" }, "<A-w>", "<Esc>:Bdelete!<CR>") -- delete buffer
-map("n", "<C-q>", ":qa!<CR>") -- quit all
-map("n", "<A-q>", ":q!<CR>") -- quit buffer
+map("n", "<a-w>", "<cmd>Bdelete!<cr>") -- delete buffer
+map("n", "<c-q>", "<cmd>qa!<cr>") -- quit all
+map("n", "<a-q>", "<cmd>q!<cr>") -- quit buffer
 
 -- MOVEMENT
 -- insert-mode cursor movement
-map("i", "<A-k>", "<Up>") -- up
-map("i", "<A-j>", "<Down>") -- down
-map("i", "<A-h>", "<Left>") -- left
-map("i", "<A-l>", "<Right>") -- right
+map("i", "<a-k>", "<up>") -- up
+map("i", "<a-j>", "<down>") -- down
+map("i", "<a-h>", "<left>") -- left
+map("i", "<a-l>", "<right>") -- right
 -- word movement
-map({ "n", "v" }, "<A-h>", "b") -- beginning of word
-map({ "n", "v" }, "<A-l>", "e") -- end of word
+map({ "n", "v" }, "<a-h>", "b") -- beginning of word
+map({ "n", "v" }, "<a-l>", "e") -- end of word
 -- line movement
-map("i", "<C-b>", "<Esc><S-i>") -- beginning of line
-map("i", "<C-e>", "<End>") -- end of line
-map("i", "<A-;>", "<Esc><S-a>;<CR>") -- line end -> ';' -> new line
-map("i", "<A-,>", "<Esc><S-a>,<CR>") -- line end -> ',' -> new line
-map("n", "<A-u>", "gg0i<CR><Esc>k") -- new line at beginning of file
-map("i", "<A-u>", "<Esc>gg0i<CR><Esc>ki") -- new line at beginning of file
-map("i", "<C-o>", "<Esc>o") -- new line below
+map("i", "<c-b>", "<esc><s-i>") -- beginning of line
+map("i", "<c-e>", "<end>") -- end of line
+map("i", "<a-;>", "<esc><s-a>;<cr>") -- line end -> ';' -> new line
+map("i", "<a-,>", "<esc><s-a>,<cr>") -- line end -> ',' -> new line
+map("n", "<a-u>", "gg0i<cr><esc>k") -- new line at beginning of file
+map("i", "<a-u>", "<esc>gg0i<cr><esc>ki") -- new line at beginning of file
+map("i", "<c-o>", "<esc>o") -- new line below
 
 -- TEXT MANIPULATION
 -- words
-map("i", "<C-h>", "<C-w>") -- delete previous word
-map("i", "<C-Del>", "<Esc>ldwi") -- delete next word
+map("i", "<c-h>", "<c-w>") -- delete previous word
+map("i", "<c-del>", "<esc>ldwi") -- delete next word
 -- lines
-map("n", "<A-j>", ":m .+1<CR>") -- move line down
-map("n", "<A-k>", ":m .-2<CR>") -- move line up
-map("v", "<A-j>", ":m '>+1<CR>gv=gv") -- move selection down
-map("v", "<A-k>", ":m '<-2<CR>gv=gv") -- move selection up
+map("n", "<a-j>", ":m .+1<cr>") -- move line down
+map("n", "<a-k>", ":m .-2<cr>") -- move line up
+map("v", "<a-j>", ":m '>+1<cr>gv=gv") -- move selection down
+map("v", "<a-k>", ":m '<-2<cr>gv=gv") -- move selection up
 -- duplication
-map("n", "<S-j>", "mayyp`aj") -- duplicate line
-map("v", "<S-j>", "y'>p") -- duplicate selection
+map("n", "<s-j>", "mayyp`aj") -- duplicate line
+map("v", "<s-j>", "y'>p") -- duplicate selection
 
 -- MISC
-map("n", "<A-c>", "<cmd>PickColor<cr>") -- color picker
-map("i", "<A-c>", "<cmd>PickColorInsert<cr>") -- color picker
-map("n", "<S-m>", ":MarkdownPreviewToggle<CR>") -- markdown preview
+map("n", "<a-c>", "<cmd>PickColor<cr>") -- color picker
+map("i", "<a-c>", "<cmd>PickColorInsert<cr>") -- color picker
+map("n", "<s-m>", "<cmd>MarkdownPreviewToggle<cr>") -- markdown preview
 
 -- LSP
-map("n", "<A-r>", ":LspRestart<CR>")
-map("n", "<S-d>", ":Lspsaga hover_doc<CR>")
-map("n", "<S-f>", ":Lspsaga lsp_finder<CR>")
-map("n", "<S-r>", ":Lspsaga rename<CR>")
-map("n", "<S-t>", ":Lspsaga type<CR>")
-map("n", "<S-o>", ":Lspsaga outline<CR>")
-map("n", "<S-p>", ":Lspsaga peek_definition<CR>")
-map("n", "<A-[>", ":Lspsaga diagnostic_jump_prev<CR>", remap)
-map("n", "<A-]>", ":Lspsaga diagnostic_jump_next<CR>", remap)
-map("n", "<S-q>", vim.diagnostic.setloclist)
+map("n", "<a-r>", "<cmd>LspRestart<cr>")
+map("n", "<s-d>", "<cmd>Lspsaga hover_doc<cr>")
+map("n", "<s-f>", "<cmd>Lspsaga lsp_finder<cr>")
+map("n", "<s-r>", "<cmd>Lspsaga rename<cr>")
+map("n", "<s-t>", "<cmd>Lspsaga type<cr>")
+map("n", "<s-o>", "<cmd>Lspsaga outline<cr>")
+map("n", "<s-p>", "<cmd>Lspsaga peek_definition<cr>")
+map("n", "<a-[>", "<cmd>Lspsaga diagnostic_jump_prev<cr>", remap)
+map("n", "<a-]>", "<cmd>Lspsaga diagnostic_jump_next<cr>", remap)
+map("n", "<s-q>", vim.diagnostic.setloclist)

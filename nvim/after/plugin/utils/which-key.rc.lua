@@ -53,7 +53,7 @@ local setup = {
     align = "left", -- align columns left, center or right
   },
   ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-  hidden = { "<silent>", "<cmd>", "<Cmd>", "<CR>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
+  hidden = { "<silent>", "<cmd>", "<cr>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
   show_help = true, -- show help message on the command line when the popup is visible
   triggers = "auto", -- automatically setup triggers
   -- triggers = {"<leader>"} -- or specify a list manually
@@ -76,13 +76,13 @@ local opts = {
 }
 
 local mappings = {
-  c = { "<cmd>Bdelete!<CR>", "Close" },
+  c = { "<cmd>Bdelete!<cr>", "Close" },
   e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
-  q = { "<cmd>q!<CR>", "Quit" },
-  w = { "<cmd>:Prettier<CR>:w!<CR>", "Save" },
+  q = { "<cmd>q!<cr>", "Quit" },
+  w = { "<cmd>w!<cr>", "Save" },
   g = {
     name = "Git",
-    g = { "<cmd>LazyGit<CR>", "Lazygit" },
+    g = { "<cmd>LazyGit<cr>", "Lazygit" },
     j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
     k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
@@ -104,7 +104,7 @@ local mappings = {
     f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
-    j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", "Next Diagnostic" },
+    j = { "<cmd>lua vim.lsp.diagnostic.goto_next()<cr>", "Next Diagnostic" },
     k = { "<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
     l = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Quickfix" },
@@ -143,7 +143,7 @@ local mappings = {
   },
   u = {
     name = "Utilities",
-    x = { "<cmd>!chmod +x %<CR>", "Make Executable" },
+    x = { "<cmd>!chmod +x %<cr>", "Make Executable" },
   },
   x = {
     name = "Terminal",
