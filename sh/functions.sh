@@ -52,7 +52,7 @@ function dir_exists {
 }
 
 # Update packages and dotfiles
-function up {
+function upd {
   function up_dot {
     echo "Updating dotfiles..."
     DOTFILES="$HOME/.dotfiles"
@@ -108,7 +108,7 @@ function up {
     h)
       echo "Updater
 
-Usage: up [OPTIONS]
+Usage: upd [OPTIONS]
 
 Options:
   -a  Update all (default)
