@@ -25,7 +25,7 @@ install_dotfiles
 ## Updating
 
 ```bash
-Usage: up [OPTIONS]
+Usage: upd [OPTIONS]
 
 Options:
   -s  Update system packages (default)
