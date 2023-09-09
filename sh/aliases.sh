@@ -9,8 +9,8 @@ elif [[ -x "$(command -v pacman)" ]]; then
 fi
 
 # General
-alias l="exa -lah"
-alias ls="exa"
+alias l="eza -lah"
+alias ls="eza"
 alias cls="clear"
 alias cl="cls && l"
 alias cat="bat"
