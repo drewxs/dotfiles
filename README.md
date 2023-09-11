@@ -28,9 +28,9 @@ install_dotfiles
 Usage: upd [OPTIONS]
 
 Options:
-  -s  Update system packages (default)
-  -p  Update language packages
+  -a  Update all (default)
   -d  Update dotfiles
+  -p  Update packages
   -f  Clean install dotfiles
 ```
 

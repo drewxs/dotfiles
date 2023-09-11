@@ -64,8 +64,7 @@ function upd {
       echo "Dotfiles updated"
     fi
   }
-  function up_sys {
-    echo "Updating system packages..."
+  function up_pkg {
     if cmd_exists apt-get; then
       sudo apt update && sudo apt upgrade -y
     elif cmd_exists pacman; then
@@ -73,9 +72,6 @@ function upd {
     elif cmd_exists brew; then
       brew update && brew upgrade
     fi
-  }
-  function up_pkg {
-    echo "Updating packages..."
     if cmd_exists rustup; then
       rustup update
       cargo install-update -a
@@ -89,16 +85,14 @@ function upd {
   }
   function up_all {
     up_dot
-    up_sys
     up_pkg
   }
 
   [[ $# -eq 0 ]] && up_all
-  while getopts :dspafh opt; do
+  while getopts :adpfh opt; do
     case $opt in
     a) up_all ;;
     d) up_dot ;;
-    s) up_sys ;;
     p) up_pkg ;;
     f)
       echo "Clean installing dotfiles..."
@@ -113,13 +107,12 @@ Usage: upd [OPTIONS]
 Options:
   -a  Update all (default)
   -d  Update dotfiles
-  -s  Update system packages
-  -p  Update language packages
+  -p  Update packages
   -f  Clean install dotfiles"
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
-      echo "Run 'up -h' for help"
+      echo "Run 'upd -h' for help"
       ;;
     esac
   done
