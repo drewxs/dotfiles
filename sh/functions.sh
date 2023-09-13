@@ -159,3 +159,20 @@ function testtc {
     printf "\n";
   }'
 }
+
+# Load environment variables from file
+# Defaults to .env in current directory
+# $1: path to env file
+function load_env {
+  env_file="${1:-.env}"
+  if [ -f "$env_file" ]; then
+    while IFS= read -r line; do
+      if [ -n "$line" ] && [[ "$line" != \#* ]]; then
+        export "${line?}"
+      fi
+    done <"$env_file"
+    echo "$env_file loaded"
+  else
+    echo "$env_file not found"
+  fi
+}
