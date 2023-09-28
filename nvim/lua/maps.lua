@@ -68,7 +68,7 @@ map("i", "<c-o>", "<esc>o") -- new line below
 -- TEXT MANIPULATION
 -- words
 map("i", "<c-h>", "<c-w>") -- delete previous word
-map("i", "<c-del>", "<esc>ldwi") -- delete next word
+map("i", "<c-l>", "<esc>ldwi") -- delete next word
 -- lines
 map("n", "<a-j>", ":m .+1<cr>") -- move line down
 map("n", "<a-k>", ":m .-2<cr>") -- move line up
