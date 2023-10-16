@@ -1,6 +1,7 @@
 [user]
 email = drewshah0@gmail.com
 name = Andrew X. Shah
+signingkey = /home/drew/.ssh/id_ed25519.pub
 
 [credential]
 helper = store
@@ -22,3 +23,6 @@ smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
 clean = git-lfs clean -- %f
+
+[gpg]
+format = ssh
