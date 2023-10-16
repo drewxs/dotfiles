@@ -6,6 +6,12 @@ signingkey = /home/drew/.ssh/id_ed25519.pub
 [credential]
 helper = store
 
+[gpg]
+format = ssh
+
+[commit]
+gpgsign = true
+
 [init]
 defaultBranch = main
 
@@ -23,6 +29,3 @@ smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
 clean = git-lfs clean -- %f
-
-[gpg]
-format = ssh
