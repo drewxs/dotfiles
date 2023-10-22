@@ -47,23 +47,21 @@ elif cmd_exists apt-get; then
 fi
 
 # PATH
+export BIN="$HOME/bin"
 export LOCAL_BIN="$HOME/.local/bin"
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 export CARGO_HOME="$HOME/.local/share/cargo"
 export CARGO_BIN="$CARGO_HOME/bin"
 export MIX_BIN="$HOME/.local/share/mix/escripts"
-export NVM_DIR="$HOME/.config/nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+export GO_BIN="$HOME/.local/share/go/bin"
 if cmd_exists android-studio; then
   export ANDROID_HOME="$HOME/Android/Sdk"
   ANDROID_PATHS=$(eval echo "$ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}" | tr ' ' ':')
   export PATH="$PATH:$ANDROID_PATHS}"
 fi
-export PATH="$PATH:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN"
-eval "$(rbenv init - zsh)"
-. /opt/asdf-vm/asdf.sh
+export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN:$GO_BIN"
+. "$HOME/.asdf/asdf.sh"
 
 # compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
