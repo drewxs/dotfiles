@@ -2,24 +2,10 @@
 
 function install_sys_packages {
   echo "Installing sys packages..."
-  sudo apt-get install -y curl wget tmux git ripgrep fuse libfuse2 neofetch \
-    ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip doxygen \
+  sudo apt-get install -y curl wget tmux git unzip fuse libfuse2 neofetch g++ \
+    ninja-build gettext libtool libtool-bin autoconf automake cmake pkg-config shellcheck \
     software-properties-common build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev \
-    bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libgdbm-dev libdb-dev \
-    shellcheck
-}
-
-function install_cmake {
-  echo "Installing cmake..."
-  exists cmake && return
-  cd "$HOME" || return
-  wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
-  sudo tar -xf cmake-3.24.2.tar.gz
-  cd cmake-3.24.2 || return
-  ./bootstrap
-  make
-  cd "$HOME" || return
-  sudo rm -rf cmake-3*
+    bison build-essential libssl-dev libyaml-dev libreadline6-dev libffi-dev libgdbm6 libdb-dev \
 }
 
 function install_lazygit {
@@ -31,6 +17,11 @@ function install_lazygit {
   sudo rm -rf lazygit.tar.gz
 }
 
+function install_asdf {
+  echo "Installing asdf..."
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+}
+
 function install_rust {
   echo "Installing rust..."
   if ! exists rustc && exists cargo; then
@@ -40,12 +31,23 @@ function install_rust {
   cargo install languagetool-rust --features full
 }
 
+function install_elixir {
+  echo "Installing erlang and elixir..."
+  exists elixir && return
+  asdf plugin add erlang
+  asdf install erlang latest
+  asdf global erlang latest
+  asdf plugin add elixir
+  asdf install elixir latest
+  asdf global elixir latest
+}
+
 function install_node {
   echo "Installing node..."
-  if ! exists nvm && exists node; then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-    nvm install 18
-    nvm alias default 18
+  if ! exists node; then
+    asdf plugin add nodejs
+    asdf install nodejs latest:18
+    asdf global nodejs latest:18
   fi
   if ! exists pnpm; then
     npm i -g pnpm
@@ -54,12 +56,10 @@ function install_node {
 
 function install_ruby {
   echo "Installing ruby..."
-  if ! exists rbenv; then
-    sudo apt-get install -y rbenv
-  fi
-  ruby_latest_version=$(rbenv install -l | grep -v - | tail -1)
-  rbenv install "$ruby_latest_version"
-  rbenv global "$ruby_latest_version"
+  exists ruby && return
+  asdf plugin add ruby
+  asdf install ruby latest
+  asdf global ruby latest
 }
 
 function install_python {
@@ -71,11 +71,9 @@ function install_python {
 function install_go {
   echo "Installing go..."
   exists go && return
-  sudo rm -rf go1.19.2.linux-amd64*
-  wget -c https://golang.org/dl/go1.19.2.linux-amd64.tar.gz
-  sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.19.2.linux-amd64.tar.gz
-  export PATH=$PATH:/usr/local/go/bin
-  sudo rm -rf go1.19.2.linux-amd64*
+  asdf plugin add golang
+  asdf install golang latest
+  asdf global golang latest
 }
 
 function install_dotnet {
@@ -108,9 +106,10 @@ function install_dotfiles {
   pwd=$(pwd)
 
   install_sys_packages
-  install_cmake
   install_lazygit
+  install_asdf
   install_rust
+  install_elixir
   install_node
   install_ruby
   install_python
