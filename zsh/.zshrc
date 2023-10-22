@@ -9,7 +9,7 @@ fi
 zstyle ":omz:update" mode auto
 
 # UI
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="cypher" # set by `omz`
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="yyyy-mm-dd" # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 unset zle_bracketed_paste
