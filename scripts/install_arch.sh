@@ -24,52 +24,74 @@ function install_sys_packages {
     xorg-{xmodmap,xev,setxkbmap,xset} tmux neofetch wget xclip ripgrep fd sd up \
     docker lazygit tree-sitter shfmt shellcheck luarocks autopep8 python-{neovim,pipx} \
     ttf-sourcecodepro-nerd
-  yay -S --noconfirm \
-    asdf-vm
+}
+
+function install_asdf {
+  echo "Installing asdf..."
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
 }
 
 function install_languages {
   echo "Installing rust..."
-  sudo pacman -S --noconfirm rustup
-  rustup default nightly
-  cargo install languagetool-rust --features full
+  if ! exists cargo; then
+    sudo pacman -S --noconfirm rustup
+    rustup default nightly
+    cargo install languagetool-rust --features full
+  fi
 
   echo "Installing node..."
-  yay -S --noconfirm nvm
-  nvm install --lts
-  nvm alias default node
+  if ! exists node; then
+    asdf plugin add nodejs
+    asdf install nodejs latest:18
+    asdf global nodejs latest:18
+  fi
   if ! exists pnpm; then
     npm i -g pnpm
   fi
 
   echo "Installing ruby..."
-  yay -S --noconfirm ruby-build rbenv
-  ruby_latest_version=$(rbenv install -l | grep -v - | tail -1)
-  rbenv install "$ruby_latest_version"
-  rbenv global "$ruby_latest_version"
+  if ! exists ruby; then
+    asdf plugin add ruby
+    asdf install ruby latest
+    asdf global ruby latest
+  fi
 
   echo "Installing elixir..."
-  sudo pacman -S --noconfirm elixir
+  if ! exists elixir; then
+    sudo pacman -S --noconfirm elixir
+  fi
 
   echo "Installing julia..."
-  yay -S --noconfirm julia-bin
+  if ! exists julia; then
+    yay -S --noconfirm julia-bin
+  fi
 
   echo "Installing perl..."
-  sudo pacman -S --noconfirm perl
+  if ! exists perl; then
+    sudo pacman -S --noconfirm perl
+  fi
 
   echo "Installing python..."
-  sudo pacman -S --noconfirm python python-pip
+  if ! exists pip; then
+    sudo pacman -S --noconfirm python python-pip
+  fi
 
   echo "Installing go..."
-  sudo pacman -S --noconfirm go
+  if ! exists go; then
+    sudo pacman -S --noconfirm go
+  fi
 
   echo "Installing dotnet..."
-  yay -S --noconfirm dotnet-sdk-bin
+  if ! exists dotnet; then
+    yay -S --noconfirm dotnet-sdk-bin
+  fi
 
   echo "Installing java..."
-  asdf plugin add java
-  asdf install java openjdk-11
-  asdf global java openjdk-11
+  if ! exists java; then
+    asdf plugin add java
+    asdf install java openjdk-11
+    asdf global java openjdk-11
+  fi
 }
 
 function install_neovim {
@@ -85,6 +107,7 @@ function install_dotfiles {
   install_yay
   install_snap
   install_sys_packages
+  install_asdf
   install_languages
   install_packages
   install_neovim
