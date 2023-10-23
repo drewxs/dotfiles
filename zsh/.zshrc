@@ -40,6 +40,7 @@ source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.dotfiles/zsh/.p10k.zsh"
 for f in "$HOME/.dotfiles/sh/"*.sh; do source "$f"; done
 source "$HOME/.dotfiles/scripts/cleanup.sh"
+source "$HOME/.dotfiles/scripts/install_shared.sh"
 if cmd_exists pacman; then
   source "$HOME/.dotfiles/scripts/install_arch.sh"
 elif cmd_exists apt-get; then
@@ -55,6 +56,7 @@ export CARGO_HOME="$HOME/.local/share/cargo"
 export CARGO_BIN="$CARGO_HOME/bin"
 export MIX_BIN="$HOME/.local/share/mix/escripts"
 export GO_BIN="$HOME/.local/share/go/bin"
+export ASDF_DIR="$HOME/.asdf"
 if cmd_exists android-studio; then
   export ANDROID_HOME="$HOME/Android/Sdk"
   ANDROID_PATHS=$(eval echo "$ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}" | tr ' ' ':')
