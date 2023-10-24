@@ -1,7 +1,7 @@
 local colors = {
   -- general
   fg = "#a03859",
-  bg = "#080808",
+  bg = "#050a0b",
 
   -- mid
   fg_b = "#a03859",
