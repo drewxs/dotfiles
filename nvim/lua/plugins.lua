@@ -3,13 +3,7 @@ return {
   { "nvim-lua/plenary.nvim" },
 
   -- which-key
-  {
-    "folke/which-key.nvim",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 100
-    end,
-  },
+  { "folke/which-key.nvim" },
 
   -- themes
   { "catppuccin/nvim" },
