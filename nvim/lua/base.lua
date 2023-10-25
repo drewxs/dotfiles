@@ -15,14 +15,21 @@ vim.cmd([[
   augroup END
 ]])
 
--- turn off paste mode when leaving insert
-vim.api.nvim_create_autocmd("InsertLeave", {
-  pattern = "*",
-  command = "set nopaste",
+-- open tree on start
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+  callback = function()
+    require("nvim-tree.api").tree.open()
+  end,
 })
 
 -- auto refresh buffers on change
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
   command = "if mode() != 'c' | checktime | endif",
   pattern = { "*" },
+})
+
+-- turn off paste mode when leaving insert
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  command = "set nopaste",
 })

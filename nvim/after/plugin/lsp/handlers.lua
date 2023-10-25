@@ -48,4 +48,6 @@ M.on_attach = function(client, _)
   illuminate.on_attach(client)
 end
 
+M.setup()
+
 return M

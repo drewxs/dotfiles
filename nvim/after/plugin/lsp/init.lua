@@ -1,0 +1,6 @@
+-- require("lsp.handlers").setup()
+-- require("lsp.mason")
+-- require("lsp.lspconfig")
+-- require("lsp.lspsaga")
+-- require("lsp.null-ls")
+-- require("lsp.cmp")

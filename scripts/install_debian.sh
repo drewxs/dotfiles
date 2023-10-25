@@ -95,10 +95,6 @@ function install_neovim {
   sudo make install
   cd "$HOME" || return
   sudo rm -rf neovim
-  packer_loc="$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-  if dir_exists "$packer_loc" "packer"; then
-    git clone --depth 1 https://github.com/wbthomason/packer.nvim "$packer_loc"
-  fi
 }
 
 function install_dotfiles {

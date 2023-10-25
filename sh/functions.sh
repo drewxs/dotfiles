@@ -64,7 +64,13 @@ function upd {
       echo "Dotfiles updated"
     fi
   }
+  function up_nvim {
+    echo "Updating neovim..."
+    nvim --headless "+Lazy! sync" +qa
+  }
   function up_pkg {
+    echo "Updating packages..."
+    echo "Updating system packages..."
     if cmd_exists apt-get; then
       sudo apt update && sudo apt upgrade -y
     elif cmd_exists pacman; then
@@ -72,27 +78,32 @@ function upd {
     elif cmd_exists brew; then
       brew update && brew upgrade
     fi
+    echo "Updating rust packages..."
     if cmd_exists rustup; then
       rustup update
       cargo install-update -a
     fi
+    echo "Updating node packages..."
     if cmd_exists pnpm; then
       pnpm update --global --latest
     fi
+    echo "Updating ruby packages..."
     if cmd_exists gem; then
       gem update
     fi
   }
   function up_all {
     up_dot
+    up_nvim
     up_pkg
   }
 
   [[ $# -eq 0 ]] && up_all
-  while getopts :adpfh opt; do
+  while getopts :adpnfh opt; do
     case $opt in
     a) up_all ;;
     d) up_dot ;;
+    n) up_nvim ;;
     p) up_pkg ;;
     f)
       echo "Clean installing dotfiles..."
@@ -107,6 +118,7 @@ Usage: upd [OPTIONS]
 Options:
   -a  Update all (default)
   -d  Update dotfiles
+  -n  Update neovim
   -p  Update packages
   -f  Clean install dotfiles"
       ;;

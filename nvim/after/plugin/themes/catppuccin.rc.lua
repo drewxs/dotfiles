@@ -1,4 +1,5 @@
-require("catppuccin").setup({
+return {
+  "catppuccin/nvim",
   flavour = "mocha",
   color_overrides = {
     all = {
@@ -113,4 +114,4 @@ require("catppuccin").setup({
     bufferline = true,
     lightspeed = true,
   },
-})
+}

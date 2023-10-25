@@ -1,141 +1,119 @@
-local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
-    vim.cmd([[packadd packer.nvim]])
-    return true
-  end
-  return false
-end
-
-local packer_bootstrap = ensure_packer()
-
--- plugins
-require("packer").startup(function(use)
+return {
   -- base
-  use("wbthomason/packer.nvim")
-  use("nvim-lua/plenary.nvim")
-
-  -- themes
-  use("olimorris/onedarkpro.nvim")
-  use("EdenEast/nightfox.nvim")
-  use("folke/tokyonight.nvim")
-  use("marko-cerovac/material.nvim")
-  use("catppuccin/nvim")
-  use("kvrohit/substrata.nvim")
-  use("kvrohit/mellow.nvim")
-  use("projekt0n/github-nvim-theme")
-
-  -- file icons
-  use("nvim-tree/nvim-web-devicons")
-
-  -- file tree
-  use({
-    "nvim-tree/nvim-tree.lua",
-    as = "nvim_tree",
-    requires = { "nvim-tree/nvim-web-devicons" },
-    tag = "nightly",
-  })
-
-  -- statusline
-  use("nvim-lualine/lualine.nvim")
-
-  -- bufferline
-  use("akinsho/bufferline.nvim")
-
-  -- LSP
-  use("williamboman/mason.nvim")
-  use("williamboman/mason-lspconfig.nvim")
-  use("neovim/nvim-lspconfig")
-  use("jose-elias-alvarez/null-ls.nvim")
-  use("glepnir/lspsaga.nvim")
-  use("onsails/lspkind-nvim")
-
-  -- cmp
-  use("hrsh7th/nvim-cmp")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use({
-    "L3MON4D3/LuaSnip",
-    run = "make install_jsregexp",
-  })
-  use("saadparwaiz1/cmp_luasnip")
-
-  -- generation
-  use("github/copilot.vim")
-
-  -- treesitter
-  use({
-    "nvim-treesitter/nvim-treesitter",
-    run = function()
-      local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
-      ts_update()
-    end,
-  })
-
-  -- auto-highlight matches
-  use("RRethy/vim-illuminate")
-
-  -- comment
-  use({
-    "numToStr/Comment.nvim",
-    requires = { "JoosepAlviste/nvim-ts-context-commentstring" },
-  })
-
-  -- auto tag/pair
-  use("windwp/nvim-ts-autotag")
-  use("windwp/nvim-autopairs")
-
-  -- telescope
-  use({
-    "nvim-telescope/telescope.nvim",
-    requires = { { "nvim-lua/plenary.nvim" } },
-  })
-
-  -- git
-  use("lewis6991/gitsigns.nvim")
-  use("kdheepak/lazygit.nvim")
-
-  -- terminal
-  use("akinsho/toggleterm.nvim")
-
-  -- transparency
-  use("xiyaowong/nvim-transparent")
+  { "nvim-lua/plenary.nvim", lazy = false },
 
   -- which-key
-  use("folke/which-key.nvim")
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+  },
+
+  -- themes
+  { "catppuccin/nvim", lazy = false },
+  "olimorris/onedarkpro.nvim",
+  "EdenEast/nightfox.nvim",
+  "folke/tokyonight.nvim",
+  "marko-cerovac/material.nvim",
+  "kvrohit/substrata.nvim",
+  "kvrohit/mellow.nvim",
+  "projekt0n/github-nvim-theme",
+
+  -- file icons
+  { "nvim-tree/nvim-web-devicons", lazy = false },
+
+  -- file tree
+  {
+    "nvim-tree/nvim-tree.lua",
+    lazy = false,
+    name = "nvim_tree",
+    version = "*",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+
+  -- statusline
+  "nvim-lualine/lualine.nvim",
+
+  -- bufferline
+  "akinsho/bufferline.nvim",
+
+  -- noice
+  "MunifTanjim/nui.nvim",
+  "rcarriga/nvim-notify",
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+    },
+  },
+
+  -- LSP
+  { "williamboman/mason.nvim", lazy = false },
+  { "williamboman/mason-lspconfig.nvim", lazy = false },
+  { "neovim/nvim-lspconfig", lazy = false },
+  "jose-elias-alvarez/null-ls.nvim",
+  "glepnir/lspsaga.nvim",
+  "onsails/lspkind-nvim",
+
+  -- cmp
+  "hrsh7th/nvim-cmp",
+  { "hrsh7th/cmp-nvim-lsp", dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer" } },
+  { "hrsh7th/cmp-buffer", dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer" } },
+  { "hrsh7th/cmp-path", dependencies = { "hrsh7th/cmp-nvim-lsp", "hrsh7th/cmp-buffer" } },
+  { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
+  "saadparwaiz1/cmp_luasnip",
+
+  -- generation
+  "github/copilot.vim",
+
+  -- treesitter
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+
+  -- auto-highlight matches
+  "RRethy/vim-illuminate",
+
+  -- comment
+  { "numToStr/Comment.nvim", dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" } },
+
+  -- auto tag/pair
+  "windwp/nvim-ts-autotag",
+  "windwp/nvim-autopairs",
+
+  -- telescope
+  { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+
+  -- git
+  "lewis6991/gitsigns.nvim",
+  "kdheepak/lazygit.nvim",
+
+  -- terminal
+  "akinsho/toggleterm.nvim",
+
+  -- transparency
+  "xiyaowong/nvim-transparent",
 
   -- buffer delete
-  use("famiu/bufdelete.nvim")
+  "famiu/bufdelete.nvim",
 
   -- multiline edit
-  use("mg979/vim-visual-multi")
+  "mg979/vim-visual-multi",
 
   -- motion
-  use("ggandor/lightspeed.nvim")
+  "ggandor/lightspeed.nvim",
 
   -- markdown preview
-  use({
+  {
     "iamcco/markdown-preview.nvim",
-    run = function()
+    build = function()
       vim.fn["mkdp#util#install"]()
     end,
-  })
+  },
 
   -- color picker
-  use("ziontee113/color-picker.nvim")
-
-  if packer_bootstrap then
-    require("packer").sync()
-  end
-end)
-
--- automatically run :PackerCompile whenever plugins.lua is updated
-vim.cmd([[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+  "ziontee113/color-picker.nvim",
+}

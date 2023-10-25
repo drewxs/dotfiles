@@ -37,6 +37,7 @@ require("nvim-tree").setup({
   hijack_cursor = true,
   hijack_unnamed_buffer_when_opening = false,
   renderer = {
+    root_folder_label = false,
     indent_markers = {
       enable = true,
     },
@@ -74,7 +75,6 @@ require("nvim-tree").setup({
   },
   view = {
     adaptive_size = true,
-    hide_root_folder = true,
     width = 35,
   },
   on_attach = on_attach,
