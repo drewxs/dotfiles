@@ -1,11 +1,11 @@
+local default_opts = { silent = true, nowait = true }
+local remap = { remap = true }
+
 local map = function(mode, lhs, rhs, opts)
-  local default_opts = { silent = true, nowait = true }
   opts = opts or {}
   setmetatable(opts, { __index = default_opts })
   vim.keymap.set(mode, lhs, rhs, opts)
 end
-
-local remap = { remap = true }
 
 -- GENERAL
 map("n", "<esc>", "<cmd>noh<cr>") -- clear highlights
