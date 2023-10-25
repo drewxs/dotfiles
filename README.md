@@ -22,17 +22,7 @@ Run from zsh
 install_dotfiles
 ```
 
-## Updating
-
-```bash
-Usage: upd [OPTIONS]
-
-Options:
-  -a  Update all (default)
-  -d  Update dotfiles
-  -p  Update packages
-  -f  Clean install dotfiles
-```
+Run `upd -h` for update options.
 
 ### Screenshot
 
