@@ -29,8 +29,8 @@ map("n", "<c-k>", "<c-w>k") -- window up
 map("n", "<c-l>", "<c-w>l") -- window right
 map("n", "<c-left>", "<cmd>vertical resize +2<cr>") -- increase width
 map("n", "<c-right>", "<cmd>vertical resize -2<cr>") -- decrease width
-map("n", "ss", "<cmd>split<return><c-w>w") -- split horizontally
-map("n", "sv", "<cmd>vsplit<return><c-w>w") -- split vertically
+map("n", "zx", "<cmd>split<return><c-w>w") -- split horizontally
+map("n", "zc", "<cmd>vsplit<return><c-w>w") -- split vertically
 
 -- BUFFER MANAGEMENT
 map("n", "<s-l>", "<cmd>bnext<cr>") -- next buffer
@@ -51,8 +51,6 @@ map("n", "<a-q>", "<cmd>q!<cr>") -- quit buffer
 -- insert-mode cursor movement
 map("i", "<a-k>", "<up>") -- up
 map("i", "<a-j>", "<down>") -- down
-map("i", "<a-h>", "<left>") -- left
-map("i", "<a-l>", "<right>") -- right
 -- word movement
 map({ "n", "v" }, "<a-h>", "b") -- beginning of word
 map({ "n", "v" }, "<a-l>", "e") -- end of word
@@ -67,6 +65,8 @@ map("i", "<c-o>", "<esc>o") -- new line below
 
 -- TEXT MANIPULATION
 -- words
+map("i", "<a-l>", "<del>") -- delete previous char
+map("i", "<a-h>", "<bs>") -- delete next char
 map("i", "<c-h>", "<c-w>") -- delete previous word
 map("i", "<c-l>", "<esc>ldwi") -- delete next word
 -- lines
