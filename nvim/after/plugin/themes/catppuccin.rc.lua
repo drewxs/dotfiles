@@ -93,24 +93,20 @@ require("catppuccin").setup({
       NvimTreeOpenedFolderIcon = { fg = colors.flamingo },
     }
   end,
-  dim_inactive = {
-    enabled = true,
-    shade = "dark",
-    percentage = 0.15,
-  },
   transparent_background = true,
   term_colors = true,
   integrations = {
     nvimtree = true,
     cmp = true,
     gitsigns = true,
-    telescope = true,
+    telescope = { enabled = true },
     treesitter = true,
     lsp_saga = true,
     mason = true,
     which_key = true,
     markdown = true,
-    bufferline = true,
     lightspeed = true,
+    noice = true,
+    notify = true,
   },
 })
