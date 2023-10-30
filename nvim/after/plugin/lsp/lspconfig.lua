@@ -144,12 +144,19 @@ for _, ft in ipairs(filetypes) do
   )
 end
 
-nvim_lsp["lua_ls"].setup({
+nvim_lsp.lua_ls.setup({
   settings = {
     Lua = {
       diagnostics = {
         globals = { "vim", "require", "xdg_open" },
       },
     },
+  },
+})
+
+nvim_lsp.clangd.setup({
+  cmd = {
+    "clangd",
+    "--offset-encoding=utf-16",
   },
 })
