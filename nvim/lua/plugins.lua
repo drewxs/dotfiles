@@ -103,4 +103,7 @@ return {
 
   -- color picker
   { "ziontee113/color-picker.nvim" },
+
+  -- rust crates
+  { "saecki/crates.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 }

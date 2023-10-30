@@ -46,10 +46,11 @@ cmp.setup({
     }),
   }),
   sources = cmp.config.sources({
+    { name = "path" },
+    { name = "buffer" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
-  }, {
-    { name = "path" },
+    { name = "crates" },
   }),
   formatting = {
     format = lspkind.cmp_format({
