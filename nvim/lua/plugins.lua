@@ -45,7 +45,7 @@ return {
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
   { "neovim/nvim-lspconfig" },
-  { "jose-elias-alvarez/null-ls.nvim" },
+  { "nvimtools/none-ls.nvim" },
   { "glepnir/lspsaga.nvim" },
   { "onsails/lspkind-nvim" },
 

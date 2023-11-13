@@ -1,15 +1,13 @@
-local null_ls = require("null-ls")
+local nls = require("null-ls")
 
-local formatting = null_ls.builtins.formatting
-
-null_ls.setup({
+nls.setup({
   sources = {
-    formatting.black,
-    formatting.prettierd,
-    formatting.rustfmt,
-    formatting.shfmt,
-    formatting.stylua,
-    formatting.sql_formatter,
-    formatting.mix,
+    nls.builtins.formatting.black,
+    nls.builtins.formatting.prettierd,
+    nls.builtins.formatting.rustfmt,
+    nls.builtins.formatting.shfmt,
+    nls.builtins.formatting.stylua,
+    nls.builtins.formatting.sql_formatter,
+    nls.builtins.formatting.mix,
   },
 })
