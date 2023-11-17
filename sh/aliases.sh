@@ -1,26 +1,32 @@
 #!/bin/bash
 
-# Package manager
+# Package managers
 if [[ -x "$(command -v apt-get)" ]]; then
   alias p="sudo apt -y"
 elif [[ -x "$(command -v pacman)" ]]; then
   alias p="sudo pacman --noconfirm"
   alias y="yay --noconfirm"
 fi
+if [[ -x "$(command -v brew)" ]]; then
+  alias b="brew"
+fi
 
 # General
-alias l="eza -lah"
-alias ls="eza"
 alias cls="clear"
 alias cl="cls && l"
-alias cat="bat"
-alias top="htop"
 alias c="cargo"
 alias v="nvim"
-alias curl="curl -w '\n'"
-alias tmux="tmux -2"
 alias lg="lazygit"
+alias nf="neofetch"
 alias serve="npx http-server"
+
+# Overrides
+alias cat="bat"
+alias top="htop"
+alias pip="pip3"
+alias python="python3"
+alias tmux="tmux -2"
+alias curl="curl -w '\n'"
 
 # Git
 alias gs="git status"
