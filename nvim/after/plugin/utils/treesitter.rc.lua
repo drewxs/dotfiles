@@ -1,12 +1,3 @@
-local ts_js_commentstring_config = {
-  __default = "// %s",
-  __multiline = "/* %s */",
-  jsx_element = "{/* %s */}",
-  jsx_fragment = "{/* %s */}",
-  jsx_attribute = "// %s",
-  comment = "// %s",
-}
-
 require("nvim-treesitter.configs").setup({
   highlight = {
     enable = true,
@@ -47,14 +38,6 @@ require("nvim-treesitter.configs").setup({
   auto_install = true,
   autotag = {
     enable = true,
-  },
-  context_commentstring = {
-    enable = true,
-    enable_autocmd = false,
-    config = {
-      javascript = ts_js_commentstring_config,
-      typescript = ts_js_commentstring_config,
-    },
   },
 })
 
