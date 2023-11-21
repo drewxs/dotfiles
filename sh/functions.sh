@@ -98,7 +98,7 @@ function upd {
     up_pkg
   }
 
-  [[ $# -eq 0 ]] && up_all
+  [[ $# -eq 0 ]] && up_dot && up_pkg
   while getopts :adpnfh opt; do
     case $opt in
     a) up_all ;;
