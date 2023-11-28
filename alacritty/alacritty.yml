@@ -67,3 +67,6 @@ cursor:
   style:
     shape: Beam
     blinking: On
+
+key_bindings:
+  - { key: V, mods: Control, action: Paste }
