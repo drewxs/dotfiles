@@ -39,3 +39,11 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
     vim.cmd("tabnext " .. current_tab)
   end,
 })
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = ".env",
+  group = augroup("__env"),
+  callback = function(args)
+    vim.diagnostic.disable(args.buf)
+  end,
+})
