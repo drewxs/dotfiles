@@ -61,6 +61,7 @@ alias dcd="docker-compose down"
 alias dcr="docker-compose restart"
 alias dcp="docker-compose pull"
 alias dcl="docker-compose logs -f"
+alias dcbd="docker-compose build"
 
 # Postgres
 alias pg:start="sudo systemctl start postgresql.service"
