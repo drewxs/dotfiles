@@ -86,9 +86,9 @@ map("n", "<s-m>", "<cmd>MarkdownPreviewToggle<cr>") -- markdown preview
 -- LSP
 map("n", "<a-r>", "<cmd>LspRestart<cr>")
 map("n", "<s-d>", "<cmd>Lspsaga hover_doc<cr>")
-map("n", "<s-f>", "<cmd>Lspsaga lsp_finder<cr>")
+map("n", "<s-f>", "<cmd>Lspsaga finder<cr>")
 map("n", "<s-r>", "<cmd>Lspsaga rename<cr>")
-map("n", "<s-t>", "<cmd>Lspsaga type<cr>")
+map("n", "<s-t>", "<cmd>Lspsaga peek_type_definition<cr>")
 map("n", "<s-o>", "<cmd>Lspsaga outline<cr>")
 map("n", "<s-p>", "<cmd>Lspsaga peek_definition<cr>")
 map("n", "<a-[>", "<cmd>Lspsaga diagnostic_jump_prev<cr>", remap)
