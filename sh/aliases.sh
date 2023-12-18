@@ -6,6 +6,7 @@ if [[ -x "$(command -v apt-get)" ]]; then
 elif [[ -x "$(command -v pacman)" ]]; then
   alias p="sudo pacman --noconfirm"
   alias y="yay --noconfirm"
+  alias pclean="sudo pacman -Qtdq | sudo pacman -Rns -"
 fi
 if [[ -x "$(command -v brew)" ]]; then
   alias b="brew"
