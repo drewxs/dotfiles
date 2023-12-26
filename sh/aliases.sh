@@ -42,6 +42,8 @@ alias grao="git remote add origin"
 alias gpuo="git push -u origin"
 alias gpuom="git push -u origin main"
 alias gst="git stash"
+alias grgu="git remote get-url origin"
+alias grsu="git remote set-url origin"
 
 # Docker
 alias d:start="sudo systemctl start docker.service"
