@@ -113,18 +113,6 @@ for _, server in ipairs(servers) do
   })
 end
 
-local filetypes = {
-  "javascript",
-  "javascriptreact",
-  "javascript.jsx",
-  "typescript",
-  "typescriptreact",
-  "typescript.tsx",
-  "vue",
-  "svelte",
-  "astro",
-}
-
 nvim_lsp.lua_ls.setup({
   settings = {
     Lua = {
