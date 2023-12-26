@@ -6,6 +6,12 @@ return {
   { "folke/which-key.nvim" },
 
   -- themes
+  {
+    "tjdevries/colorbuddy.nvim",
+    config = function()
+      require("colorbuddy").setup()
+    end,
+  },
   { "catppuccin/nvim" },
   { "olimorris/onedarkpro.nvim" },
   { "EdenEast/nightfox.nvim" },
@@ -14,6 +20,7 @@ return {
   { "kvrohit/substrata.nvim" },
   { "kvrohit/mellow.nvim" },
   { "projekt0n/github-nvim-theme" },
+  { "svrana/neosolarized.nvim" },
 
   -- file icons
   { "nvim-tree/nvim-web-devicons" },
@@ -30,7 +37,7 @@ return {
   { "nvim-lualine/lualine.nvim" },
 
   -- bufferline
-  { "akinsho/bufferline.nvim" },
+  { "akinsho/bufferline.nvim", dependencies = { "catppuccin/nvim" } },
 
   -- noice
   { "MunifTanjim/nui.nvim" },
