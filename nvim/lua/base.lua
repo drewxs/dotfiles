@@ -1,10 +1,6 @@
 -- theme
 vim.cmd([[colorscheme catppuccin]])
 
--- undercurl
-vim.cmd([[let &t_Cs = '\e[4:3m']])
-vim.cmd([[let &t_Ce = '\e[4:0m']])
-
 local function augroup(name)
   return vim.api.nvim_create_augroup(name, { clear = true })
 end

@@ -1,17 +1,10 @@
 return {
   -- base
   { "nvim-lua/plenary.nvim" },
-
-  -- which-key
   { "folke/which-key.nvim" },
 
   -- themes
-  {
-    "tjdevries/colorbuddy.nvim",
-    config = function()
-      require("colorbuddy").setup()
-    end,
-  },
+  { "tjdevries/colorbuddy.nvim" },
   { "catppuccin/nvim" },
   { "olimorris/onedarkpro.nvim" },
   { "EdenEast/nightfox.nvim" },
@@ -22,24 +15,18 @@ return {
   { "projekt0n/github-nvim-theme" },
   { "svrana/neosolarized.nvim" },
 
-  -- file icons
+  -- UI
+  { "xiyaowong/nvim-transparent" },
   { "nvim-tree/nvim-web-devicons" },
-
-  -- file tree
   {
     "nvim-tree/nvim-tree.lua",
     name = "nvim_tree",
     version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-
-  -- statusline
+  { "akinsho/toggleterm.nvim" },
   { "nvim-lualine/lualine.nvim" },
-
-  -- bufferline
   { "akinsho/bufferline.nvim", dependencies = { "catppuccin/nvim" } },
-
-  -- noice
   { "MunifTanjim/nui.nvim" },
   { "rcarriga/nvim-notify" },
   {
@@ -47,16 +34,28 @@ return {
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
   },
+  { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
   -- LSP
+  {
+    "VonHeikemen/lsp-zero.nvim",
+    branch = "v3.x",
+    dependencies = {
+      { "neovim/nvim-lspconfig" },
+      { "williamboman/mason.nvim" },
+      { "williamboman/mason-lspconfig.nvim" },
+      { "hrsh7th/nvim-cmp" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "L3MON4D3/LuaSnip" },
+    },
+  },
+  { "neovim/nvim-lspconfig" },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
-  { "neovim/nvim-lspconfig" },
   { "nvimtools/none-ls.nvim" },
   { "glepnir/lspsaga.nvim" },
   { "onsails/lspkind-nvim" },
-
-  -- cmp
+  { "RRethy/vim-illuminate" },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -74,54 +73,24 @@ return {
   { "hrsh7th/cmp-path" },
   { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
   { "saadparwaiz1/cmp_luasnip" },
-
-  -- generation
+  { "saecki/crates.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
   { "github/copilot.vim" },
 
-  -- treesitter
+  -- utils
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-
-  -- auto-highlight matches
-  { "RRethy/vim-illuminate" },
-
-  -- comment
   { "numToStr/Comment.nvim", dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" } },
-
-  -- auto tag/pair
   { "windwp/nvim-ts-autotag" },
   { "windwp/nvim-autopairs" },
-
-  -- telescope
-  { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-
-  -- git
   { "lewis6991/gitsigns.nvim" },
   { "kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
-
-  -- terminal
-  { "akinsho/toggleterm.nvim" },
-
-  -- transparency
-  { "xiyaowong/nvim-transparent" },
-
-  -- buffer delete
   { "famiu/bufdelete.nvim" },
-
-  -- motions
   { "mg979/vim-visual-multi" },
   { "ggandor/lightspeed.nvim" },
-
-  -- markdown preview
   {
     "iamcco/markdown-preview.nvim",
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
   },
-
-  -- color picker
   { "ziontee113/color-picker.nvim" },
-
-  -- rust crates
-  { "saecki/crates.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 }
