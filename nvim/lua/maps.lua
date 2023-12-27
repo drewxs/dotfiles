@@ -8,6 +8,7 @@ local map = function(mode, lhs, rhs, opts)
 end
 
 -- GENERAL
+map({ "i", "v" }, "<c-j>", "<esc>") -- esc insert/visual mode
 map("n", "<esc>", "<cmd>noh<cr>") -- clear highlights
 map("n", "<c-a>", "gg<s-v>G") -- select all
 map("n", "r", "<c-r>") -- redo
