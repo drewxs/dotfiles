@@ -1,0 +1,83 @@
+live_config_reload = true
+
+[env]
+TERM = "xterm-256color"
+
+[colors.primary]
+background = "#0d0f10"
+foreground = "#a6adc8"
+
+[colors.normal]
+black = "#000000"
+blue = "#5f6e78"
+cyan = "#659ea2"
+green = "#7f9a7e"
+magenta = "#a18daf"
+red = "#cf8164"
+white = "#b5b4c9"
+yellow = "#e89a7d"
+
+[colors.bright]
+black = "#64646e"
+blue = "#a0b9d8"
+cyan = "#7dc2c7"
+green = "#92c47e"
+magenta = "#c6aed7"
+red = "#eba5b6"
+white = "#f0ecfe"
+yellow = "#fe9f7c"
+
+[colors.cursor]
+cursor = "CellForeground"
+text = "CellBackground"
+
+[cursor]
+blink_interval = 500
+
+[cursor.style]
+blinking = "Always"
+shape = "Beam"
+
+[font]
+size = 11.5
+
+[font.normal]
+family = "SauceCodePro Nerd Font Mono"
+style = "Medium"
+
+[font.bold]
+family = "SauceCodePro Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "SauceCodePro Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "SauceCodePro Nerd Font Mono"
+style = "Bold Italic"
+
+[scrolling]
+history = 10000
+multiplier = 10
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = "|:\"' {}()[]<>"
+
+[window]
+decorations = "full"
+decorations_theme_variant = "Dark"
+dynamic_title = false
+opacity = 0.93
+startup_mode = "Maximized"
+title = "Terminal"
+
+[window.class]
+general = "Terminal"
+instance = "Terminal"
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Control"
