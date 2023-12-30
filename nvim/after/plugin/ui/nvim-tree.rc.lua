@@ -76,7 +76,7 @@ require("nvim-tree").setup({
   },
   view = {
     adaptive_size = true,
-    width = 35,
+    width = 42,
   },
   on_attach = on_attach,
 })
