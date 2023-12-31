@@ -170,11 +170,11 @@ function testtc {
 # Load environment variables from file
 # Defaults to .env in current directory
 # $1: path to env file
-function load_env {
+function loadenv {
   env_file="${1:-.env}"
-  if [ -f "$env_file" ]; then
+  if [[ -f "$env_file" ]]; then
     while IFS= read -r line; do
-      if [ -n "$line" ] && [[ "$line" != \#* ]]; then
+      if [[ -n "$line" ]] && [[ "$line" != \#* ]]; then
         export "${line?}"
       fi
     done <"$env_file"

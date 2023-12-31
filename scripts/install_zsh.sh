@@ -21,7 +21,7 @@ else
 fi
 
 echo "Installing oh-my-zsh..."
-if [ -d "$HOME/.oh-my-zsh" ]; then
+if [[ -d "$HOME/.oh-my-zsh" ]]; then
   echo "oh-my-zsh installation found..."
 else
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
