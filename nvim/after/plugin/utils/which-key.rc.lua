@@ -124,6 +124,7 @@ local mappings = {
     h = { "<cmd>Lazy health<cr>", "Health Check" },
     i = { "<cmd>Lazy install<cr>", "Install" },
     p = { "<cmd>Lazy<cr>", "GUI" },
+    r = { "<cmd>Lazy restore<cr>", "Restore" },
     s = { "<cmd>Lazy sync<cr>", "Sync" },
     u = { "<cmd>Lazy update<cr>", "Update" },
   },
