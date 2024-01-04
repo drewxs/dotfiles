@@ -65,8 +65,9 @@ function upd {
     fi
   }
   function up_nvim {
-    echo "Updating neovim..."
-    nvim --headless "+Lazy! sync" +qa
+    echo "Updating neovim packages..."
+    nvim --headless "+Lazy! restore" +qa
+    nvim --headless "+MasonUpdate" +qa
   }
   function up_pkg {
     echo "Updating packages..."
@@ -98,7 +99,7 @@ function upd {
     up_pkg
   }
 
-  [[ $# -eq 0 ]] && up_dot && up_pkg
+  [[ $# -eq 0 ]] && up_all
   while getopts :adpnfh opt; do
     case $opt in
     a) up_all ;;
