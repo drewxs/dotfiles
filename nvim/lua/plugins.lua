@@ -14,6 +14,7 @@ return {
   { "kvrohit/mellow.nvim" },
   { "projekt0n/github-nvim-theme" },
   { "svrana/neosolarized.nvim" },
+  { "rebelot/kanagawa.nvim" },
 
   -- UI
   { "xiyaowong/nvim-transparent" },
