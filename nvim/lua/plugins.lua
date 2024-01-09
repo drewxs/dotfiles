@@ -76,6 +76,7 @@ return {
   { "saadparwaiz1/cmp_luasnip" },
   { "saecki/crates.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
   { "github/copilot.vim" },
+  { "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 
   -- utils
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
