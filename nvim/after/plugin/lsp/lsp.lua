@@ -10,7 +10,7 @@ mason_lspconfig.setup({
     "bashls",
     "rust_analyzer",
     "clangd",
-    "csharp_ls",
+    "omnisharp",
     "gopls",
     "jdtls",
     "lua_ls",
