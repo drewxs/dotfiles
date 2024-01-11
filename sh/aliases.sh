@@ -15,11 +15,15 @@ fi
 # General
 alias cls="clear"
 alias cl="cls && l"
+alias lt="ls --human-readable --size -1 -S --classify"
+alias lr='ls -t -1'
 alias c="cargo"
 alias v="nvim"
 alias lg="lazygit"
 alias nf="neofetch"
 alias serve="npx http-server"
+alias fc='find . -type f | wc -l'
+alias clip='xclip -sel c'
 
 # Overrides
 alias cat="bat"
