@@ -184,3 +184,25 @@ function loadenv {
     echo "$env_file not found"
   fi
 }
+
+# Create a new rust project and open in neovim
+# $1: project name
+function cnew {
+  cargo new "$@"
+  cd "$1" || exit
+  echo "# $1" >README.md
+  nvim
+}
+
+# Create a new typescript project and open in neovim
+# $1: project name
+function tnew {
+  mkcd "$1"
+  mkdir src
+  npm init -y
+  echo "# $1" >README.md
+  touch src/index.ts
+  tsc --init
+  eslint --init
+  nvim
+}
