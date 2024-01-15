@@ -65,6 +65,7 @@ if cmd_exists android-studio; then
 fi
 export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN:$GOPATH:$GO_BIN"
 . "$HOME/.asdf/asdf.sh"
+eval "$(direnv hook zsh)"
 
 # compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
