@@ -24,6 +24,7 @@ alias nf="neofetch"
 alias serve="npx http-server"
 alias fc='find . -type f | wc -l'
 alias clip='xclip -sel c'
+alias ports='netstat -tulanp'
 
 # Overrides
 alias cat="bat"
