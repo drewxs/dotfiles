@@ -27,18 +27,6 @@ function mkcd {
   cd "$1" || exit
 }
 
-# Check if a directory exists
-# $1: dir
-# $2: name/identifier
-function dir_exists {
-  [[ -z "$1" ]] && echo "Usage: dir_exists <dir> <identifier>" && return
-  if [[ -d $1 ]] && [[ -n $1 ]]; then
-    echo "$2 found"
-    return 0
-  fi
-  return 1
-}
-
 # Kill processes on specified port
 # $1: port
 function killport {

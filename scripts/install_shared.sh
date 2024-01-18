@@ -1,5 +1,14 @@
 #!/bin/bash
 
+function dir_exists {
+  [[ -z "$1" ]] && echo "Usage: dir_exists <dir> <identifier>" && return
+  if [[ -d $1 ]] && [[ -n $1 ]]; then
+    echo "$2 found"
+    return 0
+  fi
+  return 1
+}
+
 function install_zsh_plugins {
   echo "Installing zsh plugins..."
   zsh_autosuggestions="$ZSH_CUSTOM/plugins/zsh-autosuggestions"
