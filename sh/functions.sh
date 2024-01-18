@@ -203,3 +203,10 @@ function tnew {
   eslint --init
   nvim
 }
+
+# Find listening ports
+# $1: port
+function fdport() {
+  [[ -z "$1" ]] && echo "Usage: port <port>" && return
+  ss -tulnp | grep "$1" | trim
+}
