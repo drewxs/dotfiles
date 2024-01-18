@@ -1,24 +1,9 @@
 #!/bin/bash
 
-# Kill processes on specified port
-# $1: port num
-function killport {
-  kill -9 "$(lsof -t -i:"$1")"
-}
-
-# Trim whitespace
-function trim {
-  awk "{\$1=\$1;print}"
-}
-
-# Print keycodes on keypress
-function keys {
-  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
-}
-
 # Check if a command exists and echo the result
 # $1: command
 function exists {
+  [[ -z "$1" ]] && echo "Usage: exists <command>" && return
   if command -v "$1" &>/dev/null; then
     echo "$1 installation found"
     return 0
@@ -30,12 +15,14 @@ function exists {
 # Check if a command exists in PATH
 # $1: command
 function cmd_exists {
+  [[ -z "$1" ]] && echo "Usage: cmd_exists <command>" && return
   [[ -x "$(command -v "$1")" ]] && return 0 || return 1
 }
 
 # Create and cd into a directory
 # $1: dir
 function mkcd {
+  [[ -z "$1" ]] && echo "Usage: mkcd <dir>" && return
   mkdir -p "$1"
   cd "$1" || exit
 }
@@ -44,11 +31,29 @@ function mkcd {
 # $1: dir
 # $2: name/identifier
 function dir_exists {
+  [[ -z "$1" ]] && echo "Usage: dir_exists <dir> <identifier>" && return
   if [[ -d $1 ]] && [[ -n $1 ]]; then
     echo "$2 found"
     return 0
   fi
   return 1
+}
+
+# Kill processes on specified port
+# $1: port
+function killport {
+  [[ -z "$1" ]] && echo "Usage: killport <port>" && return
+  kill -9 "$(lsof -t -i:"$1")"
+}
+
+# Trim whitespace
+function trim {
+  awk "{\$1=\$1;print}"
+}
+
+# Print keycodes on keypress
+function keys {
+  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
 }
 
 # Update packages and dotfiles
@@ -132,14 +137,16 @@ Options:
 }
 
 # Find (recursively) and list directories with name
-# $1: dir name
+# $1: dir
 function finddir {
+  [[ -z "$1" ]] && echo "Usage: finddir <dir>" && return
   find . -name "$1" -type d -prune | xargs du -chs
 }
 
 # Find (recursively) and delete all directories with name
-# $1: dir name
+# $1: dir
 function deldir {
+  [[ -z "$1" ]] && echo "Usage: deldir <dir>" && return
   find . -name "$1" -type d -prune -exec rm -rf '{}' +
 }
 
@@ -188,6 +195,7 @@ function loadenv {
 # Create a new rust project and open in neovim
 # $1: project name
 function cnew {
+  [[ -z "$1" ]] && echo "Usage: cnew <project_name>" && return
   cargo new "$@"
   cd "$1" || exit
   echo "# $1" >README.md
@@ -197,6 +205,7 @@ function cnew {
 # Create a new typescript project and open in neovim
 # $1: project name
 function tnew {
+  [[ -z "$1" ]] && echo "Usage: tnew <project_name>" && return
   mkcd "$1"
   mkdir src
   npm init -y
