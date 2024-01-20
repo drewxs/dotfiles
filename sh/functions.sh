@@ -171,6 +171,7 @@ function loadenv {
   if [[ -f "$env_file" ]]; then
     while IFS= read -r line; do
       if [[ -n "$line" ]] && [[ "$line" != \#* ]]; then
+        line=$(echo "$line" | xargs | sed -e "s/^['\"]//" -e "s/['\"]$//")
         export "${line?}"
       fi
     done <"$env_file"
