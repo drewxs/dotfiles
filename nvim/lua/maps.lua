@@ -95,3 +95,6 @@ map("n", "<s-p>", "<cmd>Lspsaga peek_definition<cr>")
 map("n", "<a-[>", "<cmd>Lspsaga diagnostic_jump_prev<cr>", remap)
 map("n", "<a-]>", "<cmd>Lspsaga diagnostic_jump_next<cr>", remap)
 map("n", "<c-i>", "<cmd>TroubleToggle<cr>")
+
+-- MACROS
+map("i", "<a-=>", ":= ")
