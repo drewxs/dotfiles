@@ -7,8 +7,6 @@ nls.setup({
     nls.builtins.diagnostics.buf,
     nls.builtins.diagnostics.eslint_d,
     nls.builtins.diagnostics.credo,
-    nls.builtins.diagnostics.pylint,
-    nls.builtins.diagnostics.golangci_lint,
     nls.builtins.diagnostics.rubocop,
     nls.builtins.diagnostics.clang_check,
     nls.builtins.diagnostics.luacheck,
