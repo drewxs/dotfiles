@@ -59,8 +59,8 @@ map({ "n", "v" }, "<a-l>", "e") -- end of word
 -- line movement
 map("i", "<c-b>", "<esc><s-i>") -- beginning of line
 map("i", "<c-e>", "<end>") -- end of line
-map("i", "<a-;>", "<esc><s-a>;<cr>") -- line end -> ';' -> new line
-map("i", "<a-,>", "<esc><s-a>,<cr>") -- line end -> ',' -> new line
+map("i", "<a-;>", "<esc><s-a>;") -- line end -> ';' -> new line
+map("i", "<a-,>", "<esc><s-a>,") -- line end -> ',' -> new line
 map("n", "<a-u>", "gg0i<cr><esc>k") -- new line at beginning of file
 map("i", "<a-u>", "<esc>gg0i<cr><esc>ki") -- new line at beginning of file
 map("i", "<c-o>", "<esc>o") -- new line below
