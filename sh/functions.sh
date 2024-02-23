@@ -211,3 +211,9 @@ function fdport() {
   [[ -z "$1" ]] && echo "Usage: port <port>" && return
   ss -tulnp | grep "$1" | trim
 }
+
+# Clone a git repository and cd into it
+# $1: repo url
+function gcld {
+  git clone --recurse-submodules "$1" && cd "$(basename "$1" .git)" || exit
+}
