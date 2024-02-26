@@ -8,16 +8,11 @@ function remove_existing_configurations {
 
 function create_symlinks {
   echo "Creating symlinks..."
-  mkdir -p "$HOME/.config" "$HOME/.config/alacritty"
+  mkdir -p "$HOME/.config" "$HOME/.config/wezterm"
   ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
   ln -s "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
   ln -s "$HOME/.dotfiles/nvim" "$HOME/.config/nvim"
-  ln -s "$HOME/.dotfiles/alacritty/alacritty.toml" "$HOME/.config/alacritty/alacritty.toml"
-}
-
-function setup_neovim {
-  echo "Setting up neovim..."
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  ln -s "$HOME/.dotfiles/terminal/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
 }
 
 function cleanup {
@@ -26,7 +21,6 @@ function cleanup {
   echo "Cleaning up..."
   remove_existing_configurations
   create_symlinks
-  setup_neovim
 
   unset update_only
 }
