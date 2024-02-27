@@ -1,5 +1,4 @@
 local wezterm = require("wezterm")
-local act = wezterm.action
 
 local config = {
   enable_tab_bar = false,
@@ -17,9 +16,14 @@ local config = {
     },
   },
   keys = {
-    { key = "V", mods = "CTRL", action = act.PasteFrom("Clipboard") },
-    { key = "V", mods = "CTRL", action = act.PasteFrom("PrimarySelection") },
+    { key = "V", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
+    { key = "V", mods = "CTRL", action = wezterm.action.PasteFrom("PrimarySelection") },
   },
 }
+
+wezterm.on("gui-startup", function(cmd)
+  local _, _, window = wezterm.mux.spawn_window(cmd or {})
+  window:gui_window():maximize()
+end)
 
 return config
