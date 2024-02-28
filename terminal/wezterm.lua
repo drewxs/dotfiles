@@ -16,8 +16,7 @@ local config = {
     },
   },
   keys = {
-    { key = "V", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
-    { key = "V", mods = "CTRL", action = wezterm.action.PasteFrom("PrimarySelection") },
+    { key = "v", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
   },
 }
 
