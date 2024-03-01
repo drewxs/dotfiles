@@ -16,7 +16,6 @@ mason_lspconfig.setup({
     "lua_ls",
     "elixirls",
     "pyright",
-    "solidity",
     "tsserver",
     "eslint",
     "html",
