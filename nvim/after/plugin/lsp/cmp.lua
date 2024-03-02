@@ -16,7 +16,7 @@ require("vim.lsp.protocol").CompletionItemKind = {
   "", -- Value
   "", -- Enum
   "", -- Keyword
-  "﬌", -- Snippet
+  "", -- Snippet
   "", -- Color
   "", -- File
   "", -- Reference
