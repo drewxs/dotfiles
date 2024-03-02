@@ -1,6 +1,11 @@
 # Dotfiles
 
-My alacritty/neovim/tmux/zsh configurations.
+My dev configurations.
+
+- wezterm
+- zsh
+- tmux
+- neovim
 
 ## Installation
 
