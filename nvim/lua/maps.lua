@@ -83,7 +83,6 @@ map("v", "<s-j>", "y'>p") -- duplicate selection
 -- MISC
 map("n", "<a-c>", "<cmd>PickColor<cr>") -- color picker
 map("i", "<a-c>", "<cmd>PickColorInsert<cr>") -- color picker
-map("n", "<s-m>", "<cmd>MarkdownPreviewToggle<cr>") -- markdown preview
 
 -- LSP
 map("n", "<a-r>", "<cmd>LspRestart<cr>")

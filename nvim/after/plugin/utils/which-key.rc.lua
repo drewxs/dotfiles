@@ -146,6 +146,7 @@ local mappings = {
   u = {
     name = "Utilities",
     x = { "<cmd>!chmod +x %<cr>", "Make Executable" },
+    m = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
   },
   x = {
     name = "Terminal",
