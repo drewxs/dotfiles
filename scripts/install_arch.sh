@@ -28,7 +28,7 @@ function install_sys_packages {
 
 function install_asdf {
   echo "Installing asdf..."
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.13.1
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 }
 
 function install_languages {
