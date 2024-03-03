@@ -124,18 +124,11 @@ Options:
   done
 }
 
-# Find (recursively) and list directories with name
-# $1: dir
-function finddir {
-  [[ -z "$1" ]] && echo "Usage: finddir <dir>" && return
-  find . -name "$1" -type d -prune | xargs du -chs
-}
-
 # Find (recursively) and delete all directories with name
 # $1: dir
-function deldir {
-  [[ -z "$1" ]] && echo "Usage: deldir <dir>" && return
-  find . -name "$1" -type d -prune -exec rm -rf '{}' +
+function fdel {
+  [[ -z "$1" ]] && echo "Usage: fdel <dir>" && return
+  fd "$1" --type d --prune . | xargs -I {} rm -rf '{}'
 }
 
 # Create notes
