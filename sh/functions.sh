@@ -131,6 +131,13 @@ function fdel {
   fd "$1" --type d --prune . | xargs -I {} rm -rf '{}'
 }
 
+# Find listening ports
+# $1: port
+function port() {
+  [[ -z "$1" ]] && echo "Usage: port <port>" && return
+  ss -tulnp | grep "$1" | trim
+}
+
 # Create notes
 function note {
   echo -e "date: $(date)\n$*\n" >>"$HOME/notes.txt"
@@ -196,13 +203,6 @@ function tnew {
   tsc --init
   eslint --init
   nvim
-}
-
-# Find listening ports
-# $1: port
-function fdport() {
-  [[ -z "$1" ]] && echo "Usage: port <port>" && return
-  ss -tulnp | grep "$1" | trim
 }
 
 # Clone a git repository and cd into it
