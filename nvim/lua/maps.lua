@@ -44,6 +44,7 @@ map({ "n", "i" }, "<a-s>", function()
   vim.cmd.write()
   vim.cmd.stopinsert()
 end) -- save and format buffer
+map("n", "<c-w>", "<cmd>Bdelete!<cr>") -- delete buffer
 map("n", "<a-w>", "<cmd>Bdelete!<cr>") -- delete buffer
 map("n", "<s-w>", "<cmd>Bdelete!<cr>") -- delete buffer
 map("n", "<c-q>", "<cmd>qa!<cr>") -- quit all
