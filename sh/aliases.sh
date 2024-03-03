@@ -22,7 +22,7 @@ alias v="nvim"
 alias lg="lazygit"
 alias nf="neofetch"
 alias serve="npx http-server"
-alias fc='find . -type f | wc -l'
+alias fc='fd --type f . | wc -l'
 alias clip='xclip -sel c'
 alias ports='ss -tulanp'
 
