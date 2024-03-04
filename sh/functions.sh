@@ -210,3 +210,22 @@ function tnew {
 function gcld {
   git clone --recurse-submodules "$1" && cd "$(basename "$1" .git)" || exit
 }
+
+# Encrypt a file using gpg
+# $1: recipient public key
+# $2: input file
+# #3?: output file (default = "encrypted.gpg")
+function gpgenc {
+  [[ -z "$1" ]] || [[ -z "$2" ]] && echo "Usage: gpgenc <public_key> <input_file> <output_file?>" && return
+  output_file="${3:-encrypted}.gpg"
+  gpg --encrypt --recipient "$1" --output "$output_file" "$2"
+}
+
+# Decrypt a file using gpg
+# $1: input file
+# #2?: output file (default = "decrypted")
+function gpgdec {
+  [[ -z "$1" ]] && echo "Usage: gpgdec <input_file> <output_file?>" && return
+  output_file="${2:-decrypted}.txt"
+  gpg --output "$output_file" --decrypt "$1"
+}
