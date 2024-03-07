@@ -59,7 +59,7 @@ function upd {
   }
   function up_nvim {
     echo "Updating neovim packages..."
-    nvim --headless "+Lazy! restore" +qa
+    nvim --headless "+Lazy! sync" +qa
     nvim --headless "+MasonUpdate" +qa
   }
   function up_pkg {
@@ -88,7 +88,6 @@ function upd {
   }
   function up_all {
     up_dot
-    up_nvim
     up_pkg
   }
 
