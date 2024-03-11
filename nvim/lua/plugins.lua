@@ -82,7 +82,7 @@ return {
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
   { "numToStr/Comment.nvim", dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" } },
   { "windwp/nvim-ts-autotag" },
-  { "windwp/nvim-autopairs" },
+  { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
   { "lewis6991/gitsigns.nvim" },
   { "kdheepak/lazygit.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
   { "famiu/bufdelete.nvim" },
