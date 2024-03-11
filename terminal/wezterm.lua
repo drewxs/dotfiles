@@ -8,7 +8,7 @@ local config = {
   font_size = 12.0,
   background = {
     {
-      source = { File = ".dotfiles/terminal/assets/bg-1.jpg" },
+      source = { File = os.getenv("HOME") .. "/.dotfiles/terminal/assets/bg-1.jpg" },
       hsb = { brightness = 0.03 },
       opacity = 0.84,
       vertical_align = "Top",
