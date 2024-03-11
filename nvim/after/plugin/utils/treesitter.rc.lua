@@ -41,7 +41,3 @@ require("nvim-treesitter.configs").setup({
     enable_rename = false,
   },
 })
-
-local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
-parser_config.typescript.filetype_to_parsername = { "javascript", "typescript.tsx" }
