@@ -1,6 +1,6 @@
 require("notify").setup({
   background_colour = "#080808",
-  render = "default",
+  render = "wrapped-compact",
   stages = "fade",
   icons = {
     DEBUG = "",
