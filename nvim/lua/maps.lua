@@ -46,7 +46,7 @@ end, { desc = "Save and format buffer" })
 map("n", "<c-w>", "<cmd>Bdelete!<cr>", { desc = "Delete buffer" })
 map("n", "<a-w>", "<cmd>Bdelete!<cr>", { desc = "Delete buffer" })
 map("n", "<s-w>", "<cmd>Bdelete!<cr>", { desc = "Delete buffer" })
-map("n", "<c-q>", "<cmd>qa!<cr>", { desc = "Quit buffer" })
+map("n", "<c-q>", "<cmd>qa!<cr>", { desc = "Quit nvim" })
 map("n", "<a-q>", "<cmd>q!<cr>", { desc = "Quit buffer" })
 
 -- MOVEMENT
