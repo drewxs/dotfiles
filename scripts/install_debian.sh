@@ -10,7 +10,7 @@ function install_sys_packages {
 
 function install_lazygit {
   echo "Installing lazygit..."
-  exists lazygit && return
+  install_exists lazygit && return
   LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[0-35.]+')
   curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
   sudo tar -xf lazygit.tar.gz -C /usr/local/bin lazygit
@@ -24,7 +24,7 @@ function install_asdf {
 
 function install_rust {
   echo "Installing rust..."
-  if ! exists rustc && exists cargo; then
+  if ! install_exists rustc && install_exists cargo; then
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     1
   fi
@@ -33,7 +33,7 @@ function install_rust {
 
 function install_elixir {
   echo "Installing erlang and elixir..."
-  exists elixir && return
+  install_exists elixir && return
   asdf plugin add erlang
   asdf install erlang latest
   asdf global erlang latest
@@ -44,19 +44,19 @@ function install_elixir {
 
 function install_node {
   echo "Installing node..."
-  if ! exists node; then
+  if ! install_exists node; then
     asdf plugin add nodejs
     asdf install nodejs latest:18
     asdf global nodejs latest:18
   fi
-  if ! exists pnpm; then
+  if ! install_exists pnpm; then
     npm i -g pnpm
   fi
 }
 
 function install_ruby {
   echo "Installing ruby..."
-  exists ruby && return
+  install_exists ruby && return
   asdf plugin add ruby
   asdf install ruby latest
   asdf global ruby latest
@@ -64,13 +64,13 @@ function install_ruby {
 
 function install_python {
   echo "Installing python..."
-  exists pip3 && return
-  sudo apt-get install -y python3-pip
+  install_exists pip3 && return
+  curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
 }
 
 function install_go {
   echo "Installing go..."
-  exists go && return
+  install_exists go && return
   asdf plugin add golang
   asdf install golang latest
   asdf global golang latest
@@ -83,7 +83,7 @@ function install_dotnet {
 
 function install_neovim {
   echo "Installing neovim..."
-  exists nvim && return
+  install_exists nvim && return
   sudo rm -rf neovim
   git clone https://github.com/neovim/neovim "$HOME/neovim"
   cd "$HOME"/neovim || return

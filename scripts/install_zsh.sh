@@ -1,17 +1,13 @@
 #!/bin/bash
 
-function exists {
-  [[ -x "$(command -v "$1")" ]] && return 0 || return 1
-}
-
 echo "Installing zsh..."
-if exists zsh; then
+if [[ -x "$(command -v zsh)" ]]; then
   echo "zsh installation found..."
 else
-  if exists apt-get; then
+  if [[ -x "$(command -v apt-get)" ]]; then
     sudo apt update && sudo apt upgrade -y
     sudo apt install zsh
-  elif exists pacman; then
+  elif [[ -x "$(command -v pacman)" ]]; then
     sudo pacman -Syu --noconfirm
     sudo pacman -S zsh
   fi

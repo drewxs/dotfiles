@@ -2,8 +2,8 @@
 
 # Check if a command exists and echo the result
 # $1: command
-function exists {
-  [[ -z "$1" ]] && echo "Usage: exists <command>" && return
+function install_exists {
+  [[ -z "$1" ]] && echo "Usage: install_exists <command>" && return
   if command -v "$1" &>/dev/null; then
     echo "$1 installation found"
     return 0
@@ -14,8 +14,8 @@ function exists {
 
 # Check if a command exists in PATH
 # $1: command
-function cmd_exists {
-  [[ -z "$1" ]] && echo "Usage: cmd_exists <command>" && return
+function exists {
+  [[ -z "$1" ]] && echo "Usage: exists <command>" && return
   [[ -x "$(command -v "$1")" ]] && return 0 || return 1
 }
 
@@ -57,38 +57,44 @@ function upd {
       echo "Dotfiles updated"
     fi
   }
-  function up_nvim {
-    echo "Updating neovim packages..."
-    nvim --headless "+Lazy! sync" +qa
-    nvim --headless "+MasonUpdate" +qa
-  }
   function up_pkg {
     echo "Updating packages..."
     echo "Updating system packages..."
-    if cmd_exists apt-get; then
+    if exists apt-get; then
       sudo apt update && sudo apt upgrade -y
-    elif cmd_exists pacman; then
+    elif exists pacman; then
       yay -Syu --noconfirm
-    elif cmd_exists brew; then
+    elif exists brew; then
       brew update && brew upgrade
     fi
     echo "Updating rust packages..."
-    if cmd_exists rustup; then
+    if exists rustup; then
       rustup update
       cargo install-update -a
     fi
     echo "Updating node packages..."
-    if cmd_exists pnpm; then
+    if exists pnpm; then
       pnpm update --global --latest
     fi
     echo "Updating ruby packages..."
-    if cmd_exists gem; then
+    if exists gem; then
       gem update
     fi
+    echo "Updating rye..."
+    if exists rye; then
+      rye self update
+    fi
+  }
+  function up_nvim {
+    echo "Updating neovim packages..."
+    nvim --headless "+MasonUpdate" +qa
+    nvim --headless "+TSUpdate" +qa
+    # nvim --headless "+Lazy! sync" +qa
   }
   function up_all {
     up_dot
     up_pkg
+    up_nvim
   }
 
   [[ $# -eq 0 ]] && up_all

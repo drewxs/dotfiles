@@ -39,12 +39,15 @@ export XDG_STATE_HOME="$HOME/.local/state";
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.dotfiles/zsh/.p10k.zsh"
 for f in "$HOME/.dotfiles/sh/"*.sh; do source "$f"; done
-source "$HOME/.dotfiles/scripts/cleanup.sh"
+source "$HOME/.dotfiles/scripts/install_cleanup.sh"
 source "$HOME/.dotfiles/scripts/install_shared.sh"
-if cmd_exists pacman; then
+if exists pacman; then
   source "$HOME/.dotfiles/scripts/install_arch.sh"
-elif cmd_exists apt-get; then
+elif exists apt-get; then
   source "$HOME/.dotfiles/scripts/install_debian.sh"
+fi
+if [[ -d "$HOME/.rye/env" ]]; then
+  source "$HOME/.rye/env"
 fi
 
 # PATH
@@ -57,7 +60,7 @@ export CARGO_BIN="$CARGO_HOME/bin"
 export MIX_BIN="$HOME/.local/share/mix/escripts"
 export GOPATH="$HOME/.local/share/go"
 export ASDF_DIR="$HOME/.asdf"
-if cmd_exists android-studio; then
+if exists android-studio; then
   export ANDROID_HOME="$HOME/Android/Sdk"
   ANDROID_PATHS=$(eval echo "$ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}" | tr ' ' ':')
   export PATH="$PATH:$ANDROID_PATHS}"

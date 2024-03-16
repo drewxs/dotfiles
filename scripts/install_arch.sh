@@ -2,7 +2,7 @@
 
 function install_yay {
   echo "Installing yay..."
-  exists yay && return
+  install_exists yay && return
   sudo pacman -S --noconfirm --needed git base-devel
   git clone https://aur.archlinux.org/yay.git "$HOME/yay"
   cd "$HOME/yay" || return
@@ -12,7 +12,7 @@ function install_yay {
 
 function install_snap {
   echo "Installing snap..."
-  exists snap && return
+  install_exists snap && return
   yay -S --noconfirm --answerdiff=None snapd
   sudo systemctl enable --now snapd.socket
   sudo systemctl enable --now snapd.apparmor
@@ -21,8 +21,8 @@ function install_snap {
 function install_sys_packages {
   echo "Installing sys packages..."
   sudo pacman -S --noconfirm \
-    xorg-{xmodmap,xev,setxkbmap,xset} tmux neofetch wget xclip ripgrep fd sd up \
-    docker lazygit tree-sitter shfmt shellcheck luarocks autopep8 python-{neovim,pipx} \
+    xorg-{xmodmap,xev,setxkbmap,xset} tmux neofetch wget xclip ripgrep up \
+    docker lazygit tree-sitter shfmt shellcheck luarocks \
     ttf-sourcecodepro-nerd
 }
 
@@ -33,61 +33,61 @@ function install_asdf {
 
 function install_languages {
   echo "Installing rust..."
-  if ! exists cargo; then
+  if ! install_exists cargo; then
     sudo pacman -S --noconfirm rustup
     rustup default nightly
     cargo install languagetool-rust --features full
   fi
 
   echo "Installing node..."
-  if ! exists node; then
+  if ! install_exists node; then
     asdf plugin add nodejs
     asdf install nodejs latest:18
     asdf global nodejs latest:18
   fi
-  if ! exists pnpm; then
+  if ! install_exists pnpm; then
     npm i -g pnpm
   fi
 
   echo "Installing ruby..."
-  if ! exists ruby; then
+  if ! install_exists ruby; then
     asdf plugin add ruby
     asdf install ruby latest
     asdf global ruby latest
   fi
 
   echo "Installing elixir..."
-  if ! exists elixir; then
+  if ! install_exists elixir; then
     sudo pacman -S --noconfirm elixir
   fi
 
   echo "Installing julia..."
-  if ! exists julia; then
+  if ! install_exists julia; then
     yay -S --noconfirm julia-bin
   fi
 
   echo "Installing perl..."
-  if ! exists perl; then
+  if ! install_exists perl; then
     sudo pacman -S --noconfirm perl
   fi
 
   echo "Installing python..."
-  if ! exists pip; then
-    sudo pacman -S --noconfirm python python-pip
+  if ! install_exists pip; then
+    curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
   fi
 
   echo "Installing go..."
-  if ! exists go; then
+  if ! install_exists go; then
     sudo pacman -S --noconfirm go
   fi
 
   echo "Installing dotnet..."
-  if ! exists dotnet; then
+  if ! install_exists dotnet; then
     yay -S --noconfirm dotnet-sdk-bin
   fi
 
   echo "Installing java..."
-  if ! exists java; then
+  if ! install_exists java; then
     asdf plugin add java
     asdf install java openjdk-11
     asdf global java openjdk-11
@@ -97,7 +97,6 @@ function install_languages {
 function install_neovim {
   echo "Installing neovim..."
   sudo pacman -S --noconfirm neovim
-  yay -S --noconfirm nvim-packer-git
 }
 
 function install_dotfiles {

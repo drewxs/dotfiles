@@ -39,8 +39,8 @@ function install_tmux_plugins {
 
 function install_packages {
   echo "Installing packages..."
-  cargo install cargo-info cargo-update tree-sitter-cli stylua eza bat bottom fd-find skim
-  pnpm i -g pnpm neovim eslint_d typescript typescript-language-server @fsouza/prettierd @bufbuild/buf sql-formatter
+  cargo install cargo-info cargo-update tree-sitter-cli stylua eza bat bottom fd-find sd skim just
+  npm i -g neovim typescript typescript-language-server eslint eslint_d prettier @fsouza/prettierd @bufbuild/buf sql-formatter
   gem install neovim rails
-  pip install --user neovim autopep8 pip-review
+  rye install neovim
 }
