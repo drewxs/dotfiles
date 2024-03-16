@@ -46,7 +46,7 @@ if exists pacman; then
 elif exists apt-get; then
   source "$HOME/.dotfiles/scripts/install_debian.sh"
 fi
-if [[ -d "$HOME/.rye/env" ]]; then
+if [[ -d "$HOME/.rye" ]]; then
   source "$HOME/.rye/env"
 fi
 
