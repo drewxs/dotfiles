@@ -21,8 +21,8 @@ function install_snap {
 function install_sys_packages {
   echo "Installing sys packages..."
   sudo pacman -S --noconfirm \
-    xorg-{xmodmap,xev,setxkbmap,xset} tmux neofetch wget xclip ripgrep up \
-    docker lazygit tree-sitter shfmt shellcheck luarocks \
+    xorg-{xmodmap,xev,setxkbmap,xset} wezterm tmux neofetch wget xclip up \
+    docker lazygit tree-sitter shfmt shellcheck luarocks direnv gihub-cli \
     ttf-sourcecodepro-nerd
 }
 
