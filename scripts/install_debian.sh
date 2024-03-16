@@ -64,7 +64,7 @@ function install_ruby {
 
 function install_python {
   echo "Installing python..."
-  install_exists pip3 && return
+  install_exists rye && return
   curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
 }
 

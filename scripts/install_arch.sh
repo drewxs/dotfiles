@@ -72,7 +72,7 @@ function install_languages {
   fi
 
   echo "Installing python..."
-  if ! install_exists pip; then
+  if ! install_exists rye; then
     curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
   fi
 
