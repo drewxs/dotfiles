@@ -234,3 +234,8 @@ function gpgdec {
   output_file="${2:-decrypted}.txt"
   gpg --output "$output_file" --decrypt "$1"
 }
+
+# Update grub
+function upgrub {
+  sudo grub-mkconfig -o /boot/grub/grub.cfg
+}
