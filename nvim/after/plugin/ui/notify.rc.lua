@@ -1,9 +1,18 @@
 require("notify").setup({
   background_colour = "#080808",
-  fps = 100,
-  render = "wrapped-compact",
+  render = "default",
+  stages = "fade",
+  icons = {
+    DEBUG = "",
+    ERROR = "",
+    INFO = "",
+    TRACE = "✎",
+    WARN = ""
+  },
+  fps = 60,
+  level = 2,
+  minimum_width = 50,
   max_width = 50,
-  stages = "fade_in_slide_out",
   timeout = 3000,
   top_down = true,
 })
