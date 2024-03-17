@@ -1,15 +1,15 @@
 local colors = {
   -- general
-  fg = "#a03859",
+  fg = "#516e6e",
   bg = "#050a0b",
 
   -- mid
-  fg_b = "#a03859",
+  fg_b = "#516e6e",
   bg_b = "#0a0f0f",
 
   -- N mode
   fg_n = "#060909",
-  bg_n = "#a03859",
+  bg_n = "#516e6e",
 
   -- I-V-R modes
   fg_ivr = "#080c0c",
@@ -58,7 +58,7 @@ require("lualine").setup({
       {
         "filename",
         file_status = true, -- displays file status (readonly status, modified status)
-        path = 0, -- 0 = just filename, 1 = relative path, 2 = absolute path
+        path = 0,           -- 0 = just filename, 1 = relative path, 2 = absolute path
       },
     },
     lualine_x = {
@@ -80,7 +80,7 @@ require("lualine").setup({
       {
         "filename",
         file_status = true, -- displays file status (readonly status, modified status)
-        path = 1, -- 0 = just filename, 1 = relative path, 2 = absolute path
+        path = 1,           -- 0 = just filename, 1 = relative path, 2 = absolute path
       },
     },
     lualine_x = { "location" },
