@@ -45,6 +45,7 @@ function _G.set_terminal_keymaps()
   vim.keymap.set("t", "<c-down>", [[<cmd>resize -2<cr>]], opts)
   vim.keymap.set("t", "<c-left>", [[<cmd>vertical resize +2<cr>]], opts)
   vim.keymap.set("t", "<c-right>", [[<cmd>vertical resize -2<cr>]], opts)
+  vim.keymap.set("t", "<a-l>", [[<cmd>exe 2 "ToggleTerm"<cr>]], opts)
 end
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
