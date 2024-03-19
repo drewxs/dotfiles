@@ -23,7 +23,7 @@ function install_sys_packages {
   sudo pacman -S --noconfirm \
     xorg-{xmodmap,xev,setxkbmap,xset} wezterm tmux neofetch wget xclip up \
     docker lazygit tree-sitter shfmt shellcheck luarocks direnv gihub-cli \
-    ttf-sourcecodepro-nerd
+    ttf-sourcecodepro-nerd thefuck
 }
 
 function install_asdf {

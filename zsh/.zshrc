@@ -68,6 +68,9 @@ fi
 export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN:$GOPATH"
 . "$HOME/.asdf/asdf.sh"
 eval "$(direnv hook zsh)"
+if exists thefuck; then
+  eval "$(thefuck --alias)"
+fi
 
 # compinstall
 zstyle :compinstall filename "$HOME/.zshrc"
