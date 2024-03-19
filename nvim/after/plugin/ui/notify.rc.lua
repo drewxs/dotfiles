@@ -7,7 +7,7 @@ require("notify").setup({
     ERROR = "",
     INFO = "",
     TRACE = "✎",
-    WARN = ""
+    WARN = "",
   },
   fps = 60,
   level = 2,
