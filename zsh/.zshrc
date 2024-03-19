@@ -60,14 +60,21 @@ export CARGO_BIN="$CARGO_HOME/bin"
 export MIX_BIN="$HOME/.local/share/mix/escripts"
 export GOPATH="$HOME/.local/share/go"
 export ASDF_DIR="$HOME/.asdf"
+export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN:$GOPATH"
 if exists android-studio; then
   export ANDROID_HOME="$HOME/Android/Sdk"
   ANDROID_PATHS=$(eval echo "$ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}" | tr ' ' ':')
   export PATH="$PATH:$ANDROID_PATHS}"
 fi
-export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN:$GOPATH"
+if exists nvcc; then
+  export CUDA_BIN="/opt/cuda/bin"
+  export PATH="$PATH:$CUDA_BIN"
+fi
+
 . "$HOME/.asdf/asdf.sh"
-eval "$(direnv hook zsh)"
+if exists direnv; then
+  eval "$(direnv hook zsh)"
+fi
 if exists thefuck; then
   eval "$(thefuck --alias)"
 fi
