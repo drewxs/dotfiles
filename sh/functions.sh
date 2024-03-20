@@ -73,8 +73,8 @@ function upd {
       cargo install-update -a
     fi
     echo "Updating node packages..."
-    if exists pnpm; then
-      pnpm update --global --latest
+    if exists npm; then
+      npm update --global --latest
     fi
     echo "Updating ruby packages..."
     if exists gem; then
