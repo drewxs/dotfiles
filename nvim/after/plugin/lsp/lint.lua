@@ -1,0 +1,16 @@
+require("lint").linters_by_ft = {
+  cpp = { "clang-tidy" },
+  go = { "golangcilint" },
+  elixir = { "credo" },
+  typescript = { "eslint_d" },
+  javascript = { "eslint_d" },
+  python = { "ruff" },
+  ruby = { "ruby" },
+  lua = { "luacheck" },
+  prisma = { "prisma-lint" },
+  proto = { "buf_lint" },
+  markdown = { "vale" },
+  sh = { "shellcheck" },
+  bash = { "shellcheck" },
+  zsh = { "zsh" },
+}

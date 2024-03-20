@@ -36,10 +36,18 @@ vim.api.nvim_create_autocmd({ "VimResized" }, {
   end,
 })
 
+-- disable diagnostics in env files
 vim.api.nvim_create_autocmd("BufEnter", {
   pattern = ".env",
   group = augroup("__env"),
   callback = function(args)
     vim.diagnostic.disable(args.buf)
+  end,
+})
+
+-- auto lint
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
   end,
 })
