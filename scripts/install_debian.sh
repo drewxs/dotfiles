@@ -17,11 +17,6 @@ function install_lazygit {
   sudo rm -rf lazygit.tar.gz
 }
 
-function install_asdf {
-  echo "Installing asdf..."
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-}
-
 function install_rust {
   echo "Installing rust..."
   if ! install_exists rustc && install_exists cargo; then

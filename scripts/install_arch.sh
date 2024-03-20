@@ -26,11 +26,6 @@ function install_sys_packages {
     ttf-sourcecodepro-nerd thefuck
 }
 
-function install_asdf {
-  echo "Installing asdf..."
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
-}
-
 function install_languages {
   echo "Installing rust..."
   if ! install_exists cargo; then

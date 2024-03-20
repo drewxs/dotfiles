@@ -15,10 +15,10 @@ Clone repo
 git clone https://github.com/drewxs/dotfiles $HOME/.dotfiles
 ```
 
-Install zsh/omz
+Pre-installation
 
 ```bash
-source $HOME/.dotfiles/scripts/install_zsh.sh
+source $HOME/.dotfiles/scripts/preinstall.sh
 ```
 
 Run from zsh

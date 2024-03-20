@@ -22,3 +22,11 @@ if [[ -d "$HOME/.oh-my-zsh" ]]; then
 else
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
+
+
+echo "Installing asdf..."
+if [[ -x "$(command -v zsh)" ]]; then
+  echo "asdf installation found..."
+else
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
+fi
