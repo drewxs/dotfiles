@@ -32,7 +32,7 @@ require("catppuccin").setup({
       blue = "#8296a6",
       lavender = "#82829b",
     },
-    latte = {
+    macchiato = {
       rosewater = "#6fb5a5",
       flamingo = "#bf616a",
       pink = "#c98d90",
@@ -48,7 +48,7 @@ require("catppuccin").setup({
       blue = "#8296a6",
       lavender = "#82829b",
     },
-    macchiato = {
+    latte = {
       rosewater = "#6fb5a5",
       flamingo = "#bf616a",
       pink = "#a3be8c",
