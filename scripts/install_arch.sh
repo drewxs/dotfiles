@@ -37,8 +37,8 @@ function install_languages {
   echo "Installing node..."
   if ! install_exists node; then
     asdf plugin add nodejs
-    asdf install nodejs latest:18
-    asdf global nodejs latest:18
+    asdf install nodejs latest:20
+    asdf global nodejs latest:20
   fi
   if ! install_exists pnpm; then
     npm i -g pnpm
