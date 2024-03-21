@@ -67,8 +67,17 @@ if exists android-studio; then
   export PATH="$PATH:$ANDROID_PATHS}"
 fi
 if exists nvcc; then
-  export CUDA_BIN="/opt/cuda/bin"
-  export PATH="$PATH:$CUDA_BIN"
+  if [[ -d "/opt/cuda/bin" ]]; then
+    export PATH="$PATH:/opt/cuda/bin"
+  elif [[ -d "/usr/local/cuda/bin" ]]; then
+    export PATH="$PATH:/usr/local/cuda/bin"
+  fi
+fi
+if [[ -d "$PATH:/snap/bin" ]]; then
+  export PATH="$PATH:/snap/bin"
+fi
+if [[ -d "$HOME/nvim-linux64/bin" ]]; then
+  export PATH="$PATH:$HOME/nvim-linux64/bin"
 fi
 
 . "$HOME/.asdf/asdf.sh"
