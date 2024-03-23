@@ -1,15 +1,15 @@
 local colors = {
   -- general
-  fg = "#516e6e",
-  bg = "#050a0b",
+  fg = "#75797e",
+  bg = "#080808",
 
   -- mid
-  fg_b = "#516e6e",
-  bg_b = "#0a0f0f",
+  fg_b = "#75797e",
+  bg_b = "#080808",
 
   -- N mode
-  fg_n = "#060909",
-  bg_n = "#516e6e",
+  fg_n = "#75797e",
+  bg_n = "#121212",
 
   -- I-V-R modes
   fg_ivr = "#080c0c",
