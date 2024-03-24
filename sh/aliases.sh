@@ -19,6 +19,7 @@ alias lt="ls --human-readable --size -1 -S --classify"
 alias lr='ls -t -1'
 alias c="cargo"
 alias v="nvim"
+alias j="just"
 alias lg="lazygit"
 alias nf="neofetch"
 alias serve="npx http-server"
