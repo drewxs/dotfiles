@@ -2,7 +2,7 @@ require("catppuccin").setup({
   flavour = "macchiato",
   color_overrides = {
     all = {
-      text = "#a1a8c3",
+      text = "#9c9eb4",
       subtext1 = "#a6adc3",
       subtext0 = "#9399ad",
       overlay2 = "#7f8497",
