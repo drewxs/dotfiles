@@ -7,11 +7,13 @@ local config = {
   color_scheme = "Terminix Dark (Gogh)",
   font = wezterm.font("SauceCodePro Nerd Font Mono", { weight = "Medium" }),
   font_size = 12.0,
+  max_fps = 240,
+  animation_fps = 60,
   background = {
     {
       source = { File = os.getenv("HOME") .. "/.dotfiles/terminal/assets/bg-1.jpg" },
       hsb = { brightness = 0.03 },
-      opacity = 0.84,
+      opacity = 0.9,
       vertical_align = "Top",
       horizontal_align = "Center",
     },
