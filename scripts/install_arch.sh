@@ -22,8 +22,8 @@ function install_sys_packages {
   echo "Installing sys packages..."
   sudo pacman -S --noconfirm \
     xorg-{xmodmap,xev,setxkbmap,xset} wezterm tmux neofetch wget xclip up \
-    docker lazygit tree-sitter shfmt shellcheck luarocks luacheck direnv gihub-cli \
-    ttf-sourcecodepro-nerd thefuck
+    docker docker-compose lazygit tree-sitter shfmt shellcheck luarocks luacheck \
+    ttf-sourcecodepro-nerd thefuck direnv gihub-cli
 }
 
 function install_languages {
