@@ -29,6 +29,8 @@ require("vim.lsp.protocol").CompletionItemKind = {
   "", -- TypeParameter
 }
 
+vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#0a0a0f" })
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -59,12 +61,18 @@ cmp.setup({
       ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
     }),
   },
+  window = {
+    completion = {
+      border = "rounded",
+      winhighlight = "Normal:CmpNormal",
+    },
+  },
 })
 
-local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
-
-vim.cmd([[
-  set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
-]])
+-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+--
+-- vim.cmd([[
+--   set completeopt=menuone,noinsert,noselect
+--   highlight! default link CmpItemKind CmpItemMenuDefault
+-- ]])
