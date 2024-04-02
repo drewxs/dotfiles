@@ -16,16 +16,16 @@ fi
 alias cls="clear"
 alias cl="cls && l"
 alias lt="ls --human-readable --size -1 -S --classify"
-alias lr='ls -t -1'
+alias lr="ls -t -1"
 alias c="cargo"
 alias v="nvim"
 alias j="just"
 alias lg="lazygit"
 alias nf="neofetch"
 alias serve="npx http-server"
-alias fc='fd --type f . | wc -l'
-alias clip='xclip -sel c'
-alias ports='ss -tulanp'
+alias fc="fd --type f . | wc -l"
+alias clip="xclip -sel c"
+alias ports="ss -tulanp"
 
 # Overrides
 alias cat="bat"
