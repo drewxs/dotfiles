@@ -50,6 +50,8 @@ alias gpuom="git push -u origin main"
 alias gst="git stash"
 alias grgu="git remote get-url origin"
 alias grsu="git remote set-url origin"
+alias ghcs="gh copilot suggest"
+alias ghce="gh copilot explain"
 
 # Docker
 alias d:start="sudo systemctl start docker.service"
