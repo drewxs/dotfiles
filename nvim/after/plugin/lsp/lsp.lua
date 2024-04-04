@@ -33,6 +33,7 @@ mason_lspconfig.setup({
     "marksman",
     "taplo",
     "bufls",
+    "autotools_ls",
   },
   automatic_installation = true,
   handlers = { lsp.default_setup },
