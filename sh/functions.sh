@@ -24,7 +24,7 @@ function exists {
 function mkcd {
   [[ -z "$1" ]] && echo "Usage: mkcd <dir>" && return
   mkdir -p "$1"
-  cd "$1" || exit
+  cd "$1" || return
 }
 
 # Kill processes on specified port
@@ -191,7 +191,7 @@ function loadenv {
 function cnew {
   [[ -z "$1" ]] && echo "Usage: cnew <project_name>" && return
   cargo new "$@"
-  cd "$1" || exit
+  cd "$1" || return
   echo "# $1" >README.md
   nvim
 }
@@ -213,7 +213,7 @@ function tnew {
 # Clone a git repository and cd into it
 # $1: repo url
 function gcld {
-  git clone --recurse-submodules "$1" && cd "$(basename "$1" .git)" || exit
+  git clone --recurse-submodules "$1" && cd "$(basename "$1" .git)" || return
 }
 
 # Encrypt a file using gpg
