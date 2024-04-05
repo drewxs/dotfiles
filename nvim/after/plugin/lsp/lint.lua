@@ -11,7 +11,6 @@ require("lint").linters_by_ft = {
   lua = { "luacheck" },
   prisma = { "prisma-lint" },
   proto = { "buf_lint" },
-  markdown = { "vale" },
   sh = { "shellcheck" },
   bash = { "shellcheck" },
   zsh = { "zsh" },
