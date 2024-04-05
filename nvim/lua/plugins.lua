@@ -82,6 +82,7 @@ return {
 
   -- utils
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "IndianBoy42/tree-sitter-just" },
   { "numToStr/Comment.nvim", dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" } },
   { "windwp/nvim-ts-autotag" },
   { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
