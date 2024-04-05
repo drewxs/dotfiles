@@ -7,6 +7,9 @@ require("conform").setup({
     python = { "ruff_format" },
     lua = { "stylua" },
     ruby = { "rubyfmt" },
+    java = { "google-java-format" },
+    scala = { "scalafmt" },
+    kotlin = { "ktlint" },
     typescriptreact = { { "prettierd", "prettier" } },
     javascriptreact = { { "prettierd", "prettier" } },
     typescript = { { "prettierd", "prettier" } },
@@ -19,6 +22,7 @@ require("conform").setup({
     json = { { "prettierd", "prettier" } },
     toml = { "taplo" },
     yaml = { "yg" },
+    just = { "just" },
   },
   format_on_save = {
     timeout_ms = 500,
