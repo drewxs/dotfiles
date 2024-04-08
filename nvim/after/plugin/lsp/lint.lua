@@ -1,6 +1,5 @@
 require("lint").linters_by_ft = {
   cpp = { "clang-tidy" },
-  go = { "golangcilint" },
   elixir = { "credo" },
   typescript = { "eslint_d" },
   javascript = { "eslint_d" },
