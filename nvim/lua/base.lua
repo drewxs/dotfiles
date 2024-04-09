@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 -- auto lint
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   callback = function()
     require("lint").try_lint()
   end,
