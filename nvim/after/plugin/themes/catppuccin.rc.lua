@@ -107,6 +107,5 @@ require("catppuccin").setup({
     markdown = true,
     lightspeed = true,
     noice = true,
-    notify = true,
   },
 })

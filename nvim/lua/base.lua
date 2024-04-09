@@ -51,3 +51,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     require("lint").try_lint()
   end,
 })
+
+-- limit notifications
+local blacklist = { "No information available" }
+vim.notify = function(msg, ...)
+  for _, banned in ipairs(blacklist) do
+    if msg == banned then
+      return
+    end
+  end
+  return vim.notify(msg, ...)
+end

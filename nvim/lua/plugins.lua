@@ -30,11 +30,10 @@ return {
   { "nvim-lualine/lualine.nvim" },
   { "akinsho/bufferline.nvim", dependencies = { "catppuccin/nvim" } },
   { "MunifTanjim/nui.nvim" },
-  { "rcarriga/nvim-notify" },
   {
     "folke/noice.nvim",
     event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" },
+    dependencies = { "MunifTanjim/nui.nvim" },
   },
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
