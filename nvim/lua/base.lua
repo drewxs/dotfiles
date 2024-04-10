@@ -54,11 +54,10 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 -- limit notifications
 local blacklist = { "No information available" }
-vim.notify = function(msg, ...)
+vim.notify = function(msg)
   for _, banned in ipairs(blacklist) do
     if msg == banned then
       return
     end
   end
-  return vim.notify(msg, ...)
 end
