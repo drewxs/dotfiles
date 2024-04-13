@@ -249,3 +249,21 @@ function burniso {
   path_to_iso="$2"
   sudo dd bs=4M if="$path_to_iso" of="$disk_name" status=progress oflag=sync
 }
+
+# Reformat a drive
+# $1: disk name
+# $2: partition name
+function reformat {
+  disk_name="$1"
+  disk_partition="$1"1
+
+  # wipe all data
+  sudo wipefs --all "$disk_name"
+
+  # create partition
+  # gpt -> new -> enter -> write -> yes -> quit
+  sudo cfdisk "$disk_name"
+
+  # format partition
+  sudo mkfs.vfat "$disk_partition"
+}
