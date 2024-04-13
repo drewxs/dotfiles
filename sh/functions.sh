@@ -239,3 +239,13 @@ function gpgdec {
 function upgrub {
   sudo grub-mkconfig -o /boot/grub/grub.cfg
 }
+
+# Burn an ISO to a disk
+# $1: disk name
+# $2: path to iso
+function burniso {
+  [[ -z "$1" ]] || [[ -z "$2" ]] && echo "Usage: burniso <disk_name> <path_to_iso>" && return
+  disk_name="$1"
+  path_to_iso="$2"
+  sudo dd bs=4M if="$path_to_iso" of="$disk_name" status=progress oflag=sync
+}
