@@ -1,7 +1,6 @@
 require("conform").setup({
   formatters_by_ft = {
     sh = { "shfmt" },
-    rust = { "rustfmt" },
     elixir = { "mix" },
     go = { "gofmt" },
     python = { "ruff_format" },
