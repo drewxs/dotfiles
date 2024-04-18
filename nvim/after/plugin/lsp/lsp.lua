@@ -56,6 +56,12 @@ nvim_lsp.lua_ls.setup({
   },
 })
 
+nvim_lsp.rust_analyzer.setup({
+  on_attach = function(_, bufnr)
+    vim.lsp.inlay_hint.enable(bufnr)
+  end,
+})
+
 nvim_lsp.clangd.setup({
   cmd = { "clangd", "--offset-encoding=utf-16" },
 })
