@@ -4,6 +4,7 @@ local config = {
   enable_tab_bar = false,
   audible_bell = "Disabled",
   notification_handling = "NeverShow",
+  warn_about_missing_glyphs = false,
   color_scheme = "Terminix Dark (Gogh)",
   font = wezterm.font("SauceCodePro Nerd Font Mono", { weight = "Medium" }),
   font_size = 12.0,
