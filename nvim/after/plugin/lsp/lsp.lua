@@ -66,6 +66,14 @@ nvim_lsp.clangd.setup({
   cmd = { "clangd", "--offset-encoding=utf-16" },
 })
 
+nvim_lsp.tailwindcss.setup({
+  init_options = {
+    userLanguages = {
+      rust = "html",
+    },
+  },
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
