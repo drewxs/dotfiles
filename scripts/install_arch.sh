@@ -21,9 +21,9 @@ function install_snap {
 function install_sys_packages {
   echo "Installing sys packages..."
   sudo pacman -S --noconfirm \
-    xorg-{xmodmap,xev,setxkbmap,xset} wezterm tmux neofetch wget xclip up \
-    docker docker-compose lazygit tree-sitter shfmt shellcheck luarocks luacheck \
-    ttf-sourcecodepro-nerd thefuck direnv gihub-cli
+    wezterm tmux neofetch onefetch wget xclip up ttf-sourcecodepro-nerd \
+    docker docker-compose github-cli lazygit direnv python-distutils-extra thefuck \
+    tree-sitter shfmt shellcheck luarocks luacheck
 }
 
 function install_languages {
@@ -84,8 +84,8 @@ function install_languages {
   echo "Installing java..."
   if ! install_exists java; then
     asdf plugin add java
-    asdf install java openjdk-11
-    asdf global java openjdk-11
+    asdf install java openjdk-17
+    asdf global java openjdk-17
   fi
 }
 
