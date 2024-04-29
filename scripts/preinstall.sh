@@ -25,7 +25,7 @@ fi
 
 
 echo "Installing asdf..."
-if [[ -x "$(command -v zsh)" ]]; then
+if [[ -x "$(command -v asdf)" ]]; then
   echo "asdf installation found..."
 else
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
