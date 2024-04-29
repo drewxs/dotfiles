@@ -26,6 +26,7 @@ alias serve="npx http-server"
 alias fc="fd --type f . | wc -l"
 alias clip="xclip -sel c"
 alias ports="ss -tulanp"
+alias dot="cd ~/.dotfiles && nvim"
 
 # Overrides
 alias cat="bat"
