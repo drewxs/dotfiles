@@ -62,10 +62,13 @@ function upd {
     echo "Updating system packages..."
     if exists apt-get; then
       sudo apt update && sudo apt upgrade -y
+      sudo apt autoremove && sudo apt clean
     elif exists pacman; then
       yay -Syu --noconfirm
+      paccache -ru
     elif exists brew; then
       brew update && brew upgrade
+      brew cleanup
     fi
     echo "Updating rust packages..."
     if exists rustup; then

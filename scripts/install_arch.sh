@@ -21,7 +21,7 @@ function install_snap {
 function install_sys_packages {
   echo "Installing sys packages..."
   sudo pacman -S --noconfirm \
-    wezterm tmux neofetch onefetch wget xclip up ttf-sourcecodepro-nerd \
+    pacman-contrib wezterm tmux neofetch onefetch wget xclip up ttf-sourcecodepro-nerd \
     docker docker-compose github-cli lazygit direnv python-distutils-extra thefuck \
     tree-sitter shfmt shellcheck luarocks luacheck
 }
