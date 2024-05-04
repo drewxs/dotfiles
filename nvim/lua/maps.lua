@@ -1,10 +1,4 @@
-local default_opts = { silent = true, nowait = true }
-
-local map = function(mode, lhs, rhs, opts)
-  opts = opts or {}
-  setmetatable(opts, { __index = default_opts })
-  vim.keymap.set(mode, lhs, rhs, opts)
-end
+local map = require("utils").map
 
 -- GENERAL
 map({ "i", "v" }, "<c-j>", "<esc>", { desc = "Exit insert/visual mode" })
@@ -95,6 +89,3 @@ map("n", "<s-p>", "<cmd>Lspsaga peek_definition<cr>", { desc = "Peek definition"
 map("n", "<a-[>", "<cmd>Lspsaga diagnostic_jump_prev<cr>", { remap = true, desc = "Jump to previous diagnostic" })
 map("n", "<a-]>", "<cmd>Lspsaga diagnostic_jump_next<cr>", { remap = true, desc = "Jump to next diagnostic" })
 map("n", "<c-i>", "<cmd>TroubleToggle<cr>", { desc = "Toggle global diagnostics" })
-
--- MACROS
-map("i", "<a-=>", ":= ", { desc = "Insert ':='" })
