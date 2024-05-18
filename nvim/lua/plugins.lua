@@ -75,7 +75,13 @@ return {
   { "hrsh7th/cmp-path" },
   { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
   { "saadparwaiz1/cmp_luasnip" },
-  { "saecki/crates.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+  {
+    "saecki/crates.nvim",
+    tag = "stable",
+    config = function()
+      require("crates").setup()
+    end,
+  },
   { "github/copilot.vim" },
   { "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
 
