@@ -4,10 +4,11 @@ local config = {
   enable_tab_bar = false,
   audible_bell = "Disabled",
   notification_handling = "NeverShow",
+  window_close_confirmation = "NeverPrompt",
   warn_about_missing_glyphs = false,
   color_scheme = "Terminix Dark (Gogh)",
   font = wezterm.font("SauceCodePro Nerd Font Mono", { weight = "Medium" }),
-  font_size = 12.0,
+  font_size = 14.0,
   max_fps = 240,
   animation_fps = 60,
   background = {
