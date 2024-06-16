@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Package managers
-if [[ -x "$(command -v apt-get)" ]]; then
+if [[ -x "$(command -v apt)" ]]; then
   alias p="sudo apt -y"
 elif [[ -x "$(command -v pacman)" ]]; then
   alias p="sudo pacman --noconfirm"

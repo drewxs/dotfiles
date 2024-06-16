@@ -60,7 +60,7 @@ function upd {
   function up_pkg {
     echo "Updating packages..."
     echo "Updating system packages..."
-    if exists apt-get; then
+    if exists apt; then
       sudo apt update && sudo apt upgrade -y
       sudo apt autoremove && sudo apt clean
     elif exists pacman; then

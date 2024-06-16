@@ -43,4 +43,7 @@ function install_packages {
   npm i -g neovim typescript typescript-language-server eslint eslint_d prettier @fsouza/prettierd @bufbuild/buf sql-formatter
   gem install neovim rails
   rye install neovim
+  if exists apt; then
+    go install github.com/arl/gitmux@latest
+  fi
 }

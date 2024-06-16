@@ -4,7 +4,7 @@ echo "Installing zsh..."
 if [[ -x "$(command -v zsh)" ]]; then
   echo "zsh installation found..."
 else
-  if [[ -x "$(command -v apt-get)" ]]; then
+  if [[ -x "$(command -v apt)" ]]; then
     sudo apt update && sudo apt upgrade -y
     sudo apt install zsh
   elif [[ -x "$(command -v pacman)" ]]; then
@@ -22,7 +22,6 @@ if [[ -d "$HOME/.oh-my-zsh" ]]; then
 else
   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
-
 
 echo "Installing asdf..."
 if [[ -x "$(command -v asdf)" ]]; then
