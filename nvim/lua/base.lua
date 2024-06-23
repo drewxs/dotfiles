@@ -61,3 +61,14 @@ vim.notify = function(msg)
     end
   end
 end
+
+-- refresh visible buffers (i.e. splits)
+vim.fn.timer_start(3000, function()
+  for win = 1, vim.fn.winnr("$") do
+    local buf = vim.fn.winbufnr(win)
+    if vim.fn.bufloaded(buf) == 1 then
+      vim.fn.bufload(buf)
+      vim.cmd("checktime " .. buf)
+    end
+  end
+end, { ["repeat"] = -1 })
