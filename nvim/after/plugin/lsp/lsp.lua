@@ -58,7 +58,7 @@ nvim_lsp.lua_ls.setup({
 
 nvim_lsp.rust_analyzer.setup({
   on_attach = function(_, bufnr)
-    vim.lsp.inlay_hint.enable(bufnr)
+    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
   end,
 })
 
