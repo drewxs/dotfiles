@@ -66,7 +66,7 @@ opt.termguicolors = true
 opt.winblend = 0
 opt.pumblend = 5
 opt.timeout = true
-opt.timeoutlen = 50
+opt.timeoutlen = 200
 
 -- paths
 opt.path:append({ "**" })
