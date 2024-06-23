@@ -1,9 +1,6 @@
 local opt = vim.opt
-local o = vim.o
-local g = vim.g
 
-g.mapleader = " "
-o.autoread = true
+vim.g.mapleader = " "
 
 -- encoding
 vim.scriptencoding = "utf-8"
@@ -18,9 +15,11 @@ opt.backspace = { "start", "eol", "indent" }
 opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 opt.inccommand = "split"
 opt.wildoptions = "pum"
+opt.hidden = true
 opt.swapfile = false
 opt.formatoptions = "tcqjr"
 opt.updatetime = 100
+opt.autoread = true
 opt.guicursor = {
   "n-v-c:block",
   "i-ci-ve:ver25-blinkwait700-blinkoff400-blinkon250",
