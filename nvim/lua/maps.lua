@@ -2,6 +2,7 @@ local map = require("utils").map
 
 -- GENERAL
 map({ "i", "v" }, "<c-j>", "<esc>", { desc = "Exit insert/visual mode" })
+map("i", "jj", "<esc>", { desc = "Exit insert/visual mode" })
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
 map("n", "<c-a>", "gg<s-v>G", { desc = "Select all" })
 map("n", "r", "<c-r>", { desc = "Redo" })
@@ -33,6 +34,10 @@ map({ "n", "i" }, "<c-s>", function()
   vim.cmd.write()
 end, { desc = "Save buffer" })
 map({ "n", "i" }, "<a-s>", function()
+  vim.cmd.write()
+  vim.cmd.stopinsert()
+end, { desc = "Save buffer" })
+map("i", "jk", function()
   vim.cmd.write()
   vim.cmd.stopinsert()
 end, { desc = "Save buffer" })
