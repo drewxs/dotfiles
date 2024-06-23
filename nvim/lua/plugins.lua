@@ -15,6 +15,7 @@ return {
   { "projekt0n/github-nvim-theme" },
   { "svrana/neosolarized.nvim" },
   { "rebelot/kanagawa.nvim" },
+  { "Shatur/neovim-ayu" },
   { "ellisonleao/gruvbox.nvim", priority = 1000, config = true },
 
   -- UI

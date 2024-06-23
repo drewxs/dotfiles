@@ -1,5 +1,5 @@
 -- theme
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme ayu]])
 
 local function augroup(name)
   return vim.api.nvim_create_augroup(name, { clear = true })
