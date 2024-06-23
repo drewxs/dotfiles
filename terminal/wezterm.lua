@@ -11,15 +11,10 @@ local config = {
   font_size = 14.0,
   max_fps = 240,
   animation_fps = 60,
-  background = {
-    {
-      source = { File = os.getenv("HOME") .. "/.dotfiles/terminal/assets/bg-1.jpg" },
-      hsb = { brightness = 0.03 },
-      opacity = 0.9,
-      vertical_align = "Top",
-      horizontal_align = "Center",
-    },
+  colors = {
+    background = "#090a0d",
   },
+  window_background_opacity = 0.93,
   keys = {
     { key = "v", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
   },
