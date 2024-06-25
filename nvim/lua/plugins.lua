@@ -31,34 +31,14 @@ return {
   { "nvim-lualine/lualine.nvim" },
   { "akinsho/bufferline.nvim", dependencies = { "catppuccin/nvim" } },
   { "MunifTanjim/nui.nvim" },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = { "MunifTanjim/nui.nvim" },
-  },
+  { "folke/noice.nvim", event = "VeryLazy", dependencies = { "MunifTanjim/nui.nvim" } },
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
   -- LSP
-  {
-    "VonHeikemen/lsp-zero.nvim",
-    branch = "v3.x",
-    dependencies = {
-      { "neovim/nvim-lspconfig" },
-      { "williamboman/mason.nvim" },
-      { "williamboman/mason-lspconfig.nvim" },
-      { "hrsh7th/nvim-cmp" },
-      { "hrsh7th/cmp-nvim-lsp" },
-      { "L3MON4D3/LuaSnip" },
-    },
-  },
+  { "VonHeikemen/lsp-zero.nvim", branch = "v3.x" },
   { "neovim/nvim-lspconfig" },
   { "williamboman/mason.nvim" },
   { "williamboman/mason-lspconfig.nvim" },
-  { "mfussenegger/nvim-lint" },
-  { "stevearc/conform.nvim" },
-  { "glepnir/lspsaga.nvim" },
-  { "onsails/lspkind-nvim" },
-  { "RRethy/vim-illuminate" },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -76,6 +56,11 @@ return {
   { "hrsh7th/cmp-path" },
   { "L3MON4D3/LuaSnip", build = "make install_jsregexp" },
   { "saadparwaiz1/cmp_luasnip" },
+  { "mfussenegger/nvim-lint" },
+  { "stevearc/conform.nvim" },
+  { "glepnir/lspsaga.nvim" },
+  { "onsails/lspkind-nvim" },
+  { "RRethy/vim-illuminate" },
   {
     "saecki/crates.nvim",
     tag = "stable",
