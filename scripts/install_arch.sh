@@ -24,7 +24,7 @@ function install_sys_packages {
     pacman-contrib wezterm tmux neofetch onefetch fzf wget xclip up ttf-sourcecodepro-nerd \
     docker docker-compose github-cli lazygit direnv python-distutils-extra thefuck \
     tree-sitter shfmt shellcheck luarocks luacheck
-  yay -S --noconfirm google-chrome visual-studio-code-bin slack-desktop lazydocker gitmux
+  yay -S --noconfirm google-chrome visual-studio-code-bin slack-desktop lazydocker gitmux fpp
 }
 
 function install_languages {
