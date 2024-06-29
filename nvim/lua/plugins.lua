@@ -67,7 +67,6 @@ return {
       require("crates").setup()
     end,
   },
-  { "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   -- { "github/copilot.vim" },
   { "supermaven-inc/supermaven-nvim" },
 
