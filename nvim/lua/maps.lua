@@ -77,6 +77,8 @@ map("v", "<a-j>", ":m '>+1<cr>gv=gv", { desc = "Move selection down" })
 map("v", "<a-k>", ":m '<-2<cr>gv=gv", { desc = "Move selection up" })
 map("n", "dh", "d^", { desc = "Delete to start of line" })
 map("n", "dl", "d$", { desc = "Delete to end of line" })
+map("n", "ch", "c^", { desc = "Change to start of line" })
+map("n", "cl", "c$", { desc = "Change to end of line" })
 -- duplication
 map("n", "<s-j>", "mayyp`aj", { desc = "Duplicate line" })
 map("v", "<s-j>", "y'>p", { desc = "Duplicate selection" })
