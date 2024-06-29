@@ -69,12 +69,7 @@ return {
   },
   { "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } },
   -- { "github/copilot.vim" },
-  {
-    "supermaven-inc/supermaven-nvim",
-    config = function()
-      require("supermaven-nvim").setup({})
-    end,
-  },
+  { "supermaven-inc/supermaven-nvim" },
 
   -- utils
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
