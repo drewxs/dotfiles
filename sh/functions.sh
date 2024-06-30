@@ -172,8 +172,7 @@ function testtc {
 }
 
 # Load environment variables from file
-# Defaults to .env in current directory
-# $1: path to env file
+# $1: path to env file (default = .env)
 function loadenv {
   env_file="${1:-.env}"
   if [[ -f "$env_file" ]]; then
@@ -187,6 +186,16 @@ function loadenv {
   else
     echo "$env_file not found"
   fi
+}
+
+# Activate virtual environment, create if it doesn't exist
+# $1: dir (default = .venv)
+function venv {
+  dir="${1:-.venv}"
+  if [[ -d "$dir" ]]; then
+    python -m venv "$dir"
+  fi
+  source "$dir/bin/activate"
 }
 
 # Create a new rust project and open in neovim
