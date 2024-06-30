@@ -3,7 +3,7 @@ require("conform").setup({
     sh = { "shfmt" },
     elixir = { "mix" },
     go = { "gofmt" },
-    python = { "ruff_format" },
+    python = { "ruff_fix", "ruff_format" },
     lua = { "stylua" },
     ruby = { "rubyfmt" },
     java = { "google-java-format" },
