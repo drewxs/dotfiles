@@ -60,8 +60,8 @@ map("i", "<c-e>", "<end>", { desc = "End of line" })
 map({ "n", "i" }, "<a-;>", "<esc><s-a>;", { desc = "End of line -> ';'" })
 map({ "n", "i" }, "<a-,>", "<esc><s-a>,", { desc = "End of line -> ','" })
 map("i", "<a-[>", "<esc><s-a> {}<left>", { desc = "End of line -> '{'" })
-map("n", "<a-u>", "gg0i<cr><esc>k", { desc = "New line at beginning of file" })
-map("i", "<a-u>", "<esc>gg0i<cr><esc>ki", { desc = "New line at beginning of file" })
+map({ "n", "i" }, "<a-u>", "<esc>gg0i<cr><esc>ki", { desc = "New line at beginning of file" })
+map({ "n", "i" }, "<a-i>", "<esc><up>o", { desc = "New line at previous line" })
 map("i", "<c-o>", "<esc>o", { desc = "New line below" })
 
 -- TEXT MANIPULATION
