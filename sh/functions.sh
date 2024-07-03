@@ -192,7 +192,7 @@ function loadenv {
 # $1: dir (default = .venv)
 function venv {
   dir="${1:-.venv}"
-  if [[ -d "$dir" ]]; then
+  if [[ ! -d "$dir" ]]; then
     python -m venv "$dir"
   fi
   source "$dir/bin/activate"
