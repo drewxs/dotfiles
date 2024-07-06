@@ -12,7 +12,7 @@ local config = {
   max_fps = 240,
   animation_fps = 60,
   colors = {
-    background = "#090a0d",
+    background = "#0c0f12",
   },
   window_background_opacity = 0.93,
   keys = {
