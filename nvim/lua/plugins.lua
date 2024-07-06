@@ -12,7 +12,6 @@ return {
   { "kvrohit/substrata.nvim", priority = 1000 },
   { "kvrohit/mellow.nvim", priority = 1000 },
   { "projekt0n/github-nvim-theme", priority = 1000 },
-  { "Tsuzat/NeoSolarized.nvim", priority = 1000 },
   { "craftzdog/solarized-osaka.nvim", priority = 1000 },
   { "rebelot/kanagawa.nvim", priority = 1000 },
   { "Shatur/neovim-ayu", priority = 1000 },
@@ -87,6 +86,7 @@ return {
     build = function()
       vim.fn["mkdp#util#install"]()
     end,
+    lazy = true,
   },
   { "ziontee113/color-picker.nvim" },
 }
