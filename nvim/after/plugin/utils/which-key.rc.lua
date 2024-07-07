@@ -141,6 +141,18 @@ local mappings = {
   u = {
     name = "Utilities",
     x = { "<cmd>!chmod +x %<cr>", "Make Executable" },
+    r = {
+      function()
+        local api = require("nvim-tree.api")
+        local node = api.tree.get_node_under_cursor()
+        if node and node.absolute_path then
+          vim.cmd("term " .. node.absolute_path)
+        else
+          print("No file selected")
+        end
+      end,
+      "Run Shell Script",
+    },
     m = { "<cmd>MarkdownPreview<cr>", "Markdown Preview" },
   },
   x = {
