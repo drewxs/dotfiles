@@ -228,6 +228,16 @@ function gcld {
   git clone --recurse-submodules "$1" && cd "$(basename "$1" .git)" || return
 }
 
+# Cherry pick a commit from a different repo
+# $1: from repo
+# $2: commit hash
+function gcpr {
+  [[ -z "$1" ]] || [[ -z "$2" ]] && echo "Usage: gcp <from> <hash>" && return
+  git --git-dir="$1"/.git \
+    format-patch -k -1 --stdout "$2" |
+    git am -3 -k --ignore-whitespace
+}
+
 # Encrypt a file using gpg
 # $1: recipient public key
 # $2: input file
