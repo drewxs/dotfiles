@@ -11,10 +11,21 @@ local config = {
   font_size = 14.0,
   max_fps = 240,
   animation_fps = 60,
-  colors = {
-    background = "#0c0f12",
+  background = {
+    {
+      source = {
+        Gradient = {
+          orientation = "Vertical",
+          interpolation = "Linear",
+          blend = "Rgb",
+          colors = { "#070a0d", "#111417" },
+        },
+      },
+      opacity = 0.95,
+      width = "100%",
+      height = "100%",
+    },
   },
-  window_background_opacity = 0.93,
   keys = {
     { key = "v", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
   },
