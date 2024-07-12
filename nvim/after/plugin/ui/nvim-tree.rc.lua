@@ -65,7 +65,6 @@ require("nvim-tree").setup({
   },
   view = {
     adaptive_size = true,
-    width = 42,
   },
   on_attach = function(bufnr)
     local api = require("nvim-tree.api")
