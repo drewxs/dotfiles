@@ -1,5 +1,5 @@
 local which_key = require("which-key")
-local is_tree_open = require("utils").is_tree_open
+local is_open = require("utils").is_open
 
 local setup = {
   plugins = {
@@ -165,7 +165,7 @@ local mappings = {
       function()
         vim.cmd("ToggleTerm direction=horizontal")
 
-        if is_tree_open() then
+        if is_open("NvimTree") then
           vim.cmd("NvimTreeClose")
           vim.cmd("NvimTreeOpen")
         end
