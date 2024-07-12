@@ -1,6 +1,10 @@
 local default_opts = { silent = true, nowait = true }
 local keymap_set = vim.keymap.set
 
+---@param mode string | table
+---@param lhs string
+---@param rhs string | function
+---@param opts table
 local function map(mode, lhs, rhs, opts)
   opts = opts or {}
   if not getmetatable(opts) then
