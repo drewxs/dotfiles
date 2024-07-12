@@ -21,11 +21,12 @@ local config = {
           colors = { "#070a0d", "#111417" },
         },
       },
-      opacity = 0.95,
+      opacity = 0.93,
       width = "100%",
       height = "100%",
     },
   },
+  macos_window_background_blur = 10,
   keys = {
     { key = "v", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
   },
@@ -34,6 +35,12 @@ local config = {
 wezterm.on("gui-startup", function(cmd)
   local _, _, window = wezterm.mux.spawn_window(cmd or {})
   window:gui_window():maximize()
+end)
+
+wezterm.on("window-focus-changed", function()
+  os.execute([[xdotool search -classname org.wezfurlong.wezterm \
+  | xargs -I{} xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id {}
+  ]])
 end)
 
 return config
