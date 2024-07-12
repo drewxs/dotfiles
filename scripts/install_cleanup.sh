@@ -12,7 +12,7 @@ function create_symlinks {
   ln -s "$HOME/.dotfiles/.gitconfig" "$HOME/.gitconfig"
   ln -s "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
   ln -s "$HOME/.dotfiles/nvim" "$HOME/.config/nvim"
-  ln -s "$HOME/.dotfiles/terminal/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+  ln -s "$HOME/.dotfiles/term/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
 }
 
 function cleanup {
