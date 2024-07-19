@@ -31,7 +31,7 @@ function mkcd {
 # $1: port
 function killport {
   [[ -z "$1" ]] && echo "Usage: killport <port>" && return
-  kill -9 "$(lsof -t -i:"$1")"
+  kill -9 $(lsof -ti :$1)
 }
 
 # Trim whitespace
