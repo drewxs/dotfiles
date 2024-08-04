@@ -103,6 +103,7 @@ local mappings = {
     f = { "<cmd>lua vim.lsp.buf.format{async=true}<cr>", "Format" },
     i = { "<cmd>LspInfo<cr>", "Info" },
     I = { "<cmd>LspInstallInfo<cr>", "Installer Info" },
+    m = { "<cmd>messages<cr>", "Messages" },
     q = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Quickfix" },
     s = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
     S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
