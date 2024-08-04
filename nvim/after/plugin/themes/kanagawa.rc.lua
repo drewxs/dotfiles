@@ -11,7 +11,11 @@ require("kanagawa").setup({
   terminalColors = true,
   colors = {
     palette = {},
-    theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
+    theme = { wave = {}, lotus = {}, dragon = {}, all = {
+      ui = {
+        bg_gutter = "none",
+      },
+    } },
   },
   theme = "dragon",
   background = {
