@@ -16,7 +16,7 @@ mason_lspconfig.setup({
     "lua_ls",
     "elixirls",
     "pyright",
-    "ruby_lsp",
+    "solargraph",
     "tsserver",
     "eslint",
     "html",
