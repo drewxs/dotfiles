@@ -16,7 +16,7 @@ require("catppuccin").setup({
       crust = "#000000",
       none = "NONE",
     },
-    mocha = {
+    macchiato = {
       rosewater = "#a1e7d7",
       flamingo = "#f1939c",
       pink = "#fbbfc2",
