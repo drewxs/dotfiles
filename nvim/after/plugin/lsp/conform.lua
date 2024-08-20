@@ -5,7 +5,6 @@ require("conform").setup({
     go = { "gofmt" },
     python = { "ruff_fix", "ruff_format" },
     lua = { "stylua" },
-    ruby = { "rubyfmt" },
     java = { "google-java-format" },
     typescriptreact = { { "prettierd", "prettier" } },
     javascriptreact = { { "prettierd", "prettier" } },
