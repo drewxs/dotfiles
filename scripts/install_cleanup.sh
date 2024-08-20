@@ -13,6 +13,10 @@ function create_symlinks {
   ln -s "$HOME/.dotfiles/tmux/.tmux.conf" "$HOME/.tmux.conf"
   ln -s "$HOME/.dotfiles/nvim" "$HOME/.config/nvim"
   ln -s "$HOME/.dotfiles/term/wezterm.lua" "$HOME/.config/wezterm/wezterm.lua"
+  if [[ -d ~/.config/zed ]]; then
+    ln -s "$HOME/.dotfiles/zed/keymap.json" ~/.config/zed/keymap.json
+    ln -s "$HOME/.dotfiles/zed/settings.json" ~/.config/zed/settings.json
+  fi
 }
 
 function cleanup {

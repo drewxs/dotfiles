@@ -1,0 +1,69 @@
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      "ctrl-p": "file_finder::Toggle",
+      "cmd-`": "workspace::ToggleBottomDock"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      "shift-a": "project_panel::NewDirectory",
+      "a": "project_panel::NewFile",
+      "r": "project_panel::Rename",
+      "d": "project_panel::Delete",
+      "x": "project_panel::Cut",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "l": "project_panel::Open"
+    }
+  },
+  {
+    "context": "Dock && vim_mode == normal",
+    "bindings": {
+      "ctrl-w h": ["workspace::ActivatePaneInDirection", "Left"],
+      "ctrl-w l": ["workspace::ActivatePaneInDirection", "Right"],
+      "ctrl-w k": ["workspace::ActivatePaneInDirection", "Up"],
+      "ctrl-w j": ["workspace::ActivatePaneInDirection", "Down"]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "ctrl-h": "project_panel::ToggleFocus",
+      "ctrl-a": "editor::SelectAll",
+      "shift-w": "pane::CloseActiveItem",
+      "shift-d": "editor::Hover",
+      "shift-f": "editor::GoToDefinition",
+      "shift-h": "pane::ActivatePrevItem",
+      "shift-l": "pane::ActivateNextItem",
+      "n": "vim::MoveToNext",
+      "shift-r": "editor::Rename",
+      "cmd-[": "editor::GoToPrevDiagnostic",
+      "cmd-]": "editor::GoToDiagnostic"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual)",
+    "bindings": {
+      "shift-j": "editor::DuplicateLineDown",
+      "cmd-h": "vim::PreviousWordStart",
+      "cmd-l": "vim::NextWordEnd",
+      "ctrl-n": "vim::SelectNext"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual",
+    "bindings": {}
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "ctrl-h": "editor::DeleteToPreviousWordStart",
+      "ctrl-l": "editor::DeleteToNextWordEnd",
+      "cmd-h": "editor::Backspace",
+      "cmd-l": "editor::Delete"
+    }
+  }
+]
