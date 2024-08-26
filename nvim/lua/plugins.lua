@@ -68,7 +68,7 @@ return {
     end,
   },
   -- { "github/copilot.vim" },
-  { "supermaven-inc/supermaven-nvim", commit = "df3ecf7" },
+  { "supermaven-inc/supermaven-nvim" },
 
   -- utils
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
