@@ -3,7 +3,8 @@
 function remove_existing_configurations {
   echo "Removing existing configurations..."
   sudo rm -rf "$HOME/.gitconfig" "$HOME/.tmux.conf" "$HOME/.config/alacritty/alacritty.toml" \
-    "$HOME/.cache/nvim" "$HOME/.config/nvim" "$HOME/.local/share/nvim"
+    "$HOME/.cache/nvim" "$HOME/.config/nvim" "$HOME/.local/share/nvim" \
+    $HOME/.config/zed/{keymap.json,settings.json}
 }
 
 function create_symlinks {
