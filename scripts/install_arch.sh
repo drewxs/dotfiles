@@ -22,8 +22,8 @@ function install_sys_packages {
   echo "Installing sys packages..."
   sudo pacman -S --noconfirm \
     pacman-contrib wezterm tmux neofetch onefetch fzf wget xclip up ttf-sourcecodepro-nerd \
-    docker docker-compose github-cli lazygit direnv python-distutils-extra thefuck \
-    tree-sitter shfmt shellcheck luarocks luacheck sqlfluff
+    docker docker-compose docker-buildx github-cli lazygit thefuck \
+    tree-sitter shfmt shellcheck direnv python-distutils-extra luarocks luacheck sqlfluff
   yay -S --noconfirm google-chrome visual-studio-code-bin slack-desktop \
     lazydocker gitmux fpp google-java-format
 }
