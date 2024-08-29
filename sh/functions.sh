@@ -1,17 +1,5 @@
 #!/bin/bash
 
-# Check if a command exists and echo the result
-# $1: command
-function install_exists {
-  [[ -z "$1" ]] && echo "Usage: install_exists <command>" && return
-  if command -v "$1" &>/dev/null; then
-    echo "$1 installation found"
-    return 0
-  fi
-  echo "$1 installation not found"
-  return 1
-}
-
 # Check if a command exists in PATH
 # $1: command
 function exists {
@@ -104,8 +92,11 @@ function upd {
     p) up_pkg ;;
     f)
       echo "Clean installing dotfiles..."
-      export update_only=false
-      install_dotfiles
+      if exists apt; then
+        $HOME/.dotfiles/scripts/install_debian.sh
+      elif exists pacman; then
+        $HOME/.dotfiles/scripts/install_arch.sh
+      fi
       ;;
     h)
       echo "Updater

@@ -11,20 +11,24 @@ My dev configurations.
 
 Clone repo
 
-```bash
-git clone https://github.com/drewxs/dotfiles $HOME/.dotfiles
+```sh
+git clone https://github.com/drewxs/dotfiles ~/.dotfiles
 ```
 
 Pre-installation
 
-```bash
-source $HOME/.dotfiles/scripts/preinstall.sh
+```sh
+~/.dotfiles/scripts/preinstall.sh
 ```
 
-Run from zsh
+Install
 
-```bash
-install_dotfiles
+```sh
+# Arch
+~/.dotfiles/scripts/install_arch.sh
+
+# Debian
+~/.dotfiles/scripts/install_debian.sh
 ```
 
 Run `upd -h` for update options.

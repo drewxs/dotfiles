@@ -39,13 +39,6 @@ export XDG_STATE_HOME="$HOME/.local/state";
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.dotfiles/zsh/.p10k.zsh"
 for f in "$HOME/.dotfiles/sh/"*.sh; do source "$f"; done
-source "$HOME/.dotfiles/scripts/install_cleanup.sh"
-source "$HOME/.dotfiles/scripts/install_shared.sh"
-if exists pacman; then
-  source "$HOME/.dotfiles/scripts/install_arch.sh"
-elif exists apt-get; then
-  source "$HOME/.dotfiles/scripts/install_debian.sh"
-fi
 if [[ -d "$HOME/.rye" ]]; then
   source "$HOME/.rye/env"
 fi
