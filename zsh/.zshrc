@@ -42,6 +42,10 @@ for f in "$HOME/.dotfiles/sh/"*.sh; do source "$f"; done
 if [[ -d "$HOME/.rye" ]]; then
   source "$HOME/.rye/env"
 fi
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if exists fzf; then
+  source <(fzf --zsh)
+fi
 
 # PATH
 export BIN="$HOME/bin"
