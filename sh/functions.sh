@@ -39,11 +39,6 @@ function trim {
   awk "{\$1=\$1;print}"
 }
 
-# Print keycodes on keypress
-function keys {
-  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
-}
-
 # Update packages and dotfiles
 function upd {
   function up_dot {
@@ -154,21 +149,9 @@ function notes {
   cat "$HOME/notes.txt"
 }
 
-# Test truecolor support
-function testtc {
-  awk 'BEGIN{
-    s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
-    for (colnum = 0; colnum<77; colnum++) {
-        r = 255-(colnum*255/76);
-        g = (colnum*510/76);
-        b = (colnum*255/76);
-        if (g>255) g = 510-g;
-        printf "\033[48;2;%d;%d;%dm", r,g,b;
-        printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
-        printf "%s\033[0m", substr(s,colnum+1,1);
-    }
-    printf "\n";
-  }'
+# Fuzzy find and open in neovim
+function vf {
+  nvim $(fzf --preview="bat --color=always {}")
 }
 
 # Load environment variables from file
@@ -255,6 +238,28 @@ function gpgdec {
   [[ -z "$1" ]] && echo "Usage: gpgdec <input_file> <output_file?>" && return
   output_file="${2:-decrypted}.txt"
   gpg --output "$output_file" --decrypt "$1"
+}
+
+# Print keycodes on keypress
+function keys {
+  xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'
+}
+
+# Test truecolor support
+function testtc {
+  awk 'BEGIN{
+    s="/\\/\\/\\/\\/\\"; s=s s s s s s s s;
+    for (colnum = 0; colnum<77; colnum++) {
+        r = 255-(colnum*255/76);
+        g = (colnum*510/76);
+        b = (colnum*255/76);
+        if (g>255) g = 510-g;
+        printf "\033[48;2;%d;%d;%dm", r,g,b;
+        printf "\033[38;2;%d;%d;%dm", 255-r,255-g,255-b;
+        printf "%s\033[0m", substr(s,colnum+1,1);
+    }
+    printf "\n";
+  }'
 }
 
 # Update grub
