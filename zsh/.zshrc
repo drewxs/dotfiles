@@ -59,8 +59,9 @@ export CARGO_HOME="$HOME/.local/share/cargo"
 export CARGO_BIN="$CARGO_HOME/bin"
 export MIX_BIN="$HOME/.local/share/mix/escripts"
 export GOPATH="$HOME/.local/share/go"
+export GO_BIN="$GOPATH/bin"
 export ASDF_DIR="$HOME/.asdf"
-export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN:$GOPATH"
+export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN:$GOPATH:$GO_BIN"
 if exists android-studio; then
   export ANDROID_HOME="$HOME/Android/Sdk"
   ANDROID_PATHS=$(eval echo "$ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}" | tr ' ' ':')
