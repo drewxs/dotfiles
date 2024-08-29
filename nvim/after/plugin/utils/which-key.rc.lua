@@ -81,6 +81,14 @@ local mappings = {
   e = { "<cmd>NvimTreeToggle<cr>", "Explorer" },
   q = { "<cmd>q!<cr>", "Quit" },
   w = { "<cmd>w!<cr>", "Save" },
+  d = {
+    name = "Debug",
+    d = { "<cmd>lua require 'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    c = { "<cmd>lua require 'dap'.continue()<cr>", "Continue" },
+    o = { "<cmd>lua require 'dap'.step_over()<cr>", "Step Over" },
+    i = { "<cmd>lua require 'dap'.step_into()<cr>", "Step Into" },
+    r = { "<cmd>lua require 'dap'.repl.open()<cr>", "REPL" },
+  },
   g = {
     name = "Git",
     g = { "<cmd>LazyGit<cr>", "Lazygit" },

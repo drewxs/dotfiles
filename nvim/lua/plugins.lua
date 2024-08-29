@@ -30,7 +30,11 @@ return {
   { "nvim-lualine/lualine.nvim" },
   { "akinsho/bufferline.nvim", dependencies = { "catppuccin/nvim" } },
   { "MunifTanjim/nui.nvim" },
-  { "folke/noice.nvim", event = "VeryLazy", dependencies = { "MunifTanjim/nui.nvim" } },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = { "MunifTanjim/nui.nvim" },
+  },
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
   -- LSP
@@ -69,6 +73,7 @@ return {
   },
   -- { "github/copilot.vim" },
   { "supermaven-inc/supermaven-nvim" },
+  { "mfussenegger/nvim-dap" },
 
   -- utils
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
