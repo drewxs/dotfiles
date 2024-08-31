@@ -1,5 +1,7 @@
 -- theme
-vim.cmd([[colorscheme solarized-osaka]])
+vim.cmd([[colorscheme github_dark_dimmed]])
+
+vim.api.nvim_set_hl(0, "StatusLine", { fg = "#000000", bg = "#000000" })
 
 local function augroup(name)
   return vim.api.nvim_create_augroup(name, { clear = true })
