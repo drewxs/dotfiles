@@ -36,6 +36,7 @@ function upd {
     if [[ $(git -C "$DOTFILES" rev-parse HEAD) == $(git -C "$DOTFILES" rev-parse @\{u\}) ]]; then
       echo "No updates to pull"
     else
+      git checkout -- "$DOTFILES"/nvim/lazy-lock.json
       git -C "$DOTFILES" pull --rebase --autostash
       echo "Dotfiles updated"
     fi
@@ -75,7 +76,7 @@ function upd {
     echo "Updating neovim packages..."
     nvim --headless "+MasonUpdate" +qa
     nvim --headless "+TSUpdate" +qa
-    # nvim --headless "+Lazy! sync" +qa
+    nvim --headless "+Lazy! restore" +qa
   }
   function up_all {
     up_dot
