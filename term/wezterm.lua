@@ -29,6 +29,7 @@ local config = {
   macos_window_background_blur = 10,
   keys = {
     { key = "v", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
+    { key = "q", mods = "CTRL|ALT", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
   },
 }
 
