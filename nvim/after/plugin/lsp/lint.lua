@@ -1,5 +1,5 @@
 require("lint").linters_by_ft = {
-  cpp = { "clang-tidy" },
+  cpp = { "clangtidy" },
   elixir = { "credo" },
   python = { "ruff" },
   lua = { "luacheck" },
