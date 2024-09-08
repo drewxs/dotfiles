@@ -42,3 +42,5 @@ require("nvim-treesitter.configs").setup({
     enable_rename = false,
   },
 })
+
+vim.treesitter.language.register("rust", "ash")

@@ -75,3 +75,9 @@ vim.fn.timer_start(3000, function()
     end
   end
 end, { ["repeat"] = -1 })
+
+vim.filetype.add({
+  extension = {
+    ash = "ash",
+  },
+})
