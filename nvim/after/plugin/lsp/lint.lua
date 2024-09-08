@@ -1,4 +1,5 @@
 require("lint").linters_by_ft = {
+  rust = { "clippy" },
   cpp = { "clangtidy" },
   elixir = { "credo" },
   python = { "ruff" },
