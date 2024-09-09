@@ -273,9 +273,9 @@ function gcpr {
 # $2: input file
 # #3?: output file (default = "encrypted.gpg")
 function gpgenc {
-  [[ -z "$1" ]] || [[ -z "$2" ]] && echo "Usage: gpgenc <public_key> <input_file> <output_file?>" && return
-  output_file="${3:-encrypted}.gpg"
-  gpg --encrypt --recipient "$1" --output "$output_file" "$2"
+  [[ -z "$1" ]] && echo "Usage: gpgenc <input_file>" && return
+  input_file="$1"
+  gpg --symmetric "$input_file"
 }
 
 # Decrypt a file using gpg
@@ -283,8 +283,9 @@ function gpgenc {
 # #2?: output file (default = "decrypted")
 function gpgdec {
   [[ -z "$1" ]] && echo "Usage: gpgdec <input_file> <output_file?>" && return
-  output_file="${2:-decrypted}.txt"
-  gpg --output "$output_file" --decrypt "$1"
+  input_file="$1"
+  output_file="${2:-${1%.gpg}}"
+  gpg --decrypt "$input_file" >"$output_file"
 }
 
 # Print keycodes on keypress
