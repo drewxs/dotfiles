@@ -37,7 +37,7 @@ echo "Installing packages..."
 cargo install cargo-info cargo-update tree-sitter-cli stylua eza bat bottom ripgrep fd-find sd skim just jnv
 npm i -g neovim typescript typescript-language-server eslint eslint_d prettier @fsouza/prettierd @bufbuild/buf sql-formatter tldr
 gem install neovim rails
-rye install neovim
+pip install neovim
 if exists apt; then
   go install github.com/arl/gitmux@latest
 fi

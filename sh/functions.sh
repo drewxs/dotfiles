@@ -67,9 +67,11 @@ function upd {
     if exists gem; then
       gem update
     fi
-    echo "Updating rye..."
-    if exists rye; then
-      rye self update
+    if exists apt; then
+      echo "Updating uv..."
+      if exists uv; then
+        uv self update
+      fi
     fi
   }
   function up_nvim {

@@ -27,8 +27,8 @@ fi
 echo "Installing system packages..."
 sudo pacman -S --noconfirm \
   pacman-contrib wezterm tmux neofetch onefetch fzf wget xclip up ttf-sourcecodepro-nerd \
-  docker docker-compose docker-buildx github-cli lazygit thefuck \
-  tree-sitter shfmt shellcheck direnv python-distutils-extra luarocks luacheck sqlfluff \
+  docker docker-compose docker-buildx github-cli lazygit thefuck python-distutils-extra \
+  tree-sitter shfmt shellcheck direnv luarocks luacheck sqlfluff uv \
   discord
 yay -S --noconfirm google-chrome visual-studio-code-bin slack-desktop \
   lazydocker gitmux fpp google-java-format
@@ -63,11 +63,6 @@ fi
 if ! install_exists elixir; then
   echo "Installing elixir..."
   sudo pacman -S --noconfirm elixir
-fi
-
-if ! install_exists rye; then
-  echo "Installing python..."
-  curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
 fi
 
 if ! install_exists go; then

@@ -69,9 +69,9 @@ if ! install_exists ruby; then
   asdf global ruby latest
 fi
 
-if ! install_exists rye; then
-  echo "Installing python..."
-  curl -sSf https://rye-up.com/get | RYE_INSTALL_OPTION="--yes" bash
+if ! install_exists uv; then
+  echo "Installing uv..."
+  curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 
 if ! install_exists go; then
