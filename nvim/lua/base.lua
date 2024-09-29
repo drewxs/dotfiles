@@ -79,5 +79,6 @@ end, { ["repeat"] = -1 })
 vim.filetype.add({
   extension = {
     ash = "ash",
+    coal = "coal",
   },
 })

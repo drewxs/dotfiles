@@ -44,3 +44,4 @@ require("nvim-treesitter.configs").setup({
 })
 
 vim.treesitter.language.register("rust", "ash")
+vim.treesitter.language.register("rust", "coal")
