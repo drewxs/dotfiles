@@ -51,6 +51,8 @@ map("n", "<a-q>", "<cmd>q!<cr>", { desc = "Quit buffer" })
 -- insert-mode cursor movement
 map("i", "<a-k>", "<up>", { desc = "Move up" })
 map("i", "<a-j>", "<down>", { desc = "Move down" })
+map("i", "<a-h>", "<left>", { desc = "Move left" })
+map("i", "<a-l>", "<right>", { desc = "Move right" })
 -- word movement
 map({ "n", "v" }, "<a-h>", "b", { desc = "Beginning of word" })
 map({ "n", "v" }, "<a-l>", "e", { desc = "End of word" })
@@ -66,10 +68,8 @@ map("i", "<c-o>", "<esc>o", { desc = "New line below" })
 
 -- TEXT MANIPULATION
 -- words
-map("i", "<a-l>", "<del>", { desc = "Delete previous char" })
-map("i", "<a-h>", "<bs>", { desc = "Delete next char" })
-map("i", "<c-h>", "<c-w>", { desc = "Delete previous word" })
-map("i", "<c-l>", "<esc>lcw", { desc = "Delete next word" })
+map("i", "<c-l>", "<del>", { desc = "Delete previous char" })
+map("i", "<c-h>", "<bs>", { desc = "Delete next char" })
 -- lines
 map("n", "<a-j>", ":m .+1<cr>", { desc = "Move line down" })
 map("n", "<a-k>", ":m .-2<cr>", { desc = "Move line up" })
