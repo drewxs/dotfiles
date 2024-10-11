@@ -1,5 +1,7 @@
 local wezterm = require("wezterm")
 
+local is_linux = wezterm.target_triple:find("linux") ~= nil
+
 local config = {
   enable_tab_bar = false,
   audible_bell = "Disabled",
@@ -35,13 +37,18 @@ local config = {
 
 wezterm.on("gui-startup", function(cmd)
   local _, _, window = wezterm.mux.spawn_window(cmd or {})
-  window:gui_window():maximize()
+  local screen = wezterm.gui:screens().active
+  if screen.width < 2400 then
+    window:gui_window():maximize()
+  end
 end)
 
 wezterm.on("window-focus-changed", function()
-  os.execute([[xdotool search -classname org.wezfurlong.wezterm \
-  | xargs -I{} xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id {}
-  ]])
+  if is_linux then
+    os.execute([[xdotool search -classname org.wezfurlong.wezterm \
+    | xargs -I{} xprop -f _KDE_NET_WM_BLUR_BEHIND_REGION 32c -set _KDE_NET_WM_BLUR_BEHIND_REGION 0 -id {}
+    ]])
+  end
 end)
 
 return config
