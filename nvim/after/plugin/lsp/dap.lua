@@ -2,7 +2,7 @@ local dap = require("dap")
 
 dap.adapters.lldb = {
   type = "executable",
-  command = "/usr/bin/lldb-vscode",
+  command = "/usr/bin/codelldb",
   name = "lldb",
 }
 dap.configurations.c = dap.configurations.cpp
