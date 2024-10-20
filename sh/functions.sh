@@ -128,9 +128,17 @@ function fdel {
   fd "$1" --type d --prune . | xargs -I {} rm -rf '{}'
 }
 
+# Nuke the current directory and exit
+function nuke {
+  curr_dir=$(pwd)
+  cd ..
+  rm -rf "$curr_dir"
+  exit
+}
+
 # Find listening ports
 # $1: port
-function port() {
+function port {
   [[ -z "$1" ]] && echo "Usage: port <port>" && return
   ss -tulnp | grep "$1" | trim
 }
