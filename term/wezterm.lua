@@ -12,22 +12,23 @@ local config = {
   font = wezterm.font("SauceCodePro Nerd Font Mono", { weight = "Medium" }),
   font_size = 14.0,
   max_fps = 240,
-  animation_fps = 60,
+  animation_fps = 100,
   background = {
     {
       source = {
-        Gradient = {
-          orientation = "Vertical",
-          interpolation = "Linear",
-          blend = "Rgb",
-          colors = { "#070a0d", "#111417" },
-        },
+        File = os.getenv("HOME") .. "/.dotfiles/term/bg.gif",
       },
-      opacity = 0.93,
-      width = "100%",
-      height = "100%",
+      hsb = { brightness = 0.1, hue = 1, saturation = 0.8 },
+      opacity = 0.5,
+      vertical_align = "Bottom",
+      horizontal_align = "Center",
     },
   },
+  window_background_gradient = {
+    colors = { "#000306", "#0a0d10" },
+    orientation = { Linear = { angle = -45.0 } },
+  },
+  window_background_opacity = 0.9,
   macos_window_background_blur = 10,
   keys = {
     { key = "v", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
