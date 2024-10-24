@@ -1,6 +1,5 @@
 local cmp = require("cmp")
 local lspkind = require("lspkind")
-local types = require("cmp.types")
 
 require("vim.lsp.protocol").CompletionItemKind = {
   "", -- Text
@@ -31,15 +30,6 @@ require("vim.lsp.protocol").CompletionItemKind = {
 }
 
 vim.api.nvim_set_hl(0, "CmpNormal", { bg = "#0a0a0f" })
-
-local function deprioritize_snippet(a, b)
-  if a:get_kind() == types.lsp.CompletionItemKind.Snippet then
-    return false
-  end
-  if b:get_kind() == types.lsp.CompletionItemKind.Snippet then
-    return true
-  end
-end
 
 cmp.setup({
   snippet = {
@@ -75,22 +65,6 @@ cmp.setup({
     completion = {
       border = "rounded",
       winhighlight = "Normal:CmpNormal",
-    },
-  },
-  sorting = {
-    priority_weight = 2,
-    comparators = {
-      deprioritize_snippet,
-      cmp.config.compare.offset,
-      cmp.config.compare.exact,
-      cmp.config.compare.scopes,
-      cmp.config.compare.score,
-      cmp.config.compare.recently_used,
-      cmp.config.compare.locality,
-      cmp.config.compare.kind,
-      cmp.config.compare.sort_text,
-      cmp.config.compare.length,
-      cmp.config.compare.order,
     },
   },
 })
