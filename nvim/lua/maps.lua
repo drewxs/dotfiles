@@ -9,6 +9,7 @@ map("n", "<a-\\>", "za", { remap = true, desc = "Toggle fold" })
 map("n", "<c-_>", "gcc", { remap = true, desc = "Toggle comment" })
 map("i", "<c-_>", "<esc>gcca", { remap = true, desc = "Toggle comment" })
 map("v", "<c-_>", "gb", { remap = true, desc = "Toggle selection" })
+map("n", "qq", 'yi"', { desc = "copy inside quotes" })
 
 -- NORMALIZE
 map("n", "<c-u>", "<c-u>zz", { desc = "Center jump up" })
