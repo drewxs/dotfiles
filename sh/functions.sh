@@ -36,7 +36,7 @@ function upd {
     if [[ $(git -C "$DOTFILES" rev-parse HEAD) == $(git -C "$DOTFILES" rev-parse @\{u\}) ]]; then
       echo "No updates to pull"
     else
-      git checkout -- "$DOTFILES"/nvim/lazy-lock.json
+      git -C "$DOTFILES" checkout -- "$DOTFILES"/nvim/lazy-lock.json
       git -C "$DOTFILES" pull --rebase --autostash
       echo "Dotfiles updated"
     fi
@@ -87,7 +87,7 @@ function upd {
   }
 
   [[ $# -eq 0 ]] && up_all
-  while getopts :adpnfh opt; do
+  while getopts :adnpfh opt; do
     case $opt in
     a) up_all ;;
     d) up_dot ;;
