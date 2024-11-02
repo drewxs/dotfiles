@@ -56,7 +56,7 @@ which_key.add({
   { "<leader>s", group = "Search" },
   { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
   { "<leader>sR", "<cmd>Telescope registers<cr>", desc = "Registers" },
-  { "<leader>sb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+  { "<leader>sb", "<cmd>Telescope git_branches<cr>", desc = "Checkout Branch" },
   { "<leader>sc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
   { "<leader>sh", "<cmd>Telescope help_tags<cr>", desc = "Find Help" },
   { "<leader>sk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
@@ -67,7 +67,7 @@ which_key.add({
   { "<leader>tu", "<cmd>TSUpdate<cr>", desc = "Update" },
 
   { "<leader>u", group = "Utilities" },
-  { "<leader>um", "<cmd>MarkdownPreview<cr>", desc = "Markdown Preview" },
+  { "<leader>um", "<cmd>RenderMarkdown toggle<cr>", desc = "Toggle Markdown" },
   {
     "<leader>ur",
     function()
@@ -99,6 +99,7 @@ which_key.add({
 
       vim.cmd("wincmd l")
       vim.cmd("wincmd j")
+      vim.cmd("sleep 200m")
       vim.cmd("startinsert")
     end,
     desc = "Toggle",
