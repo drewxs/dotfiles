@@ -32,7 +32,7 @@ mason_lspconfig.setup({
     "terraformls",
     "marksman",
     "taplo",
-    "bufls",
+    "buf_ls",
     "autotools_ls",
   },
   automatic_installation = true,
