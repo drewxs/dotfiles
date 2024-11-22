@@ -19,9 +19,14 @@ local config = {
   },
   window_background_opacity = 0.95,
   macos_window_background_blur = 10,
+  disable_default_key_bindings = true,
   keys = {
     { key = "v", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
-    { key = "q", mods = "CTRL|ALT", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+    { key = "-", mods = "CTRL", action = wezterm.action.DecreaseFontSize },
+    { key = "=", mods = "CTRL", action = wezterm.action.IncreaseFontSize },
+    { key = "0", mods = "CTRL", action = wezterm.action.ResetFontSize },
+    { key = "n", mods = "CTRL|SHIFT", action = wezterm.action.SpawnWindow },
+    { key = "Enter", mods = "ALT", action = wezterm.action.ToggleFullScreen },
   },
 }
 
