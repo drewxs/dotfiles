@@ -151,9 +151,15 @@ function notes {
   cat "$HOME/notes.txt"
 }
 
-# Fuzzy find and open in neovim
-function vf {
-  nvim $(fzf --preview="bat --color=always {}")
+# Fuzzy find and open with the specified program
+# $1: application
+function f {
+  [[ -z "$1" ]] && echo "Usage: f <program>" && return
+  program="$1"
+  file=$(fzf --preview="$program --color=always {}")
+  if [ -n "$file" ]; then
+    $program "$file"
+  fi
 }
 
 # Load environment variables from file
