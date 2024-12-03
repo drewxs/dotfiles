@@ -1,5 +1,5 @@
 -- theme
-vim.cmd([[colorscheme catppuccin]])
+vim.cmd([[colorscheme github_dark_dimmed]])
 
 vim.api.nvim_set_hl(0, "StatusLine", { fg = "#000000", bg = "#000000" })
 

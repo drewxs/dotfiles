@@ -15,6 +15,7 @@ require("conform").setup({
     sql = { "sqlfluff" },
     proto = { "buf" },
     markdown = { { "prettierd", "prettier" } },
+    html = { { "prettierd", "prettier" } },
     json = { { "prettierd", "prettier" } },
     toml = { "taplo" },
     yaml = { "prettierd" },
