@@ -207,6 +207,21 @@ function tnew {
   nvim
 }
 
+function loc {
+  [[ -z "$1" ]] && echo "Usage: loc <filetype> [-l]" && return
+
+  filetypes="$1"
+  flag="$2"
+
+  pattern=".*\.($(echo "$filetypes" | tr ',' '|'))$"
+
+  if [[ "$flag" == "-l" ]]; then
+    fd --type f --regex "$pattern" --hidden | xargs wc -l
+  else
+    fd --type f --regex "$pattern" --hidden | xargs wc -l | tail -1 | awk 'END{print $1}'
+  fi
+}
+
 # Clone a git repository and cd into it
 # $1: repo url
 function gcld {
