@@ -22,11 +22,11 @@ opt.updatetime = 100
 opt.autoread = true
 opt.guicursor = {
   "n-v-c:block",
-  "i-ci-ve:ver25-blinkwait700-blinkoff400-blinkon250",
+  "i:ver25",
   "r-cr:hor20",
   "o:hor50",
-  "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor",
-  "sm:block-blinkwait175-blinkoff150-blinkon175",
+  "a:Cursor/lCursor",
+  "sm:block",
 }
 opt.fillchars = { eob = " " }
 
