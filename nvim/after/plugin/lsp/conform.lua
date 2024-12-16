@@ -1,4 +1,11 @@
 require("conform").setup({
+  formatters = {
+    coal_fmt = {
+      command = "coal",
+      args = { "fmt" },
+      stdin = true,
+    },
+  },
   formatters_by_ft = {
     sh = { "shfmt" },
     elixir = { "mix" },
@@ -20,6 +27,7 @@ require("conform").setup({
     toml = { "taplo" },
     yaml = { "prettierd" },
     just = { "just" },
+    coal = { "coal_fmt" },
   },
   format_on_save = {
     timeout_ms = 500,
