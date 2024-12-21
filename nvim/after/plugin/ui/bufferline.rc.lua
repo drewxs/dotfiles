@@ -12,7 +12,7 @@ require("bufferline").setup({
     show_tab_indicators = true,
     show_duplicate_prefix = true,
     persist_buffer_sort = true,
-    separator_style = "slope",
+    separator_style = "thin",
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     sort_by = "id",
