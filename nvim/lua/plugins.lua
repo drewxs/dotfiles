@@ -77,6 +77,7 @@ return {
 
   -- utils
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "ibhagwan/fzf-lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "IndianBoy42/tree-sitter-just" },
   { "numToStr/Comment.nvim", dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" } },
   { "windwp/nvim-ts-autotag" },

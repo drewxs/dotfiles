@@ -3,10 +3,7 @@ local is_open = require("utils").is_open
 
 which_key.setup()
 which_key.add({
-  { "<leader>c", "<cmd>Bdelete!<cr>", desc = "Close" },
   { "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Explorer" },
-  { "<leader>q", "<cmd>q!<cr>", desc = "Quit" },
-  { "<leader>w", "<cmd>w!<cr>", desc = "Save" },
 
   { "<leader>d", group = "Debug" },
   { "<leader>dc", "<cmd>lua require 'dap'.continue()<cr>", desc = "Continue" },
@@ -14,6 +11,20 @@ which_key.add({
   { "<leader>di", "<cmd>lua require 'dap'.step_into()<cr>", desc = "Step Into" },
   { "<leader>do", "<cmd>lua require 'dap'.step_over()<cr>", desc = "Step Over" },
   { "<leader>dr", "<cmd>lua require 'dap'.repl.open()<cr>", desc = "REPL" },
+
+  { "<leader>f", group = "Fuzzy" },
+  { "<leader>fa", "<cmd>FzfLua awesome_colorschemes<cr>", desc = "Colorschemes+" },
+  { "<leader>fb", "<cmd>FzfLua builtin<cr>", desc = "Builtins" },
+  { "<leader>fc", "<cmd>FzfLua colorschemes<cr>", desc = "Colorschemes" },
+  { "<leader>fd", "<cmd>FzfLua changes<cr>", desc = "Changes" },
+  { "<leader>fh", "<cmd>FzfLua highlights<cr>", desc = "Highlight Groups" },
+  { "<leader>fj", "<cmd>FzfLua jumps<cr>", desc = "Jumps" },
+  { "<leader>fk", "<cmd>FzfLua keymaps<cr>", desc = "Keymaps" },
+  { "<leader>fm", "<cmd>FzfLua marks<cr>", desc = "Marks" },
+  { "<leader>fp", "<cmd>FzfLua profiles<cr>", desc = "Profiles" },
+  { "<leader>fr", "<cmd>FzfLua resume<cr>", desc = "Resume" },
+  { "<leader>ft", "<cmd>FzfLua tags<cr>", desc = "Tags" },
+  { "<leader>fx", "<cmd>FzfLua commands<cr>", desc = "Commands" },
 
   { "<leader>g", group = "Git" },
   { "<leader>gg", "<cmd>LazyGit<cr>", desc = "Lazygit" },
