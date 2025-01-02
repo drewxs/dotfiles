@@ -95,6 +95,7 @@ require("catppuccin").setup({
   end,
   transparent_background = true,
   term_colors = true,
+  no_italic = true,
   integrations = {
     nvimtree = true,
     cmp = true,
