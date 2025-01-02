@@ -13,7 +13,7 @@ require("bufferline").setup({
     show_duplicate_prefix = true,
     persist_buffer_sort = true,
     separator_style = "thin",
-    enforce_regular_tabs = true,
+    enforce_regular_tabs = false,
     always_show_bufferline = true,
     sort_by = "id",
   },
