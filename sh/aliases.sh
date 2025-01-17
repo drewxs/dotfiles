@@ -28,6 +28,7 @@ alias fc="fd --type f . | wc -l"
 alias clip="xclip -sel c"
 alias ports="ss -tulanp"
 alias dot="cd ~/.dotfiles && nvim"
+alias ipy="ipython"
 
 # Overrides
 alias cat="bat"
