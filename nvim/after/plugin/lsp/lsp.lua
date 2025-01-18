@@ -62,12 +62,6 @@ lspconfig.lua_ls.setup({
   },
 })
 
-lspconfig.rust_analyzer.setup({
-  on_attach = function(_, bufnr)
-    vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-  end,
-})
-
 lspconfig.clangd.setup({
   cmd = { "clangd", "--offset-encoding=utf-16" },
 })
