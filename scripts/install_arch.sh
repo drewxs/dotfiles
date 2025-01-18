@@ -85,6 +85,10 @@ fi
 echo "Installing neovim..."
 sudo pacman -S --noconfirm neovim
 
+echo "Installing github extensions..."
+gh extension install github/gh-copilot
+gh extension install dlvhdr/gh-dash
+
 $HOME/.dotfiles/scripts/install_cleanup.sh
 
 cd "$pwd" || exit
