@@ -54,7 +54,6 @@ opt.showcmd = true
 opt.showmode = false
 opt.cmdheight = 1
 opt.backup = false
-opt.scrolloff = 50
 opt.wrap = true
 opt.ruler = false
 opt.number = true
