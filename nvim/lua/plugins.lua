@@ -10,7 +10,6 @@ return {
   { "folke/tokyonight.nvim", priority = 1000 },
   { "marko-cerovac/material.nvim", priority = 1000 },
   { "kvrohit/substrata.nvim", priority = 1000 },
-  { "kvrohit/mellow.nvim", priority = 1000 },
   { "projekt0n/github-nvim-theme", priority = 1000 },
   { "craftzdog/solarized-osaka.nvim", priority = 1000 },
   { "rebelot/kanagawa.nvim", priority = 1000 },
@@ -26,7 +25,7 @@ return {
     version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
-  { "akinsho/toggleterm.nvim" },
+  { "akinsho/toggleterm.nvim", lazy = true },
   { "nvim-lualine/lualine.nvim" },
   { "akinsho/bufferline.nvim", dependencies = { "catppuccin/nvim" } },
   { "MunifTanjim/nui.nvim" },
@@ -71,12 +70,13 @@ return {
       require("crates").setup()
     end,
   },
-  -- { "github/copilot.vim" },
-  { "supermaven-inc/supermaven-nvim" },
-  { "mfussenegger/nvim-dap" },
+  -- { "github/copilot.vim", lazy = true },
+  { "supermaven-inc/supermaven-nvim", lazy = true },
+  { "mfussenegger/nvim-dap", lazy = true },
 
   -- utils
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter-context" },
   { "ibhagwan/fzf-lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "IndianBoy42/tree-sitter-just" },
   { "numToStr/Comment.nvim", dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" } },
@@ -91,5 +91,5 @@ return {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
   },
-  { "ziontee113/color-picker.nvim" },
+  { "ziontee113/color-picker.nvim", lazy = true },
 }
