@@ -87,6 +87,7 @@ return {
   { "famiu/bufdelete.nvim" },
   { "mg979/vim-visual-multi" },
   { "ggandor/lightspeed.nvim" },
+  { "tpope/vim-sleuth" },
   {
     "MeanderingProgrammer/render-markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
