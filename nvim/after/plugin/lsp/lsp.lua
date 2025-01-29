@@ -11,6 +11,7 @@ lspconfig_defaults.capabilities =
 local servers = {
   "bashls",
   "rust_analyzer",
+  "zls",
   "clangd",
   "omnisharp",
   "gopls",
@@ -19,7 +20,6 @@ local servers = {
   "elixirls",
   "pyright",
   "solargraph",
-  "tsserver",
   "eslint",
   "html",
   "cssls",
