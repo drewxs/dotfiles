@@ -67,6 +67,10 @@ function upd {
     if exists gem; then
       gem update
     fi
+    echo "Updating git extensions..."
+    if exists gh; then
+      gh extension upgrade --all
+    fi
     if exists apt; then
       echo "Updating uv..."
       if exists uv; then
