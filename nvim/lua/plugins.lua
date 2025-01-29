@@ -15,6 +15,7 @@ return {
   { "rebelot/kanagawa.nvim", priority = 1000 },
   { "Shatur/neovim-ayu", priority = 1000 },
   { "ellisonleao/gruvbox.nvim", priority = 1000 },
+  { "drewxs/ash.nvim", priority = 1000 },
 
   -- UI
   { "xiyaowong/nvim-transparent" },
