@@ -48,6 +48,7 @@ function upd {
       sudo apt update && sudo apt upgrade -y
       sudo apt autoremove && sudo apt clean
     elif exists pacman; then
+      sudo pacman -Syu --noconfirm
       yay -Syu --noconfirm
       paccache -ru
     elif exists brew; then
