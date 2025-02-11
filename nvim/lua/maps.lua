@@ -11,14 +11,6 @@ map("i", "<c-_>", "<esc>gcca", { remap = true, desc = "Toggle comment" })
 map("v", "<c-_>", "gb", { remap = true, desc = "Toggle selection" })
 map("n", "qq", 'yi"', { desc = "copy inside quotes" })
 
--- NORMALIZE
-map({ "n", "v" }, "j", "jzz", { desc = "Center up" })
-map({ "n", "v" }, "k", "kzz", { desc = "Center down" })
-map({ "n", "v" }, "<c-u>", "<c-u>zz", { desc = "Center jump up" })
-map({ "n", "v" }, "<c-d>", "<c-d>zz", { desc = "Center jump down" })
-map("n", "N", "Nzzzv", { desc = "Center search jump up" })
-map("n", "n", "nzzzv", { desc = "Center search jump down" })
-
 -- WINDOW MANAGEMENT
 map("n", "<c-h>", "<c-w>h", { desc = "Window left" })
 map("n", "<c-j>", "<c-w>j", { desc = "Window down" })

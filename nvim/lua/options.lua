@@ -29,6 +29,7 @@ opt.guicursor = {
   "sm:block",
 }
 opt.fillchars = { eob = " " }
+opt.scrolloff = 999
 
 -- indentation
 opt.autoindent = true
