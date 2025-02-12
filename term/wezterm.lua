@@ -6,7 +6,7 @@ local config = {
   notification_handling = "NeverShow",
   window_close_confirmation = "NeverPrompt",
   warn_about_missing_glyphs = false,
-  color_scheme = "Terminix Dark (Gogh)",
+  color_scheme = "Shaman (Gogh)",
   font = wezterm.font("SauceCodePro Nerd Font Mono", { weight = "Medium" }),
   font_size = 15.0,
   max_fps = 240,
