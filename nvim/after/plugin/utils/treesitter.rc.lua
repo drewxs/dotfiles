@@ -45,3 +45,7 @@ require("nvim-treesitter.configs").setup({
 
 vim.treesitter.language.register("rust", "ash")
 vim.treesitter.language.register("rust", "coal")
+
+require("treesitter-context").setup({
+  max_lines = 4,
+})
