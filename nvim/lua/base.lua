@@ -76,6 +76,15 @@ vim.fn.timer_start(3000, function()
   end
 end, { ["repeat"] = -1 })
 
+-- enable csv view
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*.csv",
+  group = augroup("csv"),
+  callback = function()
+    vim.cmd([[CsvViewEnable]])
+  end,
+})
+
 vim.filetype.add({
   extension = {
     ash = "ash",

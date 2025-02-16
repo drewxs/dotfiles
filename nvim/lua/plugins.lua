@@ -98,4 +98,5 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
   },
   { "ziontee113/color-picker.nvim", lazy = true },
+  { "hat0uma/csvview.nvim", opts = {}, cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" }, lazy = true },
 }
