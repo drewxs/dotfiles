@@ -40,6 +40,7 @@ which_key.add({
 
   { "<leader>l", group = "LSP" },
   { "<leader>la", "<cmd>Lspsaga code_action<cr>", desc = "Code Actions" },
+  { "<leader>lc", "<cmd>SupermavenToggle<cr>", desc = "Toggle Completions" },
   { "<leader>ld", "<cmd>Telescope lsp_document_diagnostics<cr>", desc = "Document Diagnostics" },
   { "<leader>lf", "<cmd>lua vim.lsp.buf.format{async=true}<cr>", desc = "Format" },
   { "<leader>li", "<cmd>LspInfo<cr>", desc = "Info" },
@@ -47,7 +48,6 @@ which_key.add({
   { "<leader>lq", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Quickfix" },
   { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
   { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
-  { "<leader>lt", "<cmd>SupermavenToggle<cr>", desc = "Toggle Supermaven" },
   { "<leader>lw", "<cmd>Telescope lsp_workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
 
   { "<leader>m", group = "Mason" },
