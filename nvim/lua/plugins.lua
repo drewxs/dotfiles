@@ -19,7 +19,7 @@ return {
     transparent = true,
     term_colors = true,
   } },
-  -- { dir = "~/code/ash.nvim" },
+  -- { dir = "~/code/ash.nvim", priority = 1000, opts = { transparent = true, term_colors = true } },
 
   -- UI
   { "xiyaowong/nvim-transparent" },
