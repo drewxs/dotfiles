@@ -8,9 +8,11 @@ require("conform").setup({
   },
   formatters_by_ft = {
     sh = { "shfmt" },
-    elixir = { "mix" },
+    c = { "clang-format" },
+    cpp = { "clang-format" },
     go = { "gofmt" },
     python = { "ruff_fix", "ruff_format" },
+    elixir = { "mix" },
     lua = { "stylua" },
     java = { "google-java-format" },
     typescriptreact = { "prettierd", "prettier", stop_after_first = true },
