@@ -34,8 +34,12 @@ if ! dir_exists "$tmux_power" "tmux plugin: tmux-power"; then
 fi
 
 echo "Installing packages..."
-cargo install cargo-info cargo-update tree-sitter-cli stylua eza bat bottom ripgrep fd-find sd skim just jnv
-npm i -g neovim typescript typescript-language-server eslint eslint_d prettier @fsouza/prettierd @bufbuild/buf sql-formatter tldr
+cargo install cargo-info cargo-update \
+  eza bat ripgrep fd-find sd skim bottom \
+  tree-sitter-cli stylua just jnv git-delta
+npm i -g neovim typescript typescript-language-server \
+  eslint eslint_d prettier @fsouza/prettierd \
+  @bufbuild/buf sql-formatter tldr
 gem install neovim rails
 pip install neovim
 if exists apt; then

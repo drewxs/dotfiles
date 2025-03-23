@@ -18,14 +18,28 @@ defaultBranch = main
 [pull]
 rebase = true
 
-[rebase]
-autoStash = true
-
 [push]
 autoSetupRemote = true
+
+[rebase]
+autoStash = true
 
 [filter "lfs"]
 smudge = git-lfs smudge -- %f
 process = git-lfs filter-process
 required = true
 clean = git-lfs clean -- %f
+
+[core]
+pager = delta
+
+[interactive]
+diffFilter = delta --color-only
+
+[delta]
+navigate = true
+dark = true
+; side-by-side = true
+
+[merge]
+conflictstyle = zdiff3
