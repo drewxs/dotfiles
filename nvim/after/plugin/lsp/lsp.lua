@@ -66,14 +66,6 @@ lspconfig.clangd.setup({
   cmd = { "clangd", "--offset-encoding=utf-16" },
 })
 
-lspconfig.tailwindcss.setup({
-  init_options = {
-    userLanguages = {
-      rust = "html",
-    },
-  },
-})
-
 vim.diagnostic.config({
   virtual_text = true,
   update_in_insert = true,
