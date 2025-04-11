@@ -47,9 +47,9 @@ map("i", "<a-l>", "<right>", { desc = "Move right" })
 -- word movement
 map({ "n", "v" }, "<a-h>", "b", { desc = "Beginning of word" })
 map({ "n", "v" }, "<a-l>", "e", { desc = "End of word" })
+map("i", { "<c-b>", "<a-b>" }, "<c-o>b", { desc = "Beginning of word" })
+map("i", { "<c-e>", "<a-e>" }, "<esc>ea", { desc = "End of word" })
 -- line movement
-map("i", { "<c-b>", "<a-b>" }, "<esc><s-i>", { desc = "Beginning of line" })
-map("i", { "<c-e>", "<a-e>" }, "<end>", { desc = "End of line" })
 map({ "n", "i" }, "<a-;>", "<esc><s-a>;", { desc = "End of line -> ';'" })
 map({ "n", "i" }, "<a-,>", "<esc><s-a>,", { desc = "End of line -> ','" })
 map("i", "<a-[>", "<esc><s-a> {}<left>", { desc = "End of line -> '{'" })
