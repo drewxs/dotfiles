@@ -1,6 +1,7 @@
 local map = require("utils").map
 
 -- GENERAL
+map("n", "q", "<nop>", { noremap = true })
 map("i", "jj", "<esc>", { desc = "Exit insert/visual mode" })
 map("n", "<esc>", "<cmd>noh<cr>", { desc = "Clear highlights" })
 map("n", "<c-a>", "gg<s-v>G", { desc = "Select all" })
