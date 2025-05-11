@@ -73,6 +73,10 @@ map("n", "dl", "d$", { desc = "Delete to end of line" })
 map("n", "<s-j>", "mayyp`aj", { desc = "Duplicate line" })
 map("v", "<s-j>", "y'>p", { desc = "Duplicate selection" })
 
+-- MACROS
+map("i", "<a-->", "->", { desc = "Insert '->" })
+map("i", "<a-=>", "=>", { desc = "Insert '=>" })
+
 -- MISC
 map("n", "<a-c>", "<cmd>PickColor<cr>", { desc = "Color picker" })
 map("i", "<a-c>", "<cmd>PickColorInsert<cr>", { desc = "Color picker" })
