@@ -27,6 +27,17 @@ function trim {
   awk "{\$1=\$1;print}"
 }
 
+# Print bytes of a binary file
+# $1: file
+function bytes {
+  [[ -z "$1" ]] && echo "Usage: bytes <file>" && return
+  if [[ ! -f "$1" ]]; then
+    echo "File not found: $1"
+    return 1
+  fi
+  xxd -p "$1" | tr -d '\n' | sed 's/../& /g'
+}
+
 # Update packages and dotfiles
 function upd {
   function up_dot {
