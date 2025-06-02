@@ -28,12 +28,4 @@ local config = {
   },
 }
 
-wezterm.on("gui-startup", function(cmd)
-  local _, _, window = wezterm.mux.spawn_window(cmd or {})
-  local screen = wezterm.gui:screens().active
-  if screen.width < 2400 then
-    window:gui_window():maximize()
-  end
-end)
-
 return config
