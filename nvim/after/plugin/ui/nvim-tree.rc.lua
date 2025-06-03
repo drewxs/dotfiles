@@ -13,10 +13,6 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = false,
   },
-  git = {
-    enable = false,
-    ignore = true,
-  },
   update_cwd = true,
   update_focused_file = {
     enable = true,
@@ -32,34 +28,11 @@ require("nvim-tree").setup({
       enable = true,
     },
     icons = {
-      glyphs = {
-        default = "",
-        symlink = "",
-        folder = {
-          default = "",
-          open = "",
-          empty = "",
-          empty_open = "",
-          symlink = "",
-          symlink_open = "",
-          arrow_open = "",
-          arrow_closed = "",
-        },
-        git = {
-          unstaged = "✗",
-          staged = "✓",
-          unmerged = "",
-          renamed = "➜",
-          untracked = "★",
-          deleted = "",
-          ignored = "◌",
-        },
-      },
       show = {
         git = true,
         file = true,
         folder = true,
-        folder_arrow = true,
+        folder_arrow = false,
       },
     },
   },
