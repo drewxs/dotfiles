@@ -13,6 +13,10 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = false,
   },
+  git = {
+    enable = false,
+    ignore = true,
+  },
   update_cwd = true,
   update_focused_file = {
     enable = true,
