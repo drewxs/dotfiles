@@ -21,7 +21,7 @@ local servers = {
   "tailwindcss",
   "jsonls",
   "graphql",
-  "sqlls",
+  "sqruff",
   "prismals",
   "dockerls",
   "docker_compose_language_service",
