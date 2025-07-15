@@ -82,7 +82,3 @@ alias dcp="docker compose pull"
 alias dcl="docker compose logs -f"
 alias dcbd="docker compose build"
 alias devc='bash <(curl -s https://raw.githubusercontent.com/drewxs/nvim-dev-container/main/devc.sh)'
-
-# Postgres
-alias pg:start="sudo systemctl start postgresql.service"
-alias pg:stop="sudo systemctl stop postgresql.service"
