@@ -79,6 +79,6 @@ alias dcr="docker compose run"
 alias dcrr="docker compose run --rm"
 alias dcrs="docker compose restart"
 alias dcp="docker compose pull"
-alias dcl="docker compose logs -f"
+alias dcl="docker compose logs -f --no-log-prefix"
 alias dcbd="docker compose build"
 alias devc='bash <(curl -s https://raw.githubusercontent.com/drewxs/nvim-dev-container/main/devc.sh)'
