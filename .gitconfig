@@ -23,6 +23,7 @@ autoSetupRemote = true
 
 [rebase]
 autoStash = true
+rebaseMerges = true
 
 [filter "lfs"]
 smudge = git-lfs smudge -- %f
