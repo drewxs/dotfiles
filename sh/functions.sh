@@ -60,7 +60,10 @@ function upd {
       sudo apt autoremove && sudo apt clean
     elif exists pacman; then
       sudo pacman -Syu --noconfirm
-      yay -Syu --noconfirm
+      aur_updates=$(yay -Qu --aur --quiet)
+      if [ -n "$aur_updates" ]; then
+        yay -S --noconfirm $aur_updates
+      fi
       paccache -ru
     elif exists brew; then
       brew update && brew upgrade
