@@ -27,11 +27,10 @@ fi
 echo "Installing system packages..."
 sudo pacman -S --noconfirm \
   pacman-contrib wezterm tmux neofetch onefetch fzf wget xclip up ttf-sourcecodepro-nerd \
-  docker docker-compose docker-buildx github-cli lazygit thefuck python-distutils-extra \
-  tree-sitter shfmt shellcheck direnv luarocks luacheck sqlfluff uv bind \
-  discord
+  docker docker-compose docker-buildx github-cli lazygit lazydocker thefuck python-distutils-extra \
+  tree-sitter shfmt shellcheck direnv luarocks luacheck sqlfluff uv bind discord
 yay -S --noconfirm google-chrome visual-studio-code-bin slack-desktop \
-  lazydocker gitmux fpp google-java-format
+  gitmux fpp google-java-format
 
 if ! install_exists docker; then
   echo "Installing docker..."
