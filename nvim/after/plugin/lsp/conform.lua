@@ -1,10 +1,6 @@
 require("conform").setup({
   formatters = {
-    coal_fmt = {
-      command = "coal",
-      args = { "fmt" },
-      stdin = true,
-    },
+    coal_fmt = { command = "coal", args = { "fmt" }, stdin = true },
   },
   formatters_by_ft = {
     sh = { "shfmt" },
@@ -19,7 +15,6 @@ require("conform").setup({
     javascriptreact = { "prettierd", "prettier", stop_after_first = true },
     typescript = { "prettierd", "prettier", stop_after_first = true },
     javascript = { "prettierd", "prettier", stop_after_first = true },
-    scss = { "prettierd", "prettier", stop_after_first = true },
     css = { "prettierd", "prettier", stop_after_first = true },
     proto = { "buf" },
     markdown = { "prettierd", "prettier", stop_after_first = true },
