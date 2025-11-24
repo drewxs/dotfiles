@@ -76,7 +76,7 @@ function upd {
     fi
     echo "Updating node packages..."
     if exists npm; then
-      npm update --global --latest
+      npm update --global
     fi
     echo "Updating ruby packages..."
     if exists gem; then
