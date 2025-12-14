@@ -38,6 +38,7 @@ opt.breakindent = true
 opt.expandtab = true
 opt.smarttab = true
 opt.shiftround = true
+opt.tabstop = 4
 opt.softtabstop = 4
 opt.shiftwidth = 4
 
