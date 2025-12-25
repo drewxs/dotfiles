@@ -3,14 +3,14 @@
 # Check if a command exists in PATH
 # $1: command
 function exists {
-  [[ -z "$1" ]] && echo "Usage: exists <command>" && return
+  [[ -z "$1" ]] && echo "Usage: exists COMMAND" && return
   [[ -x "$(command -v "$1")" ]] && return 0 || return 1
 }
 
 # Create and cd into a directory
 # $1: dir
 function mkcd {
-  [[ -z "$1" ]] && echo "Usage: mkcd <dir>" && return
+  [[ -z "$1" ]] && echo "Usage: mkcd DIR" && return
   mkdir -p "$1"
   cd "$1" || return
 }
@@ -18,7 +18,7 @@ function mkcd {
 # Kill processes on specified port
 # $1: port
 function killport {
-  [[ -z "$1" ]] && echo "Usage: killport <port>" && return
+  [[ -z "$1" ]] && echo "Usage: killport PORT" && return
   kill -9 $(lsof -ti :$1)
 }
 
@@ -30,7 +30,7 @@ function trim {
 # Print bytes of a binary file
 # $1: file
 function bytes {
-  [[ -z "$1" ]] && echo "Usage: bytes <file>" && return
+  [[ -z "$1" ]] && echo "Usage: bytes FILE" && return
   if [[ ! -f "$1" ]]; then
     echo "File not found: $1"
     return 1
@@ -143,7 +143,7 @@ Options:
 # Find (recursively) and delete all directories with name
 # $1: dir
 function fdel {
-  [[ -z "$1" ]] && echo "Usage: fdel <dir>" && return
+  [[ -z "$1" ]] && echo "Usage: fdel DIR" && return
   fd "$1" --type d --prune . | xargs -I {} rm -rf '{}'
 }
 
@@ -158,7 +158,7 @@ function nuke {
 # Find listening ports
 # $1: port
 function port {
-  [[ -z "$1" ]] && echo "Usage: port <port>" && return
+  [[ -z "$1" ]] && echo "Usage: port PORT" && return
   ss -tulnp | grep "$1" | trim
 }
 
@@ -173,7 +173,7 @@ function notes {
 # Fuzzy find and open with the specified program
 # $1: application
 function f {
-  [[ -z "$1" ]] && echo "Usage: f <program>" && return
+  [[ -z "$1" ]] && echo "Usage: f PROGRAM" && return
   program="$1"
   file=$(fzf --preview="$program --color=always {}")
   if [ -n "$file" ]; then
@@ -211,7 +211,7 @@ function venv {
 # Create a new rust project and open in neovim
 # $1: project name
 function cnew {
-  [[ -z "$1" ]] && echo "Usage: cnew <project_name>" && return
+  [[ -z "$1" ]] && echo "Usage: cnew PROJECT_NAME" && return
   cargo new "$@"
   cd "$1" || return
   echo "# $1" >README.md
@@ -221,7 +221,7 @@ function cnew {
 # Create a new typescript project and open in neovim
 # $1: project name
 function tnew {
-  [[ -z "$1" ]] && echo "Usage: tnew <project_name>" && return
+  [[ -z "$1" ]] && echo "Usage: tnew PROJECT_NAME" && return
   mkcd "$1"
   mkdir src
   npm init -y
@@ -233,7 +233,7 @@ function tnew {
 }
 
 function loc {
-  [[ -z "$1" ]] && echo "Usage: loc <filetype> [-l]" && return
+  [[ -z "$1" ]] && echo "Usage: loc FILETYPE [-l]" && return
 
   filetypes="$1"
   flag="$2"
@@ -283,18 +283,16 @@ function gcld {
 # $1: from repo
 # $2: commit hash
 function gcpr {
-  [[ -z "$1" ]] || [[ -z "$2" ]] && echo "Usage: gcp <from> <hash>" && return
+  [[ -z "$1" ]] || [[ -z "$2" ]] && echo "Usage: gcp FROM HASH" && return
   git --git-dir="$1"/.git \
     format-patch -k -1 --stdout "$2" |
     git am -3 -k --ignore-whitespace
 }
 
 # Encrypt a file using gpg
-# $1: recipient public key
-# $2: input file
-# #3?: output file (default = "encrypted.gpg")
+# $1: input file
 function gpgenc {
-  [[ -z "$1" ]] && echo "Usage: gpgenc <input_file>" && return
+  [[ -z "$1" ]] && echo "Usage: gpgenc INPUT_FILE" && return
   input_file="$1"
   gpg --symmetric "$input_file"
 }
@@ -303,7 +301,7 @@ function gpgenc {
 # $1: input file
 # #2?: output file (default = "decrypted")
 function gpgdec {
-  [[ -z "$1" ]] && echo "Usage: gpgdec <input_file> <output_file?>" && return
+  [[ -z "$1" ]] && echo "Usage: gpgdec INPUT_FILE [OUTPUT_FILE]" && return
   input_file="$1"
   output_file="${2:-${1%.gpg}}"
   gpg --decrypt "$input_file" >"$output_file"
@@ -340,7 +338,7 @@ function upgrub {
 # $1: disk name
 # $2: path to iso
 function burniso {
-  [[ -z "$1" ]] || [[ -z "$2" ]] && echo "Usage: burniso <disk_name> <path_to_iso>" && return
+  [[ -z "$1" ]] || [[ -z "$2" ]] && echo "Usage: burniso DISK_NAME PATH_TO_ISO" && return
   disk_name="$1"
   path_to_iso="$2"
   sudo dd bs=4M if="$path_to_iso" of="$disk_name" status=progress oflag=sync
