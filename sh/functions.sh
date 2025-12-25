@@ -247,6 +247,32 @@ function loc {
   fi
 }
 
+# Zip a git repository
+# $1: dir (default = .)
+zipgit() {
+  dir="${1:-.}"
+
+  if ! git -C "$dir" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "Error: not a git repository"
+    return 1
+  fi
+
+  if ! git -C "$dir" rev-parse --verify HEAD >/dev/null 2>&1; then
+    echo "Error: repository has no commits yet"
+    return 1
+  fi
+
+  root="$(git -C "$dir" rev-parse --show-toplevel)"
+  dest="$(dirname "$root")/$(basename "$root").zip"
+
+  if ! git -C "$root" archive --format=zip --output="$dest" HEAD; then
+    echo "Error: failed to create zip archive"
+    return 1
+  fi
+
+  echo "Archive created: $(realpath "$dest")"
+}
+
 # Clone a git repository and cd into it
 # $1: repo url
 function gcld {
