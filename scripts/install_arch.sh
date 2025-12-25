@@ -22,6 +22,7 @@ if ! install_exists yay; then
   cd "$HOME/yay" || return
   makepkg -si --noconfirm
   cd "$HOME" || return
+  rm -rf "$HOME/yay"
 fi
 
 echo "Installing system packages..."
