@@ -289,6 +289,65 @@ function gcpr {
     git am -3 -k --ignore-whitespace
 }
 
+# Convert images in the current directory to webp
+# Options:
+#   -q  quality (default = 75)
+#   -w  max width (default = 1440)
+#   -i  overwrite original files
+function towebp {
+  if ! command -v magick &>/dev/null; then
+    echo "Error: imagemagick is not installed"
+    return 1
+  fi
+
+  local quality=75
+  local width=1440
+  local inplace=0
+
+  while getopts :q:w:ih opt; do
+    case $opt in
+    q) quality="$OPTARG" ;;
+    w) width="$OPTARG" ;;
+    i) inplace=1 ;;
+    h)
+      echo "Usage: towebp [-q QUALITY] [-w WIDTH] [-i]
+
+Options:
+  -q  Quality (default: 75)
+  -w  Max width in pixels (default: 1440)
+  -i  Overwrite original files"
+      return
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG. Run 'towebp -h' for help" >&2
+      return 1
+      ;;
+    esac
+  done
+
+  local count=0
+
+  setopt nullglob 2>/dev/null
+  for f in *.jpg *.jpeg *.png *.gif *.bmp *.tiff *.avif *.webp; do
+    local out="${f%.*}.webp"
+    if [[ "$f" == "$out" ]]; then
+      local tmp="${f%.webp}.tmp.webp"
+      magick "$f" -resize "${width}>" -quality "$quality" "$tmp" && mv "$tmp" "$out" && {
+        echo "Optimized: $f"
+        ((count++))
+      }
+    else
+      magick "$f" -resize "${width}>" -quality "$quality" "$out" && {
+        [[ $inplace -eq 1 ]] && rm "$f"
+        echo "Converted: $f -> $out"
+        ((count++))
+      }
+    fi
+  done
+
+  [[ $count -eq 0 ]] && echo "No images found in current directory" || echo "Done: $count image(s) optimized"
+}
+
 # Encrypt a file using gpg
 # $1: input file
 function gpgenc {
