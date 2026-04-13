@@ -43,8 +43,15 @@ return {
 
   -- LSP
   { "neovim/nvim-lspconfig" },
-  { "williamboman/mason.nvim" },
-  { "williamboman/mason-lspconfig.nvim" },
+  { "mason-org/mason.nvim", opts = {} },
+  {
+    "mason-org/mason-lspconfig.nvim",
+    opts = {},
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
+  },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -64,7 +71,7 @@ return {
   { "saadparwaiz1/cmp_luasnip" },
   { "mfussenegger/nvim-lint" },
   { "stevearc/conform.nvim" },
-  { "glepnir/lspsaga.nvim" },
+  { "nvimdev/lspsaga.nvim" },
   { "onsails/lspkind-nvim" },
   { "RRethy/vim-illuminate" },
   {
@@ -79,10 +86,9 @@ return {
   { "mfussenegger/nvim-dap", lazy = true },
 
   -- utils
-  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  { "nvim-treesitter/nvim-treesitter-context" },
+  -- { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  -- { "nvim-treesitter/nvim-treesitter-context" },
   { "ibhagwan/fzf-lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
-  { "IndianBoy42/tree-sitter-just" },
   { "numToStr/Comment.nvim", dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" } },
   { "windwp/nvim-ts-autotag" },
   { "windwp/nvim-autopairs", event = "InsertEnter", config = true },
@@ -94,7 +100,7 @@ return {
   { "tpope/vim-sleuth" },
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   { "ziontee113/color-picker.nvim", lazy = true },
   { "hat0uma/csvview.nvim", opts = {}, cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" }, lazy = true },
