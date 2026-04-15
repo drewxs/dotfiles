@@ -86,8 +86,8 @@ return {
   { "mfussenegger/nvim-dap", lazy = true },
 
   -- utils
-  -- { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-  -- { "nvim-treesitter/nvim-treesitter-context" },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter-context" },
   { "ibhagwan/fzf-lua", dependencies = { "nvim-tree/nvim-web-devicons" } },
   { "numToStr/Comment.nvim", dependencies = { "JoosepAlviste/nvim-ts-context-commentstring" } },
   { "windwp/nvim-ts-autotag" },
