@@ -39,15 +39,12 @@ export XDG_STATE_HOME="$HOME/.local/state";
 source "$ZSH/oh-my-zsh.sh"
 source "$HOME/.dotfiles/zsh/.p10k.zsh"
 for f in "$HOME/.dotfiles/sh/"*.sh; do source "$f"; done
-if [[ -d "$HOME/.rye" ]]; then
-  source "$HOME/.rye/env"
-fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 if exists fzf; then
   source <(fzf --zsh)
 fi
 
-# compinstall
+# Completions
 zstyle :compinstall filename "$HOME/.zshrc"
 autoload -Uz compinit
 compinit
