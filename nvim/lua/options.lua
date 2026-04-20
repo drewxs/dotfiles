@@ -75,4 +75,4 @@ opt.wildignore:append({ "*/node_modules/*" })
 -- folds
 opt.foldmethod = "expr"
 opt.foldlevel = 99
-opt.foldexpr = "nvim_treesitter#foldexpr()"
+opt.foldexpr = "vim.treesitter.foldexpr()"

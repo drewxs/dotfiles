@@ -12,6 +12,9 @@ telescope.setup({
         ["q"] = actions.close,
       },
     },
+    preview = {
+      treesitter = false,
+    },
   },
   pickers = {
     find_files = {
