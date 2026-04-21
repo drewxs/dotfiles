@@ -53,13 +53,6 @@ if ! install_exists node; then
   asdf global nodejs latest:20
 fi
 
-if ! install_exists ruby; then
-  echo "Installing ruby..."
-  asdf plugin add ruby
-  asdf install ruby latest
-  asdf global ruby latest
-fi
-
 if ! install_exists elixir; then
   echo "Installing elixir..."
   sudo pacman -S --noconfirm elixir
@@ -68,18 +61,6 @@ fi
 if ! install_exists go; then
   echo "Installing go..."
   sudo pacman -S --noconfirm go
-fi
-
-if ! install_exists dotnet; then
-  echo "Installing dotnet..."
-  yay -S --noconfirm dotnet-sdk-bin
-fi
-
-if ! install_exists java; then
-  echo "Installing java..."
-  asdf plugin add java
-  asdf install java openjdk-17
-  asdf global java openjdk-17
 fi
 
 echo "Installing neovim..."

@@ -41,13 +41,6 @@ if ! install_exists rustc && install_exists cargo; then
 fi
 cargo install languagetool-rust --features full
 
-if ! install_exists erlang; then
-  echo "Installing erlang..."
-  asdf plugin add erlang
-  asdf install erlang latest
-  asdf global erlang latest
-fi
-
 if ! install_exists elixir; then
   echo "Installing elixir..."
   asdf plugin add elixir
@@ -62,13 +55,6 @@ if ! install_exists node; then
   asdf global nodejs latest:20
 fi
 
-if ! install_exists ruby; then
-  echo "Installing ruby..."
-  asdf plugin add ruby
-  asdf install ruby latest
-  asdf global ruby latest
-fi
-
 if ! install_exists uv; then
   echo "Installing uv..."
   curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -81,17 +67,11 @@ if ! install_exists go; then
   asdf global golang latest
 fi
 
-if ! install_exists dotnet; then
-  echo "Installing dotnet..."
-  sudo apt-get install -y dotnet-sdk-8.0
-fi
-
 if ! install_exists nvim; then
   echo "Installing neovim..."
   sudo rm -rf neovim
   git clone https://github.com/neovim/neovim "$HOME/neovim"
   cd "$HOME"/neovim || return
-  git checkout stable
   make CMAKE_BUILD_TYPE=Release
   sudo make install
   cd "$HOME" || return
