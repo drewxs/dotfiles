@@ -39,6 +39,8 @@ vim.lsp.config("*", {
   capabilities = cmp_nvim_lsp.default_capabilities(),
 })
 
+vim.lsp.document_color.enable(false)
+
 vim.diagnostic.config({
   virtual_text = true,
   update_in_insert = true,
