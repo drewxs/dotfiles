@@ -22,7 +22,6 @@ mason_lspconfig.setup({
     "cssmodules_ls",
     "tailwindcss",
     "jsonls",
-    "sqruff",
     "prismals",
     "dockerls",
     "docker_compose_language_service",

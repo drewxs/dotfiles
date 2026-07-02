@@ -1,6 +1,7 @@
 require("conform").setup({
   formatters = {
     coal_fmt = { command = "coal", args = { "fmt" }, stdin = true },
+    sql_formatter = { prepend_args = { "--language", "postgresql" } },
   },
   formatters_by_ft = {
     sh = { "shfmt" },
@@ -24,6 +25,7 @@ require("conform").setup({
     yaml = { "prettierd" },
     just = { "just" },
     coal = { "coal_fmt" },
+    sql = { "sql_formatter" },
   },
   format_on_save = {
     timeout_ms = 500,
