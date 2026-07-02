@@ -1,24 +1,31 @@
 #!/bin/bash
 
+path_envs=()
+
 if [[ "$(uname)" == "Darwin" ]]; then
-  export BIN="$HOME/bin"
-  export LOCAL_BIN="/usr/local/bin"
-  export RUSTUP_HOME="$HOME/.local/share/rustup"
+  export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+  export CARGO_HOME="$XDG_DATA_HOME/cargo"
   export PNPM_HOME="$HOME/Library/pnpm"
-  export CARGO_HOME="$HOME/.local/share/cargo"
-  export CARGO_BIN="$CARGO_HOME/bin"
-  export GO_BIN="$GOPATH/bin"
-  export CARGO_BIN="$HOME/.local/share/cargo/bin"
+  export GOPATH="$XDG_DATA_HOME/go"
   export GEM_HOME="$HOME/.gem"
-  export GEM_BIN="$GEM_HOME/bin"
-  export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$GO_BIN:$CARGO_BIN:$MIX_BIN:$RUBY_BIN:$GEM_BIN"
+
+  path_envs+=(
+    "$HOME/bin"
+    "/usr/local/bin"
+    "$PNPM_HOME"
+    "$CARGO_HOME/bin"
+    "$GOPATH/bin"
+    "$GEM_HOME/bin"
+  )
 
   if exists android-studio; then
     export ANDROID_HOME="$HOME/Library/Android/sdk"
-    export PATH=$PATH:$ANDROID_HOME/platform-tools
-    export PATH=$PATH:$ANDROID_HOME/tools
-    export PATH=$PATH:$ANDROID_HOME/tools/bin
-    export PATH=$PATH:$ANDROID_HOME/emulator
+    path_envs+=(
+      "$ANDROID_HOME/platform-tools"
+      "$ANDROID_HOME/tools"
+      "$ANDROID_HOME/tools/bin"
+      "$ANDROID_HOME/emulator"
+    )
   fi
 
   export NVM_DIR="$HOME/.nvm"
@@ -27,42 +34,53 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
   . /usr/local/opt/asdf/libexec/asdf.sh
 else
-  export BIN="$HOME/bin"
-  export LOCAL_BIN="$HOME/.local/bin"
-  export PNPM_HOME="$HOME/.local/share/pnpm"
-  export RUSTUP_HOME="$HOME/.local/share/rustup"
-  export CARGO_HOME="$HOME/.local/share/cargo"
-  export CARGO_BIN="$CARGO_HOME/bin"
-  export MIX_BIN="$HOME/.local/share/mix/escripts"
-  export GOPATH="$HOME/.local/share/go"
-  export GO_BIN="$GOPATH/bin"
+  export PNPM_HOME="$XDG_DATA_HOME/pnpm"
+  export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
+  export CARGO_HOME="$XDG_DATA_HOME/cargo"
+  export GOPATH="$XDG_DATA_HOME/go"
   export ASDF_DIR="$HOME/.asdf"
-  export PATH="$PATH:$BIN:$LOCAL_BIN:$PNPM_HOME:$CARGO_HOME:$CARGO_BIN:$MIX_BIN:$GOPATH:$GO_BIN"
+  export DOTNET_ROOT="$HOME/.dotnet"
+
+  path_envs+=(
+    "$HOME/bin"
+    "$HOME/.local/bin"
+    "$PNPM_HOME"
+    "$CARGO_HOME/bin"
+    "$XDG_DATA_HOME/mix/escripts"
+    "$GOPATH/bin"
+    "$DOTNET_ROOT"
+  )
 
   if exists android-studio; then
     export ANDROID_HOME="$HOME/Android/Sdk"
-    ANDROID_PATHS=$(eval echo "$ANDROID_HOME/{emulator,tools,tools/bin,platform-tools}" | tr ' ' ':')
-    export PATH="$PATH:$ANDROID_PATHS}"
+    path_envs+=(
+      "$ANDROID_HOME/emulator"
+      "$ANDROID_HOME/tools"
+      "$ANDROID_HOME/tools/bin"
+      "$ANDROID_HOME/platform-tools"
+    )
   fi
 
   if exists nvcc; then
     if [[ -d "/opt/cuda/bin" ]]; then
-      export PATH="$PATH:/opt/cuda/bin"
+      path_envs+=("/opt/cuda/bin")
     elif [[ -d "/usr/local/cuda/bin" ]]; then
-      export PATH="$PATH:/usr/local/cuda/bin"
+      path_envs+=("/usr/local/cuda/bin")
     fi
   fi
 
-  if [[ -d "$PATH:/snap/bin" ]]; then
-    export PATH="$PATH:/snap/bin"
+  if [[ -d "/snap/bin" ]]; then
+    path_envs+=("/snap/bin")
   fi
 
   if [[ -d "$HOME/nvim-linux64/bin" ]]; then
-    export PATH="$PATH:$HOME/nvim-linux64/bin"
+    path_envs+=("$HOME/nvim-linux64/bin")
   fi
 
   . "$HOME/.asdf/asdf.sh"
 fi
+
+PATH="$PATH:$( IFS=":" ; echo "${path_envs[*]}" )"
 
 if exists direnv; then
   eval "$(direnv hook zsh)"
