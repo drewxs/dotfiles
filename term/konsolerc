@@ -1,0 +1,17 @@
+[Desktop Entry]
+DefaultProfile=Default.profile
+
+[General]
+ConfigVersion=1
+
+[MainWindow]
+MenuBar=Enabled
+
+[Notification Messages]
+CloseAllTabs=true
+
+[TabBar]
+TabBarVisibility=AlwaysHideTabBar
+
+[UiSettings]
+ColorScheme=
