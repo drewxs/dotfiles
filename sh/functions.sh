@@ -140,6 +140,18 @@ Options:
   done
 }
 
+# Cleanup package caches and orphaned packages
+function clean {
+  if exists apt; then
+    sudo apt autoremove && sudo apt clean
+  elif exists pacman; then
+    sudo pacman -Rns $(pacman -Qdtq)
+    exists paccache && sudo paccache -r
+  elif exists brew; then
+    brew cleanup
+  fi
+}
+
 # Find (recursively) and delete all directories with name
 # $1: dir
 function fdel {
