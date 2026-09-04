@@ -152,6 +152,31 @@ function clean {
   fi
 }
 
+# Check cache sizes
+function csize {
+  du -sh ~/.cache/* | sort -hr
+}
+
+# Purge caches
+function purge {
+  if exists pacman; then
+    yay -Sc --noconfirm
+    rm -rf "$HOME/.cache/yay/*"
+  fi
+  if exists uv; then
+    uv cache clean
+  fi
+  if exists pip; then
+    pip cache purge
+  fi
+  if [[ -d "$HOME/.cache/google-chrome" ]]; then
+    rm -rf "$HOME/.cache/google-chrome/Default/Cache/"
+  fi
+  if [[ -d "$HOME/.cache/huggingface" ]]; then
+    rm -rf "$HOME/.cache/huggingface/*"
+  fi
+}
+
 # Find (recursively) and delete all directories with name
 # $1: dir
 function fdel {
@@ -431,4 +456,8 @@ function reformat {
 
   # format partition
   sudo mkfs.vfat "$disk_partition"
+}
+
+function clawd {
+  CLAUDE_CONFIG_DIR="$HOME/.claude-work" claude "$@"
 }
