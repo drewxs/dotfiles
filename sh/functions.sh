@@ -52,8 +52,7 @@ function upd {
       echo "Dotfiles updated"
     fi
   }
-  function up_pkg {
-    echo "Updating packages..."
+  function up_sys {
     echo "Updating system packages..."
     if exists apt; then
       sudo apt update && sudo apt upgrade -y
@@ -69,6 +68,8 @@ function upd {
       brew update && brew upgrade
       brew cleanup
     fi
+  }
+  function up_pkg {
     echo "Updating rust packages..."
     if exists rustup; then
       rustup update
@@ -106,11 +107,12 @@ function upd {
   }
 
   [[ $# -eq 0 ]] && up_all
-  while getopts :adnpfh opt; do
+  while getopts :adnspfh opt; do
     case $opt in
     a) up_all ;;
     d) up_dot ;;
     n) up_nvim ;;
+    s) up_sys ;;
     p) up_pkg ;;
     f)
       echo "Clean installing dotfiles..."
